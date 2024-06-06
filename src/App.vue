@@ -1,6 +1,7 @@
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  <img
-    src="./assets/images/logo.svg"
-    alt="" />
+  <Nav />
 </template>
+
+<script setup lang="ts">
+  import { Nav } from '@/components';
+</script>
