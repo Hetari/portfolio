@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <BurgerMenuBtnVue />
-  </div>
+  <BurgerMenuBtnVue />
 </template>
 
 <script setup lang="ts">
