@@ -17,6 +17,12 @@ export default {
         'secondary-dark': '#3d3a36',
         'tertiary-dark': '#524E48',
         'fourthly-dark': '#857E74'
+      },
+      screens: {
+        '2xs': '420px',
+        xs: '512px',
+        '3xl': '1920px',
+        '4xl': '2560px'
       }
     }
   },

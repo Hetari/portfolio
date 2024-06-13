@@ -7,16 +7,16 @@
   <header class="common-padding">
     <nav class="grid grid-cols-8 gap-14">
       <h1
-        class="col-span-3 font-title uppercase text-3xl font-extrabold flex items-start">
+        class="col-span-3 max-md:col-span-5 max-sm:col-span-4 max-xs:col-span-5 max-2xs:col-span-4 2xl:col-span-2 max-2xl:col-span-2 font-title uppercase text-3xl font-extrabold flex items-start">
         hetari<span class="text-lg">&copy;</span>
       </h1>
-
       <p
-        class="uppercase col-span-4 text-right text-tertiary font-bold text-lg">
+        class="cursor-default select-none uppercase col-span-4 max-2xl:col-span-4 2xl:col-span-5 max-md:hidden max-md:col-span-2 text-right text-tertiary font-bold text-lg max-2xl:text-xs">
         available for work and collaboration
       </p>
 
-      <ul class="ps-10 text-2xl text-secondary-dark font-normal font-body">
+      <ul
+        class="col-span-1 max-md:col-span-3 max-lg:col-span-2 ps-5 max-xl:ps-10 text-2xl max-lg:text-xl max-md:text-lg max-sm:text-sm text-secondary-dark font-normal font-body">
         <Link
           label="Services"
           url="#" />

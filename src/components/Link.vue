@@ -1,5 +1,5 @@
 <template>
-  <li class="w-full h-8 overflow-hidden">
+  <li class="w-full h-6 sm:h-8 overflow-y-hidden">
     <a
       :href="url"
       class="group">
