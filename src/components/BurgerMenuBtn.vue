@@ -29,8 +29,8 @@
 
     const activateMagneto = (event: MouseEvent) => {
       const boundBox = magneto.value.getBoundingClientRect();
-      const magnetoStrength = 30;
-      const magnetoTextStrength = 60;
+      const magnetoStrength = 25;
+      const magnetoTextStrength = 50;
 
       const newX =
         (event.clientX - boundBox.left) / magneto.value.offsetWidth - 0.5;
@@ -44,7 +44,7 @@
         x: newX * magnetoStrength,
         y: newY * magnetoStrength,
 
-        ease: 'expo.inOut',
+        ease: 'expo.inOut'
       });
 
       // move the text
@@ -52,7 +52,7 @@
         duration: 0,
         x: newX * magnetoTextStrength,
         y: newY * magnetoTextStrength,
-        ease: 'expo.inOut',
+        ease: 'expo.inOut'
       });
     };
 
@@ -61,14 +61,14 @@
         duration: 0.5,
         x: 0,
         y: 0,
-        ease: 'bounce.out',
+        ease: 'bounce.out'
       });
 
       gsap.to(magnetoText.value, {
         duration: 0.5,
         x: 0,
         y: 0,
-        ease: 'bounce.out',
+        ease: 'bounce.out'
       });
     };
 

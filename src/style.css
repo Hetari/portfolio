@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        @apply light-theme;
+    }
+}
+
 @layer components {
-    .them {
-        @apply bg-primary dark:bg-primary-dark;
+    .light-theme {
+        @apply bg-primary text-primary-dark;
+    }
+
+    .dark-theme {
+        @apply bg-primary-dark text-primary;
     }
 
     .flex-center {
