@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import { navbarScale } from '@/animations/navbar';
+  import { navbarScale } from '@/animations';
   import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
   import { onMounted } from 'vue';
 
