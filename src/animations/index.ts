@@ -11,10 +11,10 @@ const navbarScale = (selector: string, trigger: string) => {
       scrollTrigger: {
         trigger: trigger,
         start: 'top 80%',
-        end: '10% 50%',
+        end: '0% 50%',
         toggleActions: 'play none none reverse'
       },
-      duration: 0.3,
+      duration: 0.4,
       scale: 1,
       ease: 'power1'
     }
@@ -38,11 +38,11 @@ const activateMagneto = (
 
   // move the magneto
   gsap.to(magneto.value, {
-    duration: 0,
+    duration: 0.1,
     x: newX * magnetoStrength,
     y: newY * magnetoStrength,
 
-    ease: 'expo.inOut'
+    ease: 'power1.inOut'
   });
 
   // move the text

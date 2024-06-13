@@ -1,29 +1,26 @@
 <template>
   <div
-    class="fixed right-7 top-7"
-    @click="toggleBtnClickAnimation">
+    v-bind="$attrs"
+    class="fixed right-7 top-7">
     <magneticBtn ref="magnetoText">
       <span
         class="text-center w-[100%]"
         id="BurgerMenuBtn"></span>
     </magneticBtn>
   </div>
+  <aside></aside>
 </template>
 
 <script setup lang="ts">
   import { magneticBtn } from '.';
   import { useWindowSize } from '@vueuse/core';
 
-  import { onMounted, onUnmounted, ref, Ref, watch } from 'vue';
+  import { onMounted, onUnmounted, ref, Ref } from 'vue';
   import { activateMagneto, resetMagneto } from '@/animations';
 
   const { width } = useWindowSize();
   let magneto: Ref<HTMLElement>;
   let magnetoText: Ref<HTMLElement>;
-
-  const toggleBtnClickAnimation = () => {
-    document.getElementById('BurgerMenu')?.classList.toggle('active');
-  };
 
   const handleMouseMove = (e: MouseEvent) => {
     activateMagneto(e, magneto, magnetoText);
@@ -49,7 +46,7 @@
   });
 </script>
 
-<style scoped>
+<style>
   #BurgerMenuBtn::before,
   #BurgerMenuBtn::after {
     width: 40%;

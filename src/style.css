@@ -2,22 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'body';
+  src: url('./assets/fonts/Switzer-Variable.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'title';
+  src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+  font-style: normal;
+}
+
 @layer base {
-    body {
-        @apply light-theme;
-    }
+  body {
+    @apply light-theme;
+  }
 }
 
 @layer components {
-    .light-theme {
-        @apply bg-primary text-primary-dark;
-    }
+  .light-theme {
+    @apply bg-primary text-primary-dark;
+  }
 
-    .dark-theme {
-        @apply bg-primary-dark text-primary;
-    }
+  .dark-theme {
+    @apply bg-primary-dark text-primary;
+  }
 
-    .flex-center {
-        @apply flex justify-center items-center
-    }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .common-padding {
+    @apply p-10 sm:px-12 sm:py-8 md:px-20 md:py-8 lg:px-48 lg:py-10;
+  }
+
+  /* .nav-link {
+    @apply cursor-pointer;
+  } */
 }
