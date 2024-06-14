@@ -10,8 +10,7 @@ const navbarScale = (selector: string, trigger: string) => {
     {
       scrollTrigger: {
         trigger: trigger,
-        start: 'top 80%',
-        end: '0% 50%',
+        start: '10% 10%',
         toggleActions: 'play none none reverse'
       },
       duration: 0.4,
