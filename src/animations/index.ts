@@ -13,7 +13,7 @@ const navbarScale = (selector: string, trigger: string) => {
         start: '10% 10%',
         toggleActions: 'play none none reverse'
       },
-      duration: 0.4,
+      duration: 0.3,
       scale: 1,
       ease: 'power1'
     }
@@ -26,7 +26,7 @@ const activateMagneto = (
   magnetoText: Ref<HTMLElement>
 ) => {
   const boundBox = magneto.value.getBoundingClientRect();
-  const magnetoStrength = 25;
+  const magnetoStrength = 70;
   const magnetoTextStrength = 50;
 
   const newX =
@@ -40,7 +40,6 @@ const activateMagneto = (
     duration: 0.1,
     x: newX * magnetoStrength,
     y: newY * magnetoStrength,
-
     ease: 'power1.inOut'
   });
 
@@ -58,14 +57,14 @@ const resetMagneto = (
   magnetoText: Ref<HTMLElement>
 ) => {
   gsap.to(magneto.value, {
-    duration: 0.5,
+    duration: 0.4,
     x: 0,
     y: 0,
     ease: 'bounce.out'
   });
 
   gsap.to(magnetoText.value, {
-    duration: 0.5,
+    duration: 0.4,
     x: 0,
     y: 0,
     ease: 'bounce.out'
