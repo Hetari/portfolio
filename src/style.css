@@ -34,7 +34,8 @@
   }
 
   .common-padding {
-    @apply px-2 py-6 sm:px-4 sm:py-8 md:px-12 md:py-8 lg:px-28 lg:py-10;
+    /* @apply px-2 py-6 sm:px-4 sm:py-8 md:px-12 md:py-8 lg:px-28 lg:py-10; */
+    @apply px-2 pt-6 sm:px-4 sm:pt-8 md:px-12 md:pt-8 lg:px-48 lg:pt-12;
   }
 
   /* .nav-link {

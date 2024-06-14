@@ -1,5 +1,7 @@
 <template>
-  <Nav />
+  <main class="max-w-[1920px] mx-auto">
+    <Nav />
+  </main>
 </template>
 
 <script setup lang="ts">
