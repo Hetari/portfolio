@@ -6,12 +6,19 @@
 
   <header class="padding-x mt-6 lg:mt-12">
     <nav class="flex justify-between">
-      <div class="cursor-pointer -m-10 p-10 h-fit">
-        <p
-          class="font-title uppercase text-3xl font-extrabold flex items-start">
-          hetari<span class="text-lg">&copy;</span>
-        </p>
-      </div>
+      <MagneticEffect
+        divId="name-container"
+        textId="name">
+        <div
+          id="name-container"
+          class="cursor-pointer -m-10 p-10 h-fit">
+          <p
+            id="name"
+            class="font-title uppercase text-3xl font-extrabold flex items-start">
+            hetari<span class="text-lg">&copy;</span>
+          </p>
+        </div>
+      </MagneticEffect>
 
       <div class="flex">
         <p
@@ -49,6 +56,7 @@
   import { navbarScale } from '@/animations';
   import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
   import { onMounted, ref } from 'vue';
+  import MagneticEffect from './MagneticEffect.vue';
 
   const isNavbarOpen = ref(false);
 

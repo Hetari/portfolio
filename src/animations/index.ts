@@ -25,50 +25,71 @@ const activateMagneto = (
   magneto: Ref<HTMLElement>,
   magnetoText: Ref<HTMLElement>
 ) => {
-  const boundBox = magneto.value.getBoundingClientRect();
+  const xDivTo = gsap.quickTo(magneto.value, 'x', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+  const xTextTo = gsap.quickTo(magnetoText.value, 'x', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+
+  const yTextTo = gsap.quickTo(magnetoText.value, 'y', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+  const yDivTo = gsap.quickTo(magneto.value, 'y', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+
+  const { clientX, clientY } = event;
+  const { width, height, left, top } = magneto.value.getBoundingClientRect();
+
   const magnetoStrength = 70;
   const magnetoTextStrength = 50;
-
-  const newX =
-    (event.clientX - boundBox.left) / magneto.value.offsetWidth - 0.5;
-
-  const newY =
-    (event.clientY - boundBox.top) / magneto.value.offsetHeight - 0.5;
+  const newX = ((clientX - left) / width - 0.5) * magnetoStrength;
+  const newY = ((clientY - top) / height - 0.5) * magnetoTextStrength;
+  // const newX = clientX - (left + width / 2);
+  // const newY = clientY - (top + height / 2);
 
   // move the magneto
-  gsap.to(magneto.value, {
-    duration: 0.1,
-    x: newX * magnetoStrength,
-    y: newY * magnetoStrength,
-    ease: 'power1.inOut'
-  });
+  xDivTo(newX);
+  yDivTo(newY);
 
   // move the text
-  gsap.to(magnetoText.value, {
-    duration: 0,
-    x: newX * magnetoTextStrength,
-    y: newY * magnetoTextStrength,
-    ease: 'expo.inOut'
-  });
+  xTextTo(newX);
+  yTextTo(newY);
 };
 
 const resetMagneto = (
   magneto: Ref<HTMLElement>,
   magnetoText: Ref<HTMLElement>
 ) => {
-  gsap.to(magneto.value, {
-    duration: 0.4,
-    x: 0,
-    y: 0,
-    ease: 'bounce.out'
+  const xDivTo = gsap.quickTo(magneto.value, 'x', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+  const xTextTo = gsap.quickTo(magnetoText.value, 'x', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
   });
 
-  gsap.to(magnetoText.value, {
-    duration: 0.4,
-    x: 0,
-    y: 0,
-    ease: 'bounce.out'
+  const yTextTo = gsap.quickTo(magnetoText.value, 'y', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
   });
+  const yDivTo = gsap.quickTo(magneto.value, 'y', {
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)'
+  });
+
+  xDivTo(0);
+  yDivTo(0);
+
+  // move the text
+  xTextTo(0);
+  yTextTo(0);
 };
 
 export { navbarScale, activateMagneto, resetMagneto };
