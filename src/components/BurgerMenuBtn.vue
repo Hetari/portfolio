@@ -4,6 +4,7 @@
     textId="magnetoText">
     <div
       v-bind="$attrs"
+      @click="clickBtn"
       class="fixed right-7 top-7">
       <div
         id="magneto"
@@ -18,6 +19,12 @@
 
 <script setup lang="ts">
   import MagneticEffect from './MagneticEffect.vue';
+
+  const clickBtn = () => {
+    console.log('clicked');
+
+    document.getElementById('magneto')?.classList.toggle('active');
+  };
 </script>
 
 <style scoped>
