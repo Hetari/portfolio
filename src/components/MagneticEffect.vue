@@ -10,20 +10,20 @@
   const props = defineProps({
     divId: {
       type: String,
-      required: true
+      required: true,
     },
     textId: {
       type: String,
-      required: true
+      required: true,
     },
     magnetoStrengthVal: {
       type: Number,
-      default: 70
+      default: 70,
     },
     magnetoTextStrengthVal: {
       type: Number,
-      default: 50
-    }
+      default: 50,
+    },
   });
 
   const { width } = useWindowSize();
@@ -36,7 +36,7 @@
       magneto,
       magnetoTextRef,
       props.magnetoStrengthVal,
-      props.magnetoTextStrengthVal
+      props.magnetoTextStrengthVal,
     );
   };
 

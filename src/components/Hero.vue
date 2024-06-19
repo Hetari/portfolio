@@ -5,24 +5,24 @@
     DEVELOPER
     <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
   </h1> -->
-  <section
-    id="hero"
-    class="padding-y h-full relative">
+  <section id="hero" class="padding-y relative h-full p-4 pt-2">
     <div class="absolute bottom-0 w-full">
-      <div class="flex items-start w-full">
+      <div class="flex w-full items-start">
         <MyName />
         <Star class="size-[calc((50vw)_/_24_*_1.9)]" />
       </div>
       <div class="column-gap spacing flex grid-cols-12 flex-col md:grid">
         <div
           id="profile-container"
-          class="relative col-span-3 aspect-[3/3.5] size-full overflow-clip rounded-lg md:block group shadow-2xl">
+          class="group relative col-span-3 aspect-[3/3.5] size-full overflow-clip rounded-lg shadow-2xl md:block"
+        >
           <img
             id="profile-img"
             :src="profile"
             alt="Ebrahhem profile"
             decoding="async"
-            class="size-full object-cover object-center group-hover:scale-110 transition-transform duration-300" />
+            class="size-full object-cover object-center transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
       </div>
     </div>

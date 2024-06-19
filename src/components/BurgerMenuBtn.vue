@@ -1,17 +1,11 @@
 <template>
-  <MagneticEffect
-    divId="magneto"
-    textId="magnetoText">
-    <div
-      v-bind="$attrs"
-      @click="clickBtn"
-      class="fixed right-7 top-7">
+  <MagneticEffect divId="magneto" textId="magnetoText">
+    <div v-bind="$attrs" @click="clickBtn" class="fixed right-7 top-7">
       <div
         id="magneto"
-        class="z-[999] size-20 rounded-full bg-tertiary cursor-pointer flex-center ease-in-out will-change-transform">
-        <span
-          class="text-center w-[100%]"
-          id="magnetoText"></span>
+        class="flex-center z-[999] size-20 cursor-pointer rounded-full bg-tertiary ease-in-out will-change-transform"
+      >
+        <span class="w-[100%] text-center" id="magnetoText"></span>
       </div>
     </div>
   </MagneticEffect>

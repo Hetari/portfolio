@@ -49,7 +49,7 @@
   }
 
   .padding-x {
-    @apply px-[4%] lg:px-[10%];
+    @apply px-[4%] 2xl:px-[10%];
   }
 
   .padding-y {

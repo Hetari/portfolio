@@ -1,0 +1,8 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "vueIndentScriptAndStyle": true,
+  "singleQuote": true,
+
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
