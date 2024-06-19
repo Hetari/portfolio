@@ -15,6 +15,14 @@
     textId: {
       type: String,
       required: true
+    },
+    magnetoStrengthVal: {
+      type: Number,
+      default: 70
+    },
+    magnetoTextStrengthVal: {
+      type: Number,
+      default: 50
     }
   });
 
@@ -23,7 +31,13 @@
   let magnetoTextRef: Ref<HTMLElement>;
 
   const handleMouseMove = (e: MouseEvent) => {
-    activateMagneto(e, magneto, magnetoTextRef);
+    activateMagneto(
+      e,
+      magneto,
+      magnetoTextRef,
+      props.magnetoStrengthVal,
+      props.magnetoTextStrengthVal
+    );
   };
 
   const handleMouseLeave = () => {

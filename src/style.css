@@ -49,11 +49,15 @@
   }
 
   .padding-x {
-    @apply px-[4%] md:px-[10%];
+    @apply px-[4%] lg:px-[10%];
   }
 
   .padding-y {
     @apply py-[2%];
+  }
+
+  .spacing {
+    @apply pt-8 sm:pt-12 lg:pt-14;
   }
 
   /* .nav-link {

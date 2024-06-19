@@ -1,6 +1,6 @@
 <template>
-  <h1 class="sr-only">Ebrahim Alhetari</h1>
-  <MyEnName />
+  <h1 class="sr-only">Ebraheem Alhetari</h1>
+  <MyEnName :class="$attrs.class" />
 </template>
 
 <script setup lang="ts">

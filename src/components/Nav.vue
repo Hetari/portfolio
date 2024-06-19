@@ -4,18 +4,25 @@
     class="scale-0"
     id="burger" />
 
-  <header class="mt-6 lg:mt-12">
+  <header
+    :class="$attrs.class"
+    class="pt-6 lg:pt-12">
     <nav class="flex justify-between">
       <MagneticEffect
+        :magnetoStrengthVal="20"
+        :magnetoTextStrengthVal="10"
         divId="name-container"
         textId="name">
         <div
           id="name-container"
-          class="cursor-pointer -m-10 p-10 h-fit">
+          class="cursor-pointer -m-10 p-10 h-fit group">
           <p
             id="name"
             class="font-title uppercase text-3xl font-extrabold flex items-start">
-            hetari<span class="text-lg">&copy;</span>
+            hetari<span
+              class="text-xl !inline !origin-center transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
+              >&copy;</span
+            >
           </p>
         </div>
       </MagneticEffect>

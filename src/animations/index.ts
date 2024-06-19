@@ -23,7 +23,9 @@ const navbarScale = (selector: string, trigger: string) => {
 const activateMagneto = (
   event: MouseEvent,
   magneto: Ref<HTMLElement>,
-  magnetoText: Ref<HTMLElement>
+  magnetoText: Ref<HTMLElement>,
+  magnetoStrengthVal: number,
+  magnetoTextStrengthVal: number
 ) => {
   const xDivTo = gsap.quickTo(magneto.value, 'x', {
     duration: 1,
@@ -46,8 +48,8 @@ const activateMagneto = (
   const { clientX, clientY } = event;
   const { width, height, left, top } = magneto.value.getBoundingClientRect();
 
-  const magnetoStrength = 70;
-  const magnetoTextStrength = 50;
+  const magnetoStrength = magnetoStrengthVal;
+  const magnetoTextStrength = magnetoTextStrengthVal;
   const newX = ((clientX - left) / width - 0.5) * magnetoStrength;
   const newY = ((clientY - top) / height - 0.5) * magnetoTextStrength;
   // const newX = clientX - (left + width / 2);

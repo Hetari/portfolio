@@ -4,7 +4,7 @@
     <svg
       style="vertical-align: top"
       :style="$attrs.style"
-      class="inline-block fill-inherit animate-[spin_5s_linear_infinite]"
+      class="fill-secondary-dark inline-block animate-[spin_5s_linear_infinite]"
       :class="$attrs.class"
       viewBox="0 0 75 76"
       fill="none"
