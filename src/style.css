@@ -18,6 +18,15 @@
   body {
     @apply light-theme;
   }
+
+  ::-moz-selection {
+    /* Code for Firefox */
+    @apply bg-primary-dark text-primary;
+  }
+
+  ::selection {
+    @apply bg-primary-dark text-primary;
+  }
 }
 
 @layer components {

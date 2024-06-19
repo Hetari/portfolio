@@ -29,15 +29,19 @@
         <ul
           class="ps-5 max-xl:ps-10 text-2xl max-lg:text-xl max-md:text-lg max-sm:text-sm text-secondary-dark font-normal font-body">
           <Link
+            tag="li"
             label="Services"
             url="#" />
           <Link
+            tag="li"
             label="Works"
             url="#" />
           <Link
+            tag="li"
             label="About"
             url="#" />
           <Link
+            tag="li"
             label="Contact"
             url="#" />
         </ul>
@@ -61,6 +65,6 @@
   };
 
   onMounted(() => {
-    navbarScale('#burger', 'body');
+    navbarScale('#burger', '#hero');
   });
 </script>

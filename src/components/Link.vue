@@ -1,5 +1,7 @@
 <template>
-  <li class="w-full h-6 sm:h-8 overflow-y-hidden">
+  <component
+    :is="tag"
+    class="w-full h-6 sm:h-8 overflow-y-hidden select-none px-2">
     <a
       :href="url"
       class="group">
@@ -12,11 +14,16 @@
         {{ label }}
       </div>
     </a>
-  </li>
+  </component>
 </template>
 
 <script setup lang="ts">
   defineProps({
+    tag: {
+      type: String,
+      required: true,
+      default: 'p' // Default tag if not provided
+    },
     label: {
       type: String,
       required: true
