@@ -4,7 +4,7 @@
     class="scale-0"
     id="burger" />
 
-  <header class="padding-x mt-6 lg:mt-12">
+  <header class="mt-6 lg:mt-12">
     <nav class="flex justify-between">
       <MagneticEffect
         divId="name-container"
@@ -44,11 +44,6 @@
       </div>
     </nav>
   </header>
-
-  <div class="h-screen"></div>
-  <div
-    id="t"
-    class="h-screen"></div>
 </template>
 
 <script setup lang="ts">
