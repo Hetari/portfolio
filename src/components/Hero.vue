@@ -5,8 +5,8 @@
     DEVELOPER
     <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
   </h1> -->
-  <section id="hero" class="padding-y relative h-full p-4 pt-2">
-    <div class="absolute bottom-0 w-full">
+  <section id="hero" class="padding-y relative h-full w-full">
+    <div class="absolute bottom-0 w-full items-end">
       <div class="flex w-full items-start">
         <MyName />
         <Star class="size-[calc((50vw)_/_24_*_1.9)]" />
@@ -14,7 +14,7 @@
       <div class="column-gap spacing flex grid-cols-12 flex-col md:grid">
         <div
           id="profile-container"
-          class="group relative col-span-3 aspect-[3/3.5] size-full overflow-clip rounded-lg shadow-2xl md:block"
+          class="group relative col-span-3 hidden aspect-[3/3.5] size-full overflow-clip rounded-lg shadow-2xl md:block"
         >
           <img
             id="profile-img"

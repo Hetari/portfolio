@@ -1,6 +1,6 @@
 <template>
   <span class="sr-only">*</span>
-  <span class="ps-3">
+  <span>
     <svg
       style="vertical-align: top"
       class="inline-block animate-[spin_5s_linear_infinite] fill-secondary-dark"
