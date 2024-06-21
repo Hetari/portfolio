@@ -11,7 +11,8 @@
         <MyName />
         <Star class="size-[calc((50vw)_/_24_*_1.9)]" />
       </div>
-      <div class="column-gap spacing flex grid-cols-12 flex-col md:grid">
+
+      <div class="column-gap spacing-y flex grid-cols-12 md:grid">
         <div
           id="profile-container"
           class="group relative col-span-3 hidden aspect-[3/3.5] size-full overflow-clip rounded-lg shadow-2xl md:block"
@@ -21,13 +22,11 @@
             :src="profile"
             alt="Ebrahhem profile"
             decoding="async"
-            class="size-full object-cover object-center transition-transform duration-300 group-hover:scale-110"
+            class="size-full -scale-x-100 rounded-lg object-cover object-center transition-transform duration-300 group-hover:-scale-x-105 group-hover:scale-y-105"
           />
         </div>
       </div>
     </div>
-
-    <!-- TODO: Marquee -->
   </section>
 </template>
 
