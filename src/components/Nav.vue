@@ -16,17 +16,24 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-0 z-[9998] h-full w-full select-none bg-tertiary-dark p-10 focus:outline-none md:top-[1%] md:h-[98%] md:w-2/3 md:rounded-s-lg md:px-20 lg:w-2/5"
-    :class="{ 'scale-0': !isNavbarOpen }"
+    class="fixed right-0 top-0 z-[9998] size-full translate-x-full select-none bg-tertiary-dark p-10 focus:outline-none md:top-[1%] md:h-[98%] md:w-2/3 md:rounded-s-lg md:px-20 lg:w-2/5"
   >
+    <!-- <svg
+      id="navbarSvg"
+      class="fixed left-0 top-0 z-[9997] h-[100%] fill-tertiary-dark"
+    >
+      <path :d="initialPath" />
+    </svg> -->
+    <!-- </div> -->
     <div class="flex h-full flex-col items-center justify-between">
-      <div class="relative w-full">
+      <div class="relative z-[9998] w-full">
         <ul class="mt-24 font-normal text-secondary md:mt-40" id="navLinks">
-          <!-- <MagneticEffect
-            :divId="l.label"
-            :textId="l.label"
-            > -->
-          <li v-for="l in navLinks" :key="l.label" :id="l.label">
+          <li
+            class="translate-x-10"
+            v-for="l in navLinks"
+            :key="l.label"
+            :id="l.label"
+          >
             <a
               :href="l.url"
               class="group my-6 flex cursor-pointer items-center justify-start leading-none"
@@ -41,12 +48,14 @@
               </p>
             </a>
           </li>
-          <!-- </MagneticEffect> -->
         </ul>
       </div>
 
-      <div class="w-full">
-        <div class="mt-2 h-full font-normal text-tertiary">
+      <div class="w-full overflow-hidden">
+        <div
+          id="nav-email"
+          class="mt-2 h-full translate-y-full font-normal text-tertiary"
+        >
           <p class="font-bold uppercase">Email address</p>
           <Link
             class="h-6"
@@ -120,7 +129,15 @@
   import MagneticEffect from './MagneticEffect.vue';
   import Button from './Button.vue';
 
-  import { navbarScale } from '@/animations';
+  import {
+    navbarEnter,
+    navbarLeave,
+    navbarScale,
+    navLinksEnter,
+    navLinksLeave,
+    yReset,
+    yToZero,
+  } from '@/animations';
 
   const isNavbarOpen = ref(false);
   const el = ref(document.querySelector('body') as HTMLBodyElement);
@@ -129,6 +146,9 @@
   useScroll(el);
   const isLocked = useScrollLock(el);
 
+  const initialPath = `M100 0 L100 ${window.innerHeight - 75} Q-100 ${window.innerHeight / 2} 100 0`;
+  const targetPath = `M100 0 L100 ${window.innerHeight} Q100 ${window.innerHeight / 2} 100 0`;
+
   const toggleBtnClickAnimation = () => {
     isLocked.value = !isLocked.value;
     isNavbarOpen.value = !isNavbarOpen.value;
@@ -136,8 +156,14 @@
 
     const x = document.getElementById('navbar') as HTMLDivElement;
     if (isNavbarOpen.value) {
+      navbarEnter('#navbar');
+      navLinksEnter('#navLinks');
+      yToZero('#nav-email');
       x.focus();
     } else {
+      navbarLeave('#navbar');
+      navLinksLeave('#navLinks');
+      yReset('#nav-email');
       x.blur();
     }
   };
