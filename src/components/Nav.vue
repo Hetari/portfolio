@@ -11,22 +11,17 @@
     :class="{ 'scale-0': !isNavbarOpen }"
   ></div>
 
-  <!-- ! rounded-s-lg -->
+  <!-- ! pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh]-->
   <div
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-[0%] z-[9998] h-[100%] w-full select-none bg-black pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh] md:w-1/2 lg:w-[35%]"
+    class="fixed right-0 top-0 z-[9998] h-full w-full select-none bg-tertiary-dark p-10 focus:outline-none md:top-[1%] md:h-[98%] md:w-2/3 md:rounded-s-lg md:px-20 lg:w-2/5"
     :class="{ 'scale-0': !isNavbarOpen }"
   >
     <div class="flex h-full flex-col items-center justify-between">
-      <div class="w-full">
-        <p class="mb-12 text-start text-xs font-medium uppercase leading-none">
-          Navigation
-        </p>
-        <div class="block h-[1px] w-full bg-primary opacity-50"></div>
-
-        <ul class="mt-12 h-full font-normal text-secondary" id="navLinks">
+      <div class="relative w-full">
+        <ul class="mt-24 font-normal text-secondary md:mt-40" id="navLinks">
           <!-- <MagneticEffect
             :divId="l.label"
             :textId="l.label"
@@ -34,13 +29,13 @@
           <li v-for="l in navLinks" :key="l.label" :id="l.label">
             <a
               :href="l.url"
-              class="group my-6 flex cursor-pointer items-center justify-start"
+              class="group my-6 flex cursor-pointer items-center justify-start leading-none"
             >
               <span
                 class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
-                class="transition-all duration-300 ease-in-out group-hover:translate-x-10"
+                class="-translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-10"
               >
                 {{ l.label }}
               </p>
@@ -49,13 +44,25 @@
           <!-- </MagneticEffect> -->
         </ul>
       </div>
-    </div>
 
-    <div>
       <div class="w-full">
-        <p class="mb-12 text-start text-xs font-medium uppercase leading-none">
-          Social
-        </p>
+        <div class="mt-2 h-full font-normal text-tertiary">
+          <p class="font-bold uppercase">Email address</p>
+          <Link
+            class="h-6"
+            tag="p"
+            label="hetari4all@gmail.com"
+            url="mailto:hetari4all@gmail.com"
+          />
+          <div class="mt-6 space-x-3">
+            <Button
+              v-for="social in socialLinks"
+              :key="social.label"
+              :label="social.label"
+              :url="social.url"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +104,7 @@
             tag="li"
             :label="l.label"
             :url="l.url"
+            class="h-6 sm:h-8"
           />
         </ul>
       </div>
@@ -110,6 +118,7 @@
   import Link from './Link.vue';
   import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
   import MagneticEffect from './MagneticEffect.vue';
+  import Button from './Button.vue';
 
   import { navbarScale } from '@/animations';
 
@@ -158,6 +167,21 @@
     {
       label: 'Contact',
       url: '#',
+    },
+  ];
+
+  const socialLinks = [
+    {
+      label: 'Twitter',
+      url: 'https://x.com/4Hetari',
+    },
+    {
+      label: 'GitHub',
+      url: 'https://github.com/hetari',
+    },
+    {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/hetari/',
     },
   ];
 </script>

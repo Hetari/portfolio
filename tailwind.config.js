@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         title: ['title'],
-        body: ['body']
+        body: ['body'],
       },
       colors: {
         primary: '#E6E6E1',
@@ -15,17 +15,17 @@ export default {
 
         'primary-dark': '#5B5751',
         'secondary-dark': '#3d3a36',
-        'tertiary-dark': '#524E48',
-        'fourthly-dark': '#857E74'
+        'tertiary-dark': '#393632',
+        'fourthly-dark': '#857E74',
       },
       screens: {
         '2xs': '420px',
         xs: '512px',
         '2xl': '1440px',
         '3xl': '1920px',
-        '4xl': '2560px'
-      }
-    }
+        '4xl': '2560px',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };

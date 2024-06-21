@@ -1,8 +1,5 @@
 <template>
-  <component
-    :is="tag"
-    class="h-6 w-full select-none overflow-y-hidden px-2 sm:h-8"
-  >
+  <component :is="tag" class="w-full select-none overflow-y-hidden">
     <a :href="url" class="group">
       <div
         class="-translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
