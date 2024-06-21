@@ -3,6 +3,7 @@
   <main class="padding-x mx-auto h-[80vh] max-w-[1920px] lg:h-[75vh]">
     <Hero />
   </main>
+  <div class="h-screen"></div>
 </template>
 
 <script setup lang="ts">

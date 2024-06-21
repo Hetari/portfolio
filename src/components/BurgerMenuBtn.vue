@@ -1,9 +1,9 @@
 <template>
   <MagneticEffect divId="magneto" textId="magnetoText">
-    <div v-bind="$attrs" @click="clickBtn" class="fixed right-7 top-7">
+    <div v-bind="$attrs" class="fixed right-7 top-7 z-[9999]">
       <div
         id="magneto"
-        class="flex-center z-[999] size-20 cursor-pointer rounded-full bg-tertiary ease-in-out will-change-transform"
+        class="flex-center size-16 cursor-pointer rounded-full bg-tertiary ease-in-out"
       >
         <span class="w-[100%] text-center" id="magnetoText"></span>
       </div>
@@ -13,12 +13,6 @@
 
 <script setup lang="ts">
   import MagneticEffect from './MagneticEffect.vue';
-
-  const clickBtn = () => {
-    console.log('clicked');
-
-    document.getElementById('magneto')?.classList.toggle('active');
-  };
 </script>
 
 <style scoped>

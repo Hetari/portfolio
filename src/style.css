@@ -15,8 +15,27 @@
 }
 
 @layer base {
+  ::-webkit-scrollbar {
+    /* Remove scrollbar space */
+    width: 0;
+    /* Optional: just make scrollbar invisible */
+    background: transparent;
+  }
+
   body {
     @apply light-theme;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  span {
+    @apply font-body;
   }
 
   ::-moz-selection {
