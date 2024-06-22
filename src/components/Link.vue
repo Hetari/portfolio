@@ -1,16 +1,16 @@
 <template>
   <component :is="tag" class="w-full select-none overflow-y-hidden">
     <a :href="url" class="group">
-      <div
+      <p
         class="-translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
       >
         {{ label }}
-      </div>
-      <div
+      </p>
+      <p
         class="-translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
       >
         {{ label }}
-      </div>
+      </p>
     </a>
   </component>
 </template>

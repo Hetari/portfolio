@@ -1,6 +1,6 @@
 <template>
   <button class="rounded-full border px-4 py-1 text-primary">
-    {{ label }}
+    <a target="”_blank”" :href="url">{{ label }}</a>
   </button>
 </template>
 

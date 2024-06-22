@@ -9,7 +9,7 @@
     <div class="absolute bottom-0 w-full items-end">
       <div class="flex w-full items-start">
         <MyName />
-        <Star class="size-[calc((50vw)_/_24_*_1.9)]" />
+        <Star class="hide-on-mobile" />
       </div>
 
       <div class="column-gap spacing-y flex grid-cols-12 md:grid">

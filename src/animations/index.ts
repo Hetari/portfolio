@@ -100,63 +100,50 @@ const resetMagneto = (
 const navbarEnter = (id: string) => {
   gsap.to(id, {
     x: '0%',
+    opacity: 1,
     duration: 0.7,
     // ease: 'power1.inOut',
   });
-
-  // gsap.to('#navbarSvg path', {
-  //   duration: 0.7,
-  //   // ease: 'power1.inOut',
-  //   attr: {
-  //     d: pathTarget,
-  //   },
-  // });
 };
 
 const navbarLeave = (id: string) => {
   gsap.to(id, {
-    x: '100%',
-    duration: 0.7,
-    // ease: 'power1.inOut',
-  });
-
-  // gsap.to('#navbarSvg path', {
-  //   duration: 0.7,
-  //   // ease: 'power1.inOut',
-  //   attr: {
-  //     d: pathInit,
-  //   },
-  // });
-};
-
-const navLinksEnter = (id: string) => {
-  gsap.to(`${id} li`, {
-    x: '0%',
-    duration: 0.7,
-    ease: 'power1.inOut',
-    stagger: 0.1,
-  });
-};
-
-const navLinksLeave = (id: string) => {
-  gsap.set(`${id} li`, {
-    x: '40px',
-    delay: 0.7,
+    opacity: 0,
+    onComplete: () => {
+      gsap.set(id, {
+        x: '100%',
+      });
+    },
   });
 };
 
 const yToZero = (id: string) => {
   gsap.to(id, {
     y: '0%',
-    duration: 0.7,
+    duration: 0.4,
     ease: 'power1.inOut',
+    stagger: 0.1,
   });
 };
 
 const yReset = (id: string) => {
   gsap.set(id, {
     y: '100%',
-    delay: 0.7,
+  });
+};
+
+const fadeIn = (id: string) => {
+  gsap.to(id, {
+    opacity: 1,
+    duration: 0.5,
+    ease: 'power4.inOut',
+    stagger: 0.1,
+  });
+};
+
+const resetOpacity = (id: string) => {
+  gsap.set(id, {
+    opacity: 0,
   });
 };
 
@@ -166,8 +153,8 @@ export {
   resetMagneto,
   navbarEnter,
   navbarLeave,
-  navLinksEnter,
-  navLinksLeave,
   yToZero,
   yReset,
+  fadeIn,
+  resetOpacity,
 };
