@@ -5,10 +5,11 @@
     id="burger"
   />
 
+  <!-- background blur -->
   <div
     @click="toggleBtnClickAnimation"
-    class="fixed inset-0 z-[9998] size-full select-none bg-black opacity-25"
-    :class="{ 'scale-0': !isNavbarOpen }"
+    class="fixed inset-0 z-[19] size-full select-none bg-black opacity-50"
+    :class="{ hidden: !isNavbarOpen }"
   ></div>
 
   <!-- ! pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh]-->
@@ -16,10 +17,11 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-0 z-[9998] size-full translate-x-full select-none bg-tertiary-dark p-10 focus:outline-none md:top-[1%] md:h-[98%] md:w-1/2 md:rounded-s-lg md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1%] z-[19] h-[98%] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[99vw] md:w-1/2 md:px-20 lg:w-2/5"
   >
+    <Circles class="absolute right-0 top-0 opacity-20" />
     <div class="flex h-full flex-col items-center justify-between">
-      <div class="relative z-[9998] w-full">
+      <div class="relative z-[19] w-full">
         <ul class="mt-12 font-bold text-primary md:mt-24" id="navLinks">
           <li
             class="overflow-y-clip"
@@ -29,7 +31,7 @@
           >
             <a
               :href="l.url"
-              class="group my-2 flex translate-y-full cursor-pointer items-center justify-start leading-none"
+              class="group my-2 flex w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
             >
               <span
                 class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
@@ -131,6 +133,7 @@
     yReset,
     yToZero,
   } from '@/animations';
+  import Circles from './Circles.vue';
 
   const isNavbarOpen = ref(false);
   const el = ref(document.querySelector('body') as HTMLBodyElement);

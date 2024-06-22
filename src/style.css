@@ -38,6 +38,12 @@
     @apply light-theme;
   }
 
+  /* body::before,
+  body::after {
+    content: ' ';
+    @apply pointer-events-none fixed left-0 top-0 z-[99999999] size-full text-[#aeae9d] opacity-20;
+  } */
+
   h1,
   h2,
   h3,
