@@ -19,7 +19,7 @@
     @keydown.esc="esc()"
     class="fixed right-0 top-[1%] z-[19] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
-    <Circles class="absolute right-0 top-0 opacity-20" />
+    <Circles id="circles" class="absolute right-0 top-0 opacity-0" />
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-[19] w-full">
         <ul class="mt-12 font-bold text-primary md:mt-24" id="navLinks">
@@ -57,7 +57,7 @@
             label="hetari4all@gmail.com"
             url="mailto:hetari4all@gmail.com"
           />
-          <div class="mt-6 space-x-3">
+          <div class="mt-6 flex flex-nowrap justify-start gap-x-4">
             <Button
               class="contact opacity-0"
               v-for="social in socialLinks"
@@ -146,12 +146,14 @@
     if (isNavbarOpen.value) {
       navbarEnter('#navbar');
       yToZero('#navLinks li a');
-      fadeIn('button.contact');
+      fadeIn('.contact');
+      fadeIn('#circles', 0.2);
       x.focus();
     } else {
       navbarLeave('#navbar');
       yReset('#navLinks li a');
-      resetOpacity('button.contact');
+      resetOpacity('.contact');
+      resetOpacity('#circles', 0);
       x.blur();
     }
   };

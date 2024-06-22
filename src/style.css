@@ -113,6 +113,9 @@
     @apply hidden sm:flex;
   }
 
+  .leading-base {
+    line-height: 130%;
+  }
   /* .nav-link {
     @apply cursor-pointer;
   } */

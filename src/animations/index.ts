@@ -132,18 +132,18 @@ const yReset = (id: string) => {
   });
 };
 
-const fadeIn = (id: string) => {
+const fadeIn = (id: string, opacity: number = 1) => {
   gsap.to(id, {
-    opacity: 1,
+    opacity: opacity,
     duration: 0.5,
     ease: 'power4.inOut',
     stagger: 0.1,
   });
 };
 
-const resetOpacity = (id: string) => {
+const resetOpacity = (id: string, opacity: number = 0) => {
   gsap.set(id, {
-    opacity: 0,
+    opacity: opacity,
   });
 };
 

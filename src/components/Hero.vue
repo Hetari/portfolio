@@ -15,7 +15,7 @@
       <div class="column-gap spacing-y flex grid-cols-12 md:grid">
         <div
           id="profile-container"
-          class="group relative col-span-3 hidden aspect-[3/3.5] size-full overflow-clip rounded-lg shadow-2xl md:block"
+          class="group relative col-span-3 hidden aspect-[3/3.5] size-full select-none overflow-clip rounded-lg shadow-2xl md:block"
         >
           <img
             id="profile-img"
