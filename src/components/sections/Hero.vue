@@ -25,13 +25,23 @@
             class="size-full -scale-x-100 rounded-lg object-cover object-center transition-transform duration-300 group-hover:-scale-x-105 group-hover:scale-y-105"
           />
         </div>
+
+        <!-- ! gap-y-12 sm:gap-y-6 lg:gap-y-24 -->
+        <div class="col-span-8 col-start-5 flex justify-between">
+          <div class="column-gap flex items-start justify-between">
+            <!-- sm:block sm:w-20 md:w-32 xl:w-40 2xl:w-56 3xl:w-60 -->
+            <ModernArtShape class="w-fill flex-shrink-0" />
+          </div>
+
+          <div></div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { MyName, Star } from '../design';
+  import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
 </script>
 

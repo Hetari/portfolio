@@ -19,7 +19,7 @@
 
   <Navbar @isLocked="LockeScroll" class="padding-x mx-auto max-w-[1920px]" />
   <main
-    class="padding-x mx-auto h-[80vh] max-w-[1920px] md:h-[85vh] xl:h-[78vh] 3xl:h-[75vh]"
+    class="padding-x mx-auto h-[80vh] max-w-[1920px] xl:h-[78vh] 3xl:h-[75vh]"
   >
     <Hero />
   </main>
