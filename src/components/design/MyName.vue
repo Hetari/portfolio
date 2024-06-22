@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-  import MyEnName from './MyEnName.vue';
+  import { MyEnName } from '..';
 </script>

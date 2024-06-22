@@ -1,9 +1,5 @@
 <template>
-  <BurgerMenuBtnVue
-    @click="toggleBtnClickAnimation"
-    class="scale-0"
-    id="burger"
-  />
+  <BurgerMenuBtn @click="toggleBtnClickAnimation" class="scale-0" id="burger" />
 
   <!-- background blur -->
   <div
@@ -118,10 +114,9 @@
 <script setup lang="ts">
   import { onMounted, ref, watch } from 'vue';
 
-  import Link from './Link.vue';
-  import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
-  import MagneticEffect from './MagneticEffect.vue';
-  import Button from './Button.vue';
+  import { Link, BurgerMenuBtn, MagneticEffect } from '..';
+  import { Circles } from '../design';
+  import { Button } from '../common';
 
   import {
     fadeIn,
@@ -132,7 +127,6 @@
     yReset,
     yToZero,
   } from '@/animations';
-  import Circles from './Circles.vue';
 
   const isNavbarOpen = ref(false);
 

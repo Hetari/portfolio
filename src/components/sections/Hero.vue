@@ -31,8 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  import MyName from './MyName.vue';
-  import Star from './Star.vue';
+  import { MyName, Star } from '../design';
   import { profile } from '@/assets/images';
 </script>
 

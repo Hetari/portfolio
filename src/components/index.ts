@@ -1,4 +1,6 @@
-import Nav from './Nav.vue';
-import Hero from './Hero.vue';
+import BurgerMenuBtn from './BurgerMenuBtn.vue';
+import Link from './Link.vue';
+import MagneticEffect from './MagneticEffect.vue';
+import MyEnName from './MyEnName.vue';
 
-export { Nav, Hero };
+export { Link, MagneticEffect, MyEnName, BurgerMenuBtn };

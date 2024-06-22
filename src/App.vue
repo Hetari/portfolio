@@ -17,7 +17,7 @@
     </svg>
   </div>
 
-  <Nav @isLocked="LockeScroll" class="padding-x mx-auto max-w-[1920px]" />
+  <Navbar @isLocked="LockeScroll" class="padding-x mx-auto max-w-[1920px]" />
   <main class="padding-x mx-auto h-[80vh] max-w-[1920px] lg:h-[75vh]">
     <Hero />
   </main>
@@ -26,7 +26,8 @@
 
 <script setup lang="ts">
   import Lenis from 'lenis';
-  import { Nav, Hero } from '@/components';
+  import { Navbar } from '@/components/common';
+  import { Hero } from './components/sections';
   import { onMounted } from 'vue';
 
   const lenis = new Lenis();
