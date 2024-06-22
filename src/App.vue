@@ -1,7 +1,7 @@
 <template>
   <div class="relative size-full overflow-clip">
     <svg
-      class="pointer-events-none fixed inset-0 z-30 size-full object-cover object-center opacity-50"
+      class="pointer-events-none fixed inset-0 z-30 size-full object-cover object-center opacity-100"
       xmlns="http://www.w3.org/2000/svg"
     >
       <filter id="noise" x="0" y="0">
@@ -13,7 +13,7 @@
         />
         <feBlend mode="screen" />
       </filter>
-      <rect class="size-full" filter="url(#noise)" opacity="0.3" />
+      <rect class="size-full" filter="url(#noise)" opacity="0.09" />
     </svg>
   </div>
 
@@ -25,5 +25,19 @@
 </template>
 
 <script setup lang="ts">
+  import Lenis from 'lenis';
   import { Nav, Hero } from '@/components';
+  import { onMounted } from 'vue';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const lenis = new Lenis();
+
+  onMounted(() => {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  });
 </script>
