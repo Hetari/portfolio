@@ -78,7 +78,7 @@
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <p
             id="name"
-            class="flex items-start font-title text-3xl font-extrabold uppercase"
+            class="flex items-start font-title text-3xl font-extrabold uppercase text-secondary-dark"
           >
             hetari<span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
