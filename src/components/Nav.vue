@@ -17,7 +17,7 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-[1%] z-[19] h-[98%] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[99vw] md:w-1/2 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1%] z-[19] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles class="absolute right-0 top-0 opacity-20" />
     <div class="flex h-full flex-col items-center justify-between">
@@ -116,8 +116,8 @@
   </header>
 </template>
 <script setup lang="ts">
-  import { onMounted, ref } from 'vue';
-  import { useScroll, useScrollLock } from '@vueuse/core';
+  import { onMounted, ref, watch } from 'vue';
+  // import { useScroll, useScrollLock } from '@vueuse/core';
 
   import Link from './Link.vue';
   import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
@@ -136,15 +136,17 @@
   import Circles from './Circles.vue';
 
   const isNavbarOpen = ref(false);
-  const el = ref(document.querySelector('body') as HTMLBodyElement);
+  // const el = ref(document.querySelector('body') as HTMLBodyElement);
 
   // Using scroll and scroll lock utilities
-  useScroll(el);
-  const isLocked = useScrollLock(el);
+  // useScroll(el);
+  // const isLocked = useScrollLock(el);
 
   const toggleBtnClickAnimation = () => {
-    isLocked.value = !isLocked.value;
+    // isLocked.value = !isLocked.value;
     isNavbarOpen.value = !isNavbarOpen.value;
+
+    // animate the X on the button
     document.getElementById('magneto')?.classList.toggle('active');
 
     const x = document.getElementById('navbar') as HTMLDivElement;
@@ -169,6 +171,11 @@
   const esc = () => {
     toggleBtnClickAnimation();
   };
+
+  const emit = defineEmits(['isLocked']);
+  watch(isNavbarOpen, (newVal) => {
+    emit('isLocked', newVal);
+  });
 
   const navLinks = [
     {

@@ -17,7 +17,7 @@
     </svg>
   </div>
 
-  <Nav class="padding-x mx-auto max-w-[1920px]" />
+  <Nav @isLocked="LockeScroll" class="padding-x mx-auto max-w-[1920px]" />
   <main class="padding-x mx-auto h-[80vh] max-w-[1920px] lg:h-[75vh]">
     <Hero />
   </main>
@@ -28,16 +28,23 @@
   import Lenis from 'lenis';
   import { Nav, Hero } from '@/components';
   import { onMounted } from 'vue';
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   const lenis = new Lenis();
 
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  const LockeScroll = (isLocked: boolean) => {
+    if (isLocked) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  };
+
   onMounted(() => {
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    requestAnimationFrame(raf);
   });
 </script>

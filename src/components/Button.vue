@@ -1,5 +1,7 @@
 <template>
-  <button class="rounded-full border px-4 py-1 text-primary">
+  <button
+    class="group relative rounded-full border px-4 py-1 font-medium text-primary hover:bg-primary hover:text-primary-dark"
+  >
     <a target="”_blank”" :href="url">{{ label }}</a>
   </button>
 </template>
