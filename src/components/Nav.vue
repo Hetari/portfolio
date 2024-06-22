@@ -117,7 +117,6 @@
 </template>
 <script setup lang="ts">
   import { onMounted, ref, watch } from 'vue';
-  // import { useScroll, useScrollLock } from '@vueuse/core';
 
   import Link from './Link.vue';
   import BurgerMenuBtnVue from './BurgerMenuBtn.vue';
@@ -136,14 +135,8 @@
   import Circles from './Circles.vue';
 
   const isNavbarOpen = ref(false);
-  // const el = ref(document.querySelector('body') as HTMLBodyElement);
-
-  // Using scroll and scroll lock utilities
-  // useScroll(el);
-  // const isLocked = useScrollLock(el);
 
   const toggleBtnClickAnimation = () => {
-    // isLocked.value = !isLocked.value;
     isNavbarOpen.value = !isNavbarOpen.value;
 
     // animate the X on the button
