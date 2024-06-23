@@ -5,7 +5,8 @@
     DEVELOPER
     <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
   </h1> -->
-  <section id="hero" class="padding-y relative h-[80vh] w-full lg:h-[75vh]">
+  <!-- ! lg:h-[75vh] -->
+  <section id="hero" class="padding-y relative h-full w-full">
     <div class="absolute bottom-0 w-full items-end">
       <!-- TODO: translate-y-[100%] -->
       <div class="flex w-full items-start">

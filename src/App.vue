@@ -17,10 +17,12 @@
     </svg>
   </div>
 
-  <Navbar @isLocked="LockeScroll" class="padding-x mx-auto max-w-[1920px]" />
-  <main
-    class="padding-x mx-auto h-[80vh] max-w-[1920px] xl:h-[78vh] 3xl:h-[75vh]"
-  >
+  <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
+  <main class="padding-x relative mx-auto h-dvh max-w-[1920px]">
+    <Navbar
+      @isLocked="LockeScroll"
+      class="padding-x absolute inset-0 mx-auto max-w-[1920px]"
+    />
     <Hero />
   </main>
   <div class="h-screen"></div>
