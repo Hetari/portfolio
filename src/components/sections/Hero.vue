@@ -41,7 +41,7 @@
 
       <div class="overflow-clip">
         <div id="my-name" class="flex w-full translate-y-full items-start">
-          <MyName class="" />
+          <MyName />
           <Star class="hide-on-mobile" />
         </div>
       </div>

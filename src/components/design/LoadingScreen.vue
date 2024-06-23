@@ -5,18 +5,24 @@
   >
     <div v-if="width > 0" class="size-full flex-col">
       <svg
-        class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary-dark brightness-75"
+        class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary-dark brightness-50"
       >
         <path ref="path" :d="pathData"></path>
       </svg>
       <p
         id="text"
         style="transform: translateZ(0px)"
-        class="flex-center z-[1] size-full text-center text-[42px] text-primary opacity-0"
-        :class="{ ' ': index === words.length - 1 }"
+        class="flex flex-col items-center justify-center z-[1] size-full text-center text-primary/75 opacity-0"
+        :class="{ 'text-4xl md:text-6xl font-bold': true }"
       >
         <!-- <span class="mr-[10px] block size-[10px] rounded-full bg-primary" /> -->
-        {{ words[index] }}
+        <p  class=" overflow-clip ">
+          <span  class="loading-text translate-y-full inline-block"> Hetari </span>
+        </p>
+
+        <p class="overflow-clip ">
+          <span class="loading-text opacity-70 translate-y-full inline-block"> &copy; Folio 2024 </span>
+        </p>
       </p>
     </div>
   </div>
@@ -25,7 +31,7 @@
 <script setup lang="ts">
   import { useWindowSize } from '@vueuse/core';
   import { onMounted, Ref, ref, watch } from 'vue';
-  import { animateLoadingPath, animateLoadingText } from '@/animations';
+  import { animateLoadingPath, animateLoadingText, animateLoadingText2, yReset, yToZero } from '@/animations';
 
   const emit = defineEmits(['isLoading']);
 
@@ -41,38 +47,42 @@
     index.value++;
     pathData.value = initialPath;
     animateLoadingText(index.value);
+    animateLoadingText2('.loading-text');
+
+    // !
+    animateLoadingPath(width, height, path as Ref<SVGPathElement>);
   });
 
   watch(isLoading, (newVal) => {
     emit('isLoading', newVal);
   });
 
-  watch(index, (newVal) => {
-    if (newVal === words.length - 1) {
-      animateLoadingPath(width, height, path as Ref<SVGPathElement>);
-      setTimeout(() => {
-        isLoading.value = true;
-      }, 1000);
-      return;
-    }
+  // watch(index, (newVal) => {
+  //   if (newVal === words.length - 1) {
+  //     animateLoadingPath(width, height, path as Ref<SVGPathElement>);
+  //     setTimeout(() => {
+  //       isLoading.value = true;
+  //     }, 1000);
+  //     return;
+  //   }
 
-    setTimeout(
-      () => {
-        index.value = newVal + 1;
-        animateLoadingText(index.value);
-      },
-      index.value == 0 ? 1000 : 150,
-    );
-  });
+  //   setTimeout(
+  //     () => {
+  //       index.value = newVal + 1;
+  //       animateLoadingText(index.value);
+  //     },
+  //     index.value == 0 ? 1000 : 150,
+  //   );
+  // });
 
-  const words = [
-    'Hello', // English
-    'Bonjour', // French
-    'Ciao', // Italian
-    'やあ', // Japanese
-    'Guten tag', // German
-    'Salam', // Malay/Indonesian
-    'Merhaba', // Turkish
-    'ًمرحبا', // Arabic
-  ];
+  // const words = [
+  //   'Hello', // English
+  //   'Bonjour', // French
+  //   'Ciao', // Italian
+  //   'やあ', // Japanese
+  //   'Guten tag', // German
+  //   'Salam', // Malay/Indonesian
+  //   'Merhaba', // Turkish
+  //   'ًمرحبا', // Arabic
+  // ];
 </script>

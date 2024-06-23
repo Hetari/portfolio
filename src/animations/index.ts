@@ -156,24 +156,24 @@ const animateLoadingPath = (
   const targetPath = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`;
 
   const tl = gsap.timeline({});
-  tl.to(path.value, {
+  tl.to('#loading-screen', {
+    delay: 3,
+    bottom: '100%',
     duration: 1,
-    attr: { d: targetPath },
     ease: 'power2.inOut',
-    delay: 0.5,
   });
 
   tl.to(
-    '#loading-screen',
+    path.value,
     {
-      bottom: '100%',
       duration: 1,
+      attr: { d: targetPath },
       ease: 'power2.inOut',
       onComplete: () => {
         gsap.set('#loading-screen', { display: 'none' });
       },
     },
-    '<',
+    '<20%',
   );
 };
 
@@ -192,30 +192,53 @@ const animateLoadingText = (index: number) => {
   );
 };
 
+const animateLoadingText2 = (id: string) => {
+  gsap.to(id, {
+    y: 0,
+    duration: 1,
+    ease: 'power2.inOut',
+    onComplete: () => {
+      gsap.to(id, {
+        delay: 2,
+        y: '-100%',
+        duration: 1,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          gsap.set(id, {
+            y: '100%',
+          });
+        },
+      });
+    },
+  });
+};
+
+// !
+
 const animateHeroNav = () => {
   gsap.to(['#my-name', 'header'], {
-    delay: 3,
+    delay: 3.5,
     y: 0,
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('.overlay', {
-    delay: 3,
+    delay: 3.5,
     y: '100%',
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('#profile-img', {
-    delay: 3,
+    delay: 3.5,
     scale: 1,
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('#whoAmI .letters', {
-    delay: 3.3,
+    delay: 3.8,
     duration: 1.3,
     y: 0,
     autoAlpha: 1,
@@ -236,5 +259,6 @@ export {
   resetOpacity,
   animateLoadingPath,
   animateLoadingText,
+  animateLoadingText2,
   animateHeroNav,
 };
