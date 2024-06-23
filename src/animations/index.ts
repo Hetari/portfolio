@@ -147,6 +147,52 @@ const resetOpacity = (id: string, opacity: number = 0) => {
   });
 };
 
+// Loading animation
+const animateLoadingPath = (
+  width: Ref<number>,
+  height: Ref<number>,
+  path: Ref<SVGPathElement>,
+) => {
+  const targetPath = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`;
+
+  const tl = gsap.timeline({});
+  tl.to(path.value, {
+    duration: 1,
+    attr: { d: targetPath },
+    ease: 'power2.inOut',
+    delay: 0.5,
+  });
+
+  tl.to(
+    '#loading-screen',
+    {
+      bottom: '100%',
+      duration: 1,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        // gsap.set('#loading-screen', { display: 'none' });
+      },
+    },
+    '<',
+  );
+};
+
+const animateLoadingText = (index: number) => {
+  gsap.fromTo(
+    '#text',
+    {
+      yoyo: true,
+      opacity: 0,
+      duration: (index == 0 ? 1 : 0.15) / 2,
+    },
+    {
+      opacity: 1,
+      duration: (index == 0 ? 1 : 0.15) / 2,
+      ease: 'circ.inOut',
+    },
+  );
+};
+
 export {
   navbarScale,
   activateMagneto,
@@ -157,4 +203,6 @@ export {
   yReset,
   fadeIn,
   resetOpacity,
+  animateLoadingPath,
+  animateLoadingText,
 };
