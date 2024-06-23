@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.11.0",
-    "@vueuse/motion": "^2.2.3",
     "gsap": "^3.12.5",
     "lenis": "^1.1.3",
     "vue": "^3.4.21"

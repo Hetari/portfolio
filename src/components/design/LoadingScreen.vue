@@ -7,29 +7,25 @@
       <svg class="absolute top-0 z-0 size-full h-[calc(100%_+_300px)]">
         <path ref="path" :d="pathData"></path>
       </svg>
-
-      <Motion
-        is="p"
-        :variants="fadeVisible"
-        class="flex-center z-[1] size-full text-center text-[42px] text-primary"
+      <p
+        id="text"
+        style="transform: translateZ(0px)"
+        class="flex-center z-[1] size-full text-center text-[42px] text-primary opacity-0"
       >
         <span class="mr-[10px] block size-[10px] rounded-full bg-primary"></span
         >{{ words[index] }}
-      </Motion>
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { useWindowSize, tryOnUnmounted } from '@vueuse/core';
+  import { useWindowSize } from '@vueuse/core';
   import { onMounted, ref, watch } from 'vue';
   import { gsap } from 'gsap';
-  import { fadeVisible } from '@vueuse/motion';
-
   const index = ref(-1);
   const pathData = ref('');
   const path = ref<SVGPathElement>();
-  const textElement = ref<HTMLElement>();
 
   const { width, height } = useWindowSize();
 
@@ -67,10 +63,27 @@
     );
   };
 
+  const animateText = () => {
+    gsap.fromTo(
+      '#text',
+      {
+        yoyo: true,
+        opacity: 0,
+        duration: (index.value == 0 ? 1 : 0.15) / 2,
+      },
+      {
+        opacity: 1,
+        duration: (index.value == 0 ? 1 : 0.15) / 2,
+        ease: 'circ.inOut',
+      },
+    );
+  };
+
   onMounted(() => {
     index.value++;
     // Set initial path
     pathData.value = initialPath.value;
+    animateText();
   });
 
   watch(index, (newVal) => {
@@ -82,13 +95,10 @@
     setTimeout(
       () => {
         index.value = newVal + 1;
+        animateText();
       },
       index.value == 0 ? 1000 : 150,
     );
-  });
-
-  tryOnUnmounted(() => {
-    console.log('un mounted');
   });
 
   const words = [
