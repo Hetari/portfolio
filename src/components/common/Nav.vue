@@ -5,7 +5,6 @@
     id="burger"
   />
 
-  <!-- background blur -->
   <div
     @click="toggleBtnClickAnimation"
     class="fixed inset-0 z-[19] size-full select-none bg-black opacity-50"
@@ -71,7 +70,7 @@
     </div>
   </div>
 
-  <header :class="$attrs.class" class="z-20 h-fit pt-6 lg:pt-12">
+  <header :class="$attrs.class" class="z-20 h-fit -translate-y-full pt-6">
     <nav class="flex justify-between">
       <MagneticEffect
         :magnetoStrengthVal="20"

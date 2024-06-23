@@ -1,11 +1,4 @@
 <template>
-  <!-- <h1
-    class="opacity-70 text-[calc((50vw)_/_24_*_1.9)] font-bold tracking-[-0.1em] leading-[0.8]">
-    CREATIVE <br />
-    DEVELOPER
-    <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
-  </h1> -->
-  <!-- ! lg:h-[75vh] -->
   <section id="hero" class="relative h-dvh w-full">
     <svg
       viewBox="0 0 1186 1186"
@@ -34,24 +27,37 @@
       </defs>
     </svg>
 
-    <div class="absolute bottom-10 w-full items-end md:bottom-5 lg:bottom-20">
-      <!-- TODO: translate-y-[100%] -->
-      <div class="flex w-full items-start">
-        <MyName />
-        <Star class="hide-on-mobile" />
+    <div
+      id="hero-container"
+      class="absolute bottom-10 w-full items-end md:bottom-5 lg:bottom-20"
+    >
+      <!-- <h1
+        class="only-on-mobile absolute -top-full text-[calc((50vw)_/_24_*_1.9)] font-bold leading-[0.8] tracking-[-0.1em] opacity-70"
+      >
+        CREATIVE <br />
+        DEVELOPER
+        <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
+      </h1> -->
+
+      <div class="overflow-clip">
+        <div id="my-name" class="flex w-full translate-y-full items-start">
+          <MyName class="" />
+          <Star class="hide-on-mobile" />
+        </div>
       </div>
 
       <div class="column-gap spacing-t flex grid-cols-12 md:grid">
         <div
           id="profile-container"
-          class="group relative col-span-3 hidden aspect-[3/3.5] size-full select-none overflow-clip rounded-lg shadow-2xl md:block"
+          class="group relative col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none rounded-lg md:block"
         >
+          <div class="overlay absolute inset-0 z-[2] bg-primary"></div>
           <img
             id="profile-img"
             :src="profile"
             alt="Ebrahhem profile"
             decoding="async"
-            class="size-full -scale-x-100 rounded-lg object-cover object-center transition-transform duration-300 group-hover:-scale-x-105 group-hover:scale-y-105"
+            class="block size-full scale-90 rounded-lg object-cover object-center"
           />
         </div>
 
@@ -67,9 +73,11 @@
               A freelance full-stack developer, cutting-edge technologies to
               deliver comprehensive solutions for your business.
             </p>
+
             <p
-              v-html="howAmI"
-              class="how-am-i text-fluid-body max-w-[33ch] text-balance text-start font-medium leading-snug text-primary-dark"
+              v-html="whoAmI"
+              id="whoAmI"
+              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug text-primary-dark"
             ></p>
           </div>
 
@@ -93,19 +101,34 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount, ref } from 'vue';
+  import { onBeforeMount, onMounted, ref } from 'vue';
   import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
+  import gsap from 'gsap';
+  import { animateHeroNav } from '@/animations';
 
-  const howAmI = ref(
+  const whoAmI = ref(
     'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.',
   );
 
   onBeforeMount(() => {
-    const words = howAmI.value.split(' ');
-    howAmI.value = words
-      .map((word) => `<span class="inline-block ">${word}</span> `)
-      .join('');
+    const words = whoAmI.value.split(' ');
+    const char = words.map((word) => word.split(''));
+
+    let result = '';
+    char.forEach((word) => {
+      result += '<span class="inline-block overflow-clip">';
+      word.forEach((char) => {
+        result += `<span class="letters translate-y-full inline-block ">${char}</span>`;
+      });
+      result += '</span> ';
+    });
+
+    whoAmI.value = result;
+  });
+
+  onMounted(() => {
+    animateHeroNav();
   });
 </script>
 

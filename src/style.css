@@ -102,15 +102,7 @@
   }
 
   .only-on-mobile {
-    @apply flex sm:hidden;
-  }
-
-  .hide-on-desktop {
-    @apply block sm:hidden;
-  }
-
-  .only-on-desktop {
-    @apply hidden sm:flex;
+    @apply flex lg:hidden;
   }
 
   .leading-base {

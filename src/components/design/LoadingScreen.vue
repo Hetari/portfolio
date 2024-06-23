@@ -27,6 +27,9 @@
   import { onMounted, Ref, ref, watch } from 'vue';
   import { animateLoadingPath, animateLoadingText } from '@/animations';
 
+  const emit = defineEmits(['isLoading']);
+
+  const isLoading = ref(false);
   const index = ref(-1);
   const pathData = ref('');
   const path = ref<SVGPathElement>();
@@ -40,9 +43,16 @@
     animateLoadingText(index.value);
   });
 
+  watch(isLoading, (newVal) => {
+    emit('isLoading', newVal);
+  });
+
   watch(index, (newVal) => {
     if (newVal === words.length - 1) {
       animateLoadingPath(width, height, path as Ref<SVGPathElement>);
+      setTimeout(() => {
+        isLoading.value = true;
+      }, 1000);
       return;
     }
 

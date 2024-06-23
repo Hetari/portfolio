@@ -1,5 +1,5 @@
 <template>
-  <LoadingScreen v-cloak="true" :isLoading="isLoading" />
+  <LoadingScreen v-cloak="true" />
   <div v-cloak="true">
     <div class="relative size-full overflow-clip">
       <svg
@@ -35,10 +35,8 @@
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
   import { Hero } from './components/sections';
-  import { onMounted, ref } from 'vue';
+  import { onMounted } from 'vue';
   import { LoadingScreen } from './components/design';
-
-  const isLoading = ref(true);
 
   const lenis = new Lenis();
   function raf(time: number) {
@@ -56,9 +54,7 @@
 
   onMounted(async () => {
     setTimeout(() => {
-      isLoading.value = false;
       window.scrollTo(0, 0);
-
       requestAnimationFrame(raf);
     }, 2000);
   });

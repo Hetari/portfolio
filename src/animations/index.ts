@@ -170,7 +170,7 @@ const animateLoadingPath = (
       duration: 1,
       ease: 'power2.inOut',
       onComplete: () => {
-        // gsap.set('#loading-screen', { display: 'none' });
+        gsap.set('#loading-screen', { display: 'none' });
       },
     },
     '<',
@@ -180,17 +180,48 @@ const animateLoadingPath = (
 const animateLoadingText = (index: number) => {
   gsap.fromTo(
     '#text',
+    (index == 0 ? 1 : 0.15) / 2,
     {
       yoyo: true,
       opacity: 0,
-      duration: (index == 0 ? 1 : 0.15) / 2,
     },
     {
       opacity: 1,
-      duration: (index == 0 ? 1 : 0.15) / 2,
       ease: 'circ.inOut',
     },
   );
+};
+
+const animateHeroNav = () => {
+  gsap.to(['#my-name', 'header'], {
+    delay: 3,
+    y: 0,
+    duration: 1.3,
+    ease: 'power4.inOut',
+  });
+
+  gsap.to('.overlay', {
+    delay: 3,
+    y: '100%',
+    duration: 1.3,
+    ease: 'power4.inOut',
+  });
+
+  gsap.to('#profile-img', {
+    delay: 3,
+    scale: 1,
+    duration: 1.3,
+    ease: 'power4.inOut',
+  });
+
+  gsap.to('#whoAmI .letters', {
+    delay: 3.3,
+    duration: 1.3,
+    y: 0,
+    autoAlpha: 1,
+    stagger: 0.005,
+    ease: 'power4.inOut',
+  });
 };
 
 export {
@@ -205,4 +236,5 @@ export {
   resetOpacity,
   animateLoadingPath,
   animateLoadingText,
+  animateHeroNav,
 };

@@ -10,32 +10,32 @@ const projectsData = [
     title: 'IB Group Vietnam Website',
     description: 'Web Design / Frontend Development',
     imageSrc: ibgroup,
-    link: 'https://musical-stroopwafel-1c2327.netlify.app/landing.html'
+    link: 'https://musical-stroopwafel-1c2327.netlify.app/landing.html',
   },
   {
     title: 'Memento Studio Landing Page',
     description: 'Web Design / Frontend Development',
     imageSrc: memento,
-    link: 'https://mementostudio.netlify.app/'
+    link: 'https://mementostudio.netlify.app/',
   },
   {
     title: 'Real Business Accountants',
     description: 'Web Design / Frontend Development',
     imageSrc: acc,
-    link: 'https://realbusinessaccountants.netlify.app'
+    link: 'https://realbusinessaccountants.netlify.app',
   },
   {
     title: 'GoDaddy Landing Page Clone',
     description: 'Web Design / Frontend Development',
     imageSrc: daddy,
-    link: 'https://godaddyuiclone.netlify.app'
+    link: 'https://godaddyuiclone.netlify.app',
   },
   {
     title: 'Sunnyside Landing Page',
     description: 'Web Design / Frontend Development',
     imageSrc: sunnyside,
-    link: 'https://sunnysidechallenge.netlify.app'
-  }
+    link: 'https://sunnysidechallenge.netlify.app',
+  },
 ];
 
 export default projectsData;
