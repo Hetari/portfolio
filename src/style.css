@@ -86,15 +86,15 @@
   }
 
   .padding-x {
-    @apply px-[4%] 3xl:px-[10%];
+    @apply px-[5%] 3xl:px-[10%];
   }
 
   .padding-y {
     @apply py-[2%];
   }
 
-  .spacing-y {
-    @apply py-8 sm:py-12 lg:py-14;
+  .spacing-t {
+    @apply pt-5 sm:pt-12 lg:pt-14;
   }
 
   .hide-on-mobile {

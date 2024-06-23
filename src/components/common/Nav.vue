@@ -1,5 +1,9 @@
 <template>
-  <BurgerMenuBtn @click="toggleBtnClickAnimation" class="scale-0" id="burger" />
+  <BurgerMenuBtn
+    @click="toggleBtnClickAnimation"
+    class="z-50 scale-0"
+    id="burger"
+  />
 
   <!-- background blur -->
   <div
@@ -67,7 +71,7 @@
     </div>
   </div>
 
-  <header :class="$attrs.class" class="pt-6 lg:pt-12">
+  <header :class="$attrs.class" class="z-20 h-fit pt-6 lg:pt-12">
     <nav class="flex justify-between">
       <MagneticEffect
         :magnetoStrengthVal="20"
@@ -96,7 +100,7 @@
         </p>
 
         <ul
-          class="ps-5 text-2xl font-normal text-secondary-dark max-xl:ps-10 max-lg:text-xl max-md:text-lg max-sm:text-sm"
+          class="ps-5 text-2xl font-normal text-secondary-dark max-xl:ps-10 max-lg:text-xl max-md:text-lg"
         >
           <Link
             v-for="l in navLinks"
