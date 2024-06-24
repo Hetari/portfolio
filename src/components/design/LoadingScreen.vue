@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!isLoading"
     id="loading-screen"
     class="flex-center fixed bottom-0 z-[99999] size-full cursor-wait"
   >
@@ -17,14 +18,13 @@
       >
         <p class="overflow-clip">
           <span class="loading-text inline-block translate-y-full">
-            Hetari
+            {{ text1 }}
           </span>
         </p>
 
         <p class="overflow-clip">
-          <!-- TODO: split the text -->
           <span class="loading-text inline-block translate-y-full opacity-70">
-            &copy; Folio 2024
+            &copy; {{ text2 }}
           </span>
         </p>
       </div>
@@ -42,6 +42,9 @@
   } from '@/animations';
 
   const emit = defineEmits(['isLoading']);
+
+  const text1 = 'Hetari';
+  const text2 = 'Folio 2024';
 
   const isLoading = ref(false);
   const index = ref(-1);
@@ -63,9 +66,11 @@
 
     return height.value + height.value * multiplier;
   });
-
   const initialPath = ref(
     `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${curveHeight.value} 0 ${height.value}  L0 0`,
+  );
+  const targetPath = ref(
+    `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`,
   );
 
   onMounted(() => {
@@ -74,17 +79,20 @@
     animateLoadingText(index.value);
     animateLoadingText2('.loading-text');
 
-    animateLoadingPath(width, height, path as Ref<SVGPathElement>);
+    animateLoadingPath(path as Ref<SVGPathElement>, targetPath.value);
   });
 
   watch(
     [width, height],
     () => {
       initialPath.value = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${curveHeight.value} 0 ${height.value} L0 0`;
+      targetPath.value = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`;
 
       pathData.value = initialPath.value;
     },
-    { immediate: true },
+    {
+      immediate: true,
+    },
   );
 
   watch(isLoading, (newVal) => {

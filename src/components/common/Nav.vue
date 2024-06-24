@@ -122,13 +122,9 @@
   import { Button } from '../common';
 
   import {
-    fadeIn,
-    navbarEnter,
-    navbarLeave,
+    animateNavbarEnter,
+    animateNavbarLeave,
     navbarScale,
-    resetOpacity,
-    yReset,
-    yToZero,
   } from '@/animations';
 
   const isNavbarOpen = ref(false);
@@ -141,16 +137,10 @@
 
     const x = document.getElementById('navbar') as HTMLDivElement;
     if (isNavbarOpen.value) {
-      navbarEnter('#navbar');
-      yToZero('#navLinks li a');
-      fadeIn('.contact');
-      fadeIn('#circles', 0.2);
+      animateNavbarEnter('#navbar', '#navLinks li a', '.contact');
       x.focus();
     } else {
-      navbarLeave('#navbar');
-      yReset('#navLinks li a');
-      resetOpacity('.contact');
-      resetOpacity('#circles', 0);
+      animateNavbarLeave('#navbar', '#navLinks li a', '.contact');
       x.blur();
     }
   };

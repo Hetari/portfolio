@@ -1,5 +1,6 @@
 <template>
   <LoadingScreen v-cloak="true" />
+
   <div v-cloak="true">
     <div class="relative size-full overflow-clip">
       <svg
@@ -35,7 +36,7 @@
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
   import { Hero } from './components/sections';
-  import { onMounted } from 'vue';
+  import { onMounted, ref } from 'vue';
   import { LoadingScreen } from './components/design';
 
   const lenis = new Lenis();

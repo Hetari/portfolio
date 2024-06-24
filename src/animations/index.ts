@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import MotionPathHelper from 'gsap/MotionPathPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Ref } from 'vue';
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathHelper);
 
@@ -12,7 +13,9 @@ const navbarScale = (selector: string, trigger: string) => {
     {
       scrollTrigger: {
         trigger: trigger,
-        start: '15% 10%',
+        // start: '15% 10%',
+        start: 'center top',
+        markers: true,
         toggleActions: 'play none none reverse',
       },
       duration: 0.3,
@@ -147,14 +150,28 @@ const resetOpacity = (id: string, opacity: number = 0) => {
   });
 };
 
-// Loading animation
-const animateLoadingPath = (
-  width: Ref<number>,
-  height: Ref<number>,
-  path: Ref<SVGPathElement>,
+const animateNavbarEnter = (
+  navbarSelector: string,
+  navbarLinksSelector: string,
+  contactSelector: string,
 ) => {
-  const targetPath = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`;
+  navbarEnter(navbarSelector);
+  yToZero(navbarLinksSelector);
+  fadeIn(contactSelector);
+};
 
+const animateNavbarLeave = (
+  navbarSelector: string,
+  navbarLinksSelector: string,
+  contactSelector: string,
+) => {
+  navbarLeave(navbarSelector);
+  yReset(navbarLinksSelector);
+  resetOpacity(contactSelector);
+};
+
+// Loading animation
+const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
     delay: 3,
@@ -214,7 +231,7 @@ const animateLoadingText2 = (id: string) => {
   });
 };
 
-// !
+// Home
 
 const animateHeroNav = () => {
   gsap.to(['#my-name', 'header'], {
@@ -243,18 +260,21 @@ const animateHeroNav = () => {
     stagger: 0.005,
     ease: 'power4.inOut',
   });
+
+  gsap.to(['#location', '#art'], {
+    opacity: 1,
+    scale: 1,
+    duration: 1.3,
+    ease: 'power3.inOut',
+  });
 };
 
 export {
   navbarScale,
   activateMagneto,
   resetMagneto,
-  navbarEnter,
-  navbarLeave,
-  yToZero,
-  yReset,
-  fadeIn,
-  resetOpacity,
+  animateNavbarEnter,
+  animateNavbarLeave,
   animateLoadingPath,
   animateLoadingText,
   animateLoadingText2,

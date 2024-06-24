@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: read the code and understand it well -->
   <a
     id="button"
     class="leading-base group pointer-events-auto relative h-full transform-none overflow-hidden rounded-full border border-[#6b645c] bg-tertiary-dark px-3 py-2 text-[1rem] text-xs font-semibold uppercase tracking-normal text-primary before:bg-primary sm:text-sm md:px-5 md:py-2"
@@ -38,24 +39,4 @@
   .ease-expo {
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
-  /* #button::before {
-    content: 'label';
-    position: absolute;
-    width: 100%;
-    height: 150%;
-    left: 0;
-    bottom: 0;
-    transition: 0.8s;
-    transform: translateY(100%);
-    border-radius: 50% 50% 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-  }
-
-  #button:hover::before {
-    transform: translateY(0%);
-  } */
 </style>

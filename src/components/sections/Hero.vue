@@ -66,7 +66,8 @@
         >
           <div class="column-gap flex items-start justify-between">
             <ModernArtShape
-              class="w-16 flex-shrink-0 sm:block sm:w-20 md:w-32 xl:w-40 2xl:w-56 3xl:w-60"
+              id="art"
+              class="w-16 flex-shrink-0 scale-0 opacity-0 sm:block sm:w-20 md:w-32 xl:w-40 2xl:w-56 3xl:w-60"
             />
 
             <p class="sr-only">
@@ -81,8 +82,11 @@
             ></p>
           </div>
 
-          <div class="column-gap flex items-start justify-between">
-            <div id="location-container" class="text-sm font-normal">
+          <div
+            id="location"
+            class="column-gap flex scale-0 items-start justify-between opacity-0"
+          >
+            <div class="text-sm font-normal">
               <p>15°22'22.0"N 44°10'39.5"E</p>
               <p>Yemen, Sanaa</p>
             </div>
