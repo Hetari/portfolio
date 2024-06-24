@@ -171,6 +171,7 @@ const animateLoadingPath = (
       ease: 'power2.inOut',
       onComplete: () => {
         gsap.set('#loading-screen', { display: 'none' });
+        animateHeroNav();
       },
     },
     '<20%',
@@ -217,28 +218,25 @@ const animateLoadingText2 = (id: string) => {
 
 const animateHeroNav = () => {
   gsap.to(['#my-name', 'header'], {
-    delay: 3.5,
     y: 0,
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('.overlay', {
-    delay: 3.5,
     y: '100%',
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('#profile-img', {
-    delay: 3.5,
     scale: 1,
     duration: 1.3,
     ease: 'power4.inOut',
   });
 
   gsap.to('#whoAmI .letters', {
-    delay: 3.8,
+    delay: 0.3,
     duration: 1.3,
     y: 0,
     autoAlpha: 1,

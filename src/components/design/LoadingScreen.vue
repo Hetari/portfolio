@@ -3,35 +3,43 @@
     id="loading-screen"
     class="flex-center fixed bottom-0 z-[99999] size-full cursor-wait"
   >
-    <div v-if="width > 0" class="size-full flex-col">
+    <div class="size-full w-full flex-col">
       <svg
         class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary-dark brightness-50"
       >
-        <path ref="path" :d="pathData"></path>
+        <path ref="path" class="w-full" :d="pathData"></path>
       </svg>
-      <p
+      <div
         id="text"
         style="transform: translateZ(0px)"
-        class="flex flex-col items-center justify-center z-[1] size-full text-center text-primary/75 opacity-0"
-        :class="{ 'text-4xl md:text-6xl font-bold': true }"
+        class="z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold text-primary/75 opacity-0 md:text-6xl"
+        :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
-        <!-- <span class="mr-[10px] block size-[10px] rounded-full bg-primary" /> -->
-        <p  class=" overflow-clip ">
-          <span  class="loading-text translate-y-full inline-block"> Hetari </span>
+        <p class="overflow-clip">
+          <span class="loading-text inline-block translate-y-full">
+            Hetari
+          </span>
         </p>
 
-        <p class="overflow-clip ">
-          <span class="loading-text opacity-70 translate-y-full inline-block"> &copy; Folio 2024 </span>
+        <p class="overflow-clip">
+          <!-- TODO: split the text -->
+          <span class="loading-text inline-block translate-y-full opacity-70">
+            &copy; Folio 2024
+          </span>
         </p>
-      </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import { useWindowSize } from '@vueuse/core';
-  import { onMounted, Ref, ref, watch } from 'vue';
-  import { animateLoadingPath, animateLoadingText, animateLoadingText2, yReset, yToZero } from '@/animations';
+  import { computed, onMounted, Ref, ref, watch } from 'vue';
+  import {
+    animateLoadingPath,
+    animateLoadingText,
+    animateLoadingText2,
+  } from '@/animations';
 
   const emit = defineEmits(['isLoading']);
 
@@ -41,48 +49,45 @@
   const path = ref<SVGPathElement>();
 
   const { width, height } = useWindowSize();
-  const initialPath = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value + 300} 0 ${height.value}  L0 0`;
+  let curveHeight = computed(() => {
+    // Default for larger screens
+    let multiplier = 0.3;
+
+    if (width.value < 600) {
+      // Smaller multiplier for phones
+      multiplier = 0.15;
+    } else if (width.value < 900) {
+      // Adjust for tablets or medium screens
+      multiplier = 0.2;
+    }
+
+    return height.value + height.value * multiplier;
+  });
+
+  const initialPath = ref(
+    `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${curveHeight.value} 0 ${height.value}  L0 0`,
+  );
 
   onMounted(() => {
     index.value++;
-    pathData.value = initialPath;
+    pathData.value = initialPath.value;
     animateLoadingText(index.value);
     animateLoadingText2('.loading-text');
 
-    // !
     animateLoadingPath(width, height, path as Ref<SVGPathElement>);
   });
+
+  watch(
+    [width, height],
+    () => {
+      initialPath.value = `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${curveHeight.value} 0 ${height.value} L0 0`;
+
+      pathData.value = initialPath.value;
+    },
+    { immediate: true },
+  );
 
   watch(isLoading, (newVal) => {
     emit('isLoading', newVal);
   });
-
-  // watch(index, (newVal) => {
-  //   if (newVal === words.length - 1) {
-  //     animateLoadingPath(width, height, path as Ref<SVGPathElement>);
-  //     setTimeout(() => {
-  //       isLoading.value = true;
-  //     }, 1000);
-  //     return;
-  //   }
-
-  //   setTimeout(
-  //     () => {
-  //       index.value = newVal + 1;
-  //       animateLoadingText(index.value);
-  //     },
-  //     index.value == 0 ? 1000 : 150,
-  //   );
-  // });
-
-  // const words = [
-  //   'Hello', // English
-  //   'Bonjour', // French
-  //   'Ciao', // Italian
-  //   'やあ', // Japanese
-  //   'Guten tag', // German
-  //   'Salam', // Malay/Indonesian
-  //   'Merhaba', // Turkish
-  //   'ًمرحبا', // Arabic
-  // ];
 </script>

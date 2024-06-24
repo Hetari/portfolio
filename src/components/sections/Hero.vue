@@ -101,11 +101,9 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount, onMounted, ref } from 'vue';
+  import { onBeforeMount, ref } from 'vue';
   import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
-  import gsap from 'gsap';
-  import { animateHeroNav } from '@/animations';
 
   const whoAmI = ref(
     'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.',
@@ -125,10 +123,6 @@
     });
 
     whoAmI.value = result;
-  });
-
-  onMounted(() => {
-    animateHeroNav();
   });
 </script>
 
