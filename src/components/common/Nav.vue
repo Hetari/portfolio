@@ -18,7 +18,7 @@
     @keydown.esc="esc()"
     class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
-    <Circles id="circles" class="absolute right-0 top-0 opacity-0" />
+    <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-[19] w-full">
         <ul class="mt-12 font-bold text-primary md:mt-24" id="navLinks">
@@ -36,7 +36,7 @@
                 class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
-                class="-translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-10"
+                class="font-fancy -translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-10"
               >
                 {{ l.label }}
               </p>
@@ -79,21 +79,21 @@
         textId="name"
       >
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
-          <p
+          <h1
             id="name"
-            class="flex items-start font-title text-3xl font-extrabold uppercase text-secondary-dark"
+            class="font-fancy flex items-start text-3xl font-extrabold uppercase text-secondary-dark"
           >
             hetari<span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
             >
-          </p>
+          </h1>
         </div>
       </MagneticEffect>
 
       <div class="flex">
         <p
-          class="cursor-default select-none text-lg font-bold uppercase text-tertiary max-2xl:text-xs max-md:hidden"
+          class="font-fancy cursor-default select-none text-lg font-bold uppercase text-tertiary max-2xl:text-xs max-md:hidden"
         >
           available for work and collaboration
         </p>

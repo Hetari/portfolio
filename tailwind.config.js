@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         title: ['title'],
         body: ['body'],
+        fancy: ['Bricolage Grotesque'],
       },
       colors: {
         primary: '#E6E6E1',

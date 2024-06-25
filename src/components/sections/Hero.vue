@@ -81,13 +81,13 @@
             class="column-gap flex scale-0 items-start justify-between opacity-0"
           >
             <div class="text-sm font-normal">
-              <p>15°22'22.0"N 44°10'39.5"E</p>
-              <p>Yemen, Sanaa</p>
+              <p class="font-fancy">15°22'22.0"N 44°10'39.5"E</p>
+              <p class="font-fancy">Yemen, Sanaa</p>
             </div>
-            <p class="animate-pulse text-sm">
+            <p class="font-fancy animate-pulse text-sm">
               SCROLL FOR MORE
               <span
-                class="inline-block motion-safe:animate-[bounce_2s_infinite]"
+                class="font-fancy inline-block motion-safe:animate-[bounce_2s_infinite]"
                 >↓</span
               >
             </p>

@@ -281,12 +281,12 @@ const animateHeroNav = () => {
   gsap.to('#hero', {
     scrollTrigger: {
       trigger: '#hero',
-      start: '40% center',
-      end: '55% center',
+      start: 'top top',
       scrub: 1,
     },
-    opacity: 0,
-    scale: 0.8,
+    opacity: 0.5,
+    scale: 0.9,
+    translateZ: 0,
   });
 };
 
