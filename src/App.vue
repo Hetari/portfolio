@@ -25,10 +25,24 @@
       @isLocked="LockeScroll"
       class="padding-x absolute inset-0 mx-auto max-w-[1920px]"
     />
-    <main class="padding-x relative mx-auto max-w-[1920px]">
+    <main class="relative mx-auto h-full max-w-[1920px]">
       <Hero />
+      <div class="relative z-20 min-h-screen w-full overflow-x-clip">
+        <section
+          id="services"
+          class="s-full h-screen rounded-t-3xl bg-[#0B0B0A]"
+        ></section>
+      </div>
     </main>
-    <div class="h-screen"></div>
+    <!-- <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
+      11
+    </div>
+    <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
+      22
+    </div>
+    <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
+      33
+    </div> -->
   </div>
 </template>
 

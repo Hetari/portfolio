@@ -7,7 +7,7 @@
 
   <div
     @click="toggleBtnClickAnimation"
-    class="fixed inset-0 z-[19] size-full select-none bg-black opacity-50"
+    class="fixed inset-0 z-[9998] size-full select-none bg-black opacity-50"
     :class="{ hidden: !isNavbarOpen }"
   ></div>
 
@@ -16,7 +16,7 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-[1%] z-[19] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-0" />
     <div class="flex h-full flex-col items-center justify-between">

@@ -14,7 +14,8 @@ const navbarScale = (selector: string, trigger: string) => {
       scrollTrigger: {
         trigger: trigger,
         // start: '15% 10%',
-        start: 'center center',
+        start: '40% center',
+        //toggleActions: start, leave, enterBack, leaveBack
         toggleActions: 'play none none reverse',
       },
       duration: 0.3,
@@ -274,6 +275,18 @@ const animateHeroNav = () => {
     scale: 1,
     duration: 0.8,
     ease: 'power3.inOut',
+  });
+
+  // Hero scroll animation
+  gsap.to('#hero', {
+    scrollTrigger: {
+      trigger: '#hero',
+      start: '40% center',
+      end: '55% center',
+      scrub: 1,
+    },
+    opacity: 0,
+    scale: 0.8,
   });
 };
 

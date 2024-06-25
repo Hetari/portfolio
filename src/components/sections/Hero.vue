@@ -1,55 +1,49 @@
 <template>
-  <section id="hero" class="relative h-dvh w-full">
-    <svg
-      viewBox="0 0 1186 1186"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="pointer-events-none absolute left-1/2 top-1/2 block h-full w-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:hidden"
-    >
-      <circle
-        cx="593"
-        cy="593"
-        r="593"
-        fill="url(#paint0_linear_4949_267)"
-      ></circle>
-      <defs>
-        <linearGradient
-          id="paint0_linear_4949_267"
-          x1="593"
-          y1="0"
-          x2="593"
-          y2="1186"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stop-color="#DDDDD5"></stop>
-          <stop offset="1" stop-color="#DDDDD5" stop-opacity="0"></stop>
-        </linearGradient>
-      </defs>
-    </svg>
-
+  <section id="hero" class="padding-x mb-[-100svh] py-0">
     <div
-      id="hero-container"
-      class="absolute bottom-10 w-full items-end md:bottom-5 lg:bottom-20"
+      class="sticky top-0 flex h-dvh w-full flex-col items-end justify-end pb-10 md:pb-[3%] 3xl:pb-[5%]"
     >
-      <!-- <h1
-        class="only-on-mobile absolute -top-full text-[calc((50vw)_/_24_*_1.9)] font-bold leading-[0.8] tracking-[-0.1em] opacity-70"
+      <svg
+        viewBox="0 0 1186 1186"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="pointer-events-none absolute left-1/2 top-1/2 block h-full w-5/6 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 md:hidden"
       >
-        CREATIVE <br />
-        DEVELOPER
-        <Star class="size-[calc((20vw)_/_24_*_1.9)]" />
-      </h1> -->
+        <circle
+          cx="593"
+          cy="593"
+          r="593"
+          fill="url(#paint0_linear_4949_267)"
+        ></circle>
+        <defs>
+          <linearGradient
+            id="paint0_linear_4949_267"
+            x1="593"
+            y1="0"
+            x2="593"
+            y2="1186"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#DDDDD5"></stop>
+            <stop offset="1" stop-color="#DDDDD5" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
 
-      <div class="overflow-clip">
+      <!-- ! hero-container -->
+      <!-- <div class="w-full items-end"> -->
+
+      <div class="w-full items-end overflow-clip">
         <div id="my-name" class="flex w-full translate-y-full items-start">
           <MyName />
           <Star class="hide-on-mobile" />
         </div>
       </div>
 
-      <div class="column-gap spacing-t flex grid-cols-12 md:grid">
+      <div class="column-gap spacing-t flex grid-cols-12 flex-col md:grid">
         <div
           id="profile-container"
-          class="group relative col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none rounded-lg md:block"
+          class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full w-full origin-top select-none flex-col rounded-lg md:flex"
         >
           <div class="overlay absolute inset-0 z-[2] bg-primary"></div>
           <img
@@ -101,6 +95,7 @@
         </div>
       </div>
     </div>
+    <div class="h-svh"></div>
   </section>
 </template>
 
