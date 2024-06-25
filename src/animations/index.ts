@@ -14,8 +14,7 @@ const navbarScale = (selector: string, trigger: string) => {
       scrollTrigger: {
         trigger: trigger,
         // start: '15% 10%',
-        start: 'center top',
-        markers: true,
+        start: 'center center',
         toggleActions: 'play none none reverse',
       },
       duration: 0.3,
@@ -25,6 +24,39 @@ const navbarScale = (selector: string, trigger: string) => {
   );
 };
 
+// ! common animations
+
+const yToZero = (id: string) => {
+  gsap.to(id, {
+    y: '0%',
+    duration: 0.4,
+    ease: 'power1.inOut',
+    stagger: 0.1,
+  });
+};
+
+const yReset = (id: string) => {
+  gsap.set(id, {
+    y: '100%',
+  });
+};
+
+const fadeIn = (id: string, opacity: number = 1) => {
+  gsap.to(id, {
+    opacity: opacity,
+    duration: 0.5,
+    ease: 'power4.inOut',
+    stagger: 0.1,
+  });
+};
+
+const resetOpacity = (id: string, opacity: number = 0) => {
+  gsap.set(id, {
+    opacity: opacity,
+  });
+};
+
+// ! Magneto effects
 const activateMagneto = (
   event: MouseEvent,
   magneto: Ref<HTMLElement>,
@@ -120,36 +152,6 @@ const navbarLeave = (id: string) => {
   });
 };
 
-const yToZero = (id: string) => {
-  gsap.to(id, {
-    y: '0%',
-    duration: 0.4,
-    ease: 'power1.inOut',
-    stagger: 0.1,
-  });
-};
-
-const yReset = (id: string) => {
-  gsap.set(id, {
-    y: '100%',
-  });
-};
-
-const fadeIn = (id: string, opacity: number = 1) => {
-  gsap.to(id, {
-    opacity: opacity,
-    duration: 0.5,
-    ease: 'power4.inOut',
-    stagger: 0.1,
-  });
-};
-
-const resetOpacity = (id: string, opacity: number = 0) => {
-  gsap.set(id, {
-    opacity: opacity,
-  });
-};
-
 const animateNavbarEnter = (
   navbarSelector: string,
   navbarLinksSelector: string,
@@ -170,11 +172,11 @@ const animateNavbarLeave = (
   resetOpacity(contactSelector);
 };
 
-// Loading animation
+// ! Loading animation
 const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
-    delay: 3,
+    delay: 2.5,
     bottom: '100%',
     duration: 1,
     ease: 'power2.inOut',
@@ -188,17 +190,21 @@ const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
       ease: 'power2.inOut',
       onComplete: () => {
         gsap.set('#loading-screen', { display: 'none' });
-        animateHeroNav();
+      },
+      onStart: () => {
+        setTimeout(() => {
+          animateHeroNav();
+        }, 500);
       },
     },
     '<20%',
   );
 };
 
-const animateLoadingText = (index: number) => {
+const animateLoadingTextContainer = () => {
   gsap.fromTo(
     '#text',
-    (index == 0 ? 1 : 0.15) / 2,
+    1,
     {
       yoyo: true,
       opacity: 0,
@@ -210,7 +216,7 @@ const animateLoadingText = (index: number) => {
   );
 };
 
-const animateLoadingText2 = (id: string) => {
+const animateLoadingText = (id: string) => {
   gsap.to(id, {
     y: 0,
     duration: 1,
@@ -231,30 +237,32 @@ const animateLoadingText2 = (id: string) => {
   });
 };
 
-// Home
-
+// ! Hero
 const animateHeroNav = () => {
   gsap.to(['#my-name', 'header'], {
     y: 0,
-    duration: 1.3,
+    duration: 0.8,
     ease: 'power4.inOut',
   });
 
   gsap.to('.overlay', {
     y: '100%',
-    duration: 1.3,
+    duration: 0.8,
     ease: 'power4.inOut',
+    onComplete: () => {
+      gsap.set('.overlay', { display: 'none' });
+    },
   });
 
   gsap.to('#profile-img', {
     scale: 1,
-    duration: 1.3,
+    duration: 0.8,
     ease: 'power4.inOut',
   });
 
   gsap.to('#whoAmI .letters', {
     delay: 0.3,
-    duration: 1.3,
+    duration: 0.8,
     y: 0,
     autoAlpha: 1,
     stagger: 0.005,
@@ -264,7 +272,7 @@ const animateHeroNav = () => {
   gsap.to(['#location', '#art'], {
     opacity: 1,
     scale: 1,
-    duration: 1.3,
+    duration: 0.8,
     ease: 'power3.inOut',
   });
 };
@@ -277,6 +285,6 @@ export {
   animateNavbarLeave,
   animateLoadingPath,
   animateLoadingText,
-  animateLoadingText2,
+  animateLoadingTextContainer,
   animateHeroNav,
 };

@@ -38,7 +38,7 @@
   import {
     animateLoadingPath,
     animateLoadingText,
-    animateLoadingText2,
+    animateLoadingTextContainer,
   } from '@/animations';
 
   const emit = defineEmits(['isLoading']);
@@ -76,8 +76,8 @@
   onMounted(() => {
     index.value++;
     pathData.value = initialPath.value;
-    animateLoadingText(index.value);
-    animateLoadingText2('.loading-text');
+    animateLoadingTextContainer();
+    animateLoadingText('.loading-text');
 
     animateLoadingPath(path as Ref<SVGPathElement>, targetPath.value);
   });
