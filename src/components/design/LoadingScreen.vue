@@ -6,7 +6,7 @@
   >
     <div class="size-full w-full flex-col">
       <svg
-        class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary-dark brightness-50"
+        class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary brightness-50"
       >
         <path ref="path" class="w-full" :d="pathData"></path>
       </svg>

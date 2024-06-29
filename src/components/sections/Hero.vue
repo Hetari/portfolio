@@ -43,7 +43,7 @@
       <div class="column-gap spacing-t flex grid-cols-12 flex-col md:grid">
         <div
           id="profile-container"
-          class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full w-full origin-top select-none flex-col rounded-lg md:flex"
+          class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none flex-col rounded-lg md:flex"
         >
           <div class="overlay absolute inset-0 z-[2] bg-primary"></div>
           <img
@@ -51,7 +51,7 @@
             :src="profile"
             alt="Ebrahhem profile"
             decoding="async"
-            class="block size-full scale-90 rounded-lg object-cover object-center"
+            class="block size-full scale-90 rounded-lg object-cover object-bottom brightness-110 grayscale"
           />
         </div>
 
@@ -72,22 +72,22 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug text-primary-dark"
+              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug text-tertiary/80"
             ></p>
           </div>
 
           <div
             id="location"
-            class="column-gap flex scale-0 items-start justify-between opacity-0"
+            class="column-gap flex scale-0 items-start justify-between text-tertiary opacity-0"
           >
             <div class="text-sm font-normal">
               <p class="font-fancy">15°22'22.0"N 44°10'39.5"E</p>
               <p class="font-fancy">Yemen, Sanaa</p>
             </div>
-            <p class="font-fancy animate-pulse text-sm">
+            <p class="animate-pulse font-fancy text-sm">
               SCROLL FOR MORE
               <span
-                class="font-fancy inline-block motion-safe:animate-[bounce_2s_infinite]"
+                class="inline-block font-fancy motion-safe:animate-[bounce_2s_infinite]"
                 >↓</span
               >
             </p>

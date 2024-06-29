@@ -3,7 +3,7 @@
     <div v-bind="$attrs" class="fixed right-7 top-7 z-[20]">
       <div
         id="magneto"
-        class="flex-center size-[4.5rem] cursor-pointer rounded-full bg-tertiary ease-in-out"
+        class="flex-center bg-fancy size-[4.5rem] cursor-pointer rounded-full ease-in-out"
       >
         <span class="w-[100%] text-center" id="magnetoText"></span>
       </div>

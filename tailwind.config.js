@@ -10,14 +10,11 @@ export default {
       },
       colors: {
         primary: '#E6E6E1',
-        secondary: '#CECEC5',
-        tertiary: '#A09C98',
-        fourthly: '#8f8c88',
-
-        'primary-dark': '#5B5751',
-        'secondary-dark': '#3d3a36',
-        'tertiary-dark': '#393632',
-        'fourthly-dark': '#857E74',
+        secondary: '#3d3a36',
+        tertiary: '#393632',
+        fourthly: '#857E74',
+        fancy: '#A09C98',
+        quinary: '#7c7c73',
       },
       screens: {
         '2xs': '420px',

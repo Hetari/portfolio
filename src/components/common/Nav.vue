@@ -36,7 +36,7 @@
                 class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
-                class="font-fancy -translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-10"
+                class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-10"
               >
                 {{ l.label }}
               </p>
@@ -81,7 +81,7 @@
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <h1
             id="name"
-            class="font-fancy flex items-start text-3xl font-extrabold uppercase text-secondary-dark"
+            class="flex items-start font-fancy text-3xl font-extrabold uppercase text-secondary"
           >
             hetari<span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
@@ -93,13 +93,13 @@
 
       <div class="flex">
         <p
-          class="font-fancy cursor-default select-none text-lg font-bold uppercase text-tertiary max-2xl:text-xs max-md:hidden"
+          class="text-fancy cursor-default select-none font-fancy text-lg font-bold uppercase max-2xl:text-sm max-md:hidden"
         >
           available for work and collaboration
         </p>
 
         <ul
-          class="ps-5 text-2xl font-normal text-secondary-dark max-xl:ps-10 max-lg:text-xl max-md:text-lg"
+          class="ps-5 text-2xl font-normal text-secondary max-xl:ps-10 max-lg:text-xl max-md:text-lg"
         >
           <Link
             v-for="l in navLinks"

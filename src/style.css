@@ -63,21 +63,21 @@
 
   ::-moz-selection {
     /* Code for Firefox */
-    @apply bg-primary-dark text-primary;
+    @apply bg-primary text-primary;
   }
 
   ::selection {
-    @apply bg-primary-dark text-primary;
+    @apply bg-primary text-primary;
   }
 }
 
 @layer components {
   .light-theme {
-    @apply bg-primary text-primary-dark;
+    @apply bg-primary text-primary;
   }
 
   .dark-theme {
-    @apply bg-primary-dark text-primary;
+    @apply bg-primary text-primary;
   }
 
   .flex-center {
