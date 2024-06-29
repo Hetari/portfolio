@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap, { TweenLite } from 'gsap';
 import MotionPathHelper from 'gsap/MotionPathPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Ref } from 'vue';
@@ -26,7 +26,6 @@ const navbarScale = (selector: string, trigger: string) => {
 };
 
 // ! common animations
-
 const yToZero = (id: string) => {
   gsap.to(id, {
     y: '0%',

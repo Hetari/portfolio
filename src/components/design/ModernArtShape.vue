@@ -1,15 +1,13 @@
 <template>
   <div>
     <svg
-      class="size-full"
-      viewBox="0 0 166 169"
+      class="flex rotate-90 gap-8"
+      viewBox="0 0 72 68"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M60.2136 30.1604C60.2136 46.8176 46.7343 60.3209 30.1068 60.3209C13.4793 60.3209 0 46.8176 0 30.1604C0 13.5033 13.4793 0 30.1068 0C46.7343 0 60.2136 13.5033 60.2136 30.1604Z"
-        fill="#938F8A"
-      />
-      <path d="M109.883 0L166 0L0 169H40.4777L109.883 0Z" fill="#6B645C" />
+      <path d="M72 36L36 0L0 36H12L36 12L60 36H72Z" fill="#938F8A" />
+      <path d="M72 52L36 16L0 52H12L36 28L60 52H72Z" fill="#6B645C" />
+      <path d="M72 68L36 32L0 68H12L36 44L60 68H72Z" fill="#938F8A" />
     </svg>
   </div>
 </template>
