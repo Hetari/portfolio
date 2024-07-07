@@ -1,12 +1,12 @@
 <template>
   <a
     id="button"
-    class="leading-base group pointer-events-auto relative h-full transform-none overflow-hidden rounded-full border border-fourthly bg-tertiary text-[1rem] font-semibold uppercase tracking-normal text-primary sm:text-sm md:px-5 md:py-2"
+    class="leading-base group pointer-events-auto relative h-full transform-none overflow-hidden rounded-full border border-fourthly bg-tertiary px-5 py-2 text-[1rem] font-semibold uppercase tracking-normal text-primary sm:text-sm"
     target="_blank"
     :href="url"
   >
     <span
-      class="ease-expo flex-center bg-quinary absolute bottom-0 left-0 z-10 my-auto size-full w-full translate-y-full rounded-t-[15rem] font-fancy transition-all duration-700 group-hover:translate-y-0 group-hover:rounded-none"
+      class="ease-expo flex-center absolute bottom-0 left-0 z-10 my-auto size-full w-full translate-y-full rounded-t-[15rem] bg-quinary font-fancy transition-all duration-700 group-hover:translate-y-0 group-hover:rounded-none"
     >
       {{ label }}</span
     >

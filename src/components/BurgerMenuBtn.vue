@@ -3,9 +3,12 @@
     <div v-bind="$attrs" class="fixed right-7 top-7 z-[20]">
       <div
         id="magneto"
-        class="flex-center bg-fancy size-[4.5rem] cursor-pointer rounded-full ease-in-out"
+        class="flex-center size-[4.5rem] cursor-pointer rounded-full bg-fancy ease-in-out"
       >
-        <span class="w-[100%] text-center" id="magnetoText"></span>
+        <span
+          class="w-[100%] text-center before:bg-primary after:bg-primary"
+          id="magnetoText"
+        ></span>
       </div>
     </div>
   </MagneticEffect>
@@ -21,7 +24,6 @@
     width: 40%;
     content: ' ';
     display: block;
-    background-color: #000;
     height: 1px;
     position: relative;
     margin: auto;

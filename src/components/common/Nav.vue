@@ -16,7 +16,7 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="bg-tertiary-dark fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
@@ -46,12 +46,10 @@
       </div>
 
       <div class="w-full">
-        <div class="mt-2 h-full font-normal text-tertiary">
-          <p class="text-left text-sm font-bold uppercase text-secondary">
-            Email address
-          </p>
+        <div class="mt-2 h-full font-normal text-primary">
+          <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
-            class="h-6 font-medium tracking-wider text-secondary"
+            class="h-6 font-medium tracking-wider"
             tag="p"
             label="hetari4all@gmail.com"
             url="mailto:hetari4all@gmail.com"
