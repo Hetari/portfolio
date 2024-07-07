@@ -81,8 +81,8 @@
             class="column-gap flex scale-0 items-start justify-between text-tertiary opacity-0"
           >
             <div class="text-sm font-normal">
-              <p class="font-fancy">15°22'22.0"N 44°10'39.5"E</p>
-              <p class="font-fancy">Yemen, Sanaa</p>
+              <p class="font-fancy">{{ locationPlace }}</p>
+              <p class="font-fancy">{{ locationCountry }}</p>
             </div>
             <p class="animate-pulse font-fancy text-sm">
               SCROLL FOR MORE
@@ -103,10 +103,9 @@
   import { onBeforeMount, ref } from 'vue';
   import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
+  import { heroText, locationCountry, locationPlace } from '@/data';
 
-  const whoAmI = ref(
-    'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.',
-  );
+  const whoAmI = ref(heroText);
 
   onBeforeMount(() => {
     const words = whoAmI.value.split(' ');

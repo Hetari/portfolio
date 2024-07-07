@@ -16,7 +16,7 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary-dark p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
+    class="bg-tertiary-dark fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
@@ -93,7 +93,7 @@
 
       <div class="flex">
         <p
-          class="text-fancy cursor-default select-none font-fancy text-lg font-bold uppercase max-2xl:text-sm max-md:hidden"
+          class="cursor-default select-none font-fancy text-lg font-bold uppercase text-fancy max-2xl:text-sm max-md:hidden"
         >
           available for work and collaboration
         </p>
@@ -126,6 +126,7 @@
     animateNavbarLeave,
     navbarScale,
   } from '@/animations';
+  import { navbarLinks, socialLinks, navLinks } from '@/data';
 
   const isNavbarOpen = ref(false);
 
@@ -158,42 +159,6 @@
   watch(isNavbarOpen, (newVal) => {
     emit('isLocked', newVal);
   });
-
-  const navLinks = [
-    {
-      label: 'Services',
-      url: '#',
-    },
-    {
-      label: 'Works',
-      url: '#',
-    },
-    {
-      label: 'About',
-      url: '#',
-    },
-    {
-      label: 'Contact',
-      url: '#',
-    },
-  ];
-
-  const navbarLinks = [{ label: 'Home', url: '/' }, ...navLinks];
-
-  const socialLinks = [
-    {
-      label: 'Twitter',
-      url: 'https://x.com/4Hetari',
-    },
-    {
-      label: 'GitHub',
-      url: 'https://github.com/hetari',
-    },
-    {
-      label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/hetari/',
-    },
-  ];
 </script>
 
 <style scoped>
