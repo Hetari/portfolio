@@ -5,13 +5,14 @@
     id="burger"
   />
 
-  <div
+  <!-- <div
     @click="toggleBtnClickAnimation"
     class="fixed inset-0 z-[9998] size-full select-none bg-black opacity-50"
     :class="{ hidden: !isNavbarOpen }"
-  ></div>
+  ></div> -->
 
   <!-- ! pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh]-->
+  <!--  -->
   <div
     tabindex="0"
     id="navbar"
@@ -36,7 +37,7 @@
                 class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
-                class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-10"
+                class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-5"
               >
                 {{ l.label }}
               </p>

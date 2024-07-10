@@ -6,6 +6,21 @@ import { Ref } from 'vue';
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathHelper);
 
+const animateSplitText = (id: string, duration: number = 0.8, stagger: number = 0.005, delay: number = 0.3) => {
+  gsap.to(id, {
+    scrollTrigger: {
+      trigger: id,
+      toggleActions: 'play none none reverse',
+      start: 'top 95%',
+    },
+    delay: delay,
+    duration: duration,
+    y: 0,
+    autoAlpha: 1,
+    stagger: stagger,
+    ease: 'power4.inOut',
+  });
+}
 const navbarScale = (selector: string, trigger: string) => {
   gsap.fromTo(
     selector,
@@ -260,15 +275,8 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to('#whoAmI .letters', {
-    delay: 0.3,
-    duration: 0.8,
-    y: 0,
-    autoAlpha: 1,
-    stagger: 0.005,
-    ease: 'power4.inOut',
-  });
-
+  animateSplitText('#whoAmI .letters')
+  
   gsap.to(['#location', '#art'], {
     opacity: 1,
     scale: 1,
@@ -299,4 +307,5 @@ export {
   animateLoadingText,
   animateLoadingTextContainer,
   animateHeroNav,
+  animateSplitText,
 };

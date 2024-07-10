@@ -63,11 +63,11 @@
 
   ::-moz-selection {
     /* Code for Firefox */
-    @apply bg-primary text-primary;
+    @apply bg-fourthly text-primary;
   }
 
   ::selection {
-    @apply bg-primary text-primary;
+    @apply bg-fourthly text-primary;
   }
 }
 

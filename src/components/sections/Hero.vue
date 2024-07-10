@@ -100,28 +100,21 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount, ref } from 'vue';
+  import { onBeforeMount, onMounted, ref } from 'vue';
   import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
   import { heroText, locationCountry, locationPlace } from '@/data';
+  import { textSplitter } from '@/functions';
 
   const whoAmI = ref(heroText);
 
   onBeforeMount(() => {
-    const words = whoAmI.value.split(' ');
-    const char = words.map((word) => word.split(''));
-
-    let result = '';
-    char.forEach((word) => {
-      result += '<span class="inline-block overflow-clip">';
-      word.forEach((char) => {
-        result += `<span class="letters translate-y-full inline-block ">${char}</span>`;
-      });
-      result += '</span> ';
-    });
-
-    whoAmI.value = result;
+    whoAmI.value = textSplitter(whoAmI.value);
   });
+
+  onMounted(() => {
+    
+  })
 </script>
 
 <style scoped>

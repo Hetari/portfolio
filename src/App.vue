@@ -27,12 +27,7 @@
     />
     <main class="relative mx-auto h-full max-w-[1920px]">
       <Hero />
-      <div class="relative z-20 min-h-screen w-full overflow-x-clip">
-        <section
-          id="services"
-          class="s-full h-screen rounded-t-3xl bg-[#0B0B0A]"
-        ></section>
-      </div>
+      <Services />
     </main>
     <!-- <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
       11
@@ -49,7 +44,7 @@
 <script setup lang="ts">
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
-  import { Hero } from './components/sections';
+  import { Hero, Services } from './components/sections';
   import { onMounted, ref } from 'vue';
   import { LoadingScreen } from './components/design';
 
