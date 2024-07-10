@@ -45,7 +45,7 @@
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
   import { Hero, Services } from './components/sections';
-  import { onMounted, ref } from 'vue';
+  import { onMounted } from 'vue';
   import { LoadingScreen } from './components/design';
 
   const lenis = new Lenis();
