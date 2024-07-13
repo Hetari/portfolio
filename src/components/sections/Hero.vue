@@ -45,7 +45,7 @@
           id="profile-container"
           class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none flex-col rounded-lg md:flex"
         >
-          <div class="overlay bg-flax-smoke-50 absolute inset-0 z-[2]"></div>
+          <div class="overlay bg-flax-smoke-100 absolute inset-0 z-[2]"></div>
           <img
             id="profile-img"
             :src="profile"

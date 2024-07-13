@@ -241,15 +241,17 @@ const animateLoadingText = (id: string) => {
     y: 0,
     duration: 1,
     ease: 'power2.inOut',
+    stagger: 0.1,
     onComplete: () => {
       gsap.to(id, {
-        delay: 2,
-        y: '-100%',
+        delay: 1.2,
+        opacity: 0,
         duration: 1,
         ease: 'power2.inOut',
         onComplete: () => {
           gsap.set(id, {
             y: '100%',
+            opacity: 100,
           });
         },
       });

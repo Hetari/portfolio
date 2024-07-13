@@ -16,15 +16,15 @@
         class="text-flax-smoke-50/75 z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold opacity-0 md:text-6xl"
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
-        <p class="overflow-clip">
+        <h1 class="overflow-clip">
           <span class="loading-text inline-block translate-y-full">
-            {{ text1 }}
+            Hetari
           </span>
-        </p>
+        </h1>
 
         <p class="overflow-clip">
           <span class="loading-text inline-block translate-y-full opacity-70">
-            &copy; {{ text2 }}
+            &copy; Folio {{ new Date().getFullYear() }}
           </span>
         </p>
       </div>
@@ -42,9 +42,6 @@
   } from '@/animations';
 
   const emit = defineEmits(['isLoading']);
-
-  const text1 = 'Hetari';
-  const text2 = 'Folio 2024';
 
   const isLoading = ref(false);
   const index = ref(-1);
@@ -77,7 +74,7 @@
     index.value++;
     pathData.value = initialPath.value;
     animateLoadingTextContainer();
-    animateLoadingText('.loading-text');
+    animateLoadingText('span.loading-text');
 
     animateLoadingPath(path as Ref<SVGPathElement>, targetPath.value);
   });

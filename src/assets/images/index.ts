@@ -1,3 +1,3 @@
-import profile from './profile.jpg';
+import profile from './profile.webp';
 
 export { profile };
