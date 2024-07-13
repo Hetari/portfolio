@@ -63,21 +63,17 @@
 
   ::-moz-selection {
     /* Code for Firefox */
-    @apply bg-fourthly text-primary;
+    @apply text-flax-smoke-100 bg-flax-smoke-800;
   }
 
   ::selection {
-    @apply bg-fourthly text-primary;
+    @apply text-flax-smoke-100 bg-flax-smoke-800;
   }
 }
 
 @layer components {
   .light-theme {
-    @apply bg-primary text-primary;
-  }
-
-  .dark-theme {
-    @apply bg-primary text-primary;
+    @apply bg-flax-smoke-100 text-flax-smoke-800;
   }
 
   .flex-center {
@@ -85,8 +81,6 @@
   }
 
   .common-padding {
-    /* @apply px-2 py-6 sm:px-4 sm:py-8 md:px-12 md:py-8 lg:px-28 lg:py-10; */
-    /* @apply px-2 pt-6 sm:px-4 sm:pt-8 md:px-12 md:pt-8 lg:px-48 lg:pt-12; */
     @apply padding-x padding-y;
   }
 
@@ -113,7 +107,4 @@
   .leading-base {
     line-height: 130%;
   }
-  /* .nav-link {
-    @apply cursor-pointer;
-  } */
 }

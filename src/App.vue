@@ -29,15 +29,6 @@
       <Hero />
       <Services />
     </main>
-    <!-- <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
-      11
-    </div>
-    <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
-      22
-    </div>
-    <div class="relative z-20 h-screen min-h-screen w-full overflow-x-clip">
-      33
-    </div> -->
   </div>
 </template>
 

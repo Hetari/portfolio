@@ -6,11 +6,13 @@
     <h1
       id="what-i-do"
       v-html="whatIDo"
-      class="font-fancy text-4xl font-extrabold uppercase sm:text-7xl md:text-8xl lg:text-9xl"
+      class="text-flax-smoke-50 font-fancy text-4xl font-extrabold uppercase sm:text-7xl md:text-8xl lg:text-9xl"
     ></h1>
 
-    <div class="mt-14 flex items-center justify-end gap-[5%]">
-      <p class="self-start text-2xl text-quinary">( SERVICES )</p>
+    <div
+      class="text-flax-smoke-300 mt-14 flex items-center justify-end gap-[5%]"
+    >
+      <p class="text-flax-smoke-300/85 self-start text-2xl">( SERVICES )</p>
       <p class="w-1/3 self-start text-3xl font-semibold text-fancy">
         My obsession is to craft memorable digital experiences that represent
         your brand, serve a meaningful purpose, and drive tangible business

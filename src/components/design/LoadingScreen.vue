@@ -6,14 +6,14 @@
   >
     <div class="size-full w-full flex-col">
       <svg
-        class="absolute top-0 z-0 h-[calc(100%_+_300px)] w-full fill-tertiary brightness-50"
+        class="fill-flax-smoke-800 absolute top-0 z-0 h-[calc(100%_+_300px)] w-full brightness-50"
       >
         <path ref="path" class="w-full" :d="pathData"></path>
       </svg>
       <div
         id="text"
         style="transform: translateZ(0px)"
-        class="z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold text-primary/75 opacity-0 md:text-6xl"
+        class="text-flax-smoke-50/75 z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold opacity-0 md:text-6xl"
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
         <p class="overflow-clip">

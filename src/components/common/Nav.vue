@@ -17,12 +17,12 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-tertiary p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
+    class="bg-flax-smoke-900 fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-[19] w-full">
-        <ul class="mt-12 font-bold text-primary md:mt-24" id="navLinks">
+        <ul class="text-flax-smoke-50 mt-12 font-bold md:mt-24" id="navLinks">
           <li
             class="overflow-y-clip"
             v-for="l in navbarLinks"
@@ -34,7 +34,7 @@
               class="group my-2 flex w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
             >
               <span
-                class="h-4 w-4 scale-0 rounded-full bg-primary opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
+                class="bg-flax-smoke-50 h-4 w-4 scale-0 rounded-full opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
                 class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-5"
@@ -47,7 +47,7 @@
       </div>
 
       <div class="w-full">
-        <div class="mt-2 h-full font-normal text-primary">
+        <div class="text-flax-smoke-50 mt-2 h-full font-normal">
           <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
             class="h-6 font-medium tracking-wider"
@@ -80,7 +80,7 @@
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <h1
             id="name"
-            class="flex items-start font-fancy text-3xl font-extrabold uppercase text-secondary"
+            class="flex items-start font-fancy text-3xl font-extrabold uppercase"
           >
             hetari<span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
@@ -92,13 +92,13 @@
 
       <div class="flex">
         <p
-          class="cursor-default select-none font-fancy text-lg font-bold uppercase text-fancy max-2xl:text-sm max-md:hidden"
+          class="text-flax-smoke-400 cursor-default select-none font-fancy text-lg font-bold uppercase max-2xl:text-sm max-md:hidden"
         >
           available for work and collaboration
         </p>
 
         <ul
-          class="ps-5 text-2xl font-normal text-secondary max-xl:ps-10 max-lg:text-xl max-md:text-lg"
+          class="ps-5 text-2xl font-medium max-xl:ps-10 max-lg:text-xl max-md:text-lg"
         >
           <Link
             v-for="l in navLinks"

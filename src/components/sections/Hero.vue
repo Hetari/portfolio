@@ -45,7 +45,7 @@
           id="profile-container"
           class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none flex-col rounded-lg md:flex"
         >
-          <div class="overlay absolute inset-0 z-[2] bg-primary"></div>
+          <div class="overlay bg-flax-smoke-50 absolute inset-0 z-[2]"></div>
           <img
             id="profile-img"
             :src="profile"
@@ -72,13 +72,13 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug text-tertiary/80"
+              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug"
             ></p>
           </div>
 
           <div
             id="location"
-            class="column-gap flex scale-0 items-start justify-between text-tertiary opacity-0"
+            class="column-gap text-flax-smoke-950 flex scale-0 items-start justify-between opacity-0"
           >
             <div class="text-sm font-normal">
               <p class="font-fancy">{{ locationPlace }}</p>
@@ -112,9 +112,7 @@
     whoAmI.value = textSplitter(whoAmI.value);
   });
 
-  onMounted(() => {
-    
-  })
+  onMounted(() => {});
 </script>
 
 <style scoped>

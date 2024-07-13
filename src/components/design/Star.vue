@@ -4,7 +4,7 @@
     <span>
       <svg
         style="vertical-align: top"
-        class="hide inline-block size-[calc((50vw)_/_24_*_1.9)] animate-[spin_5s_linear_infinite] fill-secondary"
+        class="hide fill-flax-smoke-800 inline-block size-[calc((50vw)_/_24_*_1.9)] animate-[spin_5s_linear_infinite]"
         viewBox="0 0 75 76"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
