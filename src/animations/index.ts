@@ -10,7 +10,7 @@ const animateSplitText = (
   id: string,
   duration: number = 0.8,
   stagger: number = 0.005,
-  delay: number = 0.3,
+  delay: number = 0,
 ) => {
   gsap.to(id, {
     scrollTrigger: {

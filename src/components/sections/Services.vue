@@ -6,14 +6,18 @@
     <h1
       id="what-i-do"
       v-html="whatIDo"
-      class="text-flax-smoke-50 font-fancy text-4xl font-extrabold uppercase sm:text-7xl md:text-8xl lg:text-9xl"
+      class="font-fancy text-[calc(3.125rem_+_((1vw_-_6.4px)_*_6.0938))] font-extrabold uppercase text-flax-smoke-50"
     ></h1>
 
-    <div
-      class="text-flax-smoke-300 mt-14 flex items-center justify-end gap-[5%]"
-    >
-      <p class="text-flax-smoke-300/85 self-start text-2xl">( SERVICES )</p>
-      <p class="w-1/3 self-start text-3xl font-semibold text-fancy">
+    <div class="mt-14 flex justify-end gap-[5%] text-flax-smoke-300">
+      <p
+        class="text-nowrap text-end text-[calc(1rem_+_((1vw_-_6.4px)_*_0.625))] text-flax-smoke-300/85"
+      >
+        ( SERVICES )
+      </p>
+      <p
+        class="text-fancy w-full text-balance text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] sm:w-2/5 sm:font-semibold"
+      >
         My obsession is to craft memorable digital experiences that represent
         your brand, serve a meaningful purpose, and drive tangible business
         results.
@@ -34,6 +38,6 @@
   });
 
   onMounted(() => {
-    animateSplitText('#what-i-do .letters', 1, 0.05, 0);
+    animateSplitText('#what-i-do .letters', 0.7, 0.01, 0);
   });
 </script>

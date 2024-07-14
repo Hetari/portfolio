@@ -1,7 +1,7 @@
 <template>
   <BurgerMenuBtn
     @click="toggleBtnClickAnimation"
-    class="z-[9999] scale-0"
+    class="z-[9999] scale-0 drop-shadow-lg"
     id="burger"
   />
 
