@@ -17,12 +17,12 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="esc()"
-    class="bg-flax-smoke-900 fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1%] z-[9998] h-[98vh] w-full translate-x-full select-none divide-dotted rounded-s-lg bg-flax-smoke-900 p-10 focus:outline-none max-md:w-[98%] md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-[19] w-full">
-        <ul class="text-flax-smoke-50 mt-12 font-bold md:mt-24" id="navLinks">
+        <ul class="mt-12 font-bold text-flax-smoke-50 md:mt-24" id="navLinks">
           <li
             class="overflow-y-clip"
             v-for="l in navbarLinks"
@@ -34,7 +34,7 @@
               class="group my-2 flex w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
             >
               <span
-                class="bg-flax-smoke-50 h-4 w-4 scale-0 rounded-full opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
+                class="h-4 w-4 scale-0 rounded-full bg-flax-smoke-50 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
                 class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-5"
@@ -47,7 +47,7 @@
       </div>
 
       <div class="w-full">
-        <div class="text-flax-smoke-50 mt-2 h-full font-normal">
+        <div class="mt-2 h-full font-normal text-flax-smoke-50">
           <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
             class="h-6 font-medium tracking-wider"
@@ -92,7 +92,7 @@
 
       <div class="flex">
         <p
-          class="text-flax-smoke-400 cursor-default select-none font-fancy text-lg font-bold uppercase max-2xl:text-sm max-md:hidden"
+          class="cursor-default select-none font-fancy text-lg font-bold uppercase text-flax-smoke-400 max-2xl:text-sm max-md:hidden"
         >
           available for work and collaboration
         </p>
