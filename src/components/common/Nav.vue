@@ -90,23 +90,25 @@
         </div>
       </MagneticEffect>
 
-      <div class="flex">
+      <div class="flex justify-start">
         <p
           class="cursor-default select-none font-fancy text-lg font-bold uppercase text-flax-smoke-400 max-2xl:text-sm max-md:hidden"
         >
           available for work and collaboration
         </p>
-
+      </div>
+      <div class="flex">
+        <!-- ps-5 max-xl:ps-10  -->
         <ul
-          class="ps-5 text-2xl font-medium max-xl:ps-10 max-lg:text-xl max-md:text-lg"
+          class="flex flex-1 gap-4 overflow-y-hidden text-2xl font-medium max-lg:text-xl max-md:text-lg"
         >
           <Link
-            v-for="l in navLinks"
+            v-for="(l, index) in navLinks"
             :key="l.label"
             tag="li"
-            :label="l.label"
+            :label="l.label + (index !== navLinks.length - 1 ? ' ,' : '')"
             :url="l.url"
-            class="h-6 sm:h-8"
+            class="h-[50%]"
           />
         </ul>
       </div>
