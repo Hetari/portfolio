@@ -60,7 +60,7 @@
         <div
           class="col-span-8 col-start-5 flex flex-col justify-between gap-y-12 sm:gap-y-6 lg:gap-y-24"
         >
-          <div class="column-gap flex items-start justify-between">
+          <div class="column-gap flex items-center justify-between">
             <ModernArtShape
               id="art"
               class="w-16 flex-shrink-0 scale-0 opacity-0 sm:block sm:w-20 md:w-32 xl:w-40 2xl:w-56 3xl:w-60"
@@ -102,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount, onMounted, ref } from 'vue';
+  import { onBeforeMount, ref } from 'vue';
   import { MyName, Star, ModernArtShape } from '../design';
   import { profile } from '@/assets/images';
   import { heroText, locationCountry, locationPlace } from '@/data';
@@ -113,6 +113,4 @@
   onBeforeMount(() => {
     whoAmI.value = textSplitter(whoAmI.value);
   });
-
-  onMounted(() => {});
 </script>
