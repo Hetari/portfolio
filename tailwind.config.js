@@ -44,6 +44,11 @@ export default {
         '3xl': '1920px',
         '4xl': '2560px',
       },
+      maxWidth: {
+        '8xl': '1920px',
+        '9xl': '2560px',
+        '10xl': '3200px',
+      },
     },
   },
   plugins: [],

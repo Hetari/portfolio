@@ -21,11 +21,9 @@
     </div>
 
     <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
-    <Navbar
-      @isLocked="LockeScroll"
-      class="padding-x absolute inset-0 mx-auto max-w-[1920px]"
-    />
-    <main class="relative mx-auto h-full max-w-[1920px]">
+    <Navbar @isLocked="LockeScroll" class="padding-x absolute inset-0" />
+    <!-- max-w-9xl mx-auto -->
+    <main class="relative h-full">
       <Hero />
       <Services />
     </main>

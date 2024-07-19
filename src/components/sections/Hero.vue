@@ -40,12 +40,14 @@
         </div>
       </div>
 
-      <div class="column-gap spacing-t flex grid-cols-12 flex-col md:grid">
+      <div
+        class="column-gap spacing-t flex w-full grid-cols-12 flex-col md:grid"
+      >
         <div
           id="profile-container"
           class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none flex-col rounded-lg md:flex"
         >
-          <div class="overlay bg-flax-smoke-100 absolute inset-0 z-[2]"></div>
+          <div class="overlay absolute inset-0 z-[2] bg-flax-smoke-100"></div>
           <img
             id="profile-img"
             :src="profile"
@@ -72,13 +74,13 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i text-fluid-body max-w-[33ch] overflow-clip text-balance text-start font-medium leading-snug"
+              class="who-am-i text-fluid-body max-w-[30ch] overflow-clip text-balance font-medium leading-snug lg:text-start"
             ></p>
           </div>
 
           <div
             id="location"
-            class="column-gap text-flax-smoke-950 flex scale-0 items-start justify-between opacity-0"
+            class="column-gap flex scale-0 items-start justify-between text-flax-smoke-950 opacity-0"
           >
             <div class="text-sm font-normal">
               <p class="font-fancy">{{ locationPlace }}</p>

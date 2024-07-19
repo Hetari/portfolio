@@ -63,11 +63,11 @@
 
   ::-moz-selection {
     /* Code for Firefox */
-    @apply text-flax-smoke-100 bg-flax-smoke-800;
+    @apply bg-flax-smoke-800 text-flax-smoke-100;
   }
 
   ::selection {
-    @apply text-flax-smoke-100 bg-flax-smoke-800;
+    @apply bg-flax-smoke-800 text-flax-smoke-100;
   }
 }
 
