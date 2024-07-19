@@ -5,11 +5,11 @@
     id="burger"
   />
 
-  <!-- <div
+  <div
     @click="toggleBtnClickAnimation"
     class="fixed inset-0 z-[9998] size-full select-none bg-black opacity-50"
     :class="{ hidden: !isNavbarOpen }"
-  ></div> -->
+  ></div>
 
   <!-- ! pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh]-->
   <!--  -->
@@ -100,7 +100,7 @@
       <div class="flex">
         <!-- ps-5 max-xl:ps-10  -->
         <ul
-          class="flex-1 gap-2 overflow-y-hidden text-sm font-medium max-sm:ps-10 md:flex md:gap-4 md:text-2xl lg:text-3xl"
+          class="flex-1 gap-2 overflow-y-hidden text-sm font-medium max-sm:ps-10 md:flex md:gap-4 md:text-2xl xl:text-3xl"
         >
           <Link
             v-for="(l, index) in navLinks"

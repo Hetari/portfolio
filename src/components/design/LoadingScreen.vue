@@ -4,16 +4,18 @@
     id="loading-screen"
     class="flex-center fixed bottom-0 z-[99999] size-full cursor-wait"
   >
-    <div class="size-full w-full flex-col">
+    <div class="size-full flex-col">
       <svg
-        class="fill-flax-smoke-800 absolute top-0 z-0 h-[calc(100%_+_300px)] w-full brightness-50"
+        :width="width"
+        :height="height * 2"
+        class="absolute top-0 z-0 h-[calc(100%_+_300px)] fill-flax-smoke-800 brightness-50"
       >
         <path ref="path" class="w-full" :d="pathData"></path>
       </svg>
       <div
         id="text"
         style="transform: translateZ(0px)"
-        class="text-flax-smoke-50/75 z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold opacity-0 md:text-6xl"
+        class="z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold text-flax-smoke-50/75 opacity-0 md:text-6xl"
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
         <h1 class="overflow-clip">
@@ -25,6 +27,20 @@
         <p class="overflow-clip">
           <span class="loading-text inline-block translate-y-full opacity-70">
             &copy; Folio {{ new Date().getFullYear() }}
+          </span>
+        </p>
+
+        <p class="overflow-clip font-normal">
+          <span
+            class="loading-text absolute bottom-10 left-16 inline-block font-mono text-lg"
+          >
+            Version 1.0v
+          </span>
+
+          <span
+            class="loading-text absolute bottom-10 right-16 inline-block font-mono text-lg"
+          >
+            Loading...
           </span>
         </p>
       </div>
@@ -61,6 +77,7 @@
       multiplier = 0.2;
     }
 
+    // multiplier *= -1;
     return height.value + height.value * multiplier;
   });
   const initialPath = ref(
@@ -79,6 +96,7 @@
     animateLoadingPath(path as Ref<SVGPathElement>, targetPath.value);
   });
 
+  // TODO: remove it
   watch(
     [width, height],
     () => {

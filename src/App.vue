@@ -2,9 +2,9 @@
   <LoadingScreen v-cloak="true" />
 
   <div v-cloak="true">
-    <div class="relative size-full overflow-clip">
+    <div class="pointer-events-none fixed inset-0 z-50 overflow-clip">
       <svg
-        class="pointer-events-none fixed inset-0 z-30 size-full object-cover object-center"
+        class="size-full object-cover object-center"
         xmlns="http://www.w3.org/2000/svg"
       >
         <filter id="noise" x="0" y="0">
@@ -16,7 +16,12 @@
           />
           <feBlend mode="screen" />
         </filter>
-        <rect class="size-full" filter="url(#noise)" opacity="0.15" />
+        <rect
+          ref="noise"
+          class="size-full"
+          filter="url(#noise)"
+          opacity="0.15"
+        />
       </svg>
     </div>
 
@@ -34,8 +39,12 @@
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
   import { Hero, Services } from './components/sections';
-  import { onMounted } from 'vue';
+  import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from './components/design';
+  import { useWindowSize } from '@vueuse/core';
+
+  const { width, height } = useWindowSize();
+  const noise: Ref<HTMLElement | null> = ref(null);
 
   const lenis = new Lenis();
   function raf(time: number) {
@@ -56,5 +65,12 @@
       window.scrollTo(0, 0);
       requestAnimationFrame(raf);
     }, 2000);
+  });
+
+  watch([width, height], () => {
+    if (noise.value) {
+      noise.value.style.height = `${height.value}px`;
+      noise.value.style.width = `${width.value}px`;
+    }
   });
 </script>
