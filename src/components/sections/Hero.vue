@@ -116,13 +116,3 @@
 
   onMounted(() => {});
 </script>
-
-<style scoped>
-  .column-gap {
-    column-gap: 2.5rem;
-  }
-
-  .text-fluid-body {
-    font-size: clamp(1rem, 0.8571rem + 1.4143vi, 2.5rem);
-  }
-</style>
