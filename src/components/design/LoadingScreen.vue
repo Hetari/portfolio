@@ -32,13 +32,13 @@
 
         <p class="overflow-clip font-normal">
           <span
-            class="loading-text absolute bottom-10 left-16 inline-block font-mono text-lg"
+            class="loading-text absolute bottom-10 left-5 inline-block font-mono text-lg sm:left-16"
           >
             Version 1.0v
           </span>
 
           <span
-            class="loading-text absolute bottom-10 right-16 inline-block font-mono text-lg"
+            class="loading-text absolute bottom-10 right-5 inline-block font-mono text-lg sm:right-16"
           >
             Loading...
           </span>

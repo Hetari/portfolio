@@ -94,20 +94,23 @@
 
     const topSmallScreen = [
       'top-[calc(0rem_+_20vh)]',
-      'top-[calc(5.75rem_+_20vh)]',
-      'top-[calc(11.5rem_+_20vh)]',
+      'top-[calc(6rem_+_20vh)]',
+      'top-[calc(12rem_+_20vh)]',
     ];
 
     const topLargeScreen = [
-      `lg:top-[calc(${index * 8}rem_+_10vh)]`,
-      `lg:top-[calc(${index * 8}rem_+_10vh)]`,
-      `lg:top-[calc(${index * 8}rem_+_10vh)]`,
+      `lg:top-[calc(0rem_+_10vh)]`,
+      `lg:top-[calc(8rem_+_10vh)]`,
+      `lg:top-[calc(28rem_+_10vh)]`,
     ];
 
-    const mbSmallScreen = ['mb-[17.25rem]', 'mb-[11.5rem]', 'mb-[5.75rem]'];
+    const mbSmallScreen = ['mb-[16rem]', 'mb-[12rem]', 'mb-[6rem]'];
     const mbLargeScreen = ['lg:mb-[24rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
 
-    return `${baseClasses} ${topSmallScreen[index]} ${mbSmallScreen[index]} ${topLargeScreen[index]} ${mbLargeScreen[index]}`;
+    return `${baseClasses} ${topSmallScreen[index]} ${mbSmallScreen[index]} 
+    ${topLargeScreen[index]}
+     ${mbLargeScreen[index]}
+   `;
   };
 
   onBeforeMount(() => {
