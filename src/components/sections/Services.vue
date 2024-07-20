@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="services"
-    class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
-  >
+  <section id="services" class="mb-20">
     <div class="flex w-full flex-col">
       <h1
         id="what-i-do"
@@ -50,9 +47,6 @@
         /> -->
       </div>
     </div>
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
   </section>
 </template>
 

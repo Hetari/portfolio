@@ -8,7 +8,7 @@ gsap.registerPlugin(MotionPathHelper);
 
 const animateSplitText = (
   id: string,
-  textId: string,
+  textId: string = '',
   duration: number = 0.8,
   stagger: number = 0.005,
   delay: number = 0,

@@ -30,7 +30,12 @@
     <!-- max-w-9xl mx-auto -->
     <main class="relative h-full">
       <Hero />
-      <Services />
+      <div
+        class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
+      >
+        <Services />
+        <Works />
+      </div>
     </main>
   </div>
 </template>
@@ -38,7 +43,7 @@
 <script setup lang="ts">
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
-  import { Hero, Services } from './components/sections';
+  import { Hero, Services, Works } from './components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from './components/design';
   import { useWindowSize } from '@vueuse/core';
