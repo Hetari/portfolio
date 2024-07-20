@@ -1,18 +1,19 @@
 <template>
   <div class="text-[calc(2rem_+_((1vw_-_6.4px)_*_3.75))]">
-    <div class="flex items-center justify-between gap-x-4 md:gap-x-6">
-      <h3 class="py-7 text-left font-extrabold sm:py-6 md:py-5 3xl:py-6">
+    <div
+      class="flex items-center justify-between gap-x-4 py-7 sm:py-6 md:gap-x-6 md:py-5 3xl:py-6"
+    >
+      <h3 class="text-left font-extrabold">
         {{ title }}
       </h3>
 
-      <img
-        src="https://randomuser.me/api/portraits/men/1.jpg"
-        class="size-10"
-        alt="fake"
-      />
+      <div
+        class="size-[calc(2rem_+_((1vw_-_6.4px)_*_3.75))] scale-75 fill-flax-smoke-500/50"
+        v-html="shape"
+      ></div>
     </div>
     <p
-      class="text-fancy w-5/6 text-[calc(1rem_+_((1vw_-_6.4px)_*_0.8813))] text-flax-smoke-300 sm:font-semibold"
+      class="text-fancy w-5/6 text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] text-flax-smoke-300 sm:font-semibold"
     >
       {{ body }}
     </p>
@@ -37,6 +38,10 @@
     },
     headings: {
       type: Array as () => string[],
+      required: true,
+    },
+    shape: {
+      type: String,
       required: true,
     },
   });

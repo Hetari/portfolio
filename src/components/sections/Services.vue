@@ -37,6 +37,7 @@
           :title="card.title"
           :body="card.body"
           :headings="card.headings"
+          :shape="card.shape"
           :class="getCardClass(index)"
         />
         <!-- 
@@ -68,6 +69,10 @@
       title: 'Web Development',
       body: 'I create unique, custom-coded websites that are tailored to your brand. I focus on scalability, performance, accessibility, and engaging animations for a memorable experience.',
       headings: ['Modern Code', 'Motion & Animations', 'SEO Optimized'],
+      shape: `<svg viewBox="0 0 200 200"  xmlns="http://www.w3.org/2000/svg">
+<path d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"/>
+</svg>
+`,
     },
     {
       title: 'Problem Solver',
@@ -77,6 +82,10 @@
         'Automation & Scripting',
         'Efficiency Improvement',
       ],
+      shape: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M127.14 200C99.9942 200 99.9943 167.423 72.8487 167.423C41.6048 167.423 0 158.386 0 127.133C0 99.9885 32.5678 99.9885 32.5678 72.8445C32.5678 41.6139 41.6048 0 72.8602 0C100.006 0 100.006 32.5774 127.151 32.5774C158.384 32.5774 200 41.6139 200 72.8675C200 100.012 167.421 100.012 167.421 127.156C167.409 158.444 158.384 200 127.14 200Z" />
+</svg>
+`,
     },
     {
       title: 'Customer Experience Enhancement',
@@ -86,15 +95,20 @@
         'Feedback Systems',
         'User Journey Optimization',
       ],
+      shape: `<svg  viewBox="0 0 200 200"  xmlns="http://www.w3.org/2000/svg">
+<path d="M100 0L170.711 29.2893L200 100L170.711 170.711L100 200L29.2893 170.711L0 100L29.2893 29.2893L100 0Z" />
+</svg>
+`,
     },
   ];
 
   const getCardClass = (index: number) => {
-    const baseClasses = 'sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]';
+    const baseClasses =
+      ' sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]  ';
 
     const topLargeScreen = [
       `lg:top-[calc(0rem_+_10vh)]`,
-      `lg:top-[calc(8rem_+_10vh)]`,
+      `lg:top-[calc(8.5rem_+_10vh)]`,
       `lg:top-[calc(28rem_+_10vh)]`,
     ];
 
@@ -104,23 +118,24 @@
       'top-[calc(19rem_+_10vh)]',
     ];
 
-    const topMdScreen = [
-      'md:top-[calc(0rem_+_20vh)]',
-      'md:top-[calc(6rem_+_20vh)]',
-      'md:top-[calc(12rem_+_20vh)]',
-    ];
+    // const topMdScreen = [
+    //   'md:top-[calc(0rem_+_20vh)]',
+    //   'md:top-[calc(6rem_+_20vh)]',
+    //   'md:top-[calc(12rem_+_20vh)]',
+    // ];
 
-    const mbLargeScreen = ['lg:mb-[24rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
+    const mbLargeScreen = ['lg:mb-[22rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
+    // const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
+    const mbSmallScreen = ['mb-[9.5rem]', 'mb-[7rem]', 'mb-[0rem]'];
 
-    const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
-
-    const mbSmallScreen = ['mb-[11rem]', 'mb-[7rem]', 'mb-[0rem]'];
-
-    return `${baseClasses} ${topSmallScreen[index]} ${mbSmallScreen[index]}
+    // ${topMdScreen[index]}
+    // ${mbMdScreen[index]}
+    return `${baseClasses}
+     ${topSmallScreen[index]}
+     ${mbSmallScreen[index]}
     ${topLargeScreen[index]}
      ${mbLargeScreen[index]}
-     ${topMdScreen[index]}
-     ${mbMdScreen[index]}`;
+     `;
   };
 
   onBeforeMount(() => {
