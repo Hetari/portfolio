@@ -8,7 +8,7 @@ gsap.registerPlugin(MotionPathHelper);
 
 const animateSplitText = (
   id: string,
-  textId: string = '',
+  textId: string,
   duration: number = 0.8,
   stagger: number = 0.005,
   delay: number = 0,
@@ -217,9 +217,10 @@ const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
         gsap.set('#loading-screen', { display: 'none' });
       },
       onStart: () => {
-        window.scrollTo(0, 0);
         setTimeout(() => {
           animateHeroNav();
+          document.body.classList.remove('stop-scrolling');
+          window.scrollTo(0, 0);
         }, 250);
       },
     },
@@ -288,7 +289,7 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  animateSplitText('#whoAmI .letters');
+  animateSplitText('#whoAmI .letters', '#whoAmI .letters');
 
   gsap.to(['#location', '#art'], {
     opacity: 1,
