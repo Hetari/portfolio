@@ -212,6 +212,7 @@ const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
         gsap.set('#loading-screen', { display: 'none' });
       },
       onStart: () => {
+        window.scrollTo(0, 0);
         setTimeout(() => {
           animateHeroNav();
         }, 250);

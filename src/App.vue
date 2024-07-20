@@ -62,7 +62,6 @@
 
   onMounted(async () => {
     setTimeout(() => {
-      window.scrollTo(0, 0);
       requestAnimationFrame(raf);
     }, 2000);
   });

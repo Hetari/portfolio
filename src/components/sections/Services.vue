@@ -123,14 +123,22 @@
     //   'md:top-[calc(6rem_+_20vh)]',
     //   'md:top-[calc(12rem_+_20vh)]',
     // ];
+    const topMdScreen = [
+      'md:top-[calc(0rem_+_20vh)]',
+      'md:top-[calc(6rem_+_20vh)]',
+      'md:top-[calc(14rem_+_20vh)]',
+    ];
 
     const mbLargeScreen = ['lg:mb-[22rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
+
     // const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
+    const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
+
     const mbSmallScreen = ['mb-[9.5rem]', 'mb-[7rem]', 'mb-[0rem]'];
 
-    // ${topMdScreen[index]}
-    // ${mbMdScreen[index]}
     return `${baseClasses}
+      ${topMdScreen[index]}
+    ${mbMdScreen[index]}
      ${topSmallScreen[index]}
      ${mbSmallScreen[index]}
     ${topLargeScreen[index]}
