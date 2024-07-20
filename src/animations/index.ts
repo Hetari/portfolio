@@ -8,14 +8,19 @@ gsap.registerPlugin(MotionPathHelper);
 
 const animateSplitText = (
   id: string,
+  textId: string,
   duration: number = 0.8,
   stagger: number = 0.005,
   delay: number = 0,
 ) => {
   gsap.to(id, {
+    onStart: () => {
+      fadeIn(textId, 100, 2);
+    },
+
     scrollTrigger: {
       trigger: id,
-      toggleActions: 'play none none reverse',
+      toggleActions: 'play none none none',
       start: 'top 95%',
     },
     delay: delay,
@@ -61,10 +66,10 @@ const yReset = (id: string) => {
   });
 };
 
-const fadeIn = (id: string, opacity: number = 1) => {
+const fadeIn = (id: string, opacity: number = 1, duration: number = 0.5) => {
   gsap.to(id, {
     opacity: opacity,
-    duration: 0.5,
+    duration: duration,
     ease: 'power4.inOut',
     stagger: 0.1,
   });

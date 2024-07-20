@@ -1,5 +1,4 @@
 <template>
-  <!-- overflow-x-clip  -->
   <section
     id="services"
     class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
@@ -12,7 +11,8 @@
       ></h1>
 
       <div
-        class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 lg:grid"
+        id="services-text"
+        class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
       >
         <p
           class="col-start-0 col-span-4 text-nowrap text-center text-[calc(1rem_+_((1vw_-_6.4px)_*_0.625))] text-flax-smoke-300/85 md:col-start-4"
@@ -151,6 +151,6 @@
   });
 
   onMounted(() => {
-    animateSplitText('#what-i-do .letters', 0.7, 0.01, 0);
+    animateSplitText('#what-i-do .letters', '#services-text', 0.7, 0.01, 0);
   });
 </script>
