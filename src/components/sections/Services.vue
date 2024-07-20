@@ -92,25 +92,35 @@
   const getCardClass = (index: number) => {
     const baseClasses = 'sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]';
 
-    const topSmallScreen = [
-      'top-[calc(0rem_+_20vh)]',
-      'top-[calc(6rem_+_20vh)]',
-      'top-[calc(12rem_+_20vh)]',
-    ];
-
     const topLargeScreen = [
       `lg:top-[calc(0rem_+_10vh)]`,
       `lg:top-[calc(8rem_+_10vh)]`,
       `lg:top-[calc(28rem_+_10vh)]`,
     ];
 
-    const mbSmallScreen = ['mb-[16rem]', 'mb-[12rem]', 'mb-[6rem]'];
+    const topSmallScreen = [
+      'top-[calc(0rem_+_10vh)]',
+      'top-[calc(5rem_+_10vh)]',
+      'top-[calc(19rem_+_10vh)]',
+    ];
+
+    const topMdScreen = [
+      'md:top-[calc(0rem_+_20vh)]',
+      'md:top-[calc(6rem_+_20vh)]',
+      'md:top-[calc(12rem_+_20vh)]',
+    ];
+
     const mbLargeScreen = ['lg:mb-[24rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
 
-    return `${baseClasses} ${topSmallScreen[index]} ${mbSmallScreen[index]} 
+    const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
+
+    const mbSmallScreen = ['mb-[11rem]', 'mb-[7rem]', 'mb-[0rem]'];
+
+    return `${baseClasses} ${topSmallScreen[index]} ${mbSmallScreen[index]}
     ${topLargeScreen[index]}
      ${mbLargeScreen[index]}
-   `;
+     ${topMdScreen[index]}
+     ${mbMdScreen[index]}`;
   };
 
   onBeforeMount(() => {
