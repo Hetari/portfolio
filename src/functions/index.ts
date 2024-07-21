@@ -18,4 +18,8 @@ const textSplitter = (text: string, isFancyFont: boolean = false): string => {
   return result;
 };
 
-export { textSplitter };
+const getElementHeight = (id: string) => {
+  return document.getElementById(id)!.offsetHeight;
+};
+
+export { textSplitter, getElementHeight };

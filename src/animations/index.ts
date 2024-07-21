@@ -311,6 +311,42 @@ const animateHeroNav = () => {
   });
 };
 
+// A little bit about me animation
+const profileEnter = (id: string) => {
+  gsap.to(id, {
+    y: '0%',
+    opacity: 1,
+    duration: 1,
+  });
+};
+const shapeChange = (id: string) => {
+  gsap.to(id, {
+    scale: 0.99,
+    y: -5,
+    scrollTrigger: {
+      trigger: id,
+      start: '0% center',
+      markers: true,
+      toggleActions: 'play none none reverse',
+    },
+
+    onStart: () => {
+      profileEnter('#profile2');
+    },
+  });
+};
+
+const divScrollDown = (id: string) => {
+  gsap.to(id, {
+    scrollTrigger: {
+      trigger: id,
+      start: 'center center',
+      scrub: 1,
+    },
+    translateY: '100%',
+  });
+};
+
 export {
   navbarScale,
   activateMagneto,
@@ -322,4 +358,6 @@ export {
   animateLoadingTextContainer,
   animateHeroNav,
   animateSplitText,
+  shapeChange,
+  divScrollDown,
 };
