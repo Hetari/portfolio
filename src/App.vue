@@ -36,17 +36,28 @@
         <Services />
         <Works />
       </div>
+      <div class="relative">
+        <LittleBitAboutMe />
+      </div>
+      <div id="divScrollDown" class="relative h-screen w-full">sdsds</div>
     </main>
   </div>
+  <div class="h-screen"></div>
 </template>
 
 <script setup lang="ts">
   import Lenis from 'lenis';
   import { Navbar } from '@/components/common';
-  import { Hero, Services, Works } from './components/sections';
+  import {
+    Hero,
+    Services,
+    Works,
+    LittleBitAboutMe,
+  } from './components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from './components/design';
   import { useWindowSize } from '@vueuse/core';
+  import { divScrollDown } from './animations';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
@@ -72,6 +83,8 @@
     setTimeout(() => {
       requestAnimationFrame(raf);
     }, 2000);
+
+    divScrollDown('#divScrollDown');
   });
 
   watch([width, height], () => {
@@ -84,7 +97,7 @@
 
 <style>
   .stop-scrolling #app {
-    max-height: 100dvh !important;
+    max-height: 100svh !important;
     overflow: hidden;
   }
 </style>

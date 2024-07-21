@@ -1,7 +1,7 @@
 <template>
   <section id="hero" class="padding-x mb-[-100svh] py-0">
     <div
-      class="sticky top-0 flex h-dvh w-full flex-col items-end justify-end pb-10 md:pb-[3%] 3xl:pb-[5%]"
+      class="sticky top-0 flex min-h-svh w-full flex-col items-end justify-end pb-10 md:pb-[3%] 3xl:pb-[5%]"
     >
       <svg
         viewBox="0 0 1186 1186"
@@ -45,7 +45,7 @@
       >
         <div
           id="profile-container"
-          class="group relative z-10 col-span-3 hidden aspect-[3/3.5] size-full origin-top select-none flex-col rounded-lg md:flex"
+          class="aspect-[3/3.5] group relative z-10 col-span-3 hidden size-full origin-top select-none flex-col rounded-lg md:flex"
         >
           <div class="overlay absolute inset-0 z-[2] bg-flax-smoke-100"></div>
           <img
