@@ -39,7 +39,6 @@
       <div class="relative">
         <LittleBitAboutMe />
       </div>
-      <div id="divScrollDown" class="relative h-screen w-full">sdsds</div>
     </main>
   </div>
   <div class="h-screen"></div>
@@ -53,11 +52,10 @@
     Services,
     Works,
     LittleBitAboutMe,
-  } from './components/sections';
+  } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
-  import { LoadingScreen } from './components/design';
+  import { LoadingScreen } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
-  import { divScrollDown } from './animations';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
@@ -83,8 +81,6 @@
     setTimeout(() => {
       requestAnimationFrame(raf);
     }, 2000);
-
-    divScrollDown('#divScrollDown');
   });
 
   watch([width, height], () => {
