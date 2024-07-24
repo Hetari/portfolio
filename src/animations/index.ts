@@ -326,7 +326,6 @@ const shapeChange = (id: string) => {
     scrollTrigger: {
       trigger: id,
       start: '0% center',
-      markers: true,
       toggleActions: 'play none none reverse',
     },
 

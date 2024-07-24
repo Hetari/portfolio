@@ -63,17 +63,17 @@
 
   ::-moz-selection {
     /* Code for Firefox */
-    @apply bg-flax-smoke-800 text-flax-smoke-100;
+    @apply bg-flax-smoke-500 text-flax-smoke-100;
   }
 
   ::selection {
-    @apply bg-flax-smoke-800 text-flax-smoke-100;
+    @apply bg-flax-smoke-500 text-flax-smoke-100;
   }
 }
 
 @layer components {
   .light-theme {
-    @apply bg-flax-smoke-100 text-flax-smoke-800;
+    @apply bg-flax-smoke-50 text-flax-smoke-800;
   }
 
   .flex-center {
