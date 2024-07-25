@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="fill-flax-smoke-800 w-full"
+    class="w-full fill-flax-smoke-800"
     viewBox="0 0 817 107"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

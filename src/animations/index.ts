@@ -32,22 +32,17 @@ const animateSplitText = (
   });
 };
 const navbarScale = (selector: string, trigger: string) => {
-  gsap.fromTo(
-    selector,
-    { scale: 0 },
-    {
-      scrollTrigger: {
-        trigger: trigger,
-        // start: '15% 10%',
-        start: '40% center',
-        //toggleActions: start, leave, enterBack, leaveBack
-        toggleActions: 'play none none reverse',
-      },
-      duration: 0.3,
-      scale: 1,
-      ease: 'power1',
+  gsap.to(selector, {
+    scrollTrigger: {
+      trigger: trigger,
+      start: 'bottom center',
+      //toggleActions: start, leave, enterBack, leaveBack
+      toggleActions: 'play none none reverse',
     },
-  );
+    duration: 0.6,
+    scale: 1,
+    ease: 'power1',
+  });
 };
 
 // ! common animations

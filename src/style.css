@@ -85,7 +85,7 @@
   }
 
   .padding-x {
-    @apply px-[5%] 3xl:px-[10%];
+    @apply px-[3%];
   }
 
   .padding-y {

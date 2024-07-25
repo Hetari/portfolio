@@ -80,7 +80,7 @@
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <h1
             id="name"
-            class="flex items-start font-fancy font-extrabold uppercase md:text-3xl"
+            class="flex items-start font-fancy text-xl font-extrabold uppercase md:text-3xl"
           >
             hetari<span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
@@ -92,7 +92,7 @@
 
       <div class="flex justify-start">
         <p
-          class="hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 max-2xl:text-sm lg:block lg:text-lg"
+          class="hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 max-2xl:text-sm md:block lg:text-lg"
         >
           available for work and collaboration
         </p>
@@ -100,7 +100,7 @@
       <div class="flex">
         <!-- ps-5 max-xl:ps-10  -->
         <ul
-          class="flex-1 gap-2 overflow-y-hidden text-sm font-medium max-sm:ps-10 md:flex md:gap-4 md:text-2xl xl:text-3xl"
+          class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 lg:gap-4 xl:text-3xl"
         >
           <Link
             v-for="(l, index) in navLinks"
@@ -108,7 +108,7 @@
             tag="li"
             :label="l.label + (index !== navLinks.length - 1 ? ' ,' : '')"
             :url="l.url"
-            class="h-[50%] max-sm:h-5"
+            class="h-[50%] max-md:h-5"
           />
         </ul>
       </div>

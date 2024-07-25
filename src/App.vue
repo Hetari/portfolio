@@ -26,7 +26,7 @@
     </div>
 
     <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
-    <Navbar @isLocked="LockeScroll" class="padding-x absolute inset-0" />
+
     <!-- max-w-9xl mx-auto -->
     <main class="relative h-full">
       <Hero />
@@ -45,8 +45,6 @@
 </template>
 
 <script setup lang="ts">
-  import Lenis from 'lenis';
-  import { Navbar } from '@/components/common';
   import {
     Hero,
     Services,
@@ -56,23 +54,10 @@
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
+  import { raf } from './main';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
-
-  const lenis = new Lenis();
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  const LockeScroll = (isLocked: boolean) => {
-    if (isLocked) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-  };
 
   onMounted(async () => {
     document.body.classList.add('stop-scrolling');
