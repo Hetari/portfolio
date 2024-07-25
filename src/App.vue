@@ -26,6 +26,7 @@
     </div>
 
     <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
+    <Navbar @isLocked="LockeScroll" />
 
     <!-- max-w-9xl mx-auto -->
     <main class="relative h-full">
@@ -54,10 +55,19 @@
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
-  import { raf } from './main';
+  import { lenis, raf } from './main';
+  import { Navbar } from './components/common';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
+
+  const LockeScroll = (isLocked: boolean) => {
+    if (isLocked) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  };
 
   onMounted(async () => {
     document.body.classList.add('stop-scrolling');

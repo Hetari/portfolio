@@ -1,7 +1,7 @@
 <template>
   <a
     id="button"
-    class="leading-base group pointer-events-auto relative h-full transform-none overflow-hidden rounded-full border border-flax-smoke-600 bg-flax-smoke-950 px-5 py-2 text-[1rem] font-semibold uppercase tracking-normal text-flax-smoke-100 sm:text-sm"
+    class="leading-base group pointer-events-auto relative h-full transform-none overflow-hidden rounded-full bg-flax-smoke-950 px-5 py-2 text-[1rem] font-semibold uppercase tracking-normal text-flax-smoke-100 sm:text-sm"
     target="_blank"
     :href="url"
   >

@@ -57,7 +57,7 @@
           />
           <div class="mt-6 flex flex-nowrap justify-start gap-x-1 sm:gap-x-4">
             <Button
-              class="contact opacity-0"
+              class="contact border border-flax-smoke-600 opacity-0"
               v-for="social in socialLinks"
               :key="social.label"
               :label="social.label"
@@ -69,7 +69,10 @@
     </div>
   </div>
 
-  <header :class="$attrs.class" class="z-20 h-fit -translate-y-full pt-6">
+  <header
+    :class="$attrs.class"
+    class="padding-x absolute inset-0 z-20 h-fit -translate-y-full pt-6"
+  >
     <nav class="flex justify-between">
       <MagneticEffect
         :magnetoStrengthVal="20"
