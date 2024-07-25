@@ -4,7 +4,7 @@
 
     <div
       id="hero"
-      class="sticky top-[10svh] flex h-[90svh] w-full flex-col items-center justify-end pb-10 md:pb-[3%] 3xl:pb-[1.5%]"
+      class="sticky top-[10svh] flex h-[92svh] w-full flex-col items-center justify-end pb-10 md:pb-[3%] 3xl:pb-[1.5%]"
     >
       <div class="w-full items-end overflow-clip">
         <div id="my-name" class="flex w-full translate-y-full items-start">
