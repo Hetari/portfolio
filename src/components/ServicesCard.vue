@@ -1,26 +1,37 @@
 <template>
-  <div class="text-[calc(2rem_+_((1vw_-_6.4px)_*_3.75))]">
+  <div class="border-t border-flax-smoke-500/50 bg-[#0B0B0A]">
     <div
-      class="flex items-center justify-between gap-x-4 py-7 sm:py-6 md:gap-x-6 md:py-5 3xl:py-6"
+      class="heading-2 justify flex flex-1 items-center justify-between py-7 sm:py-6 md:py-5 3xl:py-6"
     >
       <h3 class="text-left font-extrabold">
         {{ title }}
       </h3>
 
-      <div
-        class="size-[calc(2rem_+_((1vw_-_6.4px)_*_3.75))] scale-75 fill-flax-smoke-500/50"
-        v-html="shape"
-      ></div>
+      <div class="heading-size-3 fill-flax-smoke-500/50" v-html="shape"></div>
     </div>
-    <p
-      class="text-fancy w-5/6 text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] text-flax-smoke-300 sm:font-semibold"
-    >
-      {{ body }}
-    </p>
 
-    <div class="mt-12 font-extrabold">
-      <div v-for="(heading, index) in headings" :key="index">
-        <h3 :class="getClass(index)">{{ heading }}</h3>
+    <div
+      class="heading-4 grid w-full grid-cols-2 space-y-10 font-extrabold lg:skew-y-0"
+    >
+      <div class="col-span-1">
+        <p
+          class="text-fancy max-w-[40ch] text-base font-normal text-flax-smoke-300"
+        >
+          {{ body }}
+        </p>
+      </div>
+      <div class="">
+        <div v-for="(heading, index) in headings" :key="index">
+          <h3
+            class="flex items-center gap-3 py-3"
+            :class="{ 'border-y border-flax-smoke-500/50': index === 1 }"
+          >
+            <span class="font-mono text-base font-normal text-flax-smoke-500"
+              >{{ (index + 1).toString().padStart(2, '0') }}
+            </span>
+            {{ heading }}
+          </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -45,8 +56,4 @@
       required: true,
     },
   });
-
-  const getClass = (index: number) => {
-    return index === 1 ? 'py-4 border-y border-flax-smoke-500/50' : '';
-  };
 </script>

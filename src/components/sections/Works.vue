@@ -4,7 +4,7 @@
       <h1
         id="selectedWorks"
         v-html="formattedWorks"
-        class="text-[calc(3.125rem_+_((1vw_-_6.4px)_*_6.0938))] font-extrabold uppercase"
+        class="heading-1 font-extrabold uppercase"
       ></h1>
 
       <div
@@ -12,14 +12,14 @@
         class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
       >
         <p
-          class="col-start-0 col-span-4 text-nowrap text-center text-[calc(1rem_+_((1vw_-_6.4px)_*_0.625))] text-flax-smoke-300/85 md:col-start-4"
+          class="col-start-0 heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 md:col-start-4"
         >
           (
           <span class="inline sm:hidden">{{ selectedWorksProps.length }} </span>
           PROJECTS )
         </p>
         <p
-          class="text-fancy col-span-8 w-full text-balance text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] sm:font-semibold md:col-span-5"
+          class="text-fancy heading-4 col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
         >
           Featured client projects that have been meticulously crafted with
           passion and purpose over the years.

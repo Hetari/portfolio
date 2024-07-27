@@ -4,7 +4,7 @@
       <h1
         id="what-i-do"
         v-html="whatIDo"
-        class="text-[calc(3.125rem_+_((1vw_-_6.4px)_*_6.0938))] font-extrabold uppercase"
+        class="heading-1 font-extrabold uppercase"
       ></h1>
 
       <div
@@ -12,12 +12,12 @@
         class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
       >
         <p
-          class="col-start-0 col-span-4 text-nowrap text-center text-[calc(1rem_+_((1vw_-_6.4px)_*_0.625))] text-flax-smoke-300/85 md:col-start-4"
+          class="col-start-0 heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 md:col-start-4"
         >
           ( SERVICES )
         </p>
         <p
-          class="text-fancy col-span-8 w-full text-balance text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] sm:font-semibold md:col-span-5"
+          class="text-fancy heading-4 col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
         >
           My obsession is to craft memorable digital experiences that represent
           your brand, serve a meaningful purpose, and drive tangible business
@@ -30,12 +30,12 @@
     <div class="relative mt-12 w-full lg:mt-[10%]">
       <div class="flex flex-col justify-between gap-y-16">
         <ServicesCard
-          v-for="(card, index) in servicesCardProps"
+          v-for="card in servicesCardProps"
           :title="card.title"
           :body="card.body"
           :headings="card.headings"
           :shape="card.shape"
-          :class="getCardClass(index)"
+          class="sticky"
         />
         <!-- 
         <ServicesCard
@@ -97,47 +97,44 @@
   ];
 
   const getCardClass = (index: number) => {
-    const baseClasses =
-      ' sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]  ';
-
-    const topLargeScreen = [
-      `lg:top-[calc(0rem_+_10vh)]`,
-      `lg:top-[calc(8.5rem_+_10vh)]`,
-      `lg:top-[calc(28rem_+_10vh)]`,
-    ];
-
-    const topSmallScreen = [
-      'top-[calc(0rem_+_10vh)]',
-      'top-[calc(5rem_+_10vh)]',
-      'top-[calc(19rem_+_10vh)]',
-    ];
-
+    // const baseClasses =
+    //   ' sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]  ';
+    // const topLargeScreen = [
+    //   `lg:top-[calc(0rem_+_10vh)]`,
+    //   `lg:top-[calc(8.5rem_+_10vh)]`,
+    //   `lg:top-[calc(28rem_+_10vh)]`,
+    // ];
+    // const topSmallScreen = [
+    //   'top-[calc(0rem_+_10vh)]',
+    //   'top-[calc(5rem_+_10vh)]',
+    //   'top-[calc(19rem_+_10vh)]',
+    // ];
+    // // const topMdScreen = [
+    // //   'md:top-[calc(0rem_+_20vh)]',
+    // //   'md:top-[calc(6rem_+_20vh)]',
+    // //   'md:top-[calc(12rem_+_20vh)]',
+    // // ];
     // const topMdScreen = [
     //   'md:top-[calc(0rem_+_20vh)]',
     //   'md:top-[calc(6rem_+_20vh)]',
-    //   'md:top-[calc(12rem_+_20vh)]',
+    //   'md:top-[calc(14rem_+_20vh)]',
     // ];
-    const topMdScreen = [
-      'md:top-[calc(0rem_+_20vh)]',
-      'md:top-[calc(6rem_+_20vh)]',
-      'md:top-[calc(14rem_+_20vh)]',
-    ];
-
-    const mbLargeScreen = ['lg:mb-[22rem]', 'lg:mb-[16rem]', 'lg:mb-[8rem]'];
-
+    // const mbLargeScreen = [
+    //   'lg:mb-[22rem] 3xl:mb-[25rem] 3xl:bg-red-500',
+    //   'lg:mb-[17rem]',
+    //   'lg:mb-[8rem]',
+    // ];
+    // // const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
     // const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
-    const mbMdScreen = ['md:mb-[10rem]', 'md:mb-[6rem]', 'md:mb-[0rem]'];
-
-    const mbSmallScreen = ['mb-[9.5rem]', 'mb-[7rem]', 'mb-[0rem]'];
-
-    return `${baseClasses}
-      ${topMdScreen[index]}
-    ${mbMdScreen[index]}
-     ${topSmallScreen[index]}
-     ${mbSmallScreen[index]}
-    ${topLargeScreen[index]}
-     ${mbLargeScreen[index]}
-     `;
+    // const mbSmallScreen = ['mb-[9.5rem]', 'mb-[7rem]', 'mb-[0rem]'];
+    // return `${baseClasses}
+    //   ${topMdScreen[index]}
+    // ${mbMdScreen[index]}
+    //  ${topSmallScreen[index]}
+    //  ${mbSmallScreen[index]}
+    // ${topLargeScreen[index]}
+    //  ${mbLargeScreen[index]}
+    //  `;
   };
 
   onBeforeMount(() => {

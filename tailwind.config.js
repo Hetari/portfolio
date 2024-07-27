@@ -55,5 +55,25 @@ export default {
       },
     },
   },
+  plugins: [
+    function ({ addBase }) {
+      addBase({
+        ':root': {
+          '--heading-6': 'clamp(1rem, 0.928rem + 0.36vw, 1.25rem)',
+          '--heading-5': 'clamp(1.13rem, 1.004rem + 0.63vw, 1.57rem)',
+          '--heading-4': 'clamp(1.25rem, 1.0359rem + 1.0707vi, 1.9995rem)',
+          '--heading-3': 'clamp(1.5625rem, 1.2474rem + 1.5755vi, 2.6653rem)',
+          '--heading-2': 'clamp(1.9531rem, 1.496rem + 2.2854vi, 3.5529rem)',
+          '--heading-1': 'clamp(3.5rem, 2.3571rem + 5.5143vi, 10.5rem)',
+          '--heading-display': 'clamp(4rem, 1.203rem + 10.0714vw, 10.25rem)',
+          '--heading-body': 'clamp(1rem, 0.6071rem + 1.0143vi, 2.25rem)',
+          '--heading-1--alt': 'clamp(3rem, 2.25rem + 3.75vi, 5.625rem)',
+          '--text-base': 'clamp(1rem,0.9286rem + 0.3571vi,1.25rem)',
+          '--text-base--small': 'clamp(0.875rem,0.8393rem + 0.1786vi,1rem)',
+          '--text-base--large': 'clamp(1rem,0.8571rem + 0.7143vi,1.5rem)',
+        },
+      });
+    },
+  ],
   // plugins: [require('@tailwindcss/aspect-ratio')],
 };

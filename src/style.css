@@ -116,3 +116,47 @@
     font-size: clamp(1rem, 0.8571rem + 1.4143vi, 2.5rem);
   }
 }
+
+@layer utilities {
+  .heading-6 {
+    font-size: var(--heading-6);
+  }
+  .heading-5 {
+    font-size: var(--heading-5);
+  }
+  .heading-4 {
+    font-size: var(--heading-4);
+  }
+  .heading-3 {
+    font-size: var(--heading-3);
+  }
+  .heading-size-3 {
+    width: var(--heading-3);
+    height: var(--heading-3);
+  }
+  .heading-2 {
+    font-size: var(--heading-2);
+  }
+  .heading-1 {
+    font-size: var(--heading-1);
+  }
+  .heading-display {
+    font-size: var(--heading-display);
+  }
+  .heading-body {
+    font-size: var(--heading-body);
+  }
+  .heading-1-alt {
+    font-size: var(--heading-1--alt);
+  }
+
+  .text-base {
+    font-size: var(--text-base);
+  }
+  .text-base-small {
+    font-size: var(--text-base--small);
+  }
+  .text-base-large {
+    font-size: var(--text-base--large);
+  }
+}
