@@ -1,6 +1,6 @@
 <template>
   <h1 class="sr-only">Ebraheem Alhetari</h1>
-  <MyEnName :id="$attrs.id" :class="$attrs.class" />
+  <MyEnName id="svg-my-en-name" :class="$attrs.class" />
 </template>
 
 <script setup lang="ts">

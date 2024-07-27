@@ -263,8 +263,21 @@ const animateLoadingText = (id: string) => {
 
 // ! Hero
 const animateHeroNav = () => {
-  gsap.to(['#my-name', 'header'], {
+  gsap.to('header', {
     y: 0,
+    duration: 0.8,
+    ease: 'power4.inOut',
+  });
+
+  gsap.to('#svg-my-en-name path', {
+    y: 0,
+    duration: 0.8,
+    ease: 'power4.inOut',
+    stagger: 0.01,
+  });
+
+  gsap.to('#star', {
+    x: 1,
     duration: 0.8,
     ease: 'power4.inOut',
   });
@@ -285,13 +298,6 @@ const animateHeroNav = () => {
   });
 
   animateSplitText('#whoAmI .letters', '#whoAmI .letters');
-
-  gsap.to(['#location', '#art'], {
-    opacity: 1,
-    scale: 1,
-    duration: 0.8,
-    ease: 'power3.inOut',
-  });
 
   // Hero scroll animation
   gsap.to('#hero', {
