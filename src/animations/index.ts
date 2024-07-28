@@ -269,7 +269,7 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to('#svg-my-en-name path', {
+  gsap.to('#svg-my-en-name g path', {
     y: 0,
     duration: 0.8,
     ease: 'power4.inOut',

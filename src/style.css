@@ -137,6 +137,10 @@
   .heading-2 {
     font-size: var(--heading-2);
   }
+  .heading-size {
+    width: var(--heading-1--alt);
+    height: var(--heading-1--alt);
+  }
   .heading-1 {
     font-size: var(--heading-1);
   }

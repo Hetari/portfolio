@@ -6,7 +6,7 @@
     >
       <div class="relative flex w-full flex-col items-center">
         <div class="w-full items-end overflow-clip">
-          <div class="flex w-full items-start">
+          <div class="flex w-full items-start gap-10">
             <MyName />
             <Star id="star" class="hide-on-mobile translate-x-full" />
           </div>
