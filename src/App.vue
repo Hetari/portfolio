@@ -4,7 +4,7 @@
   <div v-cloak="true">
     <div class="pointer-events-none fixed inset-0 z-50">
       <svg
-        class="h-[150svh] w-[150svw] object-cover object-center"
+        class="h-[150vh] w-full object-cover object-center"
         xmlns="http://www.w3.org/2000/svg"
       >
         <filter id="noise">
@@ -52,13 +52,13 @@
     Works,
     LittleBitAboutMe,
   } from '@/components/sections';
-  import { onMounted, Ref, ref } from 'vue';
+  import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from '@/components/design';
-  // import { useWindowSize } from '@vueuse/core';
+  import { useWindowSize } from '@vueuse/core';
   import { lenis, raf } from './main';
   import { Navbar } from './components/common';
 
-  // const { width, height } = useWindowSize();
+  const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
 
   const LockeScroll = (isLocked: boolean) => {
@@ -78,12 +78,12 @@
     }, 2000);
   });
 
-  // watch([width, height], () => {
-  //   if (noise.value) {
-  //     noise.value.style.height = `${height.value * 2}px`;
-  //     noise.value.style.width = `${width.value}px`;
-  //   }
-  // });
+  watch([width, height], () => {
+    if (noise.value) {
+      noise.value.style.height = `${height.value * 2}px`;
+      noise.value.style.width = `${width.value}px`;
+    }
+  });
 </script>
 
 <style>
