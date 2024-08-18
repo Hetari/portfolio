@@ -87,12 +87,8 @@
     },
     {
       title: 'Code Optimization',
-      body: 'I enhance your web presence by focusing on performance, speed, and responsiveness. By optimizing load times and improving user experiences, I ensure your site runs smoothly and efficiently.',
-      headings: [
-        'Performance Tuning',
-        'Responsive Design',
-        'Speed Optimization',
-      ],
+      body: 'Your website deserves to be seen, speed, and responsiveness. By optimizing load times, improving user experiences and SEO, I ensure your site runs smoothly and efficiently.',
+      headings: ['Technical SEO', 'Responsive Design', 'Speed Optimization'],
       shape: `<svg  viewBox="0 0 200 200"  xmlns="http://www.w3.org/2000/svg">
   <path d="M100 0L170.711 29.2893L200 100L170.711 170.711L100 200L29.2893 170.711L0 100L29.2893 29.2893L100 0Z" />
   </svg>
