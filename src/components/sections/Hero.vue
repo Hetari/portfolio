@@ -16,23 +16,26 @@
           <div
             class="col-span-full flex flex-col items-start gap-14 sm:col-span-4"
           >
-            <svg
-              stroke="currentColor"
-              fill="none"
-              stroke-width="1.25"
-              viewBox="6 6 12 12"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="hide-on-mobile m-0 size-4 p-0 md:size-6"
-              color="#8C8C73"
-              style="color: #8c8c73"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line x1="7" y1="7" x2="17" y2="17"></line>
-              <polyline points="17 7 17 17 7 17"></polyline>
-            </svg>
+            <div class="overflow-hidden">
+              <svg
+                id="down-arrow"
+                stroke="currentColor"
+                fill="none"
+                stroke-width="1.25"
+                viewBox="6 6 12 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="hide-on-mobile m-0 size-4 -translate-x-full p-0 md:size-6"
+                color="#8C8C73"
+                style="color: #8c8c73"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="7" y1="7" x2="17" y2="17"></line>
+                <polyline points="17 7 17 17 7 17"></polyline>
+              </svg>
+            </div>
 
             <p class="sr-only">
               A freelance full-stack developer, cutting-edge technologies to
@@ -58,7 +61,6 @@
               id="profile-img"
               :src="profile"
               alt="Ebraheem profile"
-              decoding="async"
               class="size-full scale-90 rounded-lg object-cover object-top brightness-110 grayscale"
             />
           </div>
@@ -92,7 +94,8 @@
 
   const getAvailableForWorkDate = () => {
     const date = new Date();
-    const year = date.getFullYear().toString().slice(-2);
+
+    const year = date.getFullYear().toString(); // .slice(-2);
     const monthNames = [
       'JAN',
       'FEB',
@@ -108,6 +111,7 @@
       'DEC',
     ];
     let index = date.getMonth();
+
     if (date.getMonth() < 12) {
       index += 1;
     }

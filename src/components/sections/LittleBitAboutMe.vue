@@ -1,65 +1,76 @@
 <template>
-  <!-- <svg
-    class="absolute fill-[#0B0B0A] left-0 top-0 origin-center  object-center"
-    id="morph-example"
-    xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
-  >
-    <path
-      id="rectangle"
-      class="transition-all duration-500 ease-in-out"
-      :d="initialPath"
-    />
-  </svg> -->
   <section
-    id="little-bit-about-me-section"
-    class="padding-x absolute rounded-b-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
+    id=" little-bit-about-me-section"
+    class="common-padding -mt-0.5 rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 sm:mt-0"
   >
-    <h1
-      id="little-bit-about-me"
-      v-html="littleBitAboutMe"
-      class="text-[calc(3.125rem_+_((1vw_-_6.4px)_*_6.0938))] font-extrabold uppercase leading-loose"
-    ></h1>
-
-    <div
-      id="little-bit-about-me-text"
-      class="relative flex w-full flex-col items-end justify-end font-medium leading-snug text-flax-smoke-300 opacity-0 sm:-mt-12 lg:grid"
-    >
-      <div class="relative mt-40 flex flex-auto items-center justify-center">
+    <div class="column-gap grid grid-cols-12">
+      <div class="hide-on-mobile overflow-hidden md:col-span-4">
         <svg
-          class="absolute left-1/2 top-1/2 z-10 mt-20 hidden w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 opacity-10 sm:block 2xl:max-w-4xl 3xl:max-w-5xl"
-          viewBox="0 0 709 300"
+          id="down-arrow-2"
+          stroke="currentColor"
           fill="none"
+          stroke-width="1.25"
+          viewBox="6 6 12 12"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hide-on-mobile m-0 size-20 -translate-x-full p-0"
+          height="1em"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="709" height="300" rx="169.963" fill="#AFAF9D"></rect>
+          <line x1="7" y1="7" x2="17" y2="17"></line>
+          <polyline points="17 7 17 17 7 17"></polyline>
         </svg>
-
-        <img
-          :src="profile2"
-          id="profile2"
-          class="z-20 mx-auto translate-y-1/2 opacity-50 mix-blend-lighten brightness-90 grayscale"
-          alt="Me"
-        />
       </div>
 
-      <p
-        class="text-fancy w-full text-[calc(1.375rem+_((1vw_-_6.4px)_*_0.7813))] sm:font-semibold"
+      <h1
+        id="little-bit-about-me"
+        v-html="littleBitAboutMe"
+        class="heading-1-alt lg:heading-1 section-heading relative z-30 col-span-full w-full font-extrabold uppercase leading-none md:col-span-8 md:col-start-6"
+      ></h1>
+    </div>
+
+    <div class="padding-y column-gap mt-6 grid grid-cols-12">
+      <div
+        class="pointer-events-none col-span-full select-none rounded-lg md:col-span-4"
       >
-        I empower startups of all scales by creating custom web experiences that
-        are both memorable and successful. With a deep passion for design and
-        development, I guide projects from ideation to launch, ensuring a
-        seamless and impactful journey in the digital landscape. My commitment
-        to excellence drives the success of startups, delivering unique and
-        engaging web solutions that stand out.
-      </p>
+        <img
+          :src="profile2"
+          class="aspect-[3/4.5] size-full rounded-lg object-cover object-top"
+          alt="Headshot of Ebraheem facing a camera"
+        />
+      </div>
+      <div class="col-span-full mt-10 md:col-span-8 md:col-start-6">
+        <p
+          class="heading-4 relative w-full max-w-[40ch] text-balance font-medium leading-snug"
+        >
+          With a passion for design and development, I take projects from
+          ideation to launch, ensuring a seamless journey that leaves a lasting
+          positive impact on the digital landscape and your business.
+        </p>
+
+        <div class="mt-[5%] flex justify-start gap-[5rem] text-flax-smoke-300">
+          <p class="heading-6 text-nowrap text-center text-flax-smoke-300/85">
+            ( ABOUT ME )
+          </p>
+          <p class="text-fancy heading-6 max-w-[40ch] text-balance font-mono">
+            Creating great web experiences is my primary focus. I ensure each
+            project leaves users with a feel-good sensation through meticulous
+            attention to detail and user-centric design principles.
+            <br />
+            <br />
+            When I'm not immersed in web development and design, you can find me
+            sharing insights about my freelance journey on YouTube, bouldering,
+            playing music, or tending to my cherished houseplants.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { animateSplitText, shapeChange } from '@/animations';
+  import { animateSplitText, xToZero } from '@/animations';
   import { profile2 } from '@/assets/images';
   import { textSplitter } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
@@ -72,17 +83,24 @@
   // );
 
   onBeforeMount(() => {
-    littleBitAboutMe.value = textSplitter('A little bit about me / ', true);
+    littleBitAboutMe.value = textSplitter(
+      'Programmer, Developer, Designer/',
+      true,
+      true,
+    );
   });
 
   onMounted(() => {
     animateSplitText(
       '#little-bit-about-me .letters',
-      '#little-bit-about-me-text',
+      '#little-bit-about-me',
       0.7,
       0.01,
       0,
+      () => {
+        console.log('hello 2');
+        xToZero('#down-arrow-2');
+      },
     );
-    shapeChange('#little-bit-about-me-section');
   });
 </script>

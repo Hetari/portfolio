@@ -12,10 +12,12 @@ const animateSplitText = (
   duration: number = 0.8,
   stagger: number = 0.005,
   delay: number = 0,
+  onStartFn: () => void = () => {},
 ) => {
   gsap.to(id, {
     onStart: () => {
       fadeIn(textId, 100, 2);
+      onStartFn();
     },
 
     scrollTrigger: {
@@ -48,7 +50,16 @@ const navbarScale = (selector: string, trigger: string) => {
 // ! common animations
 const yToZero = (id: string) => {
   gsap.to(id, {
-    y: '0%',
+    y: 0,
+    duration: 0.4,
+    ease: 'power1.inOut',
+    stagger: 0.1,
+  });
+};
+
+const xToZero = (id: string) => {
+  gsap.to(id, {
+    x: 0,
     duration: 0.4,
     ease: 'power1.inOut',
     stagger: 0.1,
@@ -271,6 +282,7 @@ const animateHeroNav = () => {
 
   gsap.to('#svg-my-en-name g path', {
     y: 0,
+    delay: 0.2,
     duration: 0.8,
     ease: 'power4.inOut',
     stagger: 0.01,
@@ -278,12 +290,14 @@ const animateHeroNav = () => {
 
   gsap.to('#star', {
     x: 1,
+    delay: 0.4,
     duration: 0.8,
     ease: 'power4.inOut',
   });
 
   gsap.to('.overlay', {
     y: '100%',
+    delay: 0.4,
     duration: 0.8,
     ease: 'power4.inOut',
     onComplete: () => {
@@ -293,11 +307,19 @@ const animateHeroNav = () => {
 
   gsap.to('#profile-img', {
     scale: 1,
+    delay: 0.4,
     duration: 0.8,
     ease: 'power4.inOut',
   });
 
-  animateSplitText('#whoAmI .letters', '#whoAmI .letters');
+  gsap.to('#down-arrow', {
+    x: 0,
+    delay: 0.8,
+    duration: 0.8,
+    ease: 'power4.inOut',
+  });
+
+  animateSplitText('#whoAmI .letters', '#whoAmI .letters', 0.8, 0.005, 0.6);
 
   // Hero scroll animation
   gsap.to('#hero', {
@@ -313,41 +335,9 @@ const animateHeroNav = () => {
 };
 
 // A little bit about me animation
-const profileEnter = (id: string) => {
-  gsap.to(id, {
-    y: '0%',
-    opacity: 1,
-    duration: 1,
-  });
-};
-const shapeChange = (id: string) => {
-  gsap.to(id, {
-    scale: 0.99,
-    y: -5,
-    scrollTrigger: {
-      trigger: id,
-      start: '0% center',
-      toggleActions: 'play none none reverse',
-    },
-
-    onStart: () => {
-      profileEnter('#profile2');
-    },
-  });
-};
-
-const divScrollDown = (id: string) => {
-  gsap.to(id, {
-    scrollTrigger: {
-      trigger: id,
-      start: 'center center',
-      scrub: 1,
-    },
-    translateY: '100%',
-  });
-};
 
 export {
+  xToZero,
   navbarScale,
   activateMagneto,
   resetMagneto,
@@ -358,6 +348,4 @@ export {
   animateLoadingTextContainer,
   animateHeroNav,
   animateSplitText,
-  shapeChange,
-  divScrollDown,
 };

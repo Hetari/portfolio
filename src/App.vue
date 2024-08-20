@@ -35,7 +35,7 @@
         class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
       >
         <Services />
-        <Works />
+        <!-- <Works /> -->
       </div>
       <div class="relative">
         <LittleBitAboutMe />
@@ -46,17 +46,14 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    Hero,
-    Services,
-    Works,
-    LittleBitAboutMe,
-  } from '@/components/sections';
+  import { Hero, Services, LittleBitAboutMe } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
   import { lenis, raf } from './main';
   import { Navbar } from './components/common';
+  import { onUpdated } from 'vue';
+  import { animateHeroNav } from './animations';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
@@ -83,6 +80,11 @@
       noise.value.style.height = `${height.value * 2}px`;
       noise.value.style.width = `${width.value}px`;
     }
+  });
+
+  // Todo: remove this
+  onUpdated(() => {
+    animateHeroNav();
   });
 </script>
 
