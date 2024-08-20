@@ -37,8 +37,8 @@
         <Services />
         <!-- <Works /> -->
       </div>
-      <div class="relative">
-        <LittleBitAboutMe />
+      <div class="relative overflow-y-clip">
+        <aboutMe />
       </div>
     </main>
   </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Hero, Services, LittleBitAboutMe } from '@/components/sections';
+  import { Hero, Services, aboutMe } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';

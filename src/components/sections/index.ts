@@ -1,6 +1,6 @@
 import Hero from './Hero.vue';
 import Services from './Services.vue';
 import Works from './Works.vue';
-import LittleBitAboutMe from './LittleBitAboutMe.vue';
+import aboutMe from './aboutMe.vue';
 
-export { Hero, Services, Works, LittleBitAboutMe };
+export { Hero, Services, Works, aboutMe };

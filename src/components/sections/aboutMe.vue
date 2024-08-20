@@ -3,7 +3,7 @@
     id=" little-bit-about-me-section"
     class="common-padding -mt-0.5 rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 sm:mt-0"
   >
-    <div class="column-gap grid grid-cols-12">
+    <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">
         <svg
           id="down-arrow-2"
@@ -25,22 +25,22 @@
 
       <h1
         id="little-bit-about-me"
-        v-html="littleBitAboutMe"
-        class="heading-1-alt lg:heading-1 section-heading relative z-30 col-span-full w-full font-extrabold uppercase leading-none md:col-span-8 md:col-start-6"
+        v-html="aboutMe"
+        class="heading-1-alt lg:heading-1 section-heading col-span-full font-extrabold uppercase leading-none md:col-span-8 md:col-start-6"
       ></h1>
     </div>
 
-    <div class="padding-y column-gap mt-6 grid grid-cols-12">
+    <div class="padding-y md:column-gap mt-6 grid grid-cols-12">
       <div
-        class="pointer-events-none col-span-full select-none rounded-lg md:col-span-4"
+        class="pointer-events-none col-span-full select-none content-end rounded-lg md:col-span-4"
       >
         <img
           :src="profile2"
-          class="aspect-[3/4.5] size-full rounded-lg object-cover object-top"
+          class="aspect-[1/1.5] rounded-lg object-cover object-top mix-blend-screen brightness-90 grayscale"
           alt="Headshot of Ebraheem facing a camera"
         />
       </div>
-      <div class="col-span-full mt-10 md:col-span-8 md:col-start-6">
+      <div class="col-span-11 mt-10 md:col-span-8 md:col-start-6">
         <p
           class="heading-4 relative w-full max-w-[40ch] text-balance font-medium leading-snug"
         >
@@ -60,8 +60,8 @@
             <br />
             <br />
             When I'm not immersed in web development and design, you can find me
-            sharing insights about my freelance journey on YouTube, bouldering,
-            playing music, or tending to my cherished houseplants.
+            sharing insights about my freelance journey on <i>&Xopf;</i>,
+            loudly, playing music (Funk), or just relaxing.
           </p>
         </div>
       </div>
@@ -75,7 +75,7 @@
   import { textSplitter } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
 
-  const littleBitAboutMe = ref('Selected Works /');
+  const aboutMe = ref('Selected Works /');
 
   // const initialPath = ref(`M0 0H${width.value}  V${height.value} H0 Z`);
   // const targetPath = ref(
@@ -83,7 +83,7 @@
   // );
 
   onBeforeMount(() => {
-    littleBitAboutMe.value = textSplitter(
+    aboutMe.value = textSplitter(
       'Programmer, Developer, Designer/',
       true,
       true,
