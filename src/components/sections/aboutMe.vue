@@ -98,7 +98,6 @@
       0.01,
       0,
       () => {
-        console.log('hello 2');
         xToZero('#down-arrow-2');
       },
     );

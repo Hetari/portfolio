@@ -37,7 +37,7 @@
   } */
 
   body {
-    @apply light-theme overflow-y-clip;
+    @apply light-theme overflow-x-clip;
   }
 
   /* body::before,
