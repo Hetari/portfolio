@@ -4,7 +4,6 @@ export default {
   // corePlugins: {
   //   aspectRatio: false,
   // },
-
   theme: {
     extend: {
       fontFamily: {
