@@ -1,7 +1,10 @@
 <template>
-  <div class="flex-center relative h-svh">
+  <div
+    id="samsung-error-modal"
+    class="flex-center fixed inset-0 z-50 h-svh w-svw bg-black/75 opacity-0"
+  >
     <div
-      class="flex-center z-50 mx-auto my-auto size-full flex-col rounded-lg bg-white p-5 shadow md:w-1/3"
+      class="flex-center z-50 mx-auto size-full h-1/2 w-11/12 flex-col rounded-lg bg-white p-5 shadow md:w-1/2"
     >
       <div class="flex flex-col items-center text-center">
         <div class="inline-block rounded-full bg-yellow-50 p-4">
@@ -20,7 +23,7 @@
           It seems you're using the <b>Samsung Internet Browser</b>.
         </h2>
         <p class="mt-2 w-full text-start text-sm leading-relaxed text-gray-600">
-          Some features might not work as expected, especially in dark mode,to
+          Some features might not work as expected, especially in dark mode, to
           fix it please follow the steps below:
         </p>
         <br />
@@ -110,7 +113,7 @@
         <button
           class="flex-1 rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200"
         >
-          Done, click to reload
+          OK
         </button>
       </div>
     </div>
@@ -118,7 +121,17 @@
 </template>
 
 <script setup lang="ts">
+  import { displayNone } from '@/animations';
+  import { lenis } from '@/main';
+  import { onMounted } from 'vue';
+
   const handleClick = () => {
-    window.location.reload();
+    displayNone('#samsung-error-modal');
   };
+
+  onMounted(() => {
+    lenis.stop();
+  });
+
+  // const showModal = ref(false);
 </script>

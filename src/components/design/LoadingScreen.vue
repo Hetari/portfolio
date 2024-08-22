@@ -87,13 +87,19 @@
     `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${height.value} 0 ${height.value}  L0 0`,
   );
 
+  const isSamsungBrowser = /samsung/i.test(navigator.userAgent);
+
   onMounted(() => {
     index.value++;
     pathData.value = initialPath.value;
     animateLoadingTextContainer();
     animateLoadingText('span.loading-text');
 
-    animateLoadingPath(path as Ref<SVGPathElement>, targetPath.value);
+    animateLoadingPath(
+      path as Ref<SVGPathElement>,
+      targetPath.value,
+      isSamsungBrowser,
+    );
   });
 
   // TODO: remove it

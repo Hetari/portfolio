@@ -1,12 +1,12 @@
 <template>
   <LoadingScreen v-cloak="true" />
 
-  <template v-if="samsungDarkModeError">
+  <template v-if="isSamsungBrowser">
     <SamsungError />
   </template>
-  <template v-else>
-    <div class="pointer-events-none fixed inset-0 z-50">
-      <!-- <svg
+
+  <div class="pointer-events-none fixed inset-0 z-50">
+    <svg
       class="h-[150vh] w-full object-cover object-center"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -20,50 +20,41 @@
         <feBlend mode="screen" />
       </filter>
       <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.15" />
-    </svg> -->
+    </svg>
+  </div>
+
+  <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
+  <Navbar @isLocked="LockeScroll" />
+
+  <!-- max-w-9xl mx-auto -->
+  <main class="relative h-full">
+    <Hero />
+    <div
+      class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
+    >
+      <Services />
+      <!-- <Works /> -->
     </div>
-
-    <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
-    <Navbar @isLocked="LockeScroll" />
-
-    <!-- max-w-9xl mx-auto -->
-    <main class="relative h-full">
-      <Hero />
-      <div
-        class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
-      >
-        <Services />
-        <!-- <Works /> -->
-      </div>
-      <div class="relative overflow-y-clip">
-        <aboutMe />
-      </div>
-    </main>
-    <div class="h-screen"></div>
-  </template>
+    <div class="relative overflow-y-clip">
+      <aboutMe />
+    </div>
+  </main>
+  <div class="h-screen"></div>
 </template>
 
 <script setup lang="ts">
-  import { usePreferredDark, useColorMode } from '@vueuse/core';
-
   import { Hero, Services, aboutMe } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen, SamsungError } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
 
   import { Navbar } from './components/common';
-  import { onUpdated } from 'vue';
-  import { animateHeroNav } from './animations';
   import { lenis, raf } from './main';
 
   const { width, height } = useWindowSize();
   const noise: Ref<HTMLElement | null> = ref(null);
 
   const isSamsungBrowser = /samsung/i.test(navigator.userAgent);
-  const mode = useColorMode();
-
-  const samsungDarkModeError =
-    isSamsungBrowser && !(mode.value === 'dark' && usePreferredDark());
 
   const LockeScroll = (isLocked: boolean) => {
     if (isLocked) {
@@ -87,11 +78,6 @@
     setTimeout(() => {
       requestAnimationFrame(raf);
     }, 2000);
-  });
-
-  // Todo: remove this
-  onUpdated(() => {
-    animateHeroNav();
   });
 </script>
 

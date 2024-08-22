@@ -2,9 +2,36 @@ import gsap from 'gsap';
 import MotionPathHelper from 'gsap/MotionPathPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Ref } from 'vue';
+import { lenis } from '@/main';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathHelper);
+
+const displayNone = (id: string) => {
+  gsap.set(id, { display: 'none' });
+  lenis.start();
+};
+const samsungErrorModal = (show: boolean = false) => {
+  if (show) {
+    gsap.to('#samsung-error-modal', {
+      opacity: 1,
+      delay: 1.5,
+      duration: 1,
+      ease: 'power4.inOut',
+      onComplete: () => {
+        gsap.to('#samsung-error-modal', {
+          opacity: 0,
+          delay: 12,
+          duration: 1,
+          ease: 'power4.inOut',
+          onComplete: () => {
+            displayNone('#samsung-error-modal');
+          },
+        });
+      },
+    });
+  }
+};
 
 const animateSplitText = (
   id: string,
@@ -204,7 +231,11 @@ const animateNavbarLeave = (
 };
 
 // ! Loading animation
-const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
+const animateLoadingPath = (
+  path: Ref<SVGPathElement>,
+  targetPath: string,
+  isSamsung: boolean,
+) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
     delay: 2.5,
@@ -225,6 +256,7 @@ const animateLoadingPath = (path: Ref<SVGPathElement>, targetPath: string) => {
       onStart: () => {
         setTimeout(() => {
           animateHeroNav();
+          samsungErrorModal(isSamsung);
           document.body.classList.remove('stop-scrolling');
           window.scrollTo(0, 0);
         }, 250);
@@ -337,6 +369,7 @@ const animateHeroNav = () => {
 // A little bit about me animation
 
 export {
+  displayNone,
   xToZero,
   navbarScale,
   activateMagneto,
