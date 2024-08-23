@@ -344,9 +344,10 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to('#down-arrow', {
+  gsap.to(['#down-arrow', '#contact-btn', '#available-for-work'], {
     x: 0,
-    delay: 0.8,
+    y: 0,
+    delay: 0.6,
     duration: 0.8,
     ease: 'power4.inOut',
   });

@@ -47,8 +47,10 @@
               class="who-am-i text-fluid-body text-base-large w-full overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
             ></p>
 
-            <div class="flex origin-left sm:scale-125">
-              <Button class="contact" label="Get in touch" url="#" />
+            <div class="relative origin-left overflow-hidden sm:scale-125">
+              <div id="contact-btn" class="flex -translate-y-full">
+                <Button class="contact" label="Get in touch" url="#" />
+              </div>
             </div>
           </div>
 
@@ -66,8 +68,13 @@
           </div>
 
           <!-- content-end justify-self-end  -->
-          <div class="relative col-span-8 size-full text-end sm:col-span-4">
-            <div class="absolute bottom-0 right-0 flex flex-col items-end">
+          <div
+            class="relative col-span-8 size-full overflow-clip text-end sm:col-span-4"
+          >
+            <div
+              id="available-for-work"
+              class="absolute bottom-0 right-0 flex translate-y-full flex-col items-end"
+            >
               <p
                 class="block font-medium uppercase leading-snug -tracking-tight 3xl:text-base"
               >
