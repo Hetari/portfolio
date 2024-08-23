@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
   import { animateSplitText } from '@/animations';
-  import { textSplitter } from '@/functions';
+  import { textSplitterIntoChar } from '@/functions';
   import { computed, onBeforeMount, onMounted, ref } from 'vue';
 
   const selectedWorks = ref('Selected Works /');
@@ -48,7 +48,7 @@
   });
 
   onBeforeMount(() => {
-    selectedWorks.value = textSplitter('Selected Works / ', true);
+    selectedWorks.value = textSplitterIntoChar('Selected Works / ', true);
   });
 
   onMounted(() => {

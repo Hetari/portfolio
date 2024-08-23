@@ -1,4 +1,4 @@
-const textSplitter = (
+const textSplitterIntoChar = (
   text: string,
   isFancyFont: boolean = false,
   isNewLine: boolean = false,
@@ -35,4 +35,4 @@ const getElementHeight = (id: string) => {
   return document.getElementById(id)!.offsetHeight;
 };
 
-export { textSplitter, getElementHeight };
+export { textSplitterIntoChar, getElementHeight };

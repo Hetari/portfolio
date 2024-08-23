@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
   import { animateSplitText } from '@/animations';
-  import { textSplitter } from '@/functions';
+  import { textSplitterIntoChar } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { ServicesCard } from '..';
 
@@ -97,7 +97,7 @@
   ];
 
   onBeforeMount(() => {
-    whatIDo.value = textSplitter('What I do /', true);
+    whatIDo.value = textSplitterIntoChar('What I do /', true);
   });
 
   onMounted(() => {

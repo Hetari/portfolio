@@ -100,7 +100,7 @@
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
   import { heroText } from '@/data';
-  import { textSplitter } from '@/functions';
+  import { textSplitterIntoChar } from '@/functions';
 
   const whoAmI = ref(heroText);
   const AvailableForWorkDate = ref('');
@@ -134,7 +134,7 @@
   };
 
   onBeforeMount(() => {
-    whoAmI.value = textSplitter(whoAmI.value);
+    whoAmI.value = textSplitterIntoChar(whoAmI.value);
     AvailableForWorkDate.value = getAvailableForWorkDate();
   });
 </script>

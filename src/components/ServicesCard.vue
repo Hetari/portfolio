@@ -9,7 +9,7 @@
       <h3 class="col-span-6 col-start-5 text-nowrap">{{ title }}</h3>
       <div
         v-html="shape"
-        class="heading-size-3 hidden fill-flax-smoke-400/50 lg:block"
+        class="animate-[spin_10s_linear_infinite] heading-size-3 hidden fill-flax-smoke-400/50 lg:block"
       />
     </div>
 

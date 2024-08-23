@@ -34,7 +34,7 @@ const samsungErrorModal = (show: boolean = false) => {
 };
 
 const animateSplitText = (
-  id: string,
+  id: string | string[],
   textId: string,
   duration: number = 0.8,
   stagger: number = 0.005,
@@ -368,6 +368,18 @@ const animateHeroNav = () => {
 };
 
 // A little bit about me animation
+const animateAboutMeSectionLeave = (id: string) => {
+  gsap.to(id, {
+    y: -100,
+    scale: 0.9,
+    scrollTrigger: {
+      trigger: id,
+      start: '75% bottom',
+      end: 'bottom top',
+      scrub: 1,
+    },
+  });
+};
 
 export {
   displayNone,
@@ -382,4 +394,5 @@ export {
   animateLoadingTextContainer,
   animateHeroNav,
   animateSplitText,
+  animateAboutMeSectionLeave,
 };

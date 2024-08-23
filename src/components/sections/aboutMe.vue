@@ -1,7 +1,7 @@
 <template>
   <section
-    id=" little-bit-about-me-section"
-    class="common-padding -mt-0.5 rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 sm:mt-0"
+    id="about-me-section"
+    class="common-padding -mt-0.5 rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl sm:mt-0"
   >
     <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">
@@ -49,16 +49,16 @@
           positive impact on the digital landscape and your business.
         </p>
 
-        <div class="mt-[5%] flex justify-start gap-[5rem] text-flax-smoke-300">
+        <div
+          class="mt-[5%] flex justify-start gap-10 text-flax-smoke-300 sm:gap-20"
+        >
           <p class="heading-6 text-nowrap text-center text-flax-smoke-300/85">
             ( ABOUT ME )
           </p>
-          <p class="text-fancy heading-6 max-w-[40ch] text-balance font-mono">
+          <p class="text-fancy heading-6 w-full text-balance sm:max-w-[40ch]">
             Creating great web experiences is my primary focus. I ensure each
             project leaves users with a feel-good sensation through meticulous
-            attention to detail and user-centric design principles.
-            <br />
-            <br />
+            attention to detail and user-centric design principles. <br /><br />
             When I'm not immersed in web development and design, you can find me
             sharing insights about my freelance journey on <i>&Xopf;</i>,
             loudly, playing music (Funk), or just relaxing.
@@ -70,9 +70,13 @@
 </template>
 
 <script setup lang="ts">
-  import { animateSplitText, xToZero } from '@/animations';
+  import {
+    animateSplitText,
+    xToZero,
+    animateAboutMeSectionLeave,
+  } from '@/animations';
   import { profile2 } from '@/assets/images';
-  import { textSplitter } from '@/functions';
+  import { textSplitterIntoChar } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
 
   const aboutMe = ref('Selected Works /');
@@ -83,7 +87,7 @@
   // );
 
   onBeforeMount(() => {
-    aboutMe.value = textSplitter(
+    aboutMe.value = textSplitterIntoChar(
       'Programmer, Developer, Designer/',
       true,
       true,
@@ -101,5 +105,7 @@
         xToZero('#down-arrow-2');
       },
     );
+
+    animateAboutMeSectionLeave('#about-me-section');
   });
 </script>
