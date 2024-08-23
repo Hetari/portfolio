@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="sm:column-gap spacing-t grid w-full grid-cols-12">
+        <div class="lg:column-gap spacing-t grid w-full grid-cols-12">
           <div
             class="col-span-full flex flex-col items-start gap-14 sm:col-span-4"
           >
@@ -66,10 +66,16 @@
           </div>
 
           <!-- content-end justify-self-end  -->
-          <div class="relative col-span-7 size-full text-end sm:col-span-4">
-            <div class="absolute bottom-0 right-0">
-              <p class="text-base font-medium">Available for work</p>
-              <h1 class="heading-2 font-fancy font-bold leading-none">
+          <div class="relative col-span-8 size-full text-end sm:col-span-4">
+            <div class="absolute bottom-0 right-0 flex flex-col items-end">
+              <p
+                class="block font-medium uppercase leading-snug -tracking-tight 3xl:text-base"
+              >
+                Available for freelance work
+              </p>
+              <h1
+                class="3xl:heading-1 heading-1-alt block font-fancy font-bold leading-none -tracking-tight"
+              >
                 {{ AvailableForWorkDate }}
               </h1>
             </div>
@@ -95,7 +101,7 @@
   const getAvailableForWorkDate = () => {
     const date = new Date();
 
-    const year = date.getFullYear().toString(); // .slice(-2);
+    const year = date.getFullYear().toString().slice(-2);
     const monthNames = [
       'JAN',
       'FEB',
