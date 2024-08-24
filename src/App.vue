@@ -13,13 +13,13 @@
       <filter id="noise">
         <feTurbulence
           type="fractalNoise"
-          baseFrequency="0.65"
-          numOctaves="3"
+          baseFrequency="0.2"
+          numOctaves="1"
           stitchTiles="stitch"
         />
         <feBlend mode="screen" />
       </filter>
-      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.15" />
+      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.12" />
     </svg>
   </div>
 
@@ -37,13 +37,13 @@
     </div>
     <div class="relative overflow-y-clip">
       <aboutMe />
+      <People />
     </div>
   </main>
-  <div class="h-screen"></div>
 </template>
 
 <script setup lang="ts">
-  import { Hero, Services, aboutMe } from '@/components/sections';
+  import { Hero, People, Services, aboutMe } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen, SamsungError } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';

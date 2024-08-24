@@ -2,5 +2,6 @@ import Hero from './Hero.vue';
 import Services from './Services.vue';
 import Works from './Works.vue';
 import aboutMe from './aboutMe.vue';
+import People from './People.vue';
 
-export { Hero, Services, Works, aboutMe };
+export { Hero, Services, Works, aboutMe, People };

@@ -49,7 +49,7 @@ const animateSplitText = (
 
     scrollTrigger: {
       trigger: id,
-      toggleActions: 'play none none none',
+      toggleActions: 'play none none reverse',
       start: 'top 95%',
     },
     delay: delay,
@@ -90,6 +90,10 @@ const xToZero = (id: string) => {
     duration: 0.4,
     ease: 'power1.inOut',
     stagger: 0.1,
+    scrollTrigger: {
+      trigger: id,
+      toggleActions: 'play none none reverse',
+    },
   });
 };
 
@@ -104,6 +108,10 @@ const fadeIn = (id: string, opacity: number = 1, duration: number = 0.5) => {
     opacity: opacity,
     duration: duration,
     ease: 'power4.inOut',
+    scrollTrigger: {
+      trigger: id,
+      toggleActions: 'play none none reverse',
+    },
     stagger: 0.1,
   });
 };
@@ -370,8 +378,8 @@ const animateHeroNav = () => {
 // A little bit about me animation
 const animateAboutMeSectionLeave = (id: string) => {
   gsap.to(id, {
-    y: -100,
-    scale: 0.9,
+    yPercent: -10,
+    scale: 0.95,
     scrollTrigger: {
       trigger: id,
       start: '75% bottom',
