@@ -1,7 +1,7 @@
 <template>
   <section
     id="marquee-section"
-    class="flex w-full flex-col items-stretch justify-around md:h-[75svh] lg:h-svh"
+    class="mb-32 flex h-[60svh] w-full flex-col items-stretch justify-around overflow-clip md:h-[75svh] lg:h-svh"
   >
     <!-- Marquee 1: Dynamic Direction -->
     <div id="marquee-1" class="flex">
@@ -120,10 +120,9 @@
     // Observer to control the direction and speed
     // const targetContainer = marqueeElement.parentElement as HTMLElement;
     Observer.create({
-      // target: targetContainer,
+      type: 'scroll',
       onChangeY: (self) => {
         let factor = directionReverse ? -2.5 : 2.5;
-
         if (self.deltaY < 0) {
           factor *= -1;
         }
@@ -137,7 +136,7 @@
 
   onMounted(() => {
     initializeMarqueeWithObserver('marquee-1', true, -10, 0.5);
-    initializeMarqueeWithObserver('marquee-2', false, 1, 1);
-    initializeMarqueeWithObserver('marquee-3', true, 10, 2);
+    initializeMarqueeWithObserver('marquee-2', false, 1, 0.5);
+    initializeMarqueeWithObserver('marquee-3', true, 10, 1);
   });
 </script>
