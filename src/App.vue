@@ -13,13 +13,24 @@
       <filter id="noise">
         <feTurbulence
           type="fractalNoise"
-          baseFrequency="0.2"
+          baseFrequency="0.65"
           numOctaves="1"
           stitchTiles="stitch"
         />
         <feBlend mode="screen" />
       </filter>
-      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.12" />
+      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.15" />
+
+      <!-- <filter id="noise">
+        <feTurbulence
+          type="fractalNoise"
+          base-frequency="0.8"
+          numOctaves="1"
+          stitchTiles="stitch"
+        />
+        <feBlend mode="screen" />
+      </filter>
+      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.12" /> -->
     </svg>
   </div>
 
@@ -33,6 +44,7 @@
       class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
     >
       <Services />
+      <Marquee />
       <!-- <Works /> -->
     </div>
     <div class="relative overflow-y-clip">
@@ -45,7 +57,7 @@
 <script setup lang="ts">
   import { Hero, People, Services, aboutMe } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
-  import { LoadingScreen, SamsungError } from '@/components/design';
+  import { LoadingScreen, Marquee, SamsungError } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
 
   import { Navbar } from './components/common';
