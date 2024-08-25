@@ -41,7 +41,7 @@
   <main class="relative h-full">
     <Hero />
     <div
-      class="padding-x relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
+      class="relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
     >
       <Services />
       <Marquee />

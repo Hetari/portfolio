@@ -1,17 +1,17 @@
 <template>
   <section
     id="marquee-section"
-    class="mb-32 flex h-[60svh] w-full flex-col items-stretch justify-around overflow-clip md:h-[75svh] lg:h-svh"
+    class="heading-1 sm:heading-display mb-32 flex h-[40vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
   >
     <!-- Marquee 1: Dynamic Direction -->
     <div id="marquee-1" class="flex">
       <h4
         v-for="i in 3"
         :key="`marquee1-${i}`"
-        class="heading-display flex items-center whitespace-nowrap text-nowrap font-bold"
+        class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
         Ebraheem Alhetari
-        <div class="mx-10 w-fit scale-50 sm:scale-75">
+        <div class="w-fit scale-[0.5] sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 55 37"
@@ -31,7 +31,7 @@
       <h4
         v-for="i in 2"
         :key="`marquee2-${i}`"
-        class="heading-display flex items-center whitespace-nowrap text-nowrap font-bold"
+        class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
         <span
           class="font-sans text-transparent [-webkit-text-stroke:1.5px_white]"
@@ -39,7 +39,7 @@
           welcome to the show
         </span>
 
-        <div class="mx-10 w-fit scale-50 fill-current sm:scale-75">
+        <div class="w-fit scale-[0.5] fill-current sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 102 102"
@@ -59,10 +59,10 @@
       <h4
         v-for="i in 3"
         :key="`marquee3-${i}`"
-        class="heading-display flex items-center whitespace-nowrap text-nowrap font-bold"
+        class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
         enjoy the animation
-        <div class="mx-10 w-fit scale-50 fill-current sm:scale-75">
+        <div class="w-fit scale-[0.5] fill-current sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 100 101"
@@ -135,8 +135,8 @@
   };
 
   onMounted(() => {
-    initializeMarqueeWithObserver('marquee-1', true, -10, 0.5);
-    initializeMarqueeWithObserver('marquee-2', false, 1, 0.5);
-    initializeMarqueeWithObserver('marquee-3', true, 10, 1);
+    initializeMarqueeWithObserver('marquee-1', true, -10, 0.3);
+    initializeMarqueeWithObserver('marquee-2', false, 1, 0.6);
+    initializeMarqueeWithObserver('marquee-3', true, 10);
   });
 </script>

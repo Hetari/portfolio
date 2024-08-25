@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="mb-20">
+  <section id="services" class="padding-x mb-20">
     <div class="flex w-full flex-col">
       <h1
         id="what-i-do"
