@@ -1,5 +1,5 @@
 <template>
-  <a
+  <component  :is="url ? 'a' : 'button'" 
     id="button"
     class="leading-base group pointer-events-auto relative h-full max-w-fit transform-none overflow-clip rounded-full bg-flax-smoke-950 px-5 py-2 text-[1rem] font-semibold uppercase tracking-normal text-flax-smoke-100 sm:text-sm"
     :class="$attrs.class"
@@ -20,7 +20,7 @@
         >{{ label }}</span
       >
     </span>
-  </a>
+  </component :is="url ? 'a' : 'button'"">
 </template>
 
 <script setup lang="ts">
@@ -31,7 +31,7 @@
     },
     url: {
       type: String,
-      required: true,
+      required: false,
     },
   });
 </script>
