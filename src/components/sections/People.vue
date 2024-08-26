@@ -1,10 +1,11 @@
 <template>
   <!-- common-padding  -->
   <section
-    class="common-padding absolute -bottom-1/2 top-0 z-[-1] mb-[-100svh] w-full py-0"
+    id="people-section"
+    class="common-padding mx-auto min-h-svh w-[99%] py-0"
   >
     <div
-      class="sticky top-10 grid w-full grid-cols-12 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
+      class="grid w-full grid-cols-12 border-b-[1px] border-flax-smoke-300 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
     >
       <h1
         class="heading-1 col-span-full font-bold uppercase leading-none text-flax-smoke-950"
@@ -25,22 +26,41 @@
         </p>
       </div>
     </div>
+
+    <Slider />
   </section>
-  <div class="h-screen"></div>
+  <div class="h-svh"></div>
+  <div class="h-svh bg-red-400"></div>
 </template>
 
 <script setup lang="ts">
-  import { textSplitterIntoChar } from '@/functions';
-  import { onBeforeMount, onMounted, ref } from 'vue';
-  import { animateSplitText } from '@/animations';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/all';
+  import { onMounted, onUpdated } from 'vue';
+  import { Slider } from '../design';
 
-  const title = ref('');
+  gsap.registerPlugin(ScrollTrigger);
 
-  // onBeforeMount(() => {
-  //   title.value = textSplitterIntoChar(title.value);
-  // });
+  const animatePeopleSectionLeave = (id: string) => {
+    gsap.set(id, {
+      yPercent: -50,
+    });
 
-  // onMounted(() => {
-  //   animateSplitText('#people .letters', '#people-text', 0.7, 0.01, 0);
-  // });
+    gsap.to(id, {
+      scrollTrigger: {
+        trigger: id,
+        start: 'top 75%',
+        end: 'bottom center',
+        scrub: true,
+      },
+      ease: 'power1',
+      yPercent: 0,
+    });
+  };
+  onMounted(() => {
+    animatePeopleSectionLeave('#people-section');
+  });
+  onUpdated(() => {
+    animatePeopleSectionLeave('#people-section');
+  });
 </script>

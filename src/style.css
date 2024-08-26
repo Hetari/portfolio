@@ -17,10 +17,10 @@
 }
 
 @layer base {
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 0;
     background: transparent;
-  }
+  } */
 
   /* ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);

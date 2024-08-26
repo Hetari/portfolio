@@ -380,10 +380,11 @@ const animateAboutMeSectionLeave = (id: string) => {
   gsap.to(id, {
     yPercent: -10,
     scale: 0.95,
+    ease: 'power1',
     scrollTrigger: {
       trigger: id,
       start: '75% bottom',
-      end: 'bottom top',
+      // end: 'bottom top',
       scrub: 1,
     },
   });
