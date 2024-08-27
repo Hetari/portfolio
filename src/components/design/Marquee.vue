@@ -1,7 +1,7 @@
 <template>
   <section
     id="marquee-section"
-    class="heading-1 sm:heading-display mb-32 flex h-[40vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
+    class="heading-1 sm:heading-display mb-32 flex h-[60vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
   >
     <!-- Marquee 1: Dynamic Direction -->
     <div id="marquee-1" class="flex">
