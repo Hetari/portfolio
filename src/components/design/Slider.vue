@@ -11,12 +11,12 @@
       >
         <div>
           <p
-            class="heading-4 mb-14 min-h-36 max-w-[30ch] font-semibold leading-none"
+            class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold leading-none"
           >
-            "{{ people[index].quote }}"
+            " {{ people[index].quote }} "
           </p>
           <div class="heading-6 mb-6 font-semibold">
-            <p class="">{{ people[index].author }}</p>
+            <p>{{ people[index].author }}</p>
             <p class="text-flax-smoke-400">{{ people[index].position }}</p>
           </div>
           <div class="flex gap-3">
@@ -39,9 +39,9 @@
             <p>{{ people.length }}</p>
           </div>
           <div
-            class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[110%] lg:will-change-scroll"
+            class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[115%] lg:w-full lg:will-change-scroll"
           >
-            <div class="sticky top-[90%] flex gap-3">
+            <div class="sticky top-[90%] flex place-content-end gap-3">
               <Button label="Prev" @click="clickPrev" />
               <Button label="Next" @click="clickNext" />
             </div>
@@ -113,11 +113,10 @@
 <script setup lang="ts">
   import { esmail, mohammad } from '@/assets/images';
   import { Button } from '../common';
-  import { computed, ref } from 'vue';
+  import { computed, onMounted, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
 
   const { width } = useWindowSize();
-
   const isSmallScreen = computed(() => width.value < 640);
 
   const clickNext = () => {
@@ -126,6 +125,8 @@
   const clickPrev = () => {
     index.value = (index.value - 1 + people.length) % people.length;
   };
+
+  onMounted(() => {});
 
   // data
   const index = ref(0);

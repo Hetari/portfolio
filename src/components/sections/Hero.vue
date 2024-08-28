@@ -47,7 +47,7 @@
               class="who-am-i text-fluid-body text-base-large w-full overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
             ></p>
 
-            <div class="relative origin-left overflow-hidden sm:scale-125">
+            <div class="relative origin-left overflow-hidden sm:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
                 <Button class="contact" label="Get in touch" url="#" />
               </div>

@@ -26,8 +26,6 @@
 
     <Slider />
   </section>
-  <div class="h-svh"></div>
-  <div class="h-svh bg-red-400"></div>
 </template>
 
 <script setup lang="ts">
