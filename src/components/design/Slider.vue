@@ -41,7 +41,7 @@
           <div
             class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[110%] lg:will-change-scroll"
           >
-            <div class="sticky top-3/4 flex gap-3">
+            <div class="sticky top-[90%] flex gap-3">
               <Button label="Prev" @click="clickPrev" />
               <Button label="Next" @click="clickNext" />
             </div>
@@ -111,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-  import { profile, profile2 } from '@/assets/images';
+  import { esmail, mohammad } from '@/assets/images';
   import { Button } from '../common';
   import { computed, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
@@ -132,19 +132,19 @@
   const people = [
     {
       quote:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus dolorem commodi nihil maxime odit reiciendis, architecto repudiandae qui?',
-      author: 'Author 1',
-      position: 'Founder of Company A',
-      tags: ['Tag 1', 'Tag 2', 'Tag 3'],
-      profile: profile,
+        'Working with Ebraheem on the Axon website has been an exceptional experience. His invaluable support and dedication were crucial in bringing this project to life. Thank you, Ebraheem!',
+      author: 'Esmail Atta',
+      position: 'Founder of Axon',
+      tags: ['Web Development', 'SEO'],
+      profile: esmail,
     },
     {
       quote:
-        'Another inspiring quote here. It is an example of dynamic content.',
-      author: 'Author 2',
-      position: 'CEO of Company B',
-      tags: ['Tag A', 'Tag B', 'Tag C'],
-      profile: profile2,
+        'Collaborating with Hetari on multiple projects has been a true pleasure. His exceptional skills, attention to detail, and commitment to quality consistently made him an invaluable asset to the team.',
+      author: 'Mohammad AL-Sulami',
+      position: 'Full Stack Developer',
+      tags: ['Web Development', 'Animation', 'UI/UX'],
+      profile: mohammad,
     },
   ];
 </script>
