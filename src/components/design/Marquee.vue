@@ -1,7 +1,8 @@
 <template>
   <section
+    v-if="!isSmallScreen"
     id="marquee-section"
-    class="heading-1 hide-on-mobile sm:heading-display mb-32 flex h-[60vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
+    class="heading-1 sm:heading-display mb-32 flex h-[60vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
   >
     <!-- Marquee 1: Dynamic Direction -->
     <div id="marquee-1" class="flex">
@@ -80,12 +81,16 @@
 </template>
 
 <script setup lang="ts">
-  import { onMounted } from 'vue';
+  import { computed, onMounted } from 'vue';
   import gsap from 'gsap';
   import { Observer, ScrollToPlugin } from 'gsap/all';
 
+  const { width } = useWindowSize();
+  const isSmallScreen = computed(() => width.value < 640);
+
   // @ts-expect-error: No defs provided
   import { horizontalLoop } from './horizontal-loop.js';
+  import { useWindowSize } from '@vueuse/core';
 
   gsap.registerPlugin(Observer);
   gsap.registerPlugin(ScrollToPlugin);
