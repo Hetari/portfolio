@@ -14,13 +14,12 @@
             id="quote-text"
             class="heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold md:min-h-fit md:max-w-full md:leading-none lg:min-h-36 lg:max-w-[30ch] lg:leading-normal"
             v-html="people[index].quote"
-            :key="index"
           ></p>
-          <div class="heading-6 mb-6 font-semibold">
+          <div id="quote-author" class="heading-6 mb-6 font-semibold">
             <p>{{ people[index].author }}</p>
             <p class="text-flax-smoke-400">{{ people[index].position }}</p>
           </div>
-          <div class="flex gap-3">
+          <div id="quote-tags" class="flex gap-3">
             <p
               class="rounded-full border border-flax-smoke-500 px-3 uppercase text-flax-smoke-600"
               v-for="i in people[index].tags"
@@ -32,8 +31,8 @@
         </div>
 
         <div class="relative flex h-full items-end justify-between">
-          <div class="heading-5 flex w-2/12 items-center gap-3">
-            <p>{{ index + 1 }}</p>
+          <div class="heading-5 flex w-2/12 items-center gap-3 overflow-clip">
+            <p id="current-index" class="-translate-y-full">{{ index + 1 }}</p>
             <p class="h-0.5 w-full bg-black"></p>
             <p>{{ people.length }}</p>
           </div>
@@ -128,8 +127,40 @@
     const translateY = direction === 'up' ? '-100%' : '0%';
     gsap.to('#quote-text .letters', {
       translateY,
-      duration: 0.3,
-      stagger: 0.005,
+      duration: 0.5,
+      stagger: 0.001,
+      ease: 'power1.inOut',
+      onComplete: () => {
+        if (onCompleteFunc) onCompleteFunc();
+      },
+    });
+  };
+
+  const animateQuoteAuthorTransition = (
+    direction: 'left' | 'right',
+    onCompleteFunc?: () => void,
+  ) => {
+    const translateX = direction === 'left' ? '-50%' : '0%';
+    const opacity = direction === 'left' ? 0 : 1;
+    gsap.to(['#quote-author', '#quote-tags'], {
+      translateX,
+      opacity,
+      duration: 0.5,
+      ease: 'power1.inOut',
+      onComplete: () => {
+        if (onCompleteFunc) onCompleteFunc();
+      },
+    });
+  };
+
+  const animateCurrentQuoteIndex = (
+    direction: 'up' | 'zero',
+    onCompleteFunc?: () => void,
+  ) => {
+    const translateY = direction === 'up' ? '-100%' : '0%';
+    gsap.to('#current-index', {
+      translateY,
+      duration: 0.5,
       ease: 'power1.inOut',
       onComplete: () => {
         if (onCompleteFunc) onCompleteFunc();
@@ -139,27 +170,37 @@
 
   // Function to trigger the quote change
   const changeQuote = (newIndex: number) => {
+    const delayAfterDirection = 50;
+
+    animateQuoteAuthorTransition('left');
+    animateCurrentQuoteIndex('up', () => {
+      gsap.set(['#current-index'], {
+        y: '100%',
+      });
+    });
     animateTextTransition('up', () => {
-      index.value = newIndex;
+      index.value = newIndex; // set the new index
       setTimeout(() => {
         animateTextTransition('zero');
-      }, 50);
+        animateCurrentQuoteIndex('zero');
+        animateQuoteAuthorTransition('right');
+      }, delayAfterDirection);
     });
   };
 
   // Event handlers for next and previous clicks
   const clickNext = () => {
-    const newIndex = (index.value + 1) % people.length;
-    changeQuote(newIndex);
+    let newIndex = index.value + 1;
+    if (newIndex < people.length) changeQuote(newIndex);
   };
 
   const clickPrev = () => {
-    const newIndex = (index.value - 1 + people.length) % people.length;
-    changeQuote(newIndex);
+    const newIndex = index.value - 1;
+    if (newIndex >= 0) changeQuote(newIndex);
   };
 
   onMounted(() => {
-    gsap.set('#quote-text .letters', {
+    gsap.set(['#quote-text .letters', '#current-index'], {
       translateY: 0,
     });
   });
