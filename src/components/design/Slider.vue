@@ -2,7 +2,7 @@
   <!-- TODO: [ ] Animations -->
   <div
     id="slider"
-    class="mt-[10%] grid h-svh w-full grid-cols-12 gap-2 lg:h-[85vh]"
+    class="mt-[10%] grid min-h-svh w-full grid-cols-12 gap-2 lg:h-[85vh]"
   >
     <!-- For larger devices, show one person at a time with index -->
     <template v-if="!isSmallScreen">
@@ -10,9 +10,7 @@
         class="columns-gap relative col-span-full flex h-fit flex-col lg:col-span-6 lg:h-full"
       >
         <div>
-          <p
-            class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold leading-none"
-          >
+          <p class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold">
             " {{ people[index].quote }} "
           </p>
           <div class="heading-6 mb-6 font-semibold">
