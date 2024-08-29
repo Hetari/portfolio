@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: [ ] Animations -->
   <div
     id="slider"
     class="column-gap relative mt-[10%] grid w-full grid-cols-12 gap-2 max-md:min-h-svh lg:h-[85svh]"
@@ -47,13 +46,24 @@
         </div>
       </div>
       <div
-        class="columns-gap order-first col-span-full flex h-[60vh] w-full items-start justify-center max-sm:order-last lg:order-last lg:col-span-6 lg:h-full"
+        class="columns-gap relative order-first col-span-full flex h-[60vh] w-full items-start justify-center overflow-clip max-sm:order-last lg:order-last lg:col-span-6 lg:h-full"
       >
         <img
-          class="h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
-          :src="people[index].profile"
+          :class="{ hidden: index !== 0 }"
+          class="relative z-10 h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
+          :src="people[0].profile"
           alt=""
         />
+        <img
+          :class="{ hidden: index !== 1 }"
+          class="relative z-10 h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
+          :src="people[1].profile"
+          alt=""
+        />
+        <div
+          id="quote-overlay"
+          class="absolute inset-0 z-50 rounded-lg bg-flax-smoke-500"
+        ></div>
       </div>
     </template>
 
@@ -120,19 +130,13 @@
   const isSmallScreen = computed(() => width.value < 640);
 
   // !
-  const animateTextTransition = (
-    direction: 'up' | 'zero',
-    onCompleteFunc?: () => void,
-  ) => {
+  const animateTextTransition = (direction: 'up' | 'zero') => {
     const translateY = direction === 'up' ? '-100%' : '0%';
     gsap.to('#quote-text .letters', {
       translateY,
       duration: 0.5,
       stagger: 0.001,
       ease: 'power1.inOut',
-      onComplete: () => {
-        if (onCompleteFunc) onCompleteFunc();
-      },
     });
   };
 
@@ -158,7 +162,7 @@
     onCompleteFunc?: () => void,
   ) => {
     const translateY = direction === 'up' ? '-100%' : '0%';
-    gsap.to('#current-index', {
+    gsap.to(['#current-index'], {
       translateY,
       duration: 0.5,
       ease: 'power1.inOut',
@@ -168,40 +172,66 @@
     });
   };
 
+  const animateQuoteOverlay = (
+    newIndex: number,
+    onCompleteFunc?: () => void,
+  ) => {
+    // const translateY = direction === 'up' ? '100%' : '-100%';
+    gsap.to('#quote-overlay', {
+      translateY: '0%',
+      duration: 1,
+      ease: 'power4.inOut',
+      onComplete: () => {
+        index.value = newIndex;
+        if (onCompleteFunc) onCompleteFunc();
+
+        gsap.to('#quote-overlay', {
+          translateY: '-100%',
+          duration: 1,
+          ease: 'power4.inOut',
+          onComplete: () => {
+            gsap.set('#quote-overlay', { translateY: '100%' });
+          },
+        });
+      },
+    });
+  };
+
   // Function to trigger the quote change
   const changeQuote = (newIndex: number) => {
-    const delayAfterDirection = 50;
-
+    animateTextTransition('up');
     animateQuoteAuthorTransition('left');
+    animateQuoteOverlay(newIndex, () => {
+      setTimeout(() => {
+        animateTextTransition('zero');
+      }, 25);
+      animateCurrentQuoteIndex('zero');
+      animateQuoteAuthorTransition('right');
+    });
     animateCurrentQuoteIndex('up', () => {
       gsap.set(['#current-index'], {
         y: '100%',
       });
     });
-    animateTextTransition('up', () => {
-      index.value = newIndex; // set the new index
-      setTimeout(() => {
-        animateTextTransition('zero');
-        animateCurrentQuoteIndex('zero');
-        animateQuoteAuthorTransition('right');
-      }, delayAfterDirection);
-    });
   };
 
   // Event handlers for next and previous clicks
   const clickNext = () => {
-    let newIndex = index.value + 1;
+    let newIndex = (index.value + 1) % people.length;
     if (newIndex < people.length) changeQuote(newIndex);
   };
 
   const clickPrev = () => {
-    const newIndex = index.value - 1;
-    if (newIndex >= 0) changeQuote(newIndex);
+    const newIndex = (index.value - 1) % people.length;
+    changeQuote(newIndex);
   };
 
   onMounted(() => {
     gsap.set(['#quote-text .letters', '#current-index'], {
       translateY: 0,
+    });
+    gsap.set('#quote-overlay', {
+      translateY: '100%',
     });
   });
   onBeforeMount(() => {
