@@ -2,15 +2,17 @@
   <!-- TODO: [ ] Animations -->
   <div
     id="slider"
-    class="mt-[10%] grid w-full grid-cols-12 gap-2 max-lg:min-h-svh lg:!h-[85vh]"
+    class="column-gap relative mt-[10%] grid w-full grid-cols-12 gap-2 max-md:min-h-svh lg:h-[85svh]"
   >
     <!-- For larger devices, show one person at a time with index -->
     <template v-if="!isSmallScreen">
       <div
-        class="columns-gap relative col-span-full flex h-fit flex-col lg:col-span-6 lg:h-full"
+        class="columns-gap relative col-span-full flex flex-col max-lg:h-fit lg:col-span-6 lg:h-full"
       >
         <div>
-          <p class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold">
+          <p
+            class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold md:min-h-fit md:max-w-full md:leading-none lg:min-h-36 lg:max-w-[30ch] lg:leading-normal"
+          >
             " {{ people[index].quote }} "
           </p>
           <div class="heading-6 mb-6 font-semibold">
@@ -28,16 +30,14 @@
           </div>
         </div>
 
-        <div
-          class="relative mt-10 flex h-full items-end justify-between overflow-y-clip"
-        >
+        <div class="relative flex h-full items-end justify-between">
           <div class="heading-5 flex w-2/12 items-center gap-3">
             <p>{{ index + 1 }}</p>
             <p class="h-0.5 w-full bg-black"></p>
             <p>{{ people.length }}</p>
           </div>
           <div
-            class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[125%] lg:w-full lg:will-change-scroll"
+            class="lg:absolute lg:inset-0 lg:-bottom-10 lg:w-full lg:will-change-scroll"
           >
             <div class="sticky top-[90%] flex place-content-end gap-3">
               <Button label="Prev" @click="clickPrev" />
@@ -50,7 +50,7 @@
         class="columns-gap order-first col-span-full flex h-[60vh] w-full items-start justify-center max-sm:order-last lg:order-last lg:col-span-6 lg:h-full"
       >
         <img
-          class="size-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale"
+          class="h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
           :src="people[index].profile"
           alt=""
         />
