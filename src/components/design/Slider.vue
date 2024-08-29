@@ -12,7 +12,7 @@
           <p
             id="quote-text"
             class="heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold md:min-h-fit md:max-w-full md:leading-none lg:min-h-36 lg:max-w-[30ch] lg:leading-normal"
-            v-html="people[index].quote"
+            v-html="computedQuote"
           ></p>
           <div id="quote-author" class="heading-6 mb-6 font-semibold">
             <p>{{ people[index].author }}</p>
@@ -121,14 +121,16 @@
 <script setup lang="ts">
   import { esmail, mohammad } from '@/assets/images';
   import { Button } from '../common';
-  import { computed, onBeforeMount, onMounted, ref } from 'vue';
+  import { computed, onMounted, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
   import { textSplitterIntoChar } from '@/functions';
   import gsap from 'gsap';
 
   const { width } = useWindowSize();
   const isSmallScreen = computed(() => width.value < 640);
-
+  const computedQuote = computed(() => {
+    return textSplitterIntoChar(`" ${people[index.value].quote} "`);
+  });
   // !
   const animateTextTransition = (direction: 'up' | 'zero') => {
     const translateY = direction === 'up' ? '-100%' : '0%';
@@ -232,11 +234,6 @@
     });
     gsap.set('#quote-overlay', {
       translateY: '100%',
-    });
-  });
-  onBeforeMount(() => {
-    people.forEach((p, i) => {
-      people[i].quote = textSplitterIntoChar('" ' + p.quote + ' "');
     });
   });
 
