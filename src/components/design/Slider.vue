@@ -2,7 +2,7 @@
   <!-- TODO: [ ] Animations -->
   <div
     id="slider"
-    class="mt-[10%] grid min-h-svh w-full grid-cols-12 gap-2 lg:h-[85vh]"
+    class="mt-[10%] grid w-full grid-cols-12 gap-2 max-lg:min-h-svh lg:!h-[85vh]"
   >
     <!-- For larger devices, show one person at a time with index -->
     <template v-if="!isSmallScreen">
@@ -37,7 +37,7 @@
             <p>{{ people.length }}</p>
           </div>
           <div
-            class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[115%] lg:w-full lg:will-change-scroll"
+            class="lg:absolute lg:inset-y-0 lg:-bottom-8 lg:right-0 lg:h-[125%] lg:w-full lg:will-change-scroll"
           >
             <div class="sticky top-[90%] flex place-content-end gap-3">
               <Button label="Prev" @click="clickPrev" />
@@ -47,10 +47,10 @@
         </div>
       </div>
       <div
-        class="flex-center columns-gap order-first col-span-full h-[60vh] w-full max-sm:order-last lg:order-last lg:col-span-6 lg:h-full"
+        class="columns-gap order-first col-span-full flex h-[60vh] w-full items-start justify-center max-sm:order-last lg:order-last lg:col-span-6 lg:h-full"
       >
         <img
-          class="size-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85vh]"
+          class="size-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale"
           :src="people[index].profile"
           alt=""
         />
@@ -70,7 +70,7 @@
             <div class="col-span-3">
               <div class="columns-gap flex w-full flex-col gap-y-4">
                 <img
-                  class="aspect-square size-full rounded-sm object-cover object-center mix-blend-screen brightness-90 grayscale"
+                  class="aspect-square size-full rounded-md object-cover object-center mix-blend-screen brightness-90 grayscale"
                   :src="p.profile"
                   alt=""
                 />

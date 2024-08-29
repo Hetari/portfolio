@@ -51,6 +51,7 @@
       <aboutMe />
       <People />
     </div>
+    <div class="h-svh"></div>
   </main>
 </template>
 
