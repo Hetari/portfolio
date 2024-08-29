@@ -10,11 +10,22 @@
         class="columns-gap relative col-span-full flex flex-col max-lg:h-fit lg:col-span-6 lg:h-full"
       >
         <div>
-          <p
-            class="quote heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold md:min-h-fit md:max-w-full md:leading-none lg:min-h-36 lg:max-w-[30ch] lg:leading-normal"
+          <transition
+            name="text-quote"
+            @before-enter="beforeEnterQuote"
+            @enter="enterQuote"
+            @after-enter="afterEnterQuote"
+            @before-leave="beforeLeaveQuote"
+            @leave="leaveQuote"
+            @after-leave="afterLeaveQuote"
           >
-            " {{ people[index].quote }} "
-          </p>
+            <p
+              :key="index"
+              id="quote-text"
+              class="heading-3 mb-14 min-h-36 max-w-[30ch] font-semibold md:min-h-fit md:max-w-full md:leading-none lg:min-h-36 lg:max-w-[30ch] lg:leading-normal"
+              v-html="people[index].quote"
+            ></p>
+          </transition>
           <div class="heading-6 mb-6 font-semibold">
             <p>{{ people[index].author }}</p>
             <p class="text-flax-smoke-400">{{ people[index].position }}</p>
@@ -111,20 +122,56 @@
 <script setup lang="ts">
   import { esmail, mohammad } from '@/assets/images';
   import { Button } from '../common';
-  import { computed, onMounted, ref } from 'vue';
+  import { computed, onBeforeMount, onMounted, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
+  import { textSplitterIntoChar } from '@/functions';
+  import gsap from 'gsap';
 
   const { width } = useWindowSize();
   const isSmallScreen = computed(() => width.value < 640);
 
+  // !
+  const beforeLeaveQuote = (e: Element) => {
+    console.log('beforeLeaveQuote', e);
+  };
+  const leaveQuote = (e: Element, done: () => void) => {
+    console.log('leaveQuote', e);
+    done();
+  };
+  const afterLeaveQuote = (e: Element) => {
+    console.log('afterLeaveQuote', e);
+  };
+
+  const beforeEnterQuote = (e: Element) => {
+    console.log('beforeEnterQuote', e);
+  };
+  const enterQuote = (e: Element, done: () => void) => {
+    console.log('enterQuote', e);
+    done();
+  };
+  const afterEnterQuote = (e: Element) => {
+    console.log('afterEnterQuote', e);
+  };
+  // !
+
   const clickNext = () => {
     index.value = (index.value + 1) % people.length;
   };
+
   const clickPrev = () => {
     index.value = (index.value - 1 + people.length) % people.length;
   };
 
-  onMounted(() => {});
+  onMounted(() => {
+    gsap.set('#quote-text .letters', {
+      y: 0,
+    });
+  });
+  onBeforeMount(() => {
+    people.forEach((p, i) => {
+      people[i].quote = textSplitterIntoChar('" ' + p.quote + ' "');
+    });
+  });
 
   // data
   const index = ref(0);
