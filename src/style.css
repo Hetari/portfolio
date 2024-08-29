@@ -97,7 +97,7 @@
   }
 
   .hide-on-mobile {
-    @apply hidden md:block;
+    @apply hidden sm:block;
   }
 
   .only-on-mobile {
