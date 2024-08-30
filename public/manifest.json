@@ -1,0 +1,18 @@
+{
+  "name": "Ebraheem Alhetari Portfolio",
+  "short_name": "Ebraheem Alhetari Portfolio",
+  "icons": [
+    {
+      "src": "/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/portfolio/",
+  "display": "standalone"
+}
