@@ -92,9 +92,9 @@
                 </p>
 
                 <div class="heading-6 mt-4 font-semibold">
-                  <p class="">{{ people[index].author }}</p>
+                  <p class="">{{ p.author }}</p>
                   <p class="text-flax-smoke-400">
-                    {{ people[index].position }}
+                    {{ p.position }}
                   </p>
                 </div>
 
@@ -103,7 +103,7 @@
                 >
                   <p
                     class="text-nowrap rounded-full border border-flax-smoke-500 px-3 uppercase text-flax-smoke-600"
-                    v-for="i in people[index].tags"
+                    v-for="i in p.tags"
                     :key="i"
                   >
                     {{ i }}
