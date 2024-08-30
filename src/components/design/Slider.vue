@@ -131,6 +131,9 @@
   const computedQuote = computed(() => {
     return textSplitterIntoChar(`" ${people[index.value].quote} "`);
   });
+
+  const canClick = ref(true);
+
   // !
   const animateTextTransition = (direction: 'up' | 'zero') => {
     const translateY = direction === 'up' ? '-100%' : '0%';
@@ -181,7 +184,7 @@
     // const translateY = direction === 'up' ? '100%' : '-100%';
     gsap.to('#quote-overlay', {
       translateY: '0%',
-      duration: 1,
+      duration: 0.7,
       ease: 'power4.inOut',
       onComplete: () => {
         index.value = newIndex;
@@ -189,10 +192,12 @@
 
         gsap.to('#quote-overlay', {
           translateY: '-100%',
-          duration: 1,
+          duration: 0.7,
           ease: 'power4.inOut',
           onComplete: () => {
             gsap.set('#quote-overlay', { translateY: '100%' });
+
+            canClick.value = true;
           },
         });
       },
@@ -219,12 +224,18 @@
 
   // Event handlers for next and previous clicks
   const clickNext = () => {
+    if (!canClick.value) return;
+
+    canClick.value = false;
     let newIndex = (index.value + 1) % people.length;
     if (newIndex < people.length) changeQuote(newIndex);
   };
 
   const clickPrev = () => {
-    const newIndex = (index.value - 1) % people.length;
+    if (!canClick.value) return;
+
+    canClick.value = false;
+    const newIndex = (index.value - 1 + people.length) % people.length;
     changeQuote(newIndex);
   };
 
