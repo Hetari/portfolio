@@ -140,8 +140,10 @@
   };
 
   onMounted(() => {
-    initializeMarqueeWithObserver('marquee-1', true, -10, 0.3);
-    initializeMarqueeWithObserver('marquee-2', false, 1, 0.6);
-    initializeMarqueeWithObserver('marquee-3', true, 10);
+    if (!isSmallScreen.value) {
+      initializeMarqueeWithObserver('marquee-1', true, -10, 0.3);
+      initializeMarqueeWithObserver('marquee-2', false, 1, 0.6);
+      initializeMarqueeWithObserver('marquee-3', true, 10);
+    }
   });
 </script>
