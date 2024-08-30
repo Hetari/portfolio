@@ -2,15 +2,15 @@
 const navLinks = [
   {
     label: 'Services',
-    url: '#',
+    url: '#services',
   },
   {
     label: 'Works',
-    url: '#',
+    url: '#works',
   },
   {
     label: 'About',
-    url: '#',
+    url: '#about-me-section',
   },
   {
     label: 'Contact',
@@ -18,7 +18,7 @@ const navLinks = [
   },
 ];
 
-const navbarLinks = [{ label: 'Home', url: '/' }, ...navLinks];
+const navbarLinks = [{ label: 'Home', url: 'body' }, ...navLinks];
 
 const socialLinks = [
   {

@@ -1,6 +1,6 @@
 <template>
   <component :is="tag" class="select-none overflow-y-hidden">
-    <a :href="url" class="group">
+    <a @click="gotoSection(url)" :href="url" class="group">
       <p
         class="-translate-y-0 font-title transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
       >
@@ -16,6 +16,13 @@
 </template>
 
 <script setup lang="ts">
+  import { lenis } from '@/main';
+
+  const gotoSection = (url: string) => {
+    lenis.start();
+    lenis.scrollTo(url, { duration: 1 });
+  };
+
   defineProps({
     tag: {
       type: String,

@@ -31,6 +31,7 @@
           >
             <a
               :href="l.url"
+              @click="gotoSection(l.url)"
               class="group my-2 flex w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
             >
               <span
@@ -95,9 +96,10 @@
 
       <div class="flex justify-start">
         <p
-          class="hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 max-2xl:text-sm md:block lg:text-lg"
+          class="heading-6 hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 md:block"
         >
-          available for work and collaboration
+          available for freelance <br />
+          work and collaboration
         </p>
       </div>
       <div class="flex">
@@ -131,6 +133,7 @@
     navbarScale,
   } from '@/animations';
   import { navbarLinks, socialLinks, navLinks } from '@/data';
+  import { lenis } from '@/main';
 
   const isNavbarOpen = ref(false);
 
@@ -148,6 +151,12 @@
       animateNavbarLeave('#navbar', '#navLinks li a', '.contact');
       x.blur();
     }
+  };
+
+  const gotoSection = (url: string) => {
+    lenis.start();
+    lenis.scrollTo(url, { duration: 1 });
+    toggleBtnClickAnimation();
   };
 
   // Animation on component mount
