@@ -5,7 +5,7 @@
       class="grid w-full grid-cols-12 border-b-[1px] border-flax-smoke-300 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
     >
       <h1
-        class="heading-1 col-span-full font-bold uppercase leading-none text-flax-smoke-950"
+        class="heading-1 max-sm:heading-2 col-span-full font-bold uppercase leading-none text-flax-smoke-950"
       >
         Don't take my <br />
         word for it /

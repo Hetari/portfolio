@@ -1,7 +1,7 @@
 <template>
   <div :class="$attrs.class">
     <div
-      class="heading-2 flex grid-cols-12 items-center justify-start gap-5 py-6 text-left font-semibold sm:py-5 md:grid md:justify-between"
+      class="heading-2 max-sm:heading-3 flex grid-cols-12 items-center justify-start gap-5 py-6 text-left font-semibold sm:py-5 md:grid md:justify-between"
     >
       <span class="col-span-2 self-center text-nowrap">
         ( {{ `0${number}` }} )
