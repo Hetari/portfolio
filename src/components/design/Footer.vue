@@ -1,0 +1,146 @@
+<template>
+  <footer
+    class="relative flex flex-col items-center justify-center gap-20 p-[2%]"
+  >
+    <div
+      style="column-gap: 1.5rem"
+      class="row-gap grid w-full grid-cols-2 text-base md:grid-cols-12"
+    >
+      <div class="flex flex-col md:col-span-6">
+        <p
+          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+        >
+          Menu
+        </p>
+        <div class="mt-2 space-y-1">
+          <p v-for="i in navbarLinks" class="heading-6">
+            <Link
+              class="h-6 font-medium lowercase tracking-wider"
+              :label="i.label"
+              :url="i.url"
+            />
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:col-span-3">
+        <p
+          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+        >
+          Socials
+        </p>
+
+        <div class="mt-2 space-y-1">
+          <p v-for="i in socialLinks" :key="i.label" class="heading-6">
+            <Link
+              class="h-6 font-medium lowercase tracking-wider"
+              :label="i.label"
+              :url="i.url"
+            />
+          </p>
+        </div>
+      </div>
+
+      <div class="col-span-full flex flex-col md:col-span-3">
+        <p
+          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+        >
+          Resources
+        </p>
+        <div class="mt-2 space-y-1">
+          <p
+            v-for="i in [
+              {
+                label: 'Huy Nguyen',
+                url: 'https://www.huyng.xyz',
+              },
+              {
+                label: 'Pillarstack',
+                url: 'https://www.pillarstack.com',
+              },
+              {
+                label: 'Figma Template',
+                url: 'https://www.figma.com/community/file/1328038510191576951/project-starter-template',
+              },
+            ]"
+            class="heading-6"
+          >
+            <Link
+              class="h-6 font-medium lowercase tracking-wider"
+              :label="i.label"
+              :url="i.url"
+            />
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid w-full grid-cols-12">
+      <div class="col-span-6">
+        <h1 class="heading-2 font-bold leading-none">
+          © {{ new Date().getFullYear() }} Hetari <br />
+          All rights reserved.
+        </h1>
+      </div>
+
+      <div class="col-span-6 md:col-span-3">
+        <p class="heading-6 font-bold uppercase">Local time</p>
+        <p class="heading-6">{{ now }}</p>
+      </div>
+
+      <div class="col-span-1 col-start-12">
+        <MagneticEffect divId="scroll-to-top" textId="scroll-to-top-icon">
+          <div
+            @click="lenis.scrollTo('#app', { duration: 2 })"
+            id="scroll-to-top"
+            class="flex-center size-20 cursor-pointer rounded-full bg-flax-smoke-400"
+          >
+            <svg
+              id="scroll-to-top-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              color="#000000"
+              fill="none"
+            >
+              <path
+                d="M12 4L12 20"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16.9998 8.99996C16.9998 8.99996 13.3174 4.00001 11.9998 4C10.6822 3.99999 6.99982 9 6.99982 9"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </MagneticEffect>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script setup lang="ts">
+  import { navbarLinks, socialLinks } from '@/data';
+  import { Link } from '..';
+  import moment from 'moment-timezone';
+  import { onMounted, ref } from 'vue';
+  import { lenis } from '@/main';
+  import MagneticEffect from '../MagneticEffect.vue';
+  moment.tz.setDefault('Yemen/Aden');
+
+  const now = ref('');
+
+  onMounted(() => {
+    now.value = moment().format('h:mm:ss a');
+    setInterval(() => {
+      now.value = moment().format('h:mm:ss a');
+    }, 1000);
+  });
+</script>

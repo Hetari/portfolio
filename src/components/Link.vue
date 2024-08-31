@@ -26,7 +26,6 @@
   defineProps({
     tag: {
       type: String,
-      required: true,
       default: 'p', // Default tag if not provided
     },
     label: {
