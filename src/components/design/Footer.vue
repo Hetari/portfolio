@@ -48,23 +48,7 @@
           Resources
         </p>
         <div class="mt-2 space-y-1">
-          <p
-            v-for="i in [
-              {
-                label: 'Huy Nguyen',
-                url: 'https://www.huyng.xyz',
-              },
-              {
-                label: 'Pillarstack',
-                url: 'https://www.pillarstack.com',
-              },
-              {
-                label: 'Figma Template',
-                url: 'https://www.figma.com/community/file/1328038510191576951/project-starter-template',
-              },
-            ]"
-            class="heading-6"
-          >
+          <p v-for="i in resourceLinks" class="heading-6">
             <Link
               class="h-6 font-medium lowercase tracking-wider"
               :label="i.label"
@@ -89,13 +73,19 @@
       </div>
 
       <div class="col-span-1 col-start-12">
-        <MagneticEffect divId="scroll-to-top" textId="scroll-to-top-icon">
+        <MagneticEffect
+          divId="scroll-to-top"
+          textId="scroll-to-top-icon"
+          :magnetoStrengthVal="150"
+          :magnetoTextStrengthVal="50"
+        >
           <div
             @click="lenis.scrollTo('#app', { duration: 2 })"
             id="scroll-to-top"
-            class="flex-center size-20 cursor-pointer rounded-full bg-flax-smoke-400"
+            class="flex-center size-20 cursor-pointer flex-col rounded-full bg-flax-smoke-400"
           >
             <svg
+              class="size-1/2"
               id="scroll-to-top-icon"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -127,7 +117,7 @@
 </template>
 
 <script setup lang="ts">
-  import { navbarLinks, socialLinks } from '@/data';
+  import { navbarLinks, resourceLinks, socialLinks } from '@/data';
   import { Link } from '..';
   import moment from 'moment-timezone';
   import { onMounted, ref } from 'vue';

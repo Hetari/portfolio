@@ -35,6 +35,21 @@ const socialLinks = [
   },
 ];
 
+const resourceLinks = [
+  {
+    label: 'Huy Nguyen (the designer of this ui)',
+    url: 'https://www.huyng.xyz',
+  },
+  {
+    label: 'Pillarstack',
+    url: 'https://www.pillarstack.com',
+  },
+  {
+    label: 'Figma Template',
+    url: 'https://www.figma.com/community/file/1328038510191576951/project-starter-template',
+  },
+];
+
 const heroText =
   'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.';
 
@@ -85,6 +100,7 @@ export {
   navLinks,
   navbarLinks,
   socialLinks,
+  resourceLinks,
   heroText,
   locationPlace,
   locationCountry,
