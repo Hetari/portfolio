@@ -1,5 +1,7 @@
 <template>
-  <section class="relative min-h-svh w-full overflow-y-clip p-[4vh]">
+  <section
+    class="relative min-h-svh w-full select-none overflow-y-clip p-[4vh]"
+  >
     <div
       class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black bg-cover bg-bottom bg-no-repeat uppercase"
       :style="'background-image: url(' + contact + ') !important; '"
@@ -35,7 +37,7 @@
             class="flex-center py w-fit flex-col border border-l-0 border-flax-smoke-300 font-mono text-flax-smoke-300"
           >
             <p
-              class="flex h-full w-full items-center justify-start border-b border-flax-smoke-300 pl-1 pr-2"
+              class="flex h-full w-full items-center justify-start border-b border-flax-smoke-300 pl-1 pr-2 font-bold"
             >
               Working Globally
             </p>
