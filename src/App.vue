@@ -47,16 +47,21 @@
       <Marquee />
       <!-- <Works /> -->
     </div>
-    <div class="relative overflow-y-clip">
-      <aboutMe />
-      <People />
-    </div>
-    <div class="h-svh"></div>
+
+    <aboutMe />
+    <People />
+    <Contact />
   </main>
 </template>
 
 <script setup lang="ts">
-  import { Hero, People, Services, aboutMe } from '@/components/sections';
+  import {
+    Hero,
+    People,
+    Services,
+    aboutMe,
+    Contact,
+  } from '@/components/sections';
   import { onMounted, Ref, ref, watch } from 'vue';
   import { LoadingScreen, Marquee, SamsungError } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';

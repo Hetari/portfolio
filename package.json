@@ -12,7 +12,8 @@
     "@vueuse/core": "^10.11.1",
     "gsap": "^3.12.5",
     "lenis": "^1.1.9",
-    "vue": "^3.4.37"
+    "vue": "^3.4.37",
+    "vue3-lottie": "^3.3.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

@@ -1,6 +1,6 @@
 <template>
   <!-- common-padding  -->
-  <section id="people-section" class="common-padding mx-auto min-h-svh py-0">
+  <section id="people-section" class="relative overflow-y-clip common-padding mx-auto min-h-svh py-0">
     <div
       class="grid w-full grid-cols-12 border-b-[1px] border-flax-smoke-300 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
     >
