@@ -3,8 +3,7 @@
     class="relative flex flex-col items-center justify-center gap-20 p-[2%]"
   >
     <div
-      style="column-gap: 1.5rem"
-      class="row-gap grid w-full grid-cols-2 text-base md:grid-cols-12"
+      class="row-gap grid w-full grid-cols-2 text-base sm:gap-x-6 md:grid-cols-12"
     >
       <div class="flex flex-col md:col-span-6">
         <p
@@ -60,25 +59,22 @@
     </div>
 
     <div class="grid w-full grid-cols-12">
-      <div class="col-span-6">
+      <div class="col-span-8 md:col-span-6">
         <h1 class="heading-2 font-bold leading-none">
           © {{ new Date().getFullYear() }} Hetari <br />
           All rights reserved.
         </h1>
       </div>
 
-      <div class="col-span-6 md:col-span-3">
+      <div
+        class="col-span-3 place-content-center max-md:ml-auto max-sm:place-content-end"
+      >
         <p class="heading-6 font-bold uppercase">Local time</p>
         <p class="heading-6">{{ now }}</p>
       </div>
 
-      <div class="col-span-1 col-start-12">
-        <MagneticEffect
-          divId="scroll-to-top"
-          textId="scroll-to-top-icon"
-          :magnetoStrengthVal="150"
-          :magnetoTextStrengthVal="50"
-        >
+      <div class="hidden md:col-span-1 md:col-start-12 md:block">
+        <MagneticEffect divId="scroll-to-top" textId="scroll-to-top-icon">
           <div
             @click="lenis.scrollTo('#app', { duration: 2 })"
             id="scroll-to-top"

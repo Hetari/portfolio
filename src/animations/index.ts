@@ -316,14 +316,14 @@ const animateLoadingText = (id: string) => {
 const animateHeroNav = () => {
   gsap.to('header', {
     y: 0,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
   });
 
   gsap.to('#svg-my-en-name g path', {
     y: 0,
     delay: 0.2,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
     stagger: 0.01,
   });
@@ -331,14 +331,14 @@ const animateHeroNav = () => {
   gsap.to('#star', {
     x: 1,
     delay: 0.4,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
   });
 
   gsap.to('.overlay', {
     y: '100%',
     delay: 0.4,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
     onComplete: () => {
       gsap.set('.overlay', { display: 'none' });
@@ -348,7 +348,7 @@ const animateHeroNav = () => {
   gsap.to('#profile-img', {
     scale: 1,
     delay: 0.4,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
   });
 
@@ -356,11 +356,11 @@ const animateHeroNav = () => {
     x: 0,
     y: 0,
     delay: 0.6,
-    duration: 0.8,
+    duration: 1,
     ease: 'power4.inOut',
   });
 
-  animateSplitText('#whoAmI .letters', '#whoAmI .letters', 0.8, 0.005, 0.6);
+  animateSplitText('#whoAmI .letters', '#whoAmI .letters', 1, 0.005, 0.6);
 
   // Hero scroll animation
   gsap.to('#hero', {
