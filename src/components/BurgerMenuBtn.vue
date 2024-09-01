@@ -3,7 +3,7 @@
     <div v-bind="$attrs" class="fixed right-7 top-7 z-[20]">
       <div
         id="magneto"
-        class="flex-center size-12 cursor-pointer rounded-full bg-flax-smoke-300 brightness-90 ease-in-out md:size-[4.5rem]"
+        class="flex-center size-14 cursor-pointer rounded-full bg-flax-smoke-300 brightness-90 ease-in-out lg:size-[4.5rem]"
       >
         <span
           class="w-[100%] text-center before:bg-flax-smoke-700 after:bg-flax-smoke-700"
