@@ -3,10 +3,18 @@
     class="relative min-h-svh w-full select-none overflow-y-clip p-[4vh]"
   >
     <div
-      class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black bg-cover bg-bottom bg-no-repeat uppercase"
-      :style="'background-image: url(' + contact + ') !important; '"
+      class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black uppercase"
     >
-      <div class="flex-center flex-col gap-y-10">
+      <video
+        class="absolute bottom-0 left-0 h-full w-full rounded-lg object-cover object-bottom"
+        :src="contact"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+      <!-- :style="'background-image: url(' + contact + ') !important; '" -->
+      <div class="flex-center z-10 flex-col gap-y-10">
         <p class="heading-4 text-center font-mono text-flax-smoke-300">
           (Need an unfair advantage?)
         </p>
