@@ -45,6 +45,23 @@
             </a>
           </li>
         </ul>
+        <ul class="mt-12 font-bold text-flax-smoke-50 md:mt-24" id="navLinks">
+        <li >
+            <p
+              class="group my-2 flex w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
+            >
+              <span
+                class="h-4 w-4 scale-0 rounded-full bg-flax-smoke-50 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
+              ></span>
+              <p
+                class="-translate-x-5 font-fancy transition-all duration-300 ease-in-out group-hover:translate-x-5"
+              >
+                {{ i18n.global.locale == 'en' ? 'Language: English' : 'اللغة: العربية' }}
+              </p>
+            </p>
+          </li>
+        </ul>
+
       </div>
 
       <div class="w-full">
@@ -116,6 +133,27 @@
             class="h-[50%] max-md:h-5"
           />
         </ul>
+        <svg
+          @click="toggleLocalLang"
+          class="ms-5 size-7 cursor-pointer xl:size-9"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          color="#000000"
+          fill="none"
+        >
+          <path
+            d="M7 8.37931H11.5M17 8.37931H14.5M11.5 8.37931H14.5M11.5 8.37931V7M14.5 8.37931C13.9725 10.2656 12.8679 12.0487 11.6071 13.6158M8.39286 17C9.41205 16.0628 10.5631 14.9134 11.6071 13.6158M11.6071 13.6158C10.9643 12.8621 10.0643 11.6426 9.80714 11.0909M11.6071 13.6158L13.5357 15.6207"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
       </div>
     </nav>
   </header>
@@ -133,7 +171,7 @@
     navbarScale,
   } from '@/animations';
   import { navbarLinks, socialLinks, navLinks } from '@/data';
-  import { lenis } from '@/main';
+  import { i18n, lenis } from '@/main';
 
   const isNavbarOpen = ref(false);
 
@@ -159,8 +197,34 @@
     toggleBtnClickAnimation();
   };
 
+  const currentLocaleIndex = ref(0);
+  const toggleLocalLang = () => {
+    // TODO: add animation when changing the language
+    currentLocaleIndex.value =
+      (currentLocaleIndex.value + 1) % i18n.global.availableLocales.length;
+    const newLocale = i18n.global.availableLocales[currentLocaleIndex.value];
+    i18n.global.locale = newLocale;
+
+    // togglePageDirection();
+  };
+
+  const togglePageDirection = () => {
+    if (i18n.global.locale == 'en') {
+      document.body.style.direction = 'ltr';
+    }
+    else if (i18n.global.locale == 'ar') {
+      document.body.style.direction = 'rtl';
+    }
+  }
+
   // Animation on component mount
   onMounted(() => {
+    // if (i18n.global.locale == 'en') {
+    //   document.body.style.direction = 'ltr';
+    // }
+    // else if (i18n.global.locale == 'ar') {
+    //   document.body.style.direction = 'rtl';
+    // }
     navbarScale('#burger', '#hero');
   });
 
