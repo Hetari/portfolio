@@ -73,7 +73,9 @@
         <p class="heading-6">{{ now }}</p>
       </div>
 
-      <div class="hidden md:col-span-1 md:col-start-12 md:block">
+      <div
+        class="hidden md:col-span-2 md:col-start-11 md:block lg:col-span-1 lg:col-start-12"
+      >
         <MagneticEffect divId="scroll-to-top" textId="scroll-to-top-icon">
           <div
             @click="lenis.scrollTo('#app', { duration: 2 })"

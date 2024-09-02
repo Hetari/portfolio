@@ -32,8 +32,32 @@ const textSplitterIntoChar = (
   return result;
 };
 
-const getElementHeight = (id: string) => {
-  return document.getElementById(id)!.offsetHeight;
+const getAvailableForWorkDate = () => {
+  const date = new Date();
+
+  const year = date.getFullYear().toString().slice(-2);
+  const monthNames = [
+    'JAN',
+    'FEB',
+    'MAR',
+    'APR',
+    'MAY',
+    'JUN',
+    'JUL',
+    'AUG',
+    'SEP',
+    'OCT',
+    'NOV',
+    'DEC',
+  ];
+  let index = date.getMonth();
+
+  if (date.getMonth() < 12) {
+    index += 1;
+  }
+  const month = monthNames[index];
+
+  return `${month} '${year}`;
 };
 
-export { textSplitterIntoChar, getElementHeight };
+export { textSplitterIntoChar, getAvailableForWorkDate };
