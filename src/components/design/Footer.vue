@@ -67,10 +67,12 @@
       </div>
 
       <div
-        class="col-span-3 place-content-center max-md:ml-auto max-sm:place-content-end"
+        class="col-span-3 place-content-center max-md:ml-auto max-sm:col-start-10 max-sm:place-content-end"
       >
-        <p class="heading-6 font-bold uppercase">Local time</p>
-        <p class="heading-6">{{ now }}</p>
+        <p class="heading-6 font-bold uppercase">My Local time</p>
+        <p class="heading-6">{{ myLocalTime }}</p>
+        <p class="heading-6 font-bold uppercase">Your Local time</p>
+        <p class="heading-6">{{ userLocalTime }}</p>
       </div>
 
       <div
@@ -117,18 +119,26 @@
 <script setup lang="ts">
   import { navbarLinks, resourceLinks, socialLinks } from '@/data';
   import { Link } from '..';
-  import moment from 'moment-timezone';
   import { onMounted, ref } from 'vue';
   import { lenis } from '@/main';
   import MagneticEffect from '../MagneticEffect.vue';
-  moment.tz.setDefault('Yemen/Aden');
+  import moment from 'moment-timezone';
 
-  const now = ref('');
+  const myLocalTime = ref('');
+  const userLocalTime = ref('');
 
   onMounted(() => {
-    now.value = moment().format('h:mm:ss a');
+    // Yemen Time (local to you)
+    myLocalTime.value = moment.tz('Asia/Aden').format('h:mm:ss a');
     setInterval(() => {
-      now.value = moment().format('h:mm:ss a');
+      myLocalTime.value = moment.tz('Asia/Aden').format('h:mm:ss a');
+    }, 1000);
+
+    // User's local time (based on their location)
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    userLocalTime.value = moment.tz(userTimeZone).format('h:mm:ss a');
+    setInterval(() => {
+      userLocalTime.value = moment.tz(userTimeZone).format('h:mm:ss a');
     }, 1000);
   });
 </script>

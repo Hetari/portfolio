@@ -58,7 +58,7 @@
     <div class="heading-5 grid w-full grid-cols-2 font-extrabold lg:skew-y-0">
       <div class="col-span-2 sm:col-span-1">
         <p
-          class="text-fancy text-base font-normal text-flax-smoke-300 sm:max-w-[40ch]"
+          class="font-fancy text-base font-normal text-flax-smoke-300 sm:max-w-[40ch]"
         >
           {{ body }}
         </p>

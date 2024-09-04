@@ -19,7 +19,7 @@
         <p class="heading-6 text-nowrap text-center uppercase">
           ( Testimonials )
         </p>
-        <p class="text-fancy heading-6 w-full text-balance sm:max-w-[40ch]">
+        <p class="heading-6 w-full text-balance font-fancy sm:max-w-[40ch]">
           Here's what my clients say about our collaboration. Their satisfaction
           and meeting expectations are my top priorities, ensuring the best
           experience possible.

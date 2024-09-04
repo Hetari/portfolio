@@ -102,8 +102,10 @@
           <h1
             id="name"
             class="flex items-start font-fancy text-xl font-extrabold uppercase md:text-3xl"
+
           >
-            hetari<span
+            {{ $t('common.hetari') }}
+          <span
               class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
             >
@@ -205,12 +207,13 @@
     const newLocale = i18n.global.availableLocales[currentLocaleIndex.value];
     i18n.global.locale = newLocale;
 
-    // togglePageDirection();
+    togglePageDirection();
   };
 
   const togglePageDirection = () => {
     if (i18n.global.locale == 'en') {
       document.body.style.direction = 'ltr';
+      
     }
     else if (i18n.global.locale == 'ar') {
       document.body.style.direction = 'rtl';
@@ -219,12 +222,7 @@
 
   // Animation on component mount
   onMounted(() => {
-    // if (i18n.global.locale == 'en') {
-    //   document.body.style.direction = 'ltr';
-    // }
-    // else if (i18n.global.locale == 'ar') {
-    //   document.body.style.direction = 'rtl';
-    // }
+    togglePageDirection()
     navbarScale('#burger', '#hero');
   });
 

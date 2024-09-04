@@ -19,7 +19,7 @@
           PROJECTS )
         </p>
         <p
-          class="text-fancy heading-4 col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
+          class="heading-4 col-span-8 w-full text-balance font-fancy sm:font-semibold md:col-span-5"
         >
           Featured client projects that have been meticulously crafted with
           passion and purpose over the years.

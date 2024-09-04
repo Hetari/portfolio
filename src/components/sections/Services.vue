@@ -17,7 +17,7 @@
           ( SERVICES )
         </p>
         <p
-          class="text-fancy heading-4 col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
+          class="heading-4 col-span-8 w-full text-balance font-fancy sm:font-semibold md:col-span-5"
         >
           My obsession is to craft memorable digital experiences that represent
           your brand, serve a meaningful purpose, and drive tangible business

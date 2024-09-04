@@ -1,7 +1,7 @@
 <template>
   <section
     id="about-me-section"
-    class="relative overflow-y-clip common-padding  z-10 rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl sm:mt-0"
+    class="common-padding relative z-10 overflow-y-clip rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl sm:mt-0"
   >
     <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">
@@ -55,7 +55,7 @@
           <p class="heading-6 text-nowrap text-center text-flax-smoke-300/85">
             ( ABOUT ME )
           </p>
-          <p class="text-fancy heading-6 w-full text-balance sm:max-w-[40ch]">
+          <p class="heading-6 w-full text-balance font-fancy sm:max-w-[40ch]">
             Creating great web experiences is my primary focus. I ensure each
             project leaves users with a feel-good sensation through meticulous
             attention to detail and user-centric design principles. <br /><br />

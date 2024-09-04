@@ -12,14 +12,24 @@ function raf(time: number) {
 }
 
 const i18n = createI18n({
-  locale: 'ar',
+  locale: 'en',
   fallbackLocale: 'en',
   messages: {
     ar: {
-      test: 'تست',
+      common: {
+        alhetari: 'الهتاري',
+        brhoom: 'برهوم',
+        ebraheem: 'إبراهيم',
+        hetari: 'هتاري',
+      },
     },
     en: {
-      test: 'test',
+      common: {
+        alhetari: 'Al-Hetari',
+        brhoom: 'brhoom',
+        ebraheem: 'Ebraheem',
+        hetari: 'Hetari',
+      },
     },
   },
 });

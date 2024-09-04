@@ -10,6 +10,7 @@ export default {
         title: ['title'],
         body: ['body'],
         fancy: ['Bricolage Grotesque'],
+        fancy2: ['Readex Pro'],
       },
       colors: {
         // 'timber-wolf': {
