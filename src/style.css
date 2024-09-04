@@ -6,12 +6,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'body';
-  src: url('./assets/fonts/Switzer-Variable.ttf') format('truetype');
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'title';
   src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
   font-style: normal;
@@ -53,7 +47,7 @@
   h4,
   h5,
   h6 {
-    @apply font-title;
+    @apply font-fancy;
   }
 
   a,
@@ -73,6 +67,9 @@
 }
 
 @layer components {
+  .font-fancy {
+    font-family: var(--font-fancy);
+  }
   .light-theme {
     @apply bg-flax-smoke-50 text-flax-smoke-800;
   }

@@ -17,18 +17,22 @@ const i18n = createI18n({
   messages: {
     ar: {
       common: {
-        alhetari: 'الهتاري',
-        brhoom: 'برهوم',
-        ebraheem: 'إبراهيم',
         hetari: 'هتاري',
+      },
+      nav: {
+        available: 'متوفر',
+        forFreelancersWork: 'للعمل الحر',
+        andCollaboration: 'و الفريلانسرج والمشاريع البرمجية',
       },
     },
     en: {
       common: {
-        alhetari: 'Al-Hetari',
-        brhoom: 'brhoom',
-        ebraheem: 'Ebraheem',
         hetari: 'Hetari',
+      },
+      nav: {
+        available: 'available',
+        forFreelancersWork: 'for freelancers work',
+        andCollaboration: 'and collaboration',
       },
     },
   },

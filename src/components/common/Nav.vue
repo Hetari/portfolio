@@ -11,8 +11,6 @@
     :class="{ hidden: !isNavbarOpen }"
   ></div>
 
-  <!-- ! pb-[10vh] pe-[7.5vw] ps-[7.5vw] pt-[15vh]-->
-  <!--  -->
   <div
     tabindex="0"
     id="navbar"
@@ -106,7 +104,7 @@
           >
             {{ $t('common.hetari') }}
           <span
-              class="!inline !origin-center font-title text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
+              class="!inline !origin-center font-fancy text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
             >
           </h1>
@@ -117,9 +115,7 @@
         <p
           class="heading-6 hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 md:block"
         >
-          available for freelance <br />
-          work and collaboration
-        </p>
+          {{ $t('nav.available') }} {{ $t('nav.forFreelancersWork') }} <br /> {{ $t('nav.andCollaboration') }}</p>
       </div>
       <div class="flex">
         <!-- ps-5 max-xl:ps-10  -->
@@ -210,17 +206,30 @@
       (currentLocaleIndex.value + 1) % i18n.global.availableLocales.length;
     const newLocale = i18n.global.availableLocales[currentLocaleIndex.value];
     i18n.global.locale = newLocale;
+    
 
     togglePageDirection();
   };
 
+  
+
   const togglePageDirection = () => {
     if (i18n.global.locale == 'en') {
       document.body.style.direction = 'ltr';
+      toggleFontFamily('en');
     }
     else if (i18n.global.locale == 'ar') {
       document.body.style.direction = 'rtl';
+    toggleFontFamily('ar');
     }
+  }
+  const toggleFontFamily = (lang: 'ar' | 'en') => {
+    if (lang === 'ar') {
+    document.documentElement.style.setProperty('--font-fancy', '"Readex Pro", sans-serif');
+  }
+  else{
+    document.documentElement.style.setProperty('--font-fancy', '"Bricolage Grotesque", sans-serif');
+  }
   }
 
   // Animation on component mount

@@ -9,8 +9,8 @@ export default {
       fontFamily: {
         title: ['title'],
         body: ['body'],
-        fancy: ['Bricolage Grotesque'],
-        fancy2: ['Readex Pro'],
+        // fancy: ['Bricolage Grotesque'],
+        // fancy2: ['Readex Pro'],
       },
       colors: {
         // 'timber-wolf': {
@@ -59,6 +59,7 @@ export default {
     function ({ addBase }) {
       addBase({
         ':root': {
+          '--font-fancy': '"Bricolage Grotesque", sans-serif',
           '--heading-6': 'clamp(1rem, 0.928rem + 0.36vw, 1.25rem)',
           '--heading-5': 'clamp(1.13rem, 1.004rem + 0.63vw, 1.57rem)',
           '--heading-4': 'clamp(1.25rem, 1.0359rem + 1.0707vi, 1.9995rem)',
