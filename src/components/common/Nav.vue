@@ -135,8 +135,10 @@
             class="h-[50%] max-md:h-5"
           />
         </ul>
-        <svg
-          @click="toggleLocalLang"
+        <div
+        @click="toggleLocalLang()"
+        >
+          <svg
           class="ms-5 size-7 cursor-pointer xl:size-9"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -156,6 +158,8 @@
             stroke-width="1.5"
           />
         </svg>
+        </div>
+        
       </div>
     </nav>
   </header>
@@ -176,6 +180,7 @@
   import { i18n, lenis } from '@/main';
 
   const isNavbarOpen = ref(false);
+  const currentLocaleIndex = ref(0);
 
   const toggleBtnClickAnimation = () => {
     isNavbarOpen.value = !isNavbarOpen.value;
@@ -199,7 +204,6 @@
     toggleBtnClickAnimation();
   };
 
-  const currentLocaleIndex = ref(0);
   const toggleLocalLang = () => {
     // TODO: add animation when changing the language
     currentLocaleIndex.value =
@@ -213,7 +217,6 @@
   const togglePageDirection = () => {
     if (i18n.global.locale == 'en') {
       document.body.style.direction = 'ltr';
-      
     }
     else if (i18n.global.locale == 'ar') {
       document.body.style.direction = 'rtl';
@@ -222,7 +225,9 @@
 
   // Animation on component mount
   onMounted(() => {
-    togglePageDirection()
+     const currentLocale = i18n.global.locale;
+  currentLocaleIndex.value = i18n.global.availableLocales.indexOf(currentLocale);
+    // togglePageDirection()
     navbarScale('#burger', '#hero');
   });
 
