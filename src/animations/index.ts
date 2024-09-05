@@ -247,16 +247,16 @@ const animateLoadingPath = (
 ) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
-    delay: 2.5,
+    // delay: 2.5,
     bottom: '100%',
-    duration: 1,
+    // duration: 1,
     ease: 'power2.inOut',
   });
 
   tl.to(
     path.value,
     {
-      duration: 1,
+      // duration: 1,
       attr: { d: targetPath },
       ease: 'power2.inOut',
       onComplete: () => {
@@ -264,10 +264,10 @@ const animateLoadingPath = (
       },
       onStart: () => {
         setTimeout(() => {
-          animateHeroNav();
-          samsungErrorModal(isSamsung);
+          // animateHeroNav();
+          // samsungErrorModal(isSamsung);
           document.body.classList.remove('stop-scrolling');
-          window.scrollTo(0, 0);
+          // window.scrollTo(0, 0);
         }, 250);
       },
     },

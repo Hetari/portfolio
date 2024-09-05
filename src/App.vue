@@ -45,7 +45,7 @@
     >
       <Services />
       <Marquee />
-      <!-- <Works /> -->
+      <Works />
     </div>
 
     <aboutMe />
@@ -61,6 +61,7 @@
     Hero,
     People,
     Services,
+    Works,
     aboutMe,
     Contact,
   } from '@/components/sections';
