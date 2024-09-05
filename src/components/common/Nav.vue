@@ -118,7 +118,6 @@
           {{ $t('nav.available') }} {{ $t('nav.forFreelancersWork') }} <br /> {{ $t('nav.andCollaboration') }}</p>
       </div>
       <div class="flex">
-        <!-- ps-5 max-xl:ps-10  -->
         <ul
           class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 lg:gap-4 xl:text-3xl"
         >
@@ -126,9 +125,9 @@
             v-for="(l, index) in navLinks"
             :key="l.label"
             tag="li"
-            :label="l.label + (index !== navLinks.length - 1 ? ' ,' : '')"
+            :label="l.label + (index !== navLinks.length - 1 ? $t('common.comma') : '')"
             :url="l.url"
-            class="h-[50%] max-md:h-5"
+            class=""
           />
         </ul>
         <div

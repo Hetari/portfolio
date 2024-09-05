@@ -1,13 +1,17 @@
 <template>
-  <component :is="tag" class="select-none overflow-y-hidden">
+  <component
+    :is="tag"
+    class="h-full select-none overflow-y-hidden"
+    :class="{ 'max-md:h-[2.5ch]': i18n.global.locale == 'ar' }"
+  >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p
-        class="-translate-y-0 font-fancy transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-150%]"
       >
         {{ label }}
       </p>
       <p
-        class="-translate-y-0 font-fancy transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        class="font-fancy translate-y-[150%] transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
       >
         {{ label }}
       </p>
@@ -16,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-  import { lenis } from '@/main';
+  import { i18n, lenis } from '@/main';
 
   const gotoSection = (url: string) => {
     lenis.start();

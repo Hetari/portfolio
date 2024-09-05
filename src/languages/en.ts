@@ -21,6 +21,7 @@ const enNavLinks = [
 const en = {
   common: {
     hetari: 'Hetari',
+    comma: ',',
   },
   nav: {
     available: 'available',

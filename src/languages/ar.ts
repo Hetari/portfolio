@@ -20,7 +20,8 @@ const arNavLinks = [
 
 const ar = {
   common: {
-    hetari: 'هتاري',
+    hetari: 'الهتاري',
+    comma: '،',
   },
   nav: {
     available: 'متوفر',
