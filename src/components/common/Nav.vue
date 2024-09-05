@@ -225,10 +225,10 @@
   }
   const toggleFontFamily = (lang: 'ar' | 'en') => {
     if (lang === 'ar') {
-    document.documentElement.style.setProperty('--font-fancy', '"Readex Pro", sans-serif');
+    document.documentElement.style.setProperty('--font-fancy', '"Readex Pro"');
   }
   else{
-    document.documentElement.style.setProperty('--font-fancy', '"Bricolage Grotesque", sans-serif');
+    document.documentElement.style.setProperty('--font-fancy', '"Bricolage Grotesque"');
   }
   }
 

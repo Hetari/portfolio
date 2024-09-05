@@ -41,18 +41,18 @@
     @apply pointer-events-none fixed left-0 top-0 z-[99999999] size-full text-[#aeae9d] opacity-20;
   } */
 
+  span,
+  p,
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-fancy;
+    @apply font-fancy !important;
   }
 
-  a,
-  p,
-  span {
+  a {
     @apply font-body;
   }
 
@@ -68,7 +68,7 @@
 
 @layer components {
   .font-fancy {
-    font-family: var(--font-fancy);
+    font-family: var(--font-fancy) !important;
   }
   .light-theme {
     @apply bg-flax-smoke-50 text-flax-smoke-800;
