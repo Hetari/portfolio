@@ -2,7 +2,7 @@
   <component
     :is="tag"
     class="h-full select-none overflow-y-hidden"
-    :class="{ 'max-md:h-[2.5ch]': i18n.global.locale == 'ar' }"
+    :class="i18n.global.locale == 'ar' ? 'max-md:h-[2.5ch]' : 'max-md:h-5'"
   >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p

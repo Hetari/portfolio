@@ -115,7 +115,7 @@
         <p
           class="heading-6 hidden select-none font-fancy font-bold uppercase text-flax-smoke-400 md:block"
         >
-          {{ $t('nav.available') }} {{ $t('nav.forFreelancersWork') }} <br /> {{ $t('nav.andCollaboration') }}</p>
+          {{ $t('nav.available') }} {{ $t('nav.forFreelancer') }} <br /> {{ $t('nav.workAndCollaboration') }}</p>
       </div>
       <div class="flex">
         <ul

@@ -25,8 +25,8 @@ const en = {
   },
   nav: {
     available: 'available',
-    forFreelancersWork: 'for freelancers work',
-    andCollaboration: 'and collaboration',
+    forFreelancer: 'for freelancers',
+    workAndCollaboration: 'work and collaboration',
     links: enNavLinks,
   },
 };

@@ -25,8 +25,8 @@ const ar = {
   },
   nav: {
     available: 'متوفر',
-    forFreelancersWork: 'للعمل الحر',
-    andCollaboration: 'و الفريلانسينج والمشاريع البرمجية',
+    forFreelancer: 'للعمل الحر',
+    workAndCollaboration: 'والفريلانس والاسئلة',
     links: arNavLinks,
   },
 };
