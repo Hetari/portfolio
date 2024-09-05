@@ -117,15 +117,18 @@
 </template>
 
 <script setup lang="ts">
-  import { navbarLinks, resourceLinks, socialLinks } from '@/data';
+  import { navLinkType, resourceLinks, socialLinks } from '@/data';
   import { Link } from '..';
-  import { onMounted, ref } from 'vue';
-  import { lenis } from '@/main';
+  import { ComputedRef, computed, onMounted, ref } from 'vue';
+  import { i18n, lenis } from '@/main';
   import MagneticEffect from '../MagneticEffect.vue';
   import moment from 'moment-timezone';
 
   const myLocalTime = ref('');
   const userLocalTime = ref('');
+  const navbarLinks: ComputedRef<navLinkType[]> = computed(() => {
+    return i18n.global.messages[i18n.global.locale].nav.navbar;
+  });
 
   onMounted(() => {
     // Yemen Time (local to you)

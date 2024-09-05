@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import MotionPathHelper from 'gsap/MotionPathPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Ref } from 'vue';
-import { lenis } from '@/main';
+import { i18n, lenis } from '@/main';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathHelper);
@@ -208,11 +208,12 @@ const navbarEnter = (id: string) => {
 };
 
 const navbarLeave = (id: string) => {
+  const x = i18n.global.locale == 'ar' ? '-100%' : '100%';
   gsap.to(id, {
     opacity: 0,
     onComplete: () => {
       gsap.set(id, {
-        x: '100%',
+        x: x,
       });
     },
   });
@@ -398,6 +399,7 @@ export {
   resetMagneto,
   animateNavbarEnter,
   animateNavbarLeave,
+  navbarLeave,
   animateLoadingPath,
   animateLoadingText,
   animateLoadingTextContainer,

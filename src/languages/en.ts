@@ -17,6 +17,13 @@ const enNavLinks = [
     url: '#',
   },
 ];
+const enNavbarLinks = [
+  {
+    label: 'Home',
+    url: 'body',
+  },
+  ...enNavLinks,
+];
 
 const en = {
   common: {
@@ -28,6 +35,7 @@ const en = {
     forFreelancer: 'for freelancers',
     workAndCollaboration: 'work and collaboration',
     links: enNavLinks,
+    navbar: enNavbarLinks,
   },
 };
 

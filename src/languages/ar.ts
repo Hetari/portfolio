@@ -17,6 +17,13 @@ const arNavLinks = [
     url: '#',
   },
 ];
+const arNavbarLinks = [
+  {
+    label: 'الرئيسية',
+    url: 'body',
+  },
+  ...arNavLinks,
+];
 
 const ar = {
   common: {
@@ -28,6 +35,7 @@ const ar = {
     forFreelancer: 'للعمل الحر',
     workAndCollaboration: 'والفريلانس والاسئلة',
     links: arNavLinks,
+    navbar: arNavbarLinks,
   },
 };
 

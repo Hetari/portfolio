@@ -4,8 +4,6 @@ export type navLinkType = {
   url: string;
 };
 
-const navbarLinks = [{ label: 'Home', url: 'body' }];
-
 const socialLinks = [
   {
     label: 'Twitter',
@@ -82,11 +80,4 @@ const locationCountry = 'Yemen, Sanaa';
 //   },
 // ];
 
-export {
-  navbarLinks,
-  socialLinks,
-  resourceLinks,
-  heroText,
-  locationPlace,
-  locationCountry,
-};
+export { socialLinks, resourceLinks, heroText, locationPlace, locationCountry };

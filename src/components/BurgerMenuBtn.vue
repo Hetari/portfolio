@@ -1,6 +1,10 @@
 <template>
   <MagneticEffect divId="magneto" textId="magnetoText">
-    <div v-bind="$attrs" class="fixed right-7 top-7 z-[20]">
+    <div
+      v-bind="$attrs"
+      class="fixed top-7 z-[20]"
+      :class="i18n.global.locale == 'en' ? 'right-7' : 'left-7'"
+    >
       <div
         id="magneto"
         class="flex-center size-14 cursor-pointer rounded-full bg-flax-smoke-300 brightness-90 ease-in-out lg:size-[4.5rem]"
@@ -15,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+  import { i18n } from '@/main';
   import MagneticEffect from './MagneticEffect.vue';
 </script>
 
