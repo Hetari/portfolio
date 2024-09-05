@@ -39,7 +39,7 @@
           <span id="index" class="relative">{{ index + 1 }}.</span>
         </div>
         <aside
-          class="relative col-span-12 flex flex-col space-y-10 md:col-span-7"
+          class="relative col-span-full flex flex-col space-y-10 md:col-span-7"
         >
           <div
             v-for="(work, i) in selectedWorksProps"
@@ -58,19 +58,12 @@
                   :src="work.imageBg"
                 />
                 <div class="z-10 aspect-[4/3] w-full overflow-clip rounded-lg">
-                  <!-- <mux-player
-                    player-software-name="mux-player-react"
-                    player-software-version="2.6.0"
-                    autoplay="muted"
-                    loop=""
-                    style="aspect-ratio: 1.33333 / 1"
-                    muted=""
-                    placeholder='data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="b" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1"/></feComponentTransfer></filter><g filter="url(%23b)"><image width="100%" height="100%" preserveAspectRatio="xMidYMid slice" href="data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAQCdASoQAAwAAQAcJZQCdAD2OIK6tBAA/v7Q/Jt96+8CX91jIVXK1r0d3dTs2ZvVROrm+mWf9WmqP2ulay9OSo9vF4933zbWo4f7GcTMmtrLIZ/ZT9s4xGd8oOwQHQRw7tQVdFKC8EuWcRRi7DwS5vDR6QKAAAA="/></g></svg>'
-                    class="h-full"
-                    playsinline=""
-                    preload="none"
-                    playback-id="aTY8U3ElkRCjIQx5mHYXL02lAcdiOYdEKEKMkkTvjWR4"
-                  ></mux-player> -->
+                  <video
+                    class="mx-auto"
+                    :src="work.videoSrc"
+                    autoplay
+                    loop
+                  ></video>
                 </div>
               </div>
               <!-- <div
@@ -112,39 +105,33 @@
   import { textSplitterIntoChar } from '@/functions';
   import { computed, onBeforeMount, onMounted, ref } from 'vue';
   import gsap from 'gsap';
-  import { workBg1, workBg2, workBg3, workBg4 } from '@/assets/images';
+  import { workBg1 } from '@/assets/images';
+  import { useWindowSize } from '@vueuse/core';
 
+  const isSmallScreen = computed(() => {
+    return useWindowSize().width.value < 768;
+  });
   const index = ref(0);
   const selectedWorks = ref('Selected Works /');
   const selectedWorksProps = [
     {
+      id: 0,
+      name: 'Pyutube',
+      category: 'CLI Tool & Cross Platform',
+      tags: ['Python', 'CLI Tool', 'Youtube'],
+      videoSrc: work1,
       imageBg: workBg1,
+      url: 'https://github.com/hetari/pyutube',
     },
     {
-      imageBg: workBg2,
+      id: 1,
+      name: 'Pyutube 2',
+      category: 'CLI Tool & Cross Platform',
+      tags: ['Python', 'CLI Tool', 'Youtube'],
+      videoSrc: work1,
+      imageBg: workBg1,
+      url: 'https://github.com/hetari/pyutube',
     },
-    {
-      imageBg: workBg3,
-    },
-    {
-      imageBg: workBg4,
-    },
-    // {
-    //   id: 0,
-    //   name: 'Pyutube',
-    //   category: 'CLI Tool & Cross Platform',
-    //   tags: ['Python', 'CLI Tool', 'Youtube'],
-    //   videoSrc: work1,
-    //   url: 'https://github.com/hetari/pyutube',
-    // },
-    // {
-    //   id: 1,
-    //   name: 'Pyutube 2',
-    //   category: 'CLI Tool & Cross Platform',
-    //   tags: ['Python', 'CLI Tool', 'Youtube'],
-    //   videoSrc: work1,
-    //   url: 'https://github.com/hetari/pyutube',
-    // },
   ];
 
   const formattedWorks = computed(() => {
@@ -202,45 +189,45 @@
       0,
     );
 
-    // Apply GSAP animations to each div and add it to the master timeline
     // Apply GSAP animations to each div
-    gsap.utils.toArray('.work-card').forEach((div: any) => {
-      gsap.timeline({ defaults: { duration: 0.5 } }).to(div, {
-        scrollTrigger: {
-          trigger: div, // target each div individually
-          start: 'top 40%',
-          end: 'bottom 40%',
-          scrub: 1,
-          markers: true,
-          onLeaveBack: () => {
-            // Backward scroll animation
-            if (index.value !== 0) {
+    if (!isSmallScreen.value)
+      gsap.utils.toArray('.work-card').forEach((div: any) => {
+        gsap.timeline({ defaults: { duration: 0.5 } }).to(div, {
+          scrollTrigger: {
+            trigger: div,
+            start: 'top 40%',
+            end: 'bottom 40%',
+            scrub: 1,
+            // markers: true,
+            onLeaveBack: () => {
+              // Backward scroll animation
+              if (index.value !== 0) {
+                gsap.to('#index', {
+                  yPercent: 100,
+                  duration: 0.25,
+                  ease: 'power4.inOut',
+                  onComplete: () => {
+                    createBackwardTimeline(index);
+                  },
+                });
+              }
+            },
+          },
+          ease: 'power1.inOut',
+          onComplete: () => {
+            // Forward scroll animation
+            if (index.value !== selectedWorksProps.length - 1) {
               gsap.to('#index', {
-                yPercent: 100,
+                yPercent: -100,
                 duration: 0.25,
                 ease: 'power4.inOut',
                 onComplete: () => {
-                  createBackwardTimeline(index);
+                  createForwardTimeline(index, selectedWorksProps);
                 },
               });
             }
           },
-        },
-        ease: 'power1.inOut',
-        onComplete: () => {
-          // Forward scroll animation
-          if (index.value !== selectedWorksProps.length - 1) {
-            gsap.to('#index', {
-              yPercent: -100,
-              duration: 0.25,
-              ease: 'power4.inOut',
-              onComplete: () => {
-                createForwardTimeline(index, selectedWorksProps);
-              },
-            });
-          }
-        },
+        });
       });
-    });
   });
 </script>
