@@ -1,24 +1,10 @@
-// Nav
-const navLinks = [
-  {
-    label: 'Services',
-    url: '#services',
-  },
-  {
-    label: 'Works',
-    url: '#works',
-  },
-  {
-    label: 'About',
-    url: '#about-me-section',
-  },
-  {
-    label: 'Contact',
-    url: '#',
-  },
-];
+// Nav type
+export type navLinkType = {
+  label: string;
+  url: string;
+};
 
-const navbarLinks = [{ label: 'Home', url: 'body' }, ...navLinks];
+const navbarLinks = [{ label: 'Home', url: 'body' }];
 
 const socialLinks = [
   {
@@ -97,7 +83,6 @@ const locationCountry = 'Yemen, Sanaa';
 // ];
 
 export {
-  navLinks,
   navbarLinks,
   socialLinks,
   resourceLinks,

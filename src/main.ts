@@ -3,6 +3,8 @@ import { createI18n } from 'vue-i18n';
 import './style.css';
 import App from './App.vue';
 import Lenis from 'lenis';
+import ar from './languages/ar';
+import en from './languages/en';
 
 // smooth scroll
 const lenis = new Lenis();
@@ -15,26 +17,8 @@ const i18n = createI18n({
   locale: 'en',
   fallbackLocale: 'en',
   messages: {
-    ar: {
-      common: {
-        hetari: 'هتاري',
-      },
-      nav: {
-        available: 'متوفر',
-        forFreelancersWork: 'للعمل الحر',
-        andCollaboration: 'و الفريلانسرج والمشاريع البرمجية',
-      },
-    },
-    en: {
-      common: {
-        hetari: 'Hetari',
-      },
-      nav: {
-        available: 'available',
-        forFreelancersWork: 'for freelancers work',
-        andCollaboration: 'and collaboration',
-      },
-    },
+    ar: ar,
+    en: en,
   },
 });
 

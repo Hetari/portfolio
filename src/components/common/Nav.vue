@@ -161,7 +161,7 @@
   </header>
 </template>
 <script setup lang="ts">
-  import { onMounted, ref, watch } from 'vue';
+  import { computed, ComputedRef, onMounted, ref, watch } from 'vue';
 
   import { Link, BurgerMenuBtn, MagneticEffect } from '..';
   import { Circles } from '../design';
@@ -172,11 +172,14 @@
     animateNavbarLeave,
     navbarScale,
   } from '@/animations';
-  import { navbarLinks, socialLinks, navLinks } from '@/data';
+  import { navbarLinks, navLinkType, socialLinks } from '@/data';
   import { i18n, lenis } from '@/main';
 
   const isNavbarOpen = ref(false);
   const currentLocaleIndex = ref(0);
+  const navLinks: ComputedRef<navLinkType[]> = computed(() => {
+    return i18n.global.messages[i18n.global.locale].nav.links;
+  })
 
   const toggleBtnClickAnimation = () => {
     isNavbarOpen.value = !isNavbarOpen.value;
@@ -210,8 +213,6 @@
 
     togglePageDirection();
   };
-
-  
 
   const togglePageDirection = () => {
     if (i18n.global.locale == 'en') {
