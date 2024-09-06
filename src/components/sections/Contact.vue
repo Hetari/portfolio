@@ -56,10 +56,13 @@
         </div>
 
         <div class="heading-6 w-fit text-flax-smoke-500">
-          <p class="w-full font-bold uppercase">For further inquiries</p>
+          <p class="w-full !font-title font-bold uppercase">
+            For further inquiries
+          </p>
           <Link
             class="h-6 text-right font-medium lowercase tracking-wider text-flax-smoke-300"
-            label="⮡ hetari4all@gmail"
+            label="hetari4all@gmail"
+            :icon="true"
             url="mailto:hetari4all@gmail"
           />
         </div>
