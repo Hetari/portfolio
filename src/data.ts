@@ -21,7 +21,7 @@ const socialLinks = [
 
 const resourceLinks = [
   {
-    label: 'Huy Nguyen (the designer of this ui)',
+    label: 'Huy Nguyen (the ui designer)',
     url: 'https://www.huyng.xyz',
   },
   {
