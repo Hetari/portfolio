@@ -37,10 +37,12 @@
       class="sm:column-gap relative mt-12 grid size-full grid-cols-12 lg:mt-[10%]"
     >
       <div
-        class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-normal leading-[0.8] text-flax-smoke-100 md:flex"
+        class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-semibold leading-[0.8] text-flax-smoke-100 md:flex"
       >
-        <span class="relative">0</span>
-        <span id="index" class="relative will-change-transform"
+        <span class="relative !font-title -tracking-wider">0</span>
+        <span
+          id="index"
+          class="relative !font-title -tracking-wider will-change-transform"
           >{{ index + 1 }}.</span
         >
       </div>
@@ -125,48 +127,21 @@
       url: 'https://github.com/hetari/pyutube',
       year: '2024',
     },
-    {
-      id: 1,
-      name: 'Pyutube 2',
-      category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI Tool', 'Youtube'],
-      videoSrc: work1,
-      imageBg: workBg1,
-      url: 'https://github.com/hetari/pyutube',
-      year: '2024',
-    },
-
-    {
-      id: 2,
-      name: 'Pyutube 2',
-      category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI Tool', 'Youtube'],
-      videoSrc: work1,
-      imageBg: workBg1,
-      url: 'https://github.com/hetari/pyutube',
-      year: '2024',
-    },
-    {
-      id: 1,
-      name: 'Pyutube 2',
-      category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI Tool', 'Youtube'],
-      videoSrc: work1,
-      imageBg: workBg1,
-      url: 'https://github.com/hetari/pyutube',
-      year: '2024',
-    },
   ];
 
   // Reusable function to handle forward scroll animation
-  const createForwardTimeline = (index: any, selectedWorksProps: any[]) => {
+  const createForwardTimeline = (
+    index: any,
+    i: any,
+    selectedWorksProps: any[],
+  ) => {
     const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
     // Set and move the #index element
     tl.set('#index', {
       yPercent: 100,
       onComplete: () => {
-        index.value = Math.min(index.value + 1, selectedWorksProps.length - 1);
+        index.value = Math.min(i, selectedWorksProps.length - 1);
       },
     }).to('#index', {
       yPercent: 0,
@@ -178,14 +153,14 @@
   };
 
   // Reusable function to handle backward scroll animation
-  const createBackwardTimeline = (index: any) => {
+  const createBackwardTimeline = (index: any, i: any) => {
     const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
     // Set and move the #index element
     tl.set('#index', {
       yPercent: -100,
       onComplete: () => {
-        index.value = Math.max(index.value - 1, 0);
+        index.value = Math.max(i, 0);
       },
     }).to('#index', {
       yPercent: 0,
@@ -211,7 +186,7 @@
 
     // Apply GSAP animations to each div
     if (!isSmallScreen.value)
-      gsap.utils.toArray('.work-card').forEach((div: any) => {
+      gsap.utils.toArray('.work-card').forEach((div: any, i: any) => {
         gsap.timeline({ defaults: { duration: 0.7 } }).to(div, {
           scrollTrigger: {
             trigger: div,
@@ -220,7 +195,7 @@
             // end: 'bottom 40%',
             end: 'bottom 10%',
             scrub: 0.1,
-            markers: true,
+            // markers: true,
             onLeaveBack: () => {
               // Backward scroll animation
               if (index.value !== 0) {
@@ -229,7 +204,7 @@
                   duration: 0.3,
                   ease: 'power4.inOut',
                   onComplete: () => {
-                    createBackwardTimeline(index);
+                    createBackwardTimeline(index, i - 1);
                   },
                 });
               }
@@ -244,7 +219,7 @@
                 duration: 0.3,
                 ease: 'power4.inOut',
                 onComplete: () => {
-                  createForwardTimeline(index, selectedWorksProps);
+                  createForwardTimeline(index, i + 1, selectedWorksProps);
                 },
               });
             }
