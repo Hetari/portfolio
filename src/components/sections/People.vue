@@ -1,8 +1,8 @@
 <template>
   <!-- common-padding  -->
   <section
-    id="people-section"
-    class="will-change-transform common-padding relative mx-auto min-h-svh overflow-y-clip py-0"
+    id="testimonials-section"
+    class="common-padding relative mx-auto min-h-svh overflow-y-clip py-0 will-change-transform"
   >
     <div
       class="grid w-full grid-cols-12 border-b-[1px] border-flax-smoke-300 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
@@ -19,7 +19,7 @@
         <p class="heading-6 text-nowrap text-center uppercase">
           ( Testimonials )
         </p>
-        <p class="heading-6 w-full text-balance font-fancy sm:max-w-[40ch]">
+        <p class="heading-6 font-fancy w-full text-balance sm:max-w-[40ch]">
           Here's what my clients say about our collaboration. Their satisfaction
           and meeting expectations are my top priorities, ensuring the best
           experience possible.
@@ -56,9 +56,9 @@
     });
   };
   onMounted(() => {
-    animatePeopleSectionLeave('#people-section');
+    animatePeopleSectionLeave('#testimonials-section');
   });
   onUpdated(() => {
-    animatePeopleSectionLeave('#people-section');
+    animatePeopleSectionLeave('#testimonials-section');
   });
 </script>

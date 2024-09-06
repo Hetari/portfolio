@@ -68,14 +68,21 @@
                 class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg object-cover"
               >
                 <!-- TODO: use mux player -->
-                <video :src="work.videoSrc" autoplay loop></video>
+                <video
+                  :src="work.videoSrc"
+                  autoplay
+                  loop
+                  muted
+                  @error="handleVideoError"
+                  type="video/webm"
+                ></video>
               </div>
             </div>
             <div class="leading-none">
               <p class="heading-6 mb-[1%] mt-[2%] !font-title">
                 {{ work.category }}
               </p>
-              <div class="flex items-center justify-between">
+              <div class="items-center justify-between sm:flex">
                 <h3 class="heading-3 !font-title font-bold uppercase">
                   {{ work.name }}
                 </h3>
@@ -104,11 +111,11 @@
 
 <script setup lang="ts">
   import { animateSplitText } from '@/animations';
-  import { work1 } from '@/assets/videos';
+  import { work1, work2, work3, work4 } from '@/assets/videos';
   import { textSplitterIntoChar } from '@/functions';
   import { computed, onBeforeMount, onMounted, ref } from 'vue';
   import gsap from 'gsap';
-  import { workBg1 } from '@/assets/images';
+  import { workBg1, workBg2, workBg3, workBg4 } from '@/assets/images';
   import { useWindowSize } from '@vueuse/core';
 
   const isSmallScreen = computed(() => {
@@ -127,7 +134,42 @@
       url: 'https://github.com/hetari/pyutube',
       year: '2024',
     },
+    {
+      id: 1,
+      name: 'Iphone 15 Clone',
+      category: 'Frontend & Animation & 3D',
+      tags: ['Animation', '3D'],
+      videoSrc: work2,
+      imageBg: workBg2,
+      url: 'https://github.com/Hetari/iphone15-pro-clone',
+      year: '2024',
+    },
+    {
+      id: 2,
+      name: 'Axon',
+      category: 'Frontend & Documentation',
+      tags: ['Vue.js', 'Tailwind', 'AI'],
+      videoSrc: work3,
+      imageBg: workBg3,
+      url: 'https://github.com/Hetari/axon',
+
+      year: '2024',
+    },
+    {
+      id: 3,
+      name: 'Blogy',
+      category: 'Frontend & Backend',
+      tags: ['Vue.js', 'Laravel'],
+      videoSrc: work4,
+      imageBg: workBg4,
+      url: 'https://github.com/Hetari/blog',
+      year: '2023',
+    },
   ];
+
+  const handleVideoError = (event: any) => {
+    console.error('Video failed to load:', event);
+  };
 
   // Reusable function to handle forward scroll animation
   const createForwardTimeline = (

@@ -19,8 +19,12 @@ const navLinks = [
     url: '#about-me-section',
   },
   {
+    label: 'Testimonials',
+    url: '#testimonials-section',
+  },
+  {
     label: 'Contact',
-    url: '#',
+    url: '#contact-section',
   },
 ];
 const navbarLinks = [

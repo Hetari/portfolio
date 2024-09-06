@@ -1,5 +1,6 @@
 <template>
   <section
+  id="contact-section"
     class="relative min-h-svh w-full select-none overflow-y-clip p-[4vh]"
   >
     <div
