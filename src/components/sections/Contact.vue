@@ -6,7 +6,7 @@
       class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black uppercase"
     >
       <video
-        class="absolute bottom-0 left-0 h-full w-full rounded-lg object-cover object-bottom"
+        class="absolute bottom-0 left-0 size-full rounded-lg object-cover object-bottom"
         :src="contact"
         autoplay
         muted
@@ -45,11 +45,11 @@
             class="flex-center py w-fit flex-col border border-l-0 border-flax-smoke-300 font-mono text-flax-smoke-300"
           >
             <p
-              class="flex h-full w-full items-center justify-start border-b border-flax-smoke-300 pl-1 pr-2 font-bold"
+              class="flex size-full items-center justify-start border-b border-flax-smoke-300 pl-1 pr-2 font-bold"
             >
               Working Globally
             </p>
-            <p class="flex h-full w-full items-center justify-start pl-1 pr-2">
+            <p class="flex size-full items-center justify-start pl-1 pr-2">
               Available Sep '24
             </p>
           </div>

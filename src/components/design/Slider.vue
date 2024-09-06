@@ -52,13 +52,13 @@
       >
         <img
           :class="{ hidden: index !== 0 }"
-          class="relative z-10 h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
+          class="relative z-10 size-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
           :src="people[0].profile"
           alt=""
         />
         <img
           :class="{ hidden: index !== 1 }"
-          class="relative z-10 h-full w-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
+          class="relative z-10 size-full rounded-lg object-cover object-center mix-blend-screen brightness-90 grayscale lg:h-[85svh]"
           :src="people[1].profile"
           alt=""
         />

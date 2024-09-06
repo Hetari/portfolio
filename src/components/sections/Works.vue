@@ -1,6 +1,7 @@
 <template>
   <section id="works" class="common-padding mb-20">
     <div class="flex flex-col">
+      <!-- TODO: sr-only -->
       <h1
         id="selectedWorks"
         v-html="selectedWorks"
@@ -32,47 +33,69 @@
       </div>
     </div>
 
-    <div class="relative mt-12 w-full lg:mt-[10%]">
+    <div
+      class="sm:column-gap relative mt-12 grid size-full grid-cols-12 lg:mt-[10%]"
+    >
       <div
-        id="works-grid"
-        class="column-gap pt-space-lg grid h-full grid-cols-12"
+        class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-normal leading-[0.8] text-flax-smoke-100 md:flex"
+      >
+        <span class="relative">0</span>
+        <span id="index" class="relative will-change-transform"
+          >{{ index + 1 }}.</span
+        >
+      </div>
+      <aside
+        class="relative col-span-full flex flex-col space-y-10 md:col-span-7"
       >
         <div
-          class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-normal leading-[0.8] text-flax-smoke-100 md:flex"
+          v-for="(work, i) in selectedWorksProps"
+          :key="i"
+          class="@container work-card"
         >
-          <span class="relative">0</span>
-          <span id="index" class="relative">{{ index + 1 }}.</span>
-        </div>
-        <aside
-          class="relative col-span-full flex flex-col space-y-10 md:col-span-7"
-        >
-          <div
-            v-for="(work, i) in selectedWorksProps"
-            :key="i"
-            class="@container work-card"
-          >
-            <a class="group" target="_blank" href="#">
+          <a class="group" target="_blank" :href="work.url">
+            <div
+              class="flex-center relative aspect-square overflow-clip rounded-lg"
+            >
+              <img
+                alt="work-background"
+                loading="lazy"
+                class="absolute size-full select-none object-cover"
+                :src="work.imageBg"
+              />
               <div
-                class="flex-center relative aspect-square overflow-clip rounded-md"
+                class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg object-cover"
               >
-                <img
-                  alt="background"
-                  loading="lazy"
-                  class="absolute h-full w-full object-cover"
-                  style="color: transparent"
-                  :src="work.imageBg"
-                />
-                <div
-                  class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg"
-                >
-                  <video :src="work.videoSrc" autoplay loop></video>
+                <!-- TODO: use mux player -->
+                <video :src="work.videoSrc" autoplay loop></video>
+              </div>
+            </div>
+            <div class="leading-none">
+              <p class="heading-6 mb-[1%] mt-[2%] !font-title">
+                {{ work.category }}
+              </p>
+              <div class="flex items-center justify-between">
+                <h3 class="heading-3 !font-title font-bold uppercase">
+                  {{ work.name }}
+                </h3>
+                <div class="flex select-none gap-1.5">
+                  <p
+                    class="rounded-full border border-flax-smoke-300 px-4 py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-flax-smoke-300 hover:text-flax-smoke-900"
+                    v-for="tag in work.tags"
+                    :key="tag"
+                  >
+                    <span>{{ tag }}</span>
+                  </p>
+                  <p
+                    class="rounded-full border border-flax-smoke-300 bg-flax-smoke-300 px-4 py-2 text-flax-smoke-900 transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent hover:text-flax-smoke-300"
+                  >
+                    <span>{{ work.year }}</span>
+                  </p>
                 </div>
               </div>
-              <!-- TODO: Add the rest of loop -->
-            </a>
-          </div>
-        </aside>
-      </div>
+            </div>
+          </a>
+        </div>
+      </aside>
     </div>
   </section>
 </template>
@@ -100,6 +123,7 @@
       videoSrc: work1,
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
+      year: '2024',
     },
     {
       id: 1,
@@ -109,6 +133,7 @@
       videoSrc: work1,
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
+      year: '2024',
     },
 
     {
@@ -119,6 +144,7 @@
       videoSrc: work1,
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
+      year: '2024',
     },
     {
       id: 1,
@@ -128,6 +154,7 @@
       videoSrc: work1,
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
+      year: '2024',
     },
   ];
 
