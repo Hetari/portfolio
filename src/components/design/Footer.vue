@@ -49,7 +49,7 @@
         <div class="mt-2 space-y-1">
           <p v-for="i in resourceLinks" class="heading-6">
             <Link
-              class="h-6 font-medium lowercase tracking-wider"
+              class="font-medium lowercase tracking-wider"
               :label="i.label"
               :url="i.url"
             />

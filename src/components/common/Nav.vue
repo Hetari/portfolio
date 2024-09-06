@@ -153,7 +153,6 @@
               (index !== navLinks.length - 1 ? $t('common.comma') : '')
             "
             :url="l.url"
-            class=""
           />
         </ul>
         <div @click="toggleLocalLang()">

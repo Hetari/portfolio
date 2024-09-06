@@ -2,16 +2,24 @@
   <component
     :is="tag"
     class="w-fit select-none overflow-y-hidden"
-    :class="i18n.global.locale == 'ar' ? '!h-7 max-md:h-[2.5ch]' : 'max-md:h-5'"
+    :class="i18n.global.locale == 'ar' ? 'h-[2.5ch]' : 'h-[2ch] max-md:h-5'"
   >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p
-        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-150%]"
+        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out"
+        :class="
+          i18n.global.locale == 'en'
+            ? 'group-hover:translate-y-[-100%]'
+            : 'group-hover:translate-y-[-120%]'
+        "
       >
         {{ label }}
       </p>
       <p
-        class="font-fancy translate-y-[150%] transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        class="font-fancy transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        :class="{
+          'translate-y-[1ch]': i18n.global.locale == 'ar',
+        }"
       >
         {{ label }}
       </p>
