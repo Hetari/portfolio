@@ -30,6 +30,22 @@ const en = {
     hetari: 'Hetari',
     comma: ',',
   },
+  date: {
+    monthNames: [
+      'JAN',
+      'FEB',
+      'MAR',
+      'APR',
+      'MAY',
+      'JUN',
+      'JUL',
+      'AUG',
+      'SEP',
+      'OCT',
+      'NOV',
+      'DEC',
+    ],
+  },
   nav: {
     available: 'available',
     forFreelancer: 'for freelancers',
