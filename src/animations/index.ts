@@ -50,7 +50,7 @@ const animateSplitText = (
     scrollTrigger: {
       trigger: id,
       toggleActions: 'play none none reverse',
-      start: 'top 95%',
+      start: 'top bottom',
     },
     delay: delay,
     duration: duration,

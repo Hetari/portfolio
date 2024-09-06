@@ -98,7 +98,7 @@
     animateSplitText(
       '#little-bit-about-me .letters',
       '#little-bit-about-me',
-      0.7,
+      1,
       0.01,
       0,
       () => {

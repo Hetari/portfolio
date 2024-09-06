@@ -5,7 +5,7 @@
       <h1
         id="selectedWorks"
         v-html="selectedWorks"
-        class="heading-1 text-start uppercase leading-none"
+        class="heading-1 text-start font-bold uppercase leading-none"
       ></h1>
       <p
         class="heading-1 hidden w-4/5 text-end font-extrabold text-flax-smoke-400 text-opacity-50 sm:block"

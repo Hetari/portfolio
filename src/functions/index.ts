@@ -18,7 +18,7 @@ const textSplitterIntoChar = (
 
     word.forEach((char) => {
       let classes =
-        'letters translate-y-full inline-block will-change-auto will-change-transform ';
+        'letters translate-y-[120%] inline-block will-change-auto will-change-transform ';
       if (isFancyFont) {
         classes += ' font-fancy ';
       }

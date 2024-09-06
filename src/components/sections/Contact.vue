@@ -19,10 +19,10 @@
           (Need an unfair advantage?)
         </p>
         <h1
+          id="make-it-happen"
           class="heading-1 max-w-[10ch] text-center leading-none text-flax-smoke-200"
-        >
-          Let's Make it happen
-        </h1>
+          v-html="makeItHappen"
+        ></h1>
         <div
           class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[2] 2xl:scale-[2.5] 3xl:scale-[3]"
         >
@@ -56,9 +56,7 @@
         </div>
 
         <div class="heading-6 w-fit text-flax-smoke-500">
-          <p class="w-full !font-title font-bold uppercase">
-            For further inquiries
-          </p>
+          <p class="w-full font-bold uppercase">For further inquiries</p>
           <Link
             class="h-6 text-right font-medium lowercase tracking-wider text-flax-smoke-300"
             label="hetari4all@gmail"
@@ -77,6 +75,23 @@
   import { Vue3Lottie } from 'vue3-lottie';
   import Link from '../Link.vue';
   import { contact } from '@/assets/videos';
+  import { onBeforeMount, onMounted, ref } from 'vue';
+  import { textSplitterIntoChar } from '@/functions';
+  import { animateSplitText } from '@/animations';
+
+  const makeItHappen = ref("Let's Make it happen");
+  onBeforeMount(() => {
+    makeItHappen.value = textSplitterIntoChar(makeItHappen.value);
+  });
+  onMounted(() => {
+    animateSplitText(
+      '#make-it-happen .letters',
+      '#make-it-happen',
+      1.5,
+      0.01,
+      0,
+    );
+  });
 </script>
 
 <style>
