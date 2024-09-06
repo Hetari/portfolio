@@ -59,16 +59,14 @@
     </div>
 
     <div class="grid w-full grid-cols-12">
-      <div class="col-span-8 md:col-span-6">
-        <h1 class="heading-2 font-bold leading-none">
+      <div class="col-span-7 place-content-center md:col-span-6">
+        <h1 class="heading-4 sm:heading-2 font-bold leading-none">
           © {{ new Date().getFullYear() }} Hetari <br />
           All rights reserved.
         </h1>
       </div>
 
-      <div
-        class="col-span-3 place-content-center max-md:ml-auto max-sm:col-start-10 max-sm:place-content-end"
-      >
+      <div class="col-span-5 place-content-center max-sm:place-content-end">
         <p class="heading-6 font-bold uppercase">My Local time</p>
         <p class="heading-6">{{ myLocalTime }}</p>
         <p class="heading-6 font-bold uppercase">Your Local time</p>
