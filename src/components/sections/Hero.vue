@@ -8,15 +8,7 @@
         <div class="w-full items-end overflow-clip">
           <div class="flex w-full items-start gap-10">
             <MyName />
-            <Star
-              id="star"
-              class="hide-on-mobile"
-              :class="
-                i18n.global.locale == 'en'
-                  ? 'translate-x-full'
-                  : '-translate-x-full'
-              "
-            />
+            <Star id="star" class="hide-on-mobile translate-x-full" />
           </div>
         </div>
 
@@ -52,7 +44,7 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i text-fluid-body text-base-large w-full max-w-[30ch] overflow-clip text-balance text-start font-medium leading-snug sm:max-w-[37ch]"
+              class="who-am-i text-fluid-body text-base-large w-full max-w-[30ch] overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
             ></p>
 
             <div class="relative origin-left overflow-hidden sm:scale-150">
@@ -91,7 +83,7 @@
               <h1
                 class="3xl:heading-1 heading-1-alt font-fancy block font-bold leading-none -tracking-tight"
               >
-                {{ getAvailableForWorkDate }}
+                {{ AvailableForWorkDate }}
               </h1>
             </div>
           </div>
@@ -103,32 +95,48 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onBeforeMount, ref } from 'vue';
+  import { onBeforeMount, ref } from 'vue';
   import { MyName, Star } from '../design';
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
   import { heroText } from '@/data';
   import { textSplitterIntoChar } from '@/functions';
-  import { i18n } from '@/main';
 
   const whoAmI = ref(heroText);
+  const AvailableForWorkDate = ref('');
 
-  const getAvailableForWorkDate = computed(() => {
+  const getAvailableForWorkDate = () => {
     const date = new Date();
 
-    // Extract last two digits of the year
-    const year = date.getFullYear().toString().slice(-2);
+    const year = date.getFullYear().toLocaleString().slice(-2);
+    const monthNames = [
+      'JAN',
+      'FEB',
+      'MAR',
+      'APR',
+      'MAY',
+      'JUN',
+      'JUL',
+      'AUG',
+      'SEP',
+      'OCT',
+      'NOV',
+      'DEC',
+    ];
+    let index = date.getMonth();
 
-    // Get next month (current month + 1)
-    const nextMonthIndex = date.getMonth() + 1;
+    if (date.getMonth() < 12) {
+      index += 1;
+    } else {
+      index = 0;
+    }
 
-    // Retrieve the month name from i18n
-    const month = i18n.global.t(`date.monthNames.${nextMonthIndex}`);
-
+    const month = monthNames[index];
     return `${month} '${year}`;
-  });
+  };
 
   onBeforeMount(() => {
     whoAmI.value = textSplitterIntoChar(whoAmI.value);
+    AvailableForWorkDate.value = getAvailableForWorkDate();
   });
 </script>

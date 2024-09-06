@@ -1,13 +1,12 @@
 <template>
   <component
     :is="tag"
-    class="w-fit select-none overflow-y-hidden"
-    :class="i18n.global.locale == 'ar' ? 'h-[2.5ch]' : 'h-[2ch] max-md:h-5'"
+    class="h-[2ch] w-fit select-none overflow-y-hidden max-md:h-5"
   >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p
-        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out"
-        :class="`${i18n.global.locale == 'en' ? 'group-hover:translate-y-[-100%]' : 'group-hover:translate-y-[-120%]'} ${icon ? 'flex' : ''}`"
+        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        :class="{ flex: icon }"
       >
         <svg
           v-if="icon"
@@ -17,7 +16,6 @@
           viewBox="0 0 24 24"
           role="img"
           class="-scale-x-100 fill-current"
-          :class="{ '!scale-x-100': i18n.global.locale == 'ar' }"
         >
           <path
             d="M7.82834 17.2929L10.1213 19.586L8.70709 21.0001L4 16.2929L8.7071 11.5858L10.1213 13L7.82844 15.2929L18 15.2928L17.9999 3H19.9999L20 16.2928C20 16.8451 19.5523 17.2928 19 17.2928L7.82834 17.2929Z"
@@ -27,10 +25,7 @@
       </p>
       <p
         class="font-fancy transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
-        :class="{
-          'translate-y-[1ch]': i18n.global.locale == 'ar',
-          flex: icon,
-        }"
+        :class="{ flex: icon }"
       >
         <svg
           v-if="icon"
@@ -40,7 +35,6 @@
           viewBox="0 0 24 24"
           role="img"
           class="-scale-x-100 fill-current"
-          :class="{ '!scale-x-100': i18n.global.locale == 'ar' }"
         >
           <path
             d="M7.82834 17.2929L10.1213 19.586L8.70709 21.0001L4 16.2929L8.7071 11.5858L10.1213 13L7.82844 15.2929L18 15.2928L17.9999 3H19.9999L20 16.2928C20 16.8451 19.5523 17.2928 19 17.2928L7.82834 17.2929Z"
@@ -53,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-  import { i18n, lenis } from '@/main';
+  import { lenis } from '@/main';
 
   const gotoSection = (url: string) => {
     lenis.start();
