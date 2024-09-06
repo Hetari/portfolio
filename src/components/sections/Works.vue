@@ -1,25 +1,30 @@
 <template>
   <section id="works" class="common-padding mb-20">
-    <div class="flex w-full flex-col">
+    <div class="flex flex-col">
       <h1
         id="selectedWorks"
-        v-html="formattedWorks"
-        class="heading-1 font-extrabold uppercase"
+        v-html="selectedWorks"
+        class="heading-1 text-start uppercase leading-none"
       ></h1>
+      <p
+        class="heading-1 hidden w-4/5 text-end font-extrabold text-flax-smoke-400 text-opacity-50 sm:block"
+      >
+        ( {{ selectedWorksProps.length }} )
+      </p>
 
       <div
         id="selected-works-text"
-        class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
+        class="md:column-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
       >
         <p
-          class="col-start-0 heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 md:col-start-4"
+          class="heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 lg:col-start-2"
         >
           (
           <span class="inline sm:hidden">{{ selectedWorksProps.length }} </span>
           PROJECTS )
         </p>
         <p
-          class="heading-4 font-fancy col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
+          class="heading-4 font-fancy col-span-8 w-full text-balance sm:font-semibold lg:col-span-7"
         >
           Featured client projects that have been meticulously crafted with
           passion and purpose over the years.
@@ -57,40 +62,13 @@
                   style="color: transparent"
                   :src="work.imageBg"
                 />
-                <div class="z-10 aspect-[4/3] w-full overflow-clip rounded-lg">
-                  <video
-                    class="mx-auto"
-                    :src="work.videoSrc"
-                    autoplay
-                    loop
-                  ></video>
+                <div
+                  class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg"
+                >
+                  <video :src="work.videoSrc" autoplay loop></video>
                 </div>
               </div>
-              <!-- <div
-                class="gap-y-space-sm pt-space-xs @lg:flex-row flex flex-col justify-between"
-              >
-                <div class="gap-y-space-3xs flex flex-col">
-                  <span
-                    class="text-base-small text-secondary-50 font-mono font-medium"
-                    >Technology &amp; Arts</span
-                  >
-                  <h3
-                    class="text-heading-3 text-accent-400 w-fit font-semibold"
-                  >
-                    SOGAI™
-                  </h3>
-                </div>
-                <div
-                  class="gap-x-space-3xs tracking-base text-secondary-50 flex items-end"
-                >
-                  <span class="tag">Design</span
-                  ><span class="tag">Development</span
-                  ><span
-                    class="tag border-secondary-50 bg-secondary-50 text-secondary-400"
-                    >2024</span
-                  >
-                </div>
-              </div> -->
+              <!-- TODO: Add the rest of loop -->
             </a>
           </div>
         </aside>
@@ -132,15 +110,30 @@
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
     },
-  ];
 
-  const formattedWorks = computed(() => {
-    return `${selectedWorks.value} <span class="inline-block text-flax-smoke-400 text-opacity-50 w-4/5 hidden sm:block text-end">( ${selectedWorksProps.length} )</span>`;
-  });
+    {
+      id: 2,
+      name: 'Pyutube 2',
+      category: 'CLI Tool & Cross Platform',
+      tags: ['Python', 'CLI Tool', 'Youtube'],
+      videoSrc: work1,
+      imageBg: workBg1,
+      url: 'https://github.com/hetari/pyutube',
+    },
+    {
+      id: 1,
+      name: 'Pyutube 2',
+      category: 'CLI Tool & Cross Platform',
+      tags: ['Python', 'CLI Tool', 'Youtube'],
+      videoSrc: work1,
+      imageBg: workBg1,
+      url: 'https://github.com/hetari/pyutube',
+    },
+  ];
 
   // Reusable function to handle forward scroll animation
   const createForwardTimeline = (index: any, selectedWorksProps: any[]) => {
-    const tl = gsap.timeline({ defaults: { duration: 0.25 } });
+    const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
     // Set and move the #index element
     tl.set('#index', {
@@ -150,8 +143,8 @@
       },
     }).to('#index', {
       yPercent: 0,
-      duration: 0.25,
-      ease: 'power2.inOut',
+      duration: 0.3,
+      ease: 'power1.inOut',
     });
 
     return tl;
@@ -159,7 +152,7 @@
 
   // Reusable function to handle backward scroll animation
   const createBackwardTimeline = (index: any) => {
-    const tl = gsap.timeline({ defaults: { duration: 0.25 } });
+    const tl = gsap.timeline({ defaults: { duration: 0.3 } });
 
     // Set and move the #index element
     tl.set('#index', {
@@ -169,8 +162,8 @@
       },
     }).to('#index', {
       yPercent: 0,
-      duration: 0.25,
-      ease: 'power2.inOut',
+      duration: 0.3,
+      ease: 'power1.inOut',
     });
 
     return tl;
@@ -192,19 +185,21 @@
     // Apply GSAP animations to each div
     if (!isSmallScreen.value)
       gsap.utils.toArray('.work-card').forEach((div: any) => {
-        gsap.timeline({ defaults: { duration: 0.5 } }).to(div, {
+        gsap.timeline({ defaults: { duration: 0.7 } }).to(div, {
           scrollTrigger: {
             trigger: div,
-            start: 'top 40%',
-            end: 'bottom 40%',
-            scrub: 1,
-            // markers: true,
+            // start: 'top 40%',
+            start: 'top 10%',
+            // end: 'bottom 40%',
+            end: 'bottom 10%',
+            scrub: 0.1,
+            markers: true,
             onLeaveBack: () => {
               // Backward scroll animation
               if (index.value !== 0) {
                 gsap.to('#index', {
                   yPercent: 100,
-                  duration: 0.25,
+                  duration: 0.3,
                   ease: 'power4.inOut',
                   onComplete: () => {
                     createBackwardTimeline(index);
@@ -219,7 +214,7 @@
             if (index.value !== selectedWorksProps.length - 1) {
               gsap.to('#index', {
                 yPercent: -100,
-                duration: 0.25,
+                duration: 0.3,
                 ease: 'power4.inOut',
                 onComplete: () => {
                   createForwardTimeline(index, selectedWorksProps);

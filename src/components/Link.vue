@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    class="h-full select-none overflow-y-hidden"
+    class="h-full w-fit select-none overflow-y-hidden"
     :class="i18n.global.locale == 'ar' ? 'max-md:h-[2.5ch]' : 'max-md:h-5'"
   >
     <a @click="gotoSection(url)" :href="url" class="group">

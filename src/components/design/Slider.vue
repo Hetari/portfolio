@@ -38,7 +38,9 @@
           <div
             class="lg:absolute lg:inset-0 lg:-bottom-10 lg:w-full lg:will-change-scroll"
           >
-            <div class="sticky top-[90%] flex place-content-end gap-3">
+            <div
+              class="sticky top-[90%] flex place-content-end gap-3 lg:will-change-scroll"
+            >
               <Button label="Prev" @click="clickPrev" />
               <Button label="Next" @click="clickNext" />
             </div>
