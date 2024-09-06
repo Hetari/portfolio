@@ -136,7 +136,6 @@
 
   const canClick = ref(true);
 
-  // !
   const animateTextTransition = (direction: 'up' | 'zero') => {
     const translateY = direction === 'up' ? '-100%' : '0%';
     gsap.to('#quote-text .letters', {

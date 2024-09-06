@@ -66,7 +66,9 @@
         </h1>
       </div>
 
-      <div class="col-span-5 place-content-center max-sm:place-content-end">
+      <div
+        class="col-span-5 place-content-center max-sm:place-content-end md:col-span-3"
+      >
         <p class="heading-6 font-bold uppercase">My Local time</p>
         <p class="heading-6">{{ myLocalTime }}</p>
         <p class="heading-6 font-bold uppercase">Your Local time</p>
