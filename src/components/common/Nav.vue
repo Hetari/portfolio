@@ -248,6 +248,7 @@
     }
     navbarLeave('#navbar');
   };
+
   const toggleFontFamily = (lang: 'ar' | 'en') => {
     if (lang === 'ar') {
       document.documentElement.style.setProperty(
@@ -262,12 +263,8 @@
     }
   };
 
-  // Animation on component mount
   onMounted(() => {
-    const currentLocale = i18n.global.locale;
-    currentLocaleIndex.value =
-      i18n.global.availableLocales.indexOf(currentLocale);
-    // togglePageDirection()
+    togglePageDirection();
     navbarScale('#burger', '#hero');
   });
 

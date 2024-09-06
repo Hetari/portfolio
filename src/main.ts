@@ -14,7 +14,8 @@ function raf(time: number) {
 }
 
 const i18n = createI18n({
-  locale: 'en',
+  // TODO: fix it
+  locale: navigator.language == 'ar' ? 'en' : 'ar',
   fallbackLocale: 'en',
   messages: {
     ar: ar,
