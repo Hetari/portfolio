@@ -30,15 +30,15 @@
           </span>
         </p>
 
-        <p class="overflow-clip font-normal">
+        <p class="heading-6 overflow-clip font-normal">
           <span
-            class="loading-text absolute bottom-10 left-5 inline-block font-mono text-sm sm:left-14"
+            class="loading-text absolute bottom-10 left-5 inline-block font-mono sm:left-14"
           >
-            Version 1.0v
+            Version 1.3v
           </span>
 
           <span
-            class="loading-text absolute bottom-10 right-5 inline-block animate-pulse font-mono text-sm sm:right-14"
+            class="loading-text absolute bottom-10 right-5 inline-block animate-pulse font-mono sm:right-14"
           >
             Loading...
           </span>
