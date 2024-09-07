@@ -57,7 +57,7 @@
             label="hetari4all@gmail.com"
             url="mailto:hetari4all@gmail.com"
           />
-          <div class="mt-6 flex flex-nowrap justify-start gap-x-1 sm:gap-x-4">
+          <div class="mt-6 flex flex-nowrap justify-start gap-x-1">
             <Button
               class="contact border border-flax-smoke-600 opacity-0"
               v-for="social in socialLinks"

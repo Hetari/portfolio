@@ -37,8 +37,12 @@ const navbarLinks = [
 
 const socialLinks = [
   {
-    label: 'Twitter',
+    label: 'X',
     url: 'https://x.com/4Hetari',
+  },
+  {
+    label: 'Telegram',
+    url: 'https://t.me/e_1_e',
   },
   {
     label: 'GitHub',
