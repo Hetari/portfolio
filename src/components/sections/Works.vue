@@ -79,8 +79,8 @@
                 ></video>
               </div>
             </div>
-            <div class="leading-none">
-              <p class="heading-6 mb-[1%] mt-[2%] !font-title">
+            <div>
+              <p class="heading-6 mb-[1%] mt-[2%] !font-title leading-none">
                 {{ work.category }}
               </p>
               <div class="items-center justify-between sm:flex">

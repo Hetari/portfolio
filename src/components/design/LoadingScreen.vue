@@ -19,13 +19,17 @@
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
         <h1 class="overflow-clip">
-          <span class="loading-text inline-block translate-y-full">
+          <span
+            class="loading-text inline-block translate-y-full will-change-auto"
+          >
             Hetari
           </span>
         </h1>
 
         <p class="overflow-clip">
-          <span class="loading-text inline-block translate-y-full opacity-70">
+          <span
+            class="loading-text inline-block translate-y-full opacity-70 will-change-auto"
+          >
             &copy; Folio {{ new Date().getFullYear() }}
           </span>
         </p>

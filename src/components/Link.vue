@@ -5,7 +5,7 @@
   >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p
-        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        class="font-fancy -translate-y-0 transition-all duration-300 ease-in-out will-change-auto group-hover:translate-y-[-100%]"
         :class="{ flex: icon }"
       >
         <svg
@@ -24,7 +24,7 @@
         {{ label }}
       </p>
       <p
-        class="font-fancy transition-all duration-300 ease-in-out group-hover:translate-y-[-100%]"
+        class="font-fancy transition-all duration-300 ease-in-out will-change-auto group-hover:translate-y-[-100%]"
         :class="{ flex: icon }"
       >
         <svg

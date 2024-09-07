@@ -15,7 +15,7 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="toggleBtnClickAnimation()"
-    class="fixed right-0 top-[1dvh] z-[9998] h-[98dvh] w-full translate-x-full select-none rounded-s-lg bg-flax-smoke-950 p-5 will-change-transform focus:outline-none max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1dvh] z-[9998] h-[98dvh] w-full translate-x-full select-none rounded-s-lg bg-flax-smoke-950 p-5 will-change-auto focus:outline-none max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
@@ -33,7 +33,7 @@
             <a
               :href="l.url"
               @click="gotoSection(l.url)"
-              class="group my-2 flex h-full w-fit translate-y-full cursor-pointer items-center justify-start leading-none"
+              class="group my-2 flex h-full w-fit translate-y-full cursor-pointer items-center justify-start leading-none will-change-auto"
             >
               <span
                 class="h-4 w-4 scale-0 rounded-full bg-flax-smoke-50 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
@@ -73,7 +73,7 @@
 
   <header
     :class="$attrs.class"
-    class="padding-x absolute inset-0 z-20 h-fit -translate-y-full pt-6"
+    class="padding-x absolute inset-0 z-20 h-fit -translate-y-full pt-6 will-change-auto"
   >
     <nav class="flex justify-between">
       <MagneticEffect

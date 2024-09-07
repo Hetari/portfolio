@@ -31,7 +31,12 @@
 
         <div class="relative flex h-full items-end justify-between">
           <div class="heading-5 flex w-2/12 items-center gap-3 overflow-clip">
-            <p id="current-index" class="-translate-y-full">{{ index + 1 }}</p>
+            <p
+              id="current-index"
+              class="-translate-y-full will-change-transform"
+            >
+              {{ index + 1 }}
+            </p>
             <p class="h-0.5 w-full bg-black"></p>
             <p>{{ people.length }}</p>
           </div>
