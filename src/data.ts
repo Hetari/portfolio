@@ -30,7 +30,7 @@ const navLinks = [
 const navbarLinks = [
   {
     label: 'Home',
-    url: 'body',
+    url: '#app',
   },
   ...navLinks,
 ];
