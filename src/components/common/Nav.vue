@@ -106,7 +106,7 @@
       </div>
       <div class="flex">
         <ul
-          class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 lg:gap-4 xl:text-3xl"
+          class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 md:text-xl lg:gap-4 lg:text-2xl xl:text-3xl"
         >
           <Link
             v-for="(l, index) in navLinks"

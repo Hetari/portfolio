@@ -50,9 +50,11 @@
             <div class="relative origin-left overflow-hidden sm:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
                 <Button
+                  :data-cal-namespace="dataCalNamespace"
+                  :data-cal-link="dataCalLink"
+                  :data-cal-config="dataCalConfig"
                   class="contact"
                   label="Get in touch"
-                  url="#contact-section"
                 />
               </div>
             </div>
@@ -103,10 +105,12 @@
   import { MyName, Star } from '../design';
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
-  import { heroText } from '@/data';
   import { getAvailableForWorkDate, textSplitterIntoChar } from '@/functions';
+  import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
-  const whoAmI = ref(heroText);
+  const whoAmI = ref(
+    'A freelance full-stack developer, cutting-edge technologies to deliver comprehensive solutions for your business.',
+  );
   const AvailableForWorkDate = ref('');
 
   onBeforeMount(() => {

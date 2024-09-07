@@ -1,6 +1,6 @@
 <template>
   <section
-  id="contact-section"
+    id="contact-section"
     class="relative min-h-svh w-full select-none overflow-y-clip p-[4vh]"
   >
     <div
@@ -27,7 +27,12 @@
         <div
           class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[2] 2xl:scale-[2.5] 3xl:scale-[3]"
         >
-          <Button :label="'Get in touch'" :url="''" />
+          <Button
+            :data-cal-namespace="dataCalNamespace"
+            :data-cal-link="dataCalLink"
+            :data-cal-config="dataCalConfig"
+            label="Get in touch"
+          />
         </div>
       </div>
       <div
@@ -79,6 +84,7 @@
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { textSplitterIntoChar } from '@/functions';
   import { animateSplitText } from '@/animations';
+  import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
   const makeItHappen = ref("Let's Make it happen");
   onBeforeMount(() => {
