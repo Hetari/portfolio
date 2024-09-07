@@ -1,3 +1,5 @@
+import { lenis } from '@/main';
+
 const textSplitterIntoChar = (
   text: string,
   isFancyFont: boolean = false,
@@ -60,4 +62,9 @@ const getAvailableForWorkDate = () => {
   return `${month} '${year}`;
 };
 
-export { textSplitterIntoChar, getAvailableForWorkDate };
+const gotoSection = (url: string) => {
+  lenis.start();
+  lenis.scrollTo(url, { duration: 1 });
+};
+
+export { textSplitterIntoChar, getAvailableForWorkDate, gotoSection };

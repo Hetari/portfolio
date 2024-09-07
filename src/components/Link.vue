@@ -47,12 +47,7 @@
 </template>
 
 <script setup lang="ts">
-  import { lenis } from '@/main';
-
-  const gotoSection = (url: string) => {
-    lenis.start();
-    lenis.scrollTo(url, { duration: 1 });
-  };
+  import { gotoSection } from '@/functions';
 
   defineProps({
     tag: {

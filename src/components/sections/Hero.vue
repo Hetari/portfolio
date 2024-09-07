@@ -49,7 +49,11 @@
 
             <div class="relative origin-left overflow-hidden sm:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
-                <Button class="contact" label="Get in touch" url="#" />
+                <Button
+                  class="contact"
+                  label="Get in touch"
+                  url="#contact-section"
+                />
               </div>
             </div>
           </div>
@@ -100,40 +104,10 @@
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
   import { heroText } from '@/data';
-  import { textSplitterIntoChar } from '@/functions';
+  import { getAvailableForWorkDate, textSplitterIntoChar } from '@/functions';
 
   const whoAmI = ref(heroText);
   const AvailableForWorkDate = ref('');
-
-  const getAvailableForWorkDate = () => {
-    const date = new Date();
-
-    const year = date.getFullYear().toLocaleString().slice(-2);
-    const monthNames = [
-      'JAN',
-      'FEB',
-      'MAR',
-      'APR',
-      'MAY',
-      'JUN',
-      'JUL',
-      'AUG',
-      'SEP',
-      'OCT',
-      'NOV',
-      'DEC',
-    ];
-    let index = date.getMonth();
-
-    if (date.getMonth() < 12) {
-      index += 1;
-    } else {
-      index = 0;
-    }
-
-    const month = monthNames[index];
-    return `${month} '${year}`;
-  };
 
   onBeforeMount(() => {
     whoAmI.value = textSplitterIntoChar(whoAmI.value);
