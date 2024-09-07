@@ -54,9 +54,10 @@ const getAvailableForWorkDate = () => {
   ];
   let index = date.getMonth();
 
-  if (date.getMonth() < 12) {
-    index += 1;
-  }
+  // Uncomment this if you want to include the next month
+  // if (date.getMonth() < 12) {
+  //   index += 1;
+  // }
   const month = monthNames[index];
 
   return `${month} '${year}`;
