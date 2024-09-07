@@ -67,14 +67,15 @@
               <div
                 class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg object-cover"
               >
-                <!-- TODO: use mux player -->
+                <!-- autoplay="false" -->
+
                 <video
                   :src="work.videoSrc"
-                  autoplay
                   loop
                   muted
                   @error="handleVideoError"
                   type="video/webm"
+                  class="work-video size-[80%] rounded-md object-contain"
                 ></video>
               </div>
             </div>
@@ -128,7 +129,7 @@
       id: 0,
       name: 'Pyutube',
       category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI Tool', 'Youtube'],
+      tags: ['Python', 'CLI', 'Youtube'],
       videoSrc: work1,
       imageBg: workBg1,
       url: 'https://github.com/hetari/pyutube',
@@ -213,11 +214,32 @@
     return tl;
   };
 
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
+      if (entry.isIntersecting) {
+        video.play();
+      }
+    });
+  };
+
   onBeforeMount(() => {
     selectedWorks.value = textSplitterIntoChar('Selected Works / ', true);
   });
 
   onMounted(() => {
+    const workVideos = document.querySelectorAll('.work-video');
+
+    // Create the IntersectionObserver
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.25, // Trigger when 25% of the video is visible
+    });
+
+    // Observe each video element
+    workVideos.forEach((video) => {
+      observer.observe(video);
+    });
+
     animateSplitText(
       '#selectedWorks .letters',
       '#selected-works-text',
