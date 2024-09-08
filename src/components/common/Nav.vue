@@ -76,12 +76,9 @@
     class="padding-x absolute inset-0 z-20 h-fit -translate-y-full pt-6 will-change-auto"
   >
     <nav class="flex justify-between">
-      <MagneticEffect
-        :magnetoStrengthVal="20"
-        :magnetoTextStrengthVal="10"
-        divId="name-container"
-        textId="name"
-      >
+      <!-- :magnetoStrengthVal="20"
+        :magnetoTextStrengthVal="10" -->
+      <MagneticEffect divId="name-container" textId="name">
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <h1
             id="name"

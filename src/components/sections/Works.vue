@@ -123,7 +123,7 @@
     return useWindowSize().width.value < 768;
   });
   const index = ref(0);
-  const selectedWorks = ref('Selected Works /');
+  const selectedWorks = ref('Selected Projects /');
   const selectedWorksProps = [
     {
       id: 0,

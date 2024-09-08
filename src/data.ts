@@ -11,7 +11,7 @@ const navLinks = [
     url: '#services',
   },
   {
-    label: 'Works',
+    label: 'Projects',
     url: '#works',
   },
   {

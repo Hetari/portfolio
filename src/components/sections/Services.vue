@@ -19,13 +19,12 @@
         <p
           class="heading-4 font-fancy col-span-8 w-full text-balance sm:font-semibold md:col-span-5"
         >
-          My obsession is to craft memorable digital experiences that represent
-          your brand, serve a meaningful purpose, and drive tangible business
-          results.
+          User-Friendly interface don't happen by chance, they are built with
+          intention. I code intuitive responsive solutions that make your users'
+          journey effortless
         </p>
       </div>
     </div>
-    <!--  pb-10 md:pb-[3%] 3xl:pb-[5%] items-end justify-end -->
 
     <div class="relative mt-12 w-full lg:mt-[10%]">
       <div class="mt-12 flex flex-col justify-between gap-y-16">
@@ -40,15 +39,6 @@
           class="sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]"
           :class="getStyle(index)"
         />
-        <!-- :class="getCardClass(index)" -->
-        <!-- 
-        <ServicesCard
-          class="sticky top-[calc(5.75rem_+_20vh)] mb-[11.5rem] border-t border-flax-smoke-500/50 bg-[#0B0B0A] lg:top-[calc(8rem_+_10vh)] lg:mb-[16rem]"
-        />
-
-        <ServicesCard
-          class="sticky top-[calc(11.5rem_+_20vh)] mb-[5.75rem] border-t border-flax-smoke-500/50 bg-[#0B0B0A] lg:top-[calc(16rem_+_10vh)] lg:mb-[8rem]"
-        /> -->
       </div>
     </div>
   </section>
@@ -60,13 +50,13 @@
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { ServicesCard } from '..';
 
-  const whatIDo = ref('What I do /');
+  const whatIDo = ref('My services /');
 
   const servicesCardProps = [
     {
       title: 'Web Development',
-      body: 'I create unique, custom-coded websites that are tailored to your brand. I focus on scalability, performance, accessibility, and engaging animations for a memorable experience.',
-      headings: ['Modern Websites', 'Motion & Animations', 'SEO Optimized'],
+      body: 'I create custom-coded websites specifically for your brand. I focus on making sure they are scalable, fast, accessible, and have engaging animations to provide a memorable experience for users.',
+      headings: ['Modern Websites', 'Motion & Animations', 'Scalability'],
       shape: `<svg viewBox="0 0 200 200"  xmlns="http://www.w3.org/2000/svg">
   <path d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"/>
   </svg>
@@ -74,7 +64,7 @@
     },
     {
       title: 'Advanced Solutions',
-      body: "I craft cutting-edge web applications that push the boundaries of what's possible online. From progressive web apps to complex integrations, I bring innovation and technical expertise to every project.",
+      body: 'I specialize in developing advanced web applications that redefine the possibilities of online platforms, crafting progressive web apps and integrating complex systems.',
       headings: [
         'Progressive Web Apps',
         'Complex Integrations',
@@ -87,8 +77,12 @@
     },
     {
       title: 'Code Optimization',
-      body: 'Your website deserves to be seen, speed, and responsiveness. By optimizing load times, improving user experiences and SEO, I ensure your site runs smoothly and efficiently.',
-      headings: ['Technical SEO', 'Responsive Design', 'Speed Optimization'],
+      body: 'Your website deserves to be seen, speed, and responsiveness. By optimizing load times, improving user experiences, I ensure your site runs smoothly and efficiently.',
+      headings: [
+        'Modern Frameworks',
+        'Responsive Design',
+        'Speed Optimization',
+      ],
       shape: `<svg  viewBox="0 0 200 200"  xmlns="http://www.w3.org/2000/svg">
   <path d="M100 0L170.711 29.2893L200 100L170.711 170.711L100 200L29.2893 170.711L0 100L29.2893 29.2893L100 0Z" />
   </svg>

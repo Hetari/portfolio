@@ -79,7 +79,7 @@
   import { textSplitterIntoChar } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
 
-  const aboutMe = ref('Selected Works /');
+  const aboutMe = ref('ٍSelected Projects /');
 
   // const initialPath = ref(`M0 0H${width.value}  V${height.value} H0 Z`);
   // const targetPath = ref(
@@ -88,7 +88,7 @@
 
   onBeforeMount(() => {
     aboutMe.value = textSplitterIntoChar(
-      'Programmer, Developer, Animator/',
+      'Programmer, Developer, Web-animator/',
       true,
       true,
     );

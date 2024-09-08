@@ -16,8 +16,10 @@
       ></video>
       <!-- :style="'background-image: url(' + contact + ') !important; '" -->
       <div class="flex-center z-10 flex-col gap-y-10">
-        <p class="heading-4 text-center font-mono text-flax-smoke-300">
-          (Need an unfair advantage?)
+        <p
+          class="heading-4 max-w-[30ch] text-center font-mono text-flax-smoke-300"
+        >
+          Your design is a masterpiece waiting to become alive.
         </p>
         <h1
           id="make-it-happen"
