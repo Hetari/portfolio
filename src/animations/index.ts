@@ -247,7 +247,7 @@ const animateLoadingPath = (
 ) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
-    delay: 2.5,
+    delay: 3,
     bottom: '100%',
     duration: 1,
     ease: 'power2.inOut',
@@ -268,7 +268,7 @@ const animateLoadingPath = (
           samsungErrorModal(isSamsung);
           document.body.classList.remove('stop-scrolling');
           window.scrollTo(0, 0);
-        }, 250);
+        }, 75);
       },
     },
     '<20%',
@@ -295,6 +295,7 @@ const animateLoadingText = (id: string) => {
     y: 0,
     duration: 1,
     ease: 'power2.inOut',
+    delay: 0.5,
     stagger: 0.1,
     onComplete: () => {
       gsap.to(id, {
