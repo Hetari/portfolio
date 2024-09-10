@@ -251,6 +251,14 @@ const animateLoadingPath = (
     bottom: '100%',
     duration: 1,
     ease: 'power2.inOut',
+    onStart: () => {
+      setTimeout(() => {
+        animateHeroNav();
+        samsungErrorModal(isSamsung);
+        document.body.classList.remove('stop-scrolling');
+        window.scrollTo(0, 0);
+      }, 120);
+    },
   });
 
   tl.to(
@@ -261,14 +269,6 @@ const animateLoadingPath = (
       ease: 'power2.inOut',
       onComplete: () => {
         gsap.set('#loading-screen', { display: 'none' });
-      },
-      onStart: () => {
-        setTimeout(() => {
-          animateHeroNav();
-          samsungErrorModal(isSamsung);
-          document.body.classList.remove('stop-scrolling');
-          window.scrollTo(0, 0);
-        }, 75);
       },
     },
     '<20%',
