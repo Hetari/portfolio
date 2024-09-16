@@ -178,7 +178,9 @@
     i: any,
     selectedWorksProps: any[],
   ) => {
-    const tl = gsap.timeline({ defaults: { duration: 0.3 } });
+    const tl = gsap.timeline({
+      defaults: { duration: 0.3 },
+    });
 
     // Set and move the #index element
     tl.set('#index', {
@@ -188,7 +190,6 @@
       },
     }).to('#index', {
       yPercent: 0,
-      duration: 0.3,
       ease: 'power1.inOut',
     });
 
@@ -255,10 +256,10 @@
           scrollTrigger: {
             trigger: div,
             // start: 'top 40%',
-            start: 'top 10%',
+            start: 'top 20%',
             // end: 'bottom 40%',
-            end: 'bottom 10%',
-            scrub: 0.1,
+            end: 'bottom 30%',
+            scrub: 0.01,
             // markers: true,
             onLeaveBack: () => {
               // Backward scroll animation
