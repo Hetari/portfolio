@@ -155,7 +155,7 @@
 
   const gotoSection = (url: string) => {
     lenis.start();
-    lenis.scrollTo(url, { duration: 1 });
+    lenis.scrollTo(url, { duration: 3 });
     toggleBtnClickAnimation();
   };
 

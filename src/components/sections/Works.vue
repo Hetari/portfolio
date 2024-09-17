@@ -256,9 +256,9 @@
           scrollTrigger: {
             trigger: div,
             // start: 'top 40%',
-            start: 'top 20%',
+            start: 'top 25%',
             // end: 'bottom 40%',
-            end: 'bottom 30%',
+            end: 'bottom 25%',
             scrub: 0.01,
             // markers: true,
             onLeaveBack: () => {
