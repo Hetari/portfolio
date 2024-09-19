@@ -7,6 +7,8 @@ import Marquee from './Marquee.vue';
 import Slider from './Slider.vue';
 import Footer from './Footer.vue';
 
+import Cursor from './Cursor.vue';
+
 export {
   Circles,
   MyName,
@@ -16,4 +18,5 @@ export {
   Marquee,
   Slider,
   Footer,
+  Cursor,
 };

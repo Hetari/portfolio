@@ -47,6 +47,8 @@
         >
       </div>
       <aside
+        @mouseenter="showCursor"
+        @mouseleave="hideCursor"
         class="relative col-span-full flex flex-col space-y-10 md:col-span-7"
       >
         <div
@@ -124,6 +126,22 @@
   });
   const index = ref(0);
   const selectedWorks = ref('Selected Projects /');
+
+  const showCursor = () => {
+    gsap.to('#cursor', {
+      scale: 1,
+      opacity: 1,
+      duration: 0.3,
+    });
+  };
+  const hideCursor = () => {
+    gsap.to('#cursor', {
+      scale: 0,
+      opacity: 0,
+      duration: 0.3,
+    });
+  };
+
   const selectedWorksProps = [
     {
       id: 0,

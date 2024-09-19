@@ -34,10 +34,9 @@
     </svg>
   </div>
 
-  <!-- ! h-[80vh] xl:h-[78vh] 3xl:h-[75vh] -->
+  <Cursor />
   <Navbar @isLocked="LockeScroll" />
 
-  <!-- max-w-9xl mx-auto -->
   <main class="relative min-h-full">
     <Hero />
     <div
@@ -71,6 +70,7 @@
     Marquee,
     SamsungError,
     Footer,
+    Cursor,
   } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
 
