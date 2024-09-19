@@ -127,19 +127,19 @@
   const index = ref(0);
   const selectedWorks = ref('Selected Projects /');
 
-  const showCursor = () => {
-    gsap.to('#cursor', {
+  const tl = gsap
+    .timeline({ defaults: { duration: 0.25 } })
+    .to(['#cursor', '#inner'], {
       scale: 1,
       opacity: 1,
-      duration: 0.3,
-    });
+    })
+    .paused(true);
+
+  const showCursor = () => {
+    tl.play();
   };
   const hideCursor = () => {
-    gsap.to('#cursor', {
-      scale: 0,
-      opacity: 0,
-      duration: 0.3,
-    });
+    tl.reverse();
   };
 
   const selectedWorksProps = [
