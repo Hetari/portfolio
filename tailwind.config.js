@@ -79,9 +79,6 @@ export default {
           '--heading-display': 'clamp(4rem, 1.203rem + 10.0714vw, 10.25rem)',
           '--heading-body': 'clamp(1rem, 0.6071rem + 1.0143vi, 2.25rem)',
           '--heading-1--alt': 'clamp(3rem, 2.25rem + 3.75vi, 5.625rem)',
-          '--text-base': 'clamp(1rem,0.9286rem + 0.3571vi,1.25rem)',
-          '--text-base--small': 'clamp(0.875rem,0.8393rem + 0.1786vi,1rem)',
-          '--text-base--large': 'clamp(1rem,0.8571rem + 0.7143vi,1.5rem)',
         },
       });
     },

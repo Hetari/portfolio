@@ -1,18 +1,19 @@
 <template>
+  <!-- h-[60vh] md:h-[75svh] lg:h-svh -->
   <section
     v-if="!isSmallScreen"
     id="marquee-section"
-    class="heading-1 sm:heading-display mb-32 flex h-[60vh] w-full flex-col items-stretch justify-around overflow-x-clip bg-[#0B0B0A] leading-none text-flax-smoke-200 md:h-[75svh] lg:h-svh"
+    class="heading-1 sm:heading-1 flex w-full flex-col items-stretch justify-around gap-4 overflow-x-clip bg-[#0B0B0A] pb-60 leading-none text-flax-smoke-200"
   >
     <!-- Marquee 1: Dynamic Direction -->
-    <div id="marquee-1" class="flex">
+    <div class="marquee flex">
       <h4
         v-for="i in 3"
         :key="`marquee1-${i}`"
         class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
-        Ebraheem Alhetari
-        <div class="w-fit scale-[0.5] sm:mx-10 sm:scale-75">
+        Full Stack Developer
+        <div class="w-fit sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 55 37"
@@ -28,19 +29,15 @@
     </div>
 
     <!-- Marquee 2: Left to Right -->
-    <div id="marquee-2" class="flex">
+    <div class="marquee flex">
       <h4
         v-for="i in 2"
         :key="`marquee2-${i}`"
         class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
-        <span
-          class="font-sans text-transparent [-webkit-text-stroke:1.5px_white]"
-        >
-          welcome to the show
-        </span>
-
-        <div class="w-fit scale-[0.5] fill-current sm:mx-10 sm:scale-75">
+        <!-- class="font-sans text-transparent [-webkit-text-stroke:1.5px_white]" -->
+        Full Stack Developer
+        <div class="w-fit fill-current sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 102 102"
@@ -48,7 +45,7 @@
           >
             <path
               d="M0.999042 53.5H1.00096L44.9238 53.5168L13.8776 84.5869L13.8762 84.5882L17.4118 88.1238L17.4131 88.1224L17.4149 88.1206L48.4832 57.0761L48.5 100.999V101.001H53.5V100.999L53.5168 57.0761L84.5869 88.1224L84.5882 88.1238L88.1238 84.5882L88.1224 84.5869L57.0761 53.5168L100.999 53.5H101.001V48.5H100.999L57.0761 48.4832L88.1206 17.4149L88.1224 17.4131L88.1238 17.4118L84.5882 13.8762L84.5869 13.8776L53.5168 44.9238L53.5 1.00096V0.999042H48.5V1.00096L48.4832 44.9238L17.4131 13.8776L17.4118 13.8762L13.8762 17.4118L13.8776 17.4131L44.9238 48.4832L1.00096 48.5H0.999042V53.5Z"
-              class="fill-none stroke-current stroke-[1.5]"
+              class="fill-current stroke-current stroke-[2.5]"
             />
           </svg>
         </div>
@@ -56,14 +53,14 @@
     </div>
 
     <!-- Marquee 3: Right to Left -->
-    <div id="marquee-3" class="flex">
+    <div class="marquee flex">
       <h4
         v-for="i in 3"
         :key="`marquee3-${i}`"
         class="flex items-center whitespace-nowrap text-nowrap font-bold"
       >
-        enjoy the animation
-        <div class="w-fit scale-[0.5] fill-current sm:mx-10 sm:scale-75">
+        Full Stack Developer
+        <div class="w-fit fill-current sm:mx-10 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 100 101"
@@ -95,55 +92,55 @@
   gsap.registerPlugin(Observer);
   gsap.registerPlugin(ScrollToPlugin);
 
-  const initializeMarqueeWithObserver = (
-    marqueeId: string,
-    directionReverse: boolean = false,
-    angle: number = 0,
-    speed: number = 1,
-  ) => {
-    // Query elements once and reuse
-    const marqueeElement = document.getElementById(marqueeId) as HTMLElement;
-    const elements = gsap.utils.toArray(`#${marqueeId} h4`) as HTMLElement[];
-
-    gsap.to(marqueeElement, {
-      scrollTrigger: {
-        trigger: marqueeElement,
-        scrub: true,
-      },
-      ease: 'power1.inOut',
-      rotateZ: angle,
-      transformOrigin: 'center center',
-    });
-
-    // Initialize the timeline and store it for reuse
-    const tl = horizontalLoop(elements, {
-      repeat: -1,
-      speed,
-      reversed: directionReverse,
-    });
-
-    // Observer to control the direction and speed
-    // const targetContainer = marqueeElement.parentElement as HTMLElement;
-    Observer.create({
-      type: 'scroll',
-      onChangeY: (self) => {
-        let factor = directionReverse ? -2.5 : 2.5;
-        if (self.deltaY < 0) {
-          factor *= -1;
-        }
-        gsap
-          .timeline({ defaults: { ease: 'none' } })
-          .to(tl, { timeScale: factor, duration: 0.2 });
-        //   .to(tl, { timeScale: factor / 2.5, duration: 1 }, '+=0.3');
-      },
-    });
-  };
-
   onMounted(() => {
-    if (!isSmallScreen.value) {
-      initializeMarqueeWithObserver('marquee-1', true, -10, 0.3);
-      initializeMarqueeWithObserver('marquee-2', false, 1, 0.6);
-      initializeMarqueeWithObserver('marquee-3', true, 10);
-    }
+    const marquee = gsap.utils.toArray('.marquee');
+
+    // horizontalLoop(marquee, {
+    //   ease: 'none',
+    //   duration: 30,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   yoyoEase: 'power1.inOut',
+
+    //   onEnter: () => {
+    //     horizontalLoop(marquee, {
+    //       ease: 'none',
+    //       duration: 30,
+    //       repeat: -1,
+    //       yoyo: true,
+    //       yoyoEase: 'power1.inOut',
+    //     });
+    //   },
+
+    //   onLeave: () => {
+    //     horizontalLoop(marquee, {
+    //       ease: 'none',
+    //       duration: 30,
+    //       repeat: -1,
+    //       yoyo: true,
+    //       yoyoEase: 'power1.inOut',
+    //     });
+    //   },
+
+    //   onEnterBack: () => {
+    //     horizontalLoop(marquee, {
+    //       ease: 'none',
+    //       duration: 30,
+    //       repeat: -1,
+    //       yoyo: true,
+    //       yoyoEase: 'power1.inOut',
+    //     });
+    //   },
+
+    //   onLeaveBack: () => {
+    //     horizontalLoop(marquee, {
+    //       ease: 'none',
+    //       duration: 30,
+    //       repeat: -1,
+    //       yoyo: true,
+    //       yoyoEase: 'power1.inOut',
+    //     });
+    //   },
+    // });
   });
 </script>
