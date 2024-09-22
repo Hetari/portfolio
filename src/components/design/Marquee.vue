@@ -5,7 +5,7 @@
     class="heading-1 sm:heading-1 flex w-full flex-col items-stretch justify-around gap-4 overflow-x-clip bg-[#0B0B0A] pb-60 leading-none text-flax-smoke-200"
   >
     <!-- Marquee 1: Dynamic Direction -->
-    <div class="marquee flex">
+    <div class="marquee flex" role="marquee">
       <h4
         v-for="i in 3"
         :key="`marquee1-${i}`"
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Marquee 2: Left to Right -->
-    <div class="marquee flex">
+    <div class="marquee flex" role="marquee">
       <h4
         v-for="i in 2"
         :key="`marquee2-${i}`"
@@ -52,7 +52,7 @@
     </div>
 
     <!-- Marquee 3: Right to Left -->
-    <div class="marquee flex">
+    <div class="marquee flex" role="marquee">
       <h4
         v-for="i in 3"
         :key="`marquee3-${i}`"
@@ -74,10 +74,14 @@
       </h4>
     </div>
 
-    <div ref="logos" class="logos-marquee mt-32 flex size-full gap-x-10">
+    <div
+      role="marquee"
+      ref="logos"
+      class="logos-marquee mt-32 flex size-full gap-x-10"
+    >
       <template v-for="i in 2" :key="i">
         <!-- Vue -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <title>Vue</title>
             <path fill="none" d="M0 0h24v24H0z" />
@@ -89,7 +93,7 @@
         </div>
 
         <!-- Tailwindcss -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 32.00 32.00">
             <title>Tailwindcss</title>
             <path
@@ -99,7 +103,7 @@
         </div>
 
         <!-- Gsap -->
-        <div>
+        <div role="marquee">
           <svg
             viewBox="-2.138 -2.29 314.9 359.304"
             xmlns="http://www.w3.org/2000/svg"
@@ -283,7 +287,7 @@
         </div>
 
         <!-- JavaScript -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <title>JavaScript</title>
             <path
@@ -293,7 +297,7 @@
         </div>
 
         <!-- Docker -->
-        <div>
+        <div role="marquee">
           <svg
             viewBox="0 0 512 512"
             data-name="Layer 1"
@@ -334,7 +338,7 @@
         </div>
 
         <!-- Laravel -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <title>Laravel</title>
             <path
@@ -344,7 +348,7 @@
         </div>
 
         <!-- Python -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <title>Python</title>
             <path
@@ -357,7 +361,7 @@
         </div>
 
         <!-- TypeScript -->
-        <div>
+        <div role="marquee">
           <svg
             viewBox="0 0 14 14"
             aria-hidden="true"
@@ -371,7 +375,7 @@
         </div>
 
         <!-- Mysql -->
-        <div>
+        <div role="marquee">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <title>Mysql</title>
             <path
@@ -489,7 +493,7 @@
     Observer.create({
       type: 'wheel',
       onChangeY(self) {
-        let factor = 0.5;
+        let factor = 1.5;
         if (self.deltaY < 0) {
           factor *= -1;
         }
@@ -500,7 +504,11 @@
             },
           })
           .to(tl, { timeScale: factor * 2.5, duration: 0.2 })
-          .to(tl, { timeScale: factor / 2.5, duration: 1 }, '+=0.3');
+          .to(
+            tl,
+            { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
+            '+=0.3',
+          );
       },
     });
   });
