@@ -246,7 +246,7 @@
   };
 
   onMounted(() => {
-    if (!isSmallScreen) {
+    if (!isSmallScreen.value) {
       gsap.set(['#quote-text .letters', '#current-index'], {
         translateY: 0,
       });

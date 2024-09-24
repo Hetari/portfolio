@@ -447,7 +447,7 @@
   gsap.registerPlugin(ScrollToPlugin);
 
   onMounted(() => {
-    if (!isSmallScreen) {
+    if (!isSmallScreen.value) {
       const marquees = gsap.utils.toArray('.marquee') as HTMLElement[];
 
       gsap.registerPlugin(ScrollTrigger);
