@@ -44,7 +44,7 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i heading-4 w-full max-w-[30ch] overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
+              class="who-am-i heading-5 w-full max-w-[30ch] overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
             ></p>
 
             <div class="relative origin-left overflow-hidden sm:scale-150">

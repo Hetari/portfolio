@@ -447,70 +447,72 @@
   gsap.registerPlugin(ScrollToPlugin);
 
   onMounted(() => {
-    const marquees = gsap.utils.toArray('.marquee') as HTMLElement[];
+    if (!isSmallScreen) {
+      const marquees = gsap.utils.toArray('.marquee') as HTMLElement[];
 
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(Observer);
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(Observer);
 
-    // Animate marquees
-    marquees.forEach((marquee, index) => {
-      gsap.set(marquee, {
-        willChange: 'transform',
-      });
+      // Animate marquees
+      marquees.forEach((marquee, index) => {
+        gsap.set(marquee, {
+          willChange: 'transform',
+        });
 
-      const tl = gsap.timeline({
-        defaults: {
-          ease: 'none',
-        },
-      });
-
-      tl.fromTo(
-        marquee,
-        {
-          x: -500 * ++index,
-        },
-        {
-          x: 0,
-          scrollTrigger: {
-            trigger: '#marquee-section',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1,
-            markers: false,
+        const tl = gsap.timeline({
+          defaults: {
+            ease: 'none',
           },
-        },
-      );
-    });
+        });
 
-    // Animate logos
-
-    const logos = gsap.utils.toArray('.logos-marquee div');
-    const tl = horizontalLoop(logos, {
-      repeat: -1,
-      paddingRight: 40,
-    });
-
-    Observer.create({
-      type: 'wheel',
-      onChangeY(self) {
-        let factor = 1.5;
-        if (self.deltaY < 0) {
-          factor *= -1;
-        }
-        gsap
-          .timeline({
-            defaults: {
-              ease: 'none',
+        tl.fromTo(
+          marquee,
+          {
+            x: -500 * ++index,
+          },
+          {
+            x: 0,
+            scrollTrigger: {
+              trigger: '#marquee-section',
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+              markers: false,
             },
-          })
-          .to(tl, { timeScale: factor * 2.5, duration: 0.2 })
-          .to(
-            tl,
-            { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
-            '+=0.3',
-          );
-      },
-    });
+          },
+        );
+      });
+
+      // Animate logos
+
+      const logos = gsap.utils.toArray('.logos-marquee div');
+      const tl = horizontalLoop(logos, {
+        repeat: -1,
+        paddingRight: 40,
+      });
+
+      Observer.create({
+        type: 'wheel',
+        onChangeY(self) {
+          let factor = 1.5;
+          if (self.deltaY < 0) {
+            factor *= -1;
+          }
+          gsap
+            .timeline({
+              defaults: {
+                ease: 'none',
+              },
+            })
+            .to(tl, { timeScale: factor * 2.5, duration: 0.2 })
+            .to(
+              tl,
+              { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
+              '+=0.3',
+            );
+        },
+      });
+    }
   });
 </script>
 
