@@ -1,7 +1,7 @@
 <template>
   <section
     id="about-me-section"
-    class="common-padding relative z-10 overflow-y-clip rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl will-change-transform sm:mt-0"
+    class="common-padding relative z-10 overflow-y-clip rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl will-change-auto sm:mt-0"
   >
     <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">

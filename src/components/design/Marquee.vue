@@ -1,5 +1,4 @@
 <template>
-  isSmallScreen: {{ isSmallScreen }}
   <section
     v-if="!isSmallScreen"
     id="marquee-section"
@@ -429,7 +428,7 @@
 
 <script setup lang="ts">
   import gsap from 'gsap';
-  import { Observer, ScrollToPlugin } from 'gsap/all';
+  import { ScrollToPlugin } from 'gsap/all';
 
   import { computed, onMounted, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
@@ -444,7 +443,7 @@
     document.getElementById('logos') as HTMLElement,
   );
 
-  gsap.registerPlugin(Observer);
+  // gsap.registerPlugin(Observer);
   gsap.registerPlugin(ScrollToPlugin);
 
   onMounted(() => {
@@ -452,7 +451,6 @@
       const marquees = gsap.utils.toArray('.marquee') as HTMLElement[];
 
       gsap.registerPlugin(ScrollTrigger);
-      gsap.registerPlugin(Observer);
 
       // Animate marquees
       marquees.forEach((marquee, index) => {
@@ -477,7 +475,7 @@
               trigger: '#marquee-section',
               start: 'top bottom',
               end: 'bottom top',
-              scrub: true,
+              scrub: 1,
               // markers: false,
             },
           },
@@ -485,34 +483,11 @@
       });
 
       // Animate logos
-
       const logos = gsap.utils.toArray('.logos-marquee div');
-      const tl = horizontalLoop(logos, {
+      horizontalLoop(logos, {
         repeat: -1,
         paddingRight: 40,
-      });
-
-      Observer.create({
-        type: 'wheel',
-        onChangeY(self) {
-          let factor = 1.5;
-          if (self.deltaY < 0) {
-            factor *= -1;
-          }
-          gsap
-            .timeline({
-              defaults: {
-                ease: 'none',
-              },
-            })
-
-            .to(tl, { timeScale: factor, duration: 0.2 });
-          //   .to(
-          //     tl,
-          //     { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
-          //     '+=0.3',
-          //   );
-        },
+        speed: 0.6,
       });
     }
   });
