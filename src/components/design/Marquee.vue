@@ -1,4 +1,5 @@
 <template>
+  isSmallScreen: {{ isSmallScreen }}
   <section
     v-if="!isSmallScreen"
     id="marquee-section"
@@ -476,8 +477,8 @@
               trigger: '#marquee-section',
               start: 'top bottom',
               end: 'bottom top',
-              scrub: 1,
-              markers: false,
+              scrub: true,
+              // markers: false,
             },
           },
         );
@@ -504,12 +505,13 @@
                 ease: 'none',
               },
             })
-            .to(tl, { timeScale: factor * 2.5, duration: 0.2 })
-            .to(
-              tl,
-              { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
-              '+=0.3',
-            );
+
+            .to(tl, { timeScale: factor, duration: 0.2 });
+          //   .to(
+          //     tl,
+          //     { timeScale: factor / 2.5, duration: 1, ease: 'power1' },
+          //     '+=0.3',
+          //   );
         },
       });
     }
@@ -518,7 +520,7 @@
 
 <style scoped>
   .logos-marquee div {
-    @apply rounded-lg bg-flax-smoke-950 transition-[background-color] duration-300 ease-in-out hover:bg-[#21221a];
+    @apply rounded-lg bg-flax-smoke-950 transition-[background-color] duration-300 ease-in-out hover:bg-[#2a2c1e];
   }
 
   .logos-marquee svg {
