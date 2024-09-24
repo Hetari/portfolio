@@ -246,12 +246,14 @@
   };
 
   onMounted(() => {
-    gsap.set(['#quote-text .letters', '#current-index'], {
-      translateY: 0,
-    });
-    gsap.set('#quote-overlay', {
-      translateY: '100%',
-    });
+    if (!isSmallScreen) {
+      gsap.set(['#quote-text .letters', '#current-index'], {
+        translateY: 0,
+      });
+      gsap.set('#quote-overlay', {
+        translateY: '100%',
+      });
+    }
   });
 
   // data
