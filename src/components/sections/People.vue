@@ -2,7 +2,7 @@
   <!-- common-padding  -->
   <section
     id="testimonials-section"
-    class="common-padding relative mx-auto min-h-svh overflow-y-clip py-0 will-change-auto"
+    class="common-padding relative mx-auto min-h-svh -translate-y-0 overflow-y-clip py-0 will-change-transform"
   >
     <div
       class="grid w-full grid-cols-12 border-b-[1px] border-flax-smoke-300 pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
@@ -32,33 +32,26 @@
 </template>
 
 <script setup lang="ts">
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/all';
-  import { onMounted, onUpdated } from 'vue';
+  // import gsap from 'gsap';
+  // import { ScrollTrigger } from 'gsap/all';
+  // import { onMounted } from 'vue';
   import { Slider } from '../design';
 
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  const animatePeopleSectionLeave = (id: string) => {
-    gsap.set(id, {
-      yPercent: -50,
-    });
-
-    gsap.to(id, {
-      scrollTrigger: {
-        trigger: id,
-        start: 'top 75%',
-        end: 'bottom center',
-        scrub: true,
-      },
-      ease: 'power1',
-      yPercent: 0,
-    });
-  };
-  onMounted(() => {
-    animatePeopleSectionLeave('#testimonials-section');
-  });
-  onUpdated(() => {
-    animatePeopleSectionLeave('#testimonials-section');
-  });
+  // const animatePeopleSectionLeave = (id: string) => {
+  //   gsap.to(id, {
+  //     scrollTrigger: {
+  //       trigger: id,
+  //       markers: true,
+  //       start: 'top 80%',
+  //       end: '100% end',
+  //     },
+  //     duration: 0.7,
+  //     y: '0',
+  //   });
+  // };
+  // onMounted(() => {
+  //   animatePeopleSectionLeave('#testimonials-section');
+  // });
 </script>

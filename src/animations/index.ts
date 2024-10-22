@@ -380,14 +380,14 @@ const animateHeroNav = () => {
 // A little bit about me animation
 const animateAboutMeSectionLeave = (id: string) => {
   gsap.to(id, {
-    yPercent: -10,
+    yPercent: -5,
     scale: 0.95,
-    ease: 'power1',
+    // ease: 'power1',
     scrollTrigger: {
       trigger: id,
       start: '75% bottom',
       // end: 'bottom top',
-      scrub: 1,
+      scrub: 0.1,
     },
   });
 };
