@@ -56,10 +56,12 @@
   import { useWindowSize } from '@vueuse/core';
   import { computed, onMounted, Ref, ref, watch } from 'vue';
   import {
-    animateLoadingPath,
+    animateHeroNav,
     animateLoadingText,
     animateLoadingTextContainer,
+    samsungErrorModal,
   } from '@/animations';
+  import gsap from 'gsap';
 
   const emit = defineEmits(['isLoading']);
 
@@ -84,6 +86,7 @@
     // multiplier *= -1;
     return height.value + height.value * multiplier;
   });
+
   const initialPath = ref(
     `M0 0 L${width.value} 0 L${width.value} ${height.value} Q${width.value / 2} ${curveHeight.value} 0 ${height.value}  L0 0`,
   );
@@ -93,20 +96,53 @@
 
   const isSamsungBrowser = /samsung/i.test(navigator.userAgent);
 
+  let tl = gsap.timeline({});
+  const animateLoadingPath = (
+    path: Ref<SVGPathElement>,
+    isSamsung: boolean,
+  ) => {
+    tl.to('#loading-screen', {
+      delay: 3,
+      bottom: '100%',
+      duration: 1,
+      ease: 'power2.inOut',
+      onStart: () => {
+        setTimeout(() => {
+          animateHeroNav();
+          samsungErrorModal(isSamsung);
+          document.body.classList.remove('stop-scrolling');
+          window.scrollTo(0, 0);
+        }, 120);
+      },
+    });
+
+    tl.to(
+      path.value,
+      {
+        duration: 1,
+        attr: { d: targetPath.value },
+        ease: 'power2.inOut',
+        onComplete: () => {
+          gsap.set('#loading-screen', { display: 'none' });
+        },
+      },
+      '<20%',
+    );
+  };
   onMounted(() => {
     index.value++;
     pathData.value = initialPath.value;
     animateLoadingTextContainer();
     animateLoadingText('span.loading-text');
 
-    animateLoadingPath(
-      path as Ref<SVGPathElement>,
-      targetPath.value,
-      isSamsungBrowser,
-    );
+    animateLoadingPath(path as Ref<SVGPathElement>, isSamsungBrowser);
   });
 
-  // TODO: remove it
+  watch(targetPath, () => {
+    tl.clear();
+    animateLoadingPath(path as Ref<SVGPathElement>, isSamsungBrowser);
+  });
+
   watch(
     [width, height],
     () => {

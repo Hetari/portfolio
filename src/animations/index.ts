@@ -239,42 +239,6 @@ const animateNavbarLeave = (
   resetOpacity(contactSelector);
 };
 
-// ! Loading animation
-const animateLoadingPath = (
-  path: Ref<SVGPathElement>,
-  targetPath: string,
-  isSamsung: boolean,
-) => {
-  const tl = gsap.timeline({});
-  tl.to('#loading-screen', {
-    delay: 3,
-    bottom: '100%',
-    duration: 1,
-    ease: 'power2.inOut',
-    onStart: () => {
-      setTimeout(() => {
-        animateHeroNav();
-        samsungErrorModal(isSamsung);
-        document.body.classList.remove('stop-scrolling');
-        window.scrollTo(0, 0);
-      }, 120);
-    },
-  });
-
-  tl.to(
-    path.value,
-    {
-      duration: 1,
-      attr: { d: targetPath },
-      ease: 'power2.inOut',
-      onComplete: () => {
-        gsap.set('#loading-screen', { display: 'none' });
-      },
-    },
-    '<20%',
-  );
-};
-
 const animateLoadingTextContainer = () => {
   gsap.fromTo(
     '#text',
@@ -400,7 +364,7 @@ export {
   resetMagneto,
   animateNavbarEnter,
   animateNavbarLeave,
-  animateLoadingPath,
+  samsungErrorModal,
   animateLoadingText,
   animateLoadingTextContainer,
   animateHeroNav,
