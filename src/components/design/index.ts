@@ -9,7 +9,7 @@ const SamsungError = defineAsyncComponent(() => import('./SamsungError.vue'));
 const Marquee = defineAsyncComponent(() => import('./Marquee.vue'));
 const Slider = defineAsyncComponent(() => import('./Slider.vue'));
 const Footer = defineAsyncComponent(() => import('./Footer.vue'));
-const Cursor = defineAsyncComponent(() => import('./Cursor.vue'));
+import Cursor from './Cursor.vue';
 
 export {
   Circles,
