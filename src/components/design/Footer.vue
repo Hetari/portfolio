@@ -61,7 +61,7 @@
     <div class="grid w-full grid-cols-12">
       <div class="col-span-7 place-content-center md:col-span-6">
         <h1 class="heading-4 sm:heading-2 font-bold leading-none">
-          © {{ new Date().getFullYear() }} Hetari <br />
+          © {{ new Date().getFullYear() }} Huy <br />
           All rights reserved.
         </h1>
       </div>
