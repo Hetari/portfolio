@@ -239,6 +239,42 @@ const animateNavbarLeave = (
   resetOpacity(contactSelector);
 };
 
+// ! Loading animation
+const animateLoadingPath = (
+  path: Ref<SVGPathElement>,
+  targetPath: string,
+  isSamsung: boolean,
+) => {
+  const tl = gsap.timeline({});
+  tl.to('#loading-screen', {
+    delay: 3,
+    bottom: '100%',
+    duration: 1,
+    ease: 'power2.inOut',
+    onStart: () => {
+      setTimeout(() => {
+        animateHeroNav();
+        samsungErrorModal(isSamsung);
+        document.body.classList.remove('stop-scrolling');
+        window.scrollTo(0, 0);
+      }, 120);
+    },
+  });
+
+  tl.to(
+    path.value,
+    {
+      duration: 1,
+      attr: { d: targetPath },
+      ease: 'power2.inOut',
+      onComplete: () => {
+        gsap.set('#loading-screen', { display: 'none' });
+      },
+    },
+    '<20%',
+  );
+};
+
 const animateLoadingTextContainer = () => {
   gsap.fromTo(
     '#text',
@@ -344,14 +380,14 @@ const animateHeroNav = () => {
 // A little bit about me animation
 const animateAboutMeSectionLeave = (id: string) => {
   gsap.to(id, {
-    yPercent: -5,
+    yPercent: -10,
     scale: 0.95,
-    // ease: 'power1',
+    ease: 'power1',
     scrollTrigger: {
       trigger: id,
       start: '75% bottom',
       // end: 'bottom top',
-      scrub: 0.1,
+      scrub: 1,
     },
   });
 };
@@ -364,7 +400,7 @@ export {
   resetMagneto,
   animateNavbarEnter,
   animateNavbarLeave,
-  samsungErrorModal,
+  animateLoadingPath,
   animateLoadingText,
   animateLoadingTextContainer,
   animateHeroNav,

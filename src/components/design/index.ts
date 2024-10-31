@@ -1,14 +1,13 @@
-import { defineAsyncComponent } from 'vue';
-
 import LoadingScreen from './LoadingScreen.vue';
 
-const Circles = defineAsyncComponent(() => import('./Circles.vue'));
-const MyName = defineAsyncComponent(() => import('./MyName.vue'));
-const Star = defineAsyncComponent(() => import('./Star.vue'));
-const SamsungError = defineAsyncComponent(() => import('./SamsungError.vue'));
-const Marquee = defineAsyncComponent(() => import('./Marquee.vue'));
-const Slider = defineAsyncComponent(() => import('./Slider.vue'));
-const Footer = defineAsyncComponent(() => import('./Footer.vue'));
+import Circles from './Circles.vue';
+import MyName from './MyName.vue';
+import Star from './Star.vue';
+import SamsungError from './SamsungError.vue';
+import Marquee from './Marquee.vue';
+import Slider from './Slider.vue';
+import Footer from './Footer.vue';
+
 import Cursor from './Cursor.vue';
 
 export {
