@@ -1,5 +1,7 @@
 # Ebraheem Alhetari - Full-Stack Developer Portfolio
 
+### Enjoying my project? Please show your appreciation by starring it on GitHub! ⭐
+
 Welcome to my portfolio! I'm **Ebraheem Alhetari**, a full-stack developer and freelancer with a passion for creating immersive web experiences. Specializing in **Vue.js**, **GSAP** animations, and **Tailwind CSS**, I craft elegant, responsive, and fully animated websites.
 
 ## 📜 Important Note
