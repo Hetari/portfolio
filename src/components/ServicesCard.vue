@@ -9,7 +9,7 @@
       <h3 class="col-span-6 col-start-5 text-nowrap">{{ title }}</h3>
       <div
         v-html="shape"
-        class="animate-[spin_10s_linear_infinite] heading-size-3 hidden fill-flax-smoke-400/50 lg:block"
+        class="heading-size-3 hidden animate-[spin_10s_linear_infinite] fill-flax-smoke-400/50 lg:block"
       />
     </div>
 
@@ -28,14 +28,16 @@
         <div>
           <template v-for="(heading, index) in headings" :key="index">
             <p
-              class="flex gap-x-3 font-bold py-1"
-              :class="{ 'border-y border-flax-smoke-500/50 !py-1.5': index === 1 }"
+              class="flex gap-x-3 py-1 font-bold"
+              :class="{
+                'border-y border-flax-smoke-500/50 !py-1.5': index === 1,
+              }"
             >
-            <p
-              class="self-center font-mono text-base font-medium text-flax-smoke-500/70"
-            >
-              {{ (index + 1).toString().padStart(2, '0') }}
-            </p>
+              <span
+                class="self-center font-mono text-base font-medium text-flax-smoke-500/70"
+              >
+                {{ (index + 1).toString().padStart(2, '0') }}
+              </span>
               {{ heading }}
             </p>
           </template>

@@ -9,6 +9,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
     // terserOptions:
+    chunkSizeWarningLimit: 1600,
   },
   plugins: [
     vue(),
