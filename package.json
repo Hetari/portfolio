@@ -19,7 +19,6 @@
     "vue3-lottie": "^3.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@vitejs/plugin-vue": "^5.2.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
