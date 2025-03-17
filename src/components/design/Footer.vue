@@ -7,14 +7,14 @@
     >
       <div class="flex flex-col md:col-span-6">
         <p
-          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
         >
           Menu
         </p>
         <div class="mt-2 space-y-1">
           <p v-for="i in navbarLinks" class="heading-6">
             <Link
-              class="h-6 font-medium lowercase tracking-wider"
+              class="h-6 font-medium tracking-wider lowercase"
               :label="i.label"
               :url="i.url"
             />
@@ -24,7 +24,7 @@
 
       <div class="flex flex-col md:col-span-3">
         <p
-          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
         >
           Socials
         </p>
@@ -32,7 +32,7 @@
         <div class="mt-2 space-y-1">
           <p v-for="i in socialLinks" :key="i.label" class="heading-6">
             <Link
-              class="h-6 font-medium lowercase tracking-wider"
+              class="h-6 font-medium tracking-wider lowercase"
               :label="i.label"
               :url="i.url"
             />
@@ -42,14 +42,14 @@
 
       <div class="col-span-full flex flex-col md:col-span-3">
         <p
-          class="heading-5 w-full border-b border-flax-smoke-400 pb-2 font-bold"
+          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
         >
           Resources
         </p>
         <div class="mt-2 space-y-1">
           <p v-for="i in resourceLinks" class="heading-6">
             <Link
-              class="font-medium lowercase tracking-wider"
+              class="font-medium tracking-wider lowercase"
               :label="i.label"
               :url="i.url"
             />
@@ -60,8 +60,8 @@
 
     <div class="grid w-full grid-cols-12">
       <div class="col-span-7 place-content-center md:col-span-6">
-        <h1 class="heading-4 sm:heading-2 font-bold leading-none">
-          © {{ new Date().getFullYear() }} Huy <br />
+        <h1 class="heading-4 sm:heading-2 leading-none font-bold">
+          © {{ new Date().getFullYear() }} Hetari <br />
           All rights reserved.
         </h1>
       </div>
@@ -82,7 +82,7 @@
           <div
             @click="lenis.scrollTo('#app', { duration: 2 })"
             id="scroll-to-top"
-            class="flex-center size-20 cursor-pointer flex-col rounded-full bg-flax-smoke-400"
+            class="flex-center bg-flax-smoke-400 size-20 cursor-pointer flex-col rounded-full"
           >
             <svg
               class="size-1/2"

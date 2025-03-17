@@ -1,6 +1,6 @@
 <template>
   <MagneticEffect divId="magneto" textId="magnetoText">
-    <div v-bind="$attrs" class="fixed right-7 top-7 z-[20]">
+    <div v-bind="$attrs" class="fixed right-7 top-7 z-20">
       <div
         id="magneto"
         class="flex-center size-14 cursor-pointer rounded-full bg-flax-smoke-300 brightness-90 ease-in-out lg:size-[4.5rem]"

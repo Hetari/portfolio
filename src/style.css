@@ -1,17 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap')
+layer(base);
 
-.\@container {
-  container-type: inline-size;
+@layer utilities {
+  @font-face {
+    font-family: 'title';
+    src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+    font-style: normal;
+  }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@font-face {
-  font-family: 'title';
-  src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
-  font-style: normal;
+@theme {
+  /* Font families */
+  --font-title: 'title';
+  --font-body: 'body';
+
+  /* Colors */
+  --color-flax-smoke-50: #f4f4f1;
+  --color-flax-smoke-100: #e8e8df;
+  --color-flax-smoke-200: #d2d3c3;
+  --color-flax-smoke-300: #b6b79f;
+  --color-flax-smoke-400: #9b9c7f;
+  --color-flax-smoke-500: #838566;
+  --color-flax-smoke-600: #62644c;
+  --color-flax-smoke-700: #4d4e3d;
+  --color-flax-smoke-800: #404133;
+  --color-flax-smoke-900: #38392e;
+  --color-flax-smoke-950: #1c1d16;
+
+  /* Screens */
+  --breakpoint-2xs: 420px;
+  --breakpoint-xs: 512px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
+
+  /* Max Width */
+  --max-width-8xl: 1920px;
+  --max-width-9xl: 2560px;
+  --max-width-10xl: 3200px;
+
+  /* Custom base styles */
+  --font-fancy: 'Bricolage Grotesque';
+  --heading-6: clamp(1rem, 0.928rem + 0.36vw, 1.25rem);
+  --heading-5: clamp(1.13rem, 1.004rem + 0.63vw, 1.57rem);
+  --heading-4: clamp(1.25rem, 1.0359rem + 1.0707vw, 1.9995rem);
+  --heading-3: clamp(1.5625rem, 1.2474rem + 1.5755vw, 2.6653rem);
+  --heading-2: clamp(1.9531rem, 1.496rem + 2.2854vw, 3.5529rem);
+  --heading-1: clamp(3.5rem, 2.3571rem + 5.5143vw, 10.5rem);
+  --heading-display: clamp(4rem, 1.203rem + 10.0714vw, 10.25rem);
+  --heading-body: clamp(1rem, 0.6071rem + 1.0143vw, 2.25rem);
+  --heading-1--alt: clamp(3rem, 2.25rem + 3.75vw, 5.625rem);
+}
+
+@utility font-fancy {
+  font-family: var(--font-fancy) !important;
+}
+
+@utility light-theme {
+  @apply bg-flax-smoke-50 text-flax-smoke-800;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility common-padding {
+  @apply padding-x padding-y;
+}
+
+@utility padding-x {
+  @apply px-[3%];
+}
+
+@utility padding-y {
+  @apply py-[2%];
+}
+
+@utility spacing-t {
+  @apply pt-5 sm:pt-12 lg:pt-14;
+}
+
+@utility hide-on-mobile {
+  @apply hidden sm:block;
+}
+
+@utility only-on-mobile {
+  @apply flex lg:hidden;
+}
+
+@utility leading-base {
+  line-height: 130%;
+}
+
+@utility column-gap {
+  column-gap: 2.5rem;
+}
+
+@utility row-gap {
+  row-gap: 2.5rem;
+}
+
+@utility text-fluid-body {
+  font-size: clamp(1rem, 0.8571rem + 1.4143vi, 2.5rem);
+}
+
+@utility heading-6 {
+  font-size: var(--heading-6);
+}
+
+@utility heading-5 {
+  font-size: var(--heading-5);
+}
+
+@utility heading-4 {
+  font-size: var(--heading-4);
+}
+
+@utility heading-3 {
+  font-size: var(--heading-3);
+}
+
+@utility heading-size-3 {
+  width: var(--heading-3);
+  height: var(--heading-3);
+}
+
+@utility heading-2 {
+  font-size: var(--heading-2);
+}
+
+@utility heading-size {
+  width: var(--heading-1--alt);
+  height: var(--heading-1--alt);
+}
+
+@utility heading-1 {
+  font-size: var(--heading-1);
+}
+
+@utility heading-display {
+  font-size: var(--heading-display);
+}
+
+@utility heading-body {
+  font-size: var(--heading-body);
+}
+
+@utility heading-1-alt {
+  font-size: var(--heading-1--alt);
+}
+
+@utility text-base {
+  font-size: var(--text-base);
+}
+
+@utility text-base-small {
+  font-size: var(--text-base--small);
+}
+
+@utility text-base-large {
+  font-size: var(--text-base--large);
+}
+
+@layer base {
+  .\@container {
+    container-type: inline-size;
+  }
 }
 
 @layer base {
@@ -52,7 +208,7 @@
   h4,
   h5,
   h6 {
-    @apply font-fancy !important;
+    @apply font-fancy!;
   }
 
   a {
@@ -66,106 +222,5 @@
 
   ::selection {
     @apply bg-flax-smoke-500 text-flax-smoke-100;
-  }
-}
-
-@layer components {
-  .font-fancy {
-    font-family: var(--font-fancy) !important;
-  }
-  .light-theme {
-    @apply bg-flax-smoke-50 text-flax-smoke-800;
-  }
-
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-
-  .common-padding {
-    @apply padding-x padding-y;
-  }
-
-  .padding-x {
-    @apply px-[3%];
-  }
-
-  .padding-y {
-    @apply py-[2%];
-  }
-
-  .spacing-t {
-    @apply pt-5 sm:pt-12 lg:pt-14;
-  }
-
-  .hide-on-mobile {
-    @apply hidden sm:block;
-  }
-
-  .only-on-mobile {
-    @apply flex lg:hidden;
-  }
-
-  .leading-base {
-    line-height: 130%;
-  }
-
-  .column-gap {
-    column-gap: 2.5rem;
-  }
-
-  .row-gap {
-    row-gap: 2.5rem;
-  }
-
-  .text-fluid-body {
-    font-size: clamp(1rem, 0.8571rem + 1.4143vi, 2.5rem);
-  }
-}
-
-@layer utilities {
-  .heading-6 {
-    font-size: var(--heading-6);
-  }
-  .heading-5 {
-    font-size: var(--heading-5);
-  }
-  .heading-4 {
-    font-size: var(--heading-4);
-  }
-  .heading-3 {
-    font-size: var(--heading-3);
-  }
-  .heading-size-3 {
-    width: var(--heading-3);
-    height: var(--heading-3);
-  }
-  .heading-2 {
-    font-size: var(--heading-2);
-  }
-  .heading-size {
-    width: var(--heading-1--alt);
-    height: var(--heading-1--alt);
-  }
-  .heading-1 {
-    font-size: var(--heading-1);
-  }
-  .heading-display {
-    font-size: var(--heading-display);
-  }
-  .heading-body {
-    font-size: var(--heading-body);
-  }
-  .heading-1-alt {
-    font-size: var(--heading-1--alt);
-  }
-
-  .text-base {
-    font-size: var(--text-base);
-  }
-  .text-base-small {
-    font-size: var(--text-base--small);
-  }
-  .text-base-large {
-    font-size: var(--text-base--large);
   }
 }

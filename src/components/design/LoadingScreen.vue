@@ -2,20 +2,20 @@
   <div
     v-if="!isLoading"
     id="loading-screen"
-    class="flex-center fixed bottom-0 z-[99999] size-full cursor-wait"
+    class="flex-center fixed bottom-0 z-99999 size-full cursor-wait"
   >
     <div class="size-full flex-col">
       <svg
         :width="width"
         :height="height * 2"
-        class="absolute top-0 z-0 h-[calc(100%_+_300px)] fill-flax-smoke-800 brightness-50"
+        class="fill-flax-smoke-800 absolute top-0 z-0 h-[calc(100%_+_300px)] brightness-50"
       >
         <path ref="path" class="w-full" :d="pathData"></path>
       </svg>
       <div
         id="text"
         style="transform: translateZ(0px)"
-        class="z-[1] flex size-full flex-col items-center justify-center text-center text-4xl font-bold text-flax-smoke-50/75 opacity-0 md:text-6xl"
+        class="text-flax-smoke-50/75 z-1 flex size-full flex-col items-center justify-center text-center text-4xl font-bold opacity-0 md:text-6xl"
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
         <h1 class="overflow-clip">
@@ -38,11 +38,11 @@
           <span
             class="loading-text absolute bottom-10 left-5 inline-block font-mono sm:left-14"
           >
-            Version 1.3v
+            Version 1.4v
           </span>
 
           <span
-            class="loading-text absolute bottom-10 right-5 inline-block animate-pulse font-mono sm:right-14"
+            class="loading-text absolute right-5 bottom-10 inline-block animate-pulse font-mono sm:right-14"
           >
             Loading...
           </span>

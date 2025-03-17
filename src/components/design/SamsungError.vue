@@ -4,7 +4,7 @@
     class="flex-center fixed inset-0 z-50 h-svh w-svw bg-black/75 opacity-0"
   >
     <div
-      class="flex-center z-50 mx-auto size-full h-1/2 w-11/12 flex-col rounded-lg bg-white p-5 shadow md:w-1/2"
+      class="flex-center z-50 mx-auto size-full h-1/2 w-11/12 flex-col rounded-lg bg-white p-5 shadow-sm md:w-1/2"
     >
       <div class="flex flex-col items-center text-center">
         <div class="inline-block rounded-full bg-yellow-50 p-4">

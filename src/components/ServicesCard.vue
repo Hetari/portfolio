@@ -30,7 +30,7 @@
             <p
               class="flex gap-x-3 py-1 font-bold"
               :class="{
-                'border-y border-flax-smoke-500/50 !py-1.5': index === 1,
+                'border-y border-flax-smoke-500/50 py-1.5!': index === 1,
               }"
             >
               <span

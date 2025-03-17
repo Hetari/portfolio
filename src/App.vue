@@ -40,7 +40,7 @@
   <main class="relative min-h-full">
     <Hero />
     <div
-      class="relative rounded-t-3xl bg-[#0B0B0A] py-[5%] text-flax-smoke-200"
+      class="text-flax-smoke-200 relative rounded-t-3xl bg-[#0B0B0A] py-[5%]"
     >
       <Services />
       <Marquee />
@@ -64,7 +64,7 @@
     aboutMe,
     Contact,
   } from '@/components/sections';
-  import { onMounted, Ref, ref, watch } from 'vue';
+  import { onMounted, type Ref, ref, watch } from 'vue';
   import {
     LoadingScreen,
     Marquee,

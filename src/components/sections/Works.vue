@@ -39,10 +39,10 @@
       <div
         class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-semibold leading-[0.8] text-flax-smoke-100 md:flex"
       >
-        <span class="relative !font-title -tracking-wider">0</span>
+        <span class="relative font-title! -tracking-wider">0</span>
         <span
           id="index"
-          class="relative !font-title -tracking-wider will-change-transform"
+          class="relative font-title! -tracking-wider will-change-transform"
           >{{ index + 1 }}.</span
         >
       </div>
@@ -67,7 +67,7 @@
                 :src="work.imageBg"
               />
               <div
-                class="flex-center z-10 aspect-[4/3] size-full overflow-clip rounded-lg object-cover"
+                class="flex-center z-10 aspect-4/3 size-full overflow-clip rounded-lg object-cover"
               >
                 <!-- autoplay="false" -->
 
@@ -82,11 +82,11 @@
               </div>
             </div>
             <div>
-              <p class="heading-6 mb-[1%] mt-[2%] !font-title leading-none">
+              <p class="heading-6 mb-[1%] mt-[2%] font-title! leading-none">
                 {{ work.category }}
               </p>
               <div class="items-center justify-between sm:flex">
-                <h3 class="heading-3 !font-title font-bold uppercase">
+                <h3 class="heading-3 font-title! font-bold uppercase">
                   {{ work.name }}
                 </h3>
                 <div class="flex select-none gap-1.5">

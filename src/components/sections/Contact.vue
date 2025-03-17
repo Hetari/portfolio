@@ -27,7 +27,7 @@
           v-html="makeItHappen"
         ></h1>
         <div
-          class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[2] 2xl:scale-[2.5] 3xl:scale-[3]"
+          class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-2 2xl:scale-[2.5] 3xl:scale-3"
         >
           <Button
             :data-cal-namespace="dataCalNamespace"

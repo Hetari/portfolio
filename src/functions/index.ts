@@ -10,7 +10,7 @@ const textSplitterIntoChar = (
 
   let result = '';
   char.forEach((word) => {
-    result += '<span class="!text-nowrap  overflow-clip ';
+    result += '<span class="text-nowrap!  overflow-clip ';
     if (isNewLine) {
       result += ' leading-none block  ';
     } else {

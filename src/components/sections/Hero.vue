@@ -64,7 +64,7 @@
             id="profile-container"
             class="relative col-span-4 mt-10 h-[20vh] max-w-lg select-none flex-col rounded-lg sm:mt-0 sm:h-full md:flex md:h-[50vh]"
           >
-            <div class="overlay absolute inset-0 z-[2] bg-flax-smoke-50"></div>
+            <div class="overlay absolute inset-0 z-2 bg-flax-smoke-50"></div>
             <img
               id="profile-img"
               :src="profile"

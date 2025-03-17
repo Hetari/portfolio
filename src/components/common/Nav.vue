@@ -1,13 +1,13 @@
 <template>
   <BurgerMenuBtn
     @click="toggleBtnClickAnimation"
-    class="z-[9999] scale-0 drop-shadow-lg"
+    class="z-9999 scale-0 drop-shadow-lg"
     id="burger"
   />
 
   <div
     @click="toggleBtnClickAnimation"
-    class="fixed inset-0 z-[9998] size-full select-none bg-black opacity-50"
+    class="fixed inset-0 z-9998 size-full select-none bg-black opacity-50"
     :class="{ hidden: !isNavbarOpen }"
   ></div>
 
@@ -15,11 +15,11 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="toggleBtnClickAnimation()"
-    class="fixed right-0 top-[1dvh] z-[9998] h-[98dvh] w-full translate-x-full select-none rounded-s-lg bg-flax-smoke-950 p-5 will-change-auto focus:outline-none max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
+    class="fixed right-0 top-[1dvh] z-9998 h-[98dvh] w-full translate-x-full select-none rounded-s-lg bg-flax-smoke-950 p-5 will-change-auto focus:outline-hidden max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
   >
     <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
-      <div class="relative z-[19] w-full">
+      <div class="relative z-19 w-full">
         <ul
           class="heading-2 mt-12 font-bold text-flax-smoke-50 md:mt-24"
           id="navLinks"
@@ -52,7 +52,7 @@
         <div class="mt-2 h-full font-normal text-flax-smoke-50">
           <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
-            class="!h-6 font-medium tracking-wider"
+            class="h-6! font-medium tracking-wider"
             tag="p"
             label="hetari4all@gmail.com"
             url="mailto:hetari4all@gmail.com"
@@ -89,7 +89,7 @@
           >
             hetari
             <span
-              class="font-fancy !inline !origin-center text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
+              class="font-fancy inline! origin-center! text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
             >
           </h1>

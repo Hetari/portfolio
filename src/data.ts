@@ -56,10 +56,6 @@ const socialLinks = [
 
 const resourceLinks = [
   {
-    label: 'Huy Nguyen (the ui designer)',
-    url: 'https://www.huyng.xyz',
-  },
-  {
     label: 'Pillarstack',
     url: 'https://www.pillarstack.com',
   },
