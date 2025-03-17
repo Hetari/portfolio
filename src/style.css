@@ -190,6 +190,9 @@ layer(base);
     background-color: #000000;
   } */
 
+  html {
+    @apply overflow-x-clip;
+  }
   body {
     @apply light-theme overflow-x-clip;
   }

@@ -20,7 +20,7 @@
           </div>
           <div id="quote-tags" class="flex gap-3">
             <p
-              class="rounded-full border border-flax-smoke-500 px-3 uppercase text-flax-smoke-600"
+              class="border-flax-smoke-500 text-flax-smoke-600 rounded-full border px-3 uppercase"
               v-for="i in people[index].tags"
               :key="i"
             >
@@ -69,7 +69,7 @@
         />
         <div
           id="quote-overlay"
-          class="absolute inset-0 z-50 rounded-lg bg-flax-smoke-500"
+          class="bg-flax-smoke-500 absolute inset-0 z-50 rounded-lg"
         ></div>
       </div>
     </template>
@@ -78,9 +78,9 @@
     <template v-else>
       <div class="col-span-full">
         <template v-for="(p, i) in people" :key="i">
-          <div class="mt-10 grid w-full grid-cols-4 items-start">
+          <div class="mt-10 grid w-full grid-cols-5 items-start sm:grid-cols-4">
             <div
-              class="columns-gap heading-2 relative col-span-1 flex h-full flex-col font-bold leading-none"
+              class="columns-gap heading-2 relative col-span-1 flex h-full flex-col leading-none font-bold"
             >
               {{ (i + 1).toString().padStart(2, '0') }}
             </div>
@@ -93,7 +93,7 @@
                 />
 
                 <p
-                  class="heading-4 mt-4 max-w-[25ch] font-semibold leading-none"
+                  class="heading-4 mt-4 max-w-[25ch] leading-none font-semibold"
                 >
                   " {{ p.quote }} "
                 </p>
@@ -106,10 +106,10 @@
                 </div>
 
                 <div
-                  class="flex max-w-60 flex-wrap gap-3 uppercase leading-[200%]"
+                  class="flex max-w-60 flex-wrap gap-3 leading-[200%] uppercase"
                 >
                   <p
-                    class="text-nowrap rounded-full border border-flax-smoke-500 px-3 uppercase text-flax-smoke-600"
+                    class="border-flax-smoke-500 text-flax-smoke-600 rounded-full border px-3 text-nowrap uppercase"
                     v-for="i in p.tags"
                     :key="i"
                   >

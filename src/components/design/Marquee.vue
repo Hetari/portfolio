@@ -1,29 +1,32 @@
 <template>
   <section
     id="marquee-section"
-    class="text-flax-smoke-200 relative mb-60 h-fit w-full overflow-clip leading-none"
-    style="height: clamp(3.5rem, 2.3571rem + 8.5143vw, 10.5rem)"
+    class="text-flax-smoke-200 relative mb-50 h-fit w-full overflow-clip leading-none will-change-auto"
   >
-    <div id="marquee-1" class="flex" role="marquee">
+    <div id="marquee-1" class="flex h-fit translate-y-0" role="marquee">
       <h4
         v-for="i in 3"
         :key="`marquee1-${i}`"
-        class="heading-1 sm:heading-1 flex items-center font-bold text-nowrap whitespace-nowrap"
+        class="heading-1 sm:heading-1 flex items-center font-bold text-nowrap whitespace-nowrap will-change-auto"
       >
         Full Stack Developer
-        <div class="w-fit sm:mx-10 sm:scale-75">
+        <div class="mx-4 w-fit sm:mx-10 sm:scale-75">
           <component :is="icons[(i - 1) % icons.length]" />
         </div>
       </h4>
     </div>
-    <div id="marquee-2" class="flex" role="marquee">
+    <div
+      id="marquee-2"
+      class="absolute bottom-0 z-50 flex h-fit translate-y-full"
+      role="marquee"
+    >
       <h4
         v-for="i in 3"
         :key="`marquee2-${i}`"
-        class="heading-1 sm:heading-1 flex items-center font-bold text-nowrap whitespace-nowrap"
+        class="heading-1 sm:heading-1 flex items-center font-bold text-nowrap whitespace-nowrap will-change-auto"
       >
         Full Stack Developer
-        <div class="w-fit sm:mx-10 sm:scale-75">
+        <div class="mx-4 w-fit sm:mx-10 sm:scale-75">
           <component :is="icons[(i - 1) % icons.length]" />
         </div>
       </h4>
@@ -54,14 +57,14 @@
     horizontalLoop(marquee1, {
       xPercent: -100,
       repeat: -1,
-      speed: 0.7,
+      speed: 0.8,
     });
 
     // Horizontal loop for marquee-2 (opposite direction)
     horizontalLoop(marquee2, {
       xPercent: 100,
       repeat: -1,
-      speed: 0.7,
+      speed: 0.8,
       reversed: true,
     });
 
@@ -83,15 +86,15 @@
     function initMarqueeAnimations() {
       // Animate marquee-1 upwards
       gsap.to('#marquee-1', {
-        y: -100,
+        yPercent: -100,
         duration: 1,
         ease: 'power2.inOut',
       });
-
-      // Animate marquee-2 downwards
+      // // Animate marquee-2 downwards
       gsap.to('#marquee-2', {
-        y: -90,
+        yPercent: 0,
         duration: 1,
+        top: '-100%',
         ease: 'power2.inOut',
       });
     }
@@ -99,15 +102,15 @@
     function resetMarqueeAnimations() {
       // Reset marquee-1 position
       gsap.to('#marquee-1', {
-        y: 0,
+        yPercent: 0,
         duration: 1,
         ease: 'power2.inOut',
       });
-
-      // Reset marquee-2 position
+      // // Reset marquee-2 position
       gsap.to('#marquee-2', {
-        y: 100,
+        yPercent: 100,
         duration: 1,
+        top: '0%',
         ease: 'power2.inOut',
       });
     }
