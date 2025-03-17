@@ -1,5 +1,6 @@
-import App from './App.vue';
+import './style.css';
 import { createApp } from 'vue';
+import App from './App.vue';
 import Lenis from 'lenis';
 
 // smooth scroll
@@ -15,5 +16,3 @@ const app = createApp(App);
 app.mount('#app');
 
 export { raf, lenis };
-
-import './style.css';
