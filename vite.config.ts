@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import sitemap from 'vite-plugin-sitemap';
 import { robots } from 'vite-plugin-robots';
-// @ts-ignore
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
