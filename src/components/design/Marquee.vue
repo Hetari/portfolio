@@ -28,11 +28,11 @@
     </div>
     <div
       id="marquee-2"
-      class="absolute bottom-0 z-50 flex h-fit translate-y-full space-x-10 whitespace-nowrap will-change-transform"
+      class="absolute bottom-0 z-50 flex h-fit translate-y-full whitespace-nowrap will-change-transform"
       role="marquee"
     >
       <h4
-        class="sm:heading-1 mx-6 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap sm:mx-8"
+        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap sm:mx-8"
       >
         Full Stack Developer
         <div class="mx-2 inline-block scale-50 sm:scale-75">
