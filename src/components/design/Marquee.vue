@@ -9,10 +9,10 @@
       role="marquee"
     >
       <h4
-        class="sm:heading-1 mx-6 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap sm:mx-8"
+        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Full Stack Developer
-        <div class="mx-2 w-fit scale-50 sm:scale-75">
+        <div class="ms-1 w-fit scale-50 sm:scale-75">
           <svg
             style="width: var(--heading-display)"
             viewBox="0 0 100 101"
@@ -32,7 +32,7 @@
       role="marquee"
     >
       <h4
-        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap sm:mx-8"
+        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Full Stack Developer
         <div class="mx-2 inline-block scale-50 sm:scale-75">
@@ -71,7 +71,6 @@
     for (let i = 0; i < cloneCount; i++) {
       Array.from(items).forEach((item) => {
         let clone = item.cloneNode(true) as HTMLElement;
-        clone.classList.add('sm:mx-10');
         container.appendChild(clone);
       });
     }

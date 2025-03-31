@@ -1,7 +1,7 @@
 <template>
   <section
     id="contact-section"
-    class="relative min-h-svh w-full select-none overflow-y-clip p-[4vh]"
+    class="relative min-h-svh w-full overflow-y-clip p-[4vh] select-none"
   >
     <div
       class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black uppercase"
@@ -17,17 +17,17 @@
       <!-- :style="'background-image: url(' + contact + ') !important; '" -->
       <div class="flex-center z-10 flex-col gap-y-10">
         <p
-          class="heading-4 max-w-[30ch] text-center font-mono text-flax-smoke-300"
+          class="heading-4 text-flax-smoke-300 max-w-[30ch] text-center font-mono"
         >
           Your design is a masterpiece waiting to become alive.
         </p>
         <h1
           id="make-it-happen"
-          class="heading-1 max-w-[10ch] text-center leading-none text-flax-smoke-200"
+          class="heading-1 text-flax-smoke-200 max-w-[10ch] text-center leading-none"
           v-html="makeItHappen"
         ></h1>
         <div
-          class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-2 2xl:scale-[2.5] 3xl:scale-3"
+          class="3xl:scale-3 mt-[5%] flex scale-150 items-center lg:scale-[150] xl:scale-200 2xl:scale-[2.5]"
         >
           <Button
             :data-cal-namespace="dataCalNamespace"
@@ -41,7 +41,7 @@
         class="absolute bottom-5 flex w-full items-center justify-center px-5 md:justify-between"
       >
         <div class="hidden md:flex">
-          <div class="relative border border-flax-smoke-300">
+          <div class="border-flax-smoke-300 relative border">
             <Vue3Lottie
               ref="customControl"
               :animationData="earthLottie"
@@ -50,23 +50,23 @@
             />
           </div>
           <div
-            class="flex-center py w-fit flex-col border border-l-0 border-flax-smoke-300 font-mono text-flax-smoke-300"
+            class="flex-center py border-flax-smoke-300 text-flax-smoke-300 w-fit flex-col border border-l-0 font-mono"
           >
             <p
-              class="flex size-full items-center justify-start border-b border-flax-smoke-300 pl-1 pr-2 font-bold"
+              class="border-flax-smoke-300 flex size-full items-center justify-start border-b pr-2 pl-1 font-bold"
             >
               Working Globally
             </p>
-            <p class="flex size-full items-center justify-start pl-1 pr-2">
+            <p class="flex size-full items-center justify-start pr-2 pl-1">
               Available Sep '24
             </p>
           </div>
         </div>
 
-        <div class="heading-6 w-fit text-flax-smoke-500">
+        <div class="heading-6 text-flax-smoke-500 w-fit">
           <p class="w-full font-bold uppercase">For further inquiries</p>
           <Link
-            class="h-6 text-right font-medium lowercase tracking-wider text-flax-smoke-300"
+            class="text-flax-smoke-300 h-6 text-right font-medium tracking-wider lowercase"
             label="hetari4all@gmail"
             :icon="true"
             url="mailto:hetari4all@gmail"
