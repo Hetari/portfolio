@@ -9,11 +9,15 @@
       role="marquee"
     >
       <h4
+        v-for="_ in 2"
+        :id="`marquee-item-${_}`"
+        :key="`marquee-item-${_}`"
         class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Full Stack Developer
-        <div class="ms-1 w-fit scale-50 sm:scale-75">
+        <div class="w-fit scale-50 sm:scale-75">
           <svg
+            class="ms-10 me-10"
             style="width: var(--heading-display)"
             viewBox="0 0 100 101"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,11 +36,15 @@
       role="marquee"
     >
       <h4
+        v-for="_ in 2"
+        :id="`marquee-item-${_}`"
+        :key="`marquee-item-${_}`"
         class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Full Stack Developer
         <div class="mx-2 inline-block scale-50 sm:scale-75">
           <svg
+            class="ms-10 me-10"
             style="width: var(--heading-display)"
             viewBox="0 0 100 101"
             xmlns="http://www.w3.org/2000/svg"
@@ -91,22 +99,19 @@
       duration: duration,
       ease: 'none',
       repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => {
-          return x % (itemWidth * cloneCount);
-        }),
-      },
     });
   };
   onMounted(() => {
-    createMarquee('#marquee-1', 1, 25);
-    createMarquee('#marquee-2', -1, 25);
+    createMarquee('#marquee-1', 1, 50);
+    createMarquee('#marquee-2', -1, 50);
 
     const tl = gsap.timeline({
       scrollTrigger: {
+        markers: !true,
+
         trigger: '#marquee-section',
-        start: 'top 65%',
-        end: 'bottom center',
+        start: 'top 75%',
+        end: 'center 75%',
         scrub: 0.1,
       },
     });
