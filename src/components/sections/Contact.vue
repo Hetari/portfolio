@@ -7,7 +7,7 @@
       class="flex-center relative h-[92vh] w-full flex-col rounded-lg bg-black uppercase"
     >
       <video
-        class="absolute bottom-0 left-0 size-full rounded-lg object-cover object-bottom"
+        class="absolute bottom-0 left-0 size-full rounded-lg object-cover object-bottom brightness-50"
         :src="contact"
         autoplay
         muted
@@ -27,7 +27,7 @@
           v-html="makeItHappen"
         ></h1>
         <div
-          class="3xl:scale-3 mt-[5%] flex scale-150 items-center lg:scale-[150] xl:scale-200 2xl:scale-[2.5]"
+          class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[3] 2xl:scale-[3.5]"
         >
           <Button
             :data-cal-namespace="dataCalNamespace"

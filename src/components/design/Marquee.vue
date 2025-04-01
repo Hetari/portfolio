@@ -110,8 +110,8 @@
         markers: !true,
 
         trigger: '#marquee-section',
-        start: 'top 75%',
-        end: 'center 75%',
+        start: 'top center',
+        end: '110% center',
         scrub: 0.1,
       },
     });
