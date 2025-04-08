@@ -1,19 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head lang="en">
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-PP76RWLS');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <noscript
-      ><link
+    <noscript>
+      <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
-    /></noscript>
+      />
+    </noscript>
 
     <meta name="color-scheme" content="light" />
+
+    <!-- Multilingual Support -->
+    <meta http-equiv="content-language" content="en, ar" />
 
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
@@ -53,6 +72,7 @@
       content="Ebraheem Alhetari — Freelance Web Developer"
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ar_AR" />
     <meta property="og:site_name" content="Ebraheem Alhetari" />
 
@@ -139,6 +159,17 @@
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PP76RWLS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
 
@@ -189,6 +220,85 @@
         },
         hideEventTypeDetails: false,
         layout: 'month_view',
+      });
+    </script>
+
+    <!-- Enhanced Structured Data with More Name Variations -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ebraheem Alhetari",
+        "givenName": "Ebraheem",
+        "familyName": "Alhetari",
+        "alternateName": [
+          "ابراهيم الهتاري",
+          "Ibrahim Alhetari",
+          "Ebrahim Alhetari",
+          "Ebraheem Al-Hetari",
+          "Ibrahim Al-Hetari",
+          "Ebrahim Al-Hetari",
+          "ابراهيم الهتارى",
+          "ابراهيم هتاري",
+          "ابراهيم هتارى",
+          "Hetari",
+          "هتاري",
+          "هيتاري"
+        ],
+        "jobTitle": "Full-Stack Developer",
+        "description": "Freelance Full-Stack Developer helping startups worldwide gain their unfair advantage",
+        "image": "https://hetari.github.io/portfolio/assets/profile-dtKvApsu.webp",
+        "url": "https://hetari.github.io/portfolio/",
+        "sameAs": [
+          "https://github.com/hetari",
+          "https://linkedin.com/in/hetaridev",
+          "https://x.com/hetaridev",
+          "https://stackoverflow.com/users/29157031"
+        ],
+        "knowsLanguage": ["en", "ar"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "skills": "Full-Stack Development, Frontend Development, Backend Development, Web Development"
+      }
+    </script>
+
+    <!-- Additional script for in-site search functionality -->
+    <script>
+      // This will be initialized when the DOM loads
+      document.addEventListener('DOMContentLoaded', function () {
+        // Create name variations for search
+        const nameVariations = [
+          // English variations
+          'ebraheem alhetari',
+          'ebrahim alhetari',
+          'ibrahim alhetari',
+          'ebraheem al-hetari',
+          'ebrahim al-hetari',
+          'ibrahim al-hetari',
+          'ebraheem',
+          'ebrahim',
+          'ibrahim',
+          'alhetari',
+          'hetari',
+          'al-hetari',
+          'hetaridev',
+          // Arabic variations
+          'ابراهيم الهتاري',
+          'ابراهيم الهتارى',
+          'ابراهيم هتاري',
+          'ابراهيم هتارى',
+          'ابراهيم',
+          'الهتاري',
+          'الهتارى',
+          'هتاري',
+          'هتارى',
+          'هيتاري',
+        ];
+
+        // Make these available globally for search functionality
+        window.portfolioSearchIndex = nameVariations;
       });
     </script>
   </body>
