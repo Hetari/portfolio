@@ -18,13 +18,13 @@
         class="text-flax-smoke-50/75 z-1 flex size-full flex-col items-center justify-center text-center text-4xl font-bold opacity-0 md:text-6xl"
         :class="{ 'text-4xl font-bold md:text-6xl': true }"
       >
-        <h1 class="overflow-clip">
+        <h3 class="overflow-clip">
           <span
             class="loading-text inline-block translate-y-full will-change-auto"
           >
             Hetari
           </span>
-        </h1>
+        </h3>
 
         <p class="overflow-clip">
           <span

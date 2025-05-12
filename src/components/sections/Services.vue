@@ -1,18 +1,18 @@
 <template>
   <section id="services" class="padding-x mb-20">
     <div class="flex w-full flex-col">
-      <h1
+      <h3
         id="what-i-do"
         v-html="whatIDo"
         class="heading-1 font-extrabold uppercase"
-      ></h1>
+      ></h3>
 
       <div
         id="services-text"
-        class="grid-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
+        class="grid-gap text-flax-smoke-300 mt-[5%] grid grid-cols-12 justify-end opacity-0 lg:grid"
       >
         <p
-          class="col-start-0 heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 md:col-start-4"
+          class="heading-6 text-flax-smoke-300/85 col-span-4 col-start-0 text-center text-nowrap md:col-start-4"
         >
           ( SERVICES )
         </p>
@@ -36,7 +36,7 @@
           :body="card.body"
           :headings="card.headings"
           :shape="card.shape"
-          class="sticky border-t border-flax-smoke-500/50 bg-[#0B0B0A]"
+          class="border-flax-smoke-500/50 sticky border-t bg-[#0B0B0A]"
           :class="getStyle(index)"
         />
       </div>

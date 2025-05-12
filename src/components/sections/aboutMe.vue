@@ -1,7 +1,7 @@
 <template>
   <section
     id="about-me-section"
-    class="common-padding relative z-10 overflow-y-clip rounded-b-3xl bg-[#0B0B0A] text-flax-smoke-200 shadow-2xl will-change-auto sm:mt-0"
+    class="common-padding text-flax-smoke-200 relative z-10 overflow-y-clip rounded-b-3xl bg-[#0B0B0A] shadow-2xl will-change-auto sm:mt-0"
   >
     <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">
@@ -23,16 +23,16 @@
         </svg>
       </div>
 
-      <h1
+      <h3
         id="little-bit-about-me"
         v-html="aboutMe"
-        class="heading-1-alt lg:heading-1 section-heading col-span-full font-extrabold uppercase leading-none md:col-span-8 md:col-start-6"
-      ></h1>
+        class="heading-1-alt lg:heading-1 section-heading col-span-full leading-none font-extrabold uppercase md:col-span-8 md:col-start-6"
+      ></h3>
     </div>
 
     <div class="padding-y md:column-gap mt-6 grid grid-cols-12">
       <div
-        class="pointer-events-none col-span-full select-none content-end rounded-lg md:col-span-4"
+        class="pointer-events-none col-span-full content-end rounded-lg select-none md:col-span-4"
       >
         <img
           :src="profile2"
@@ -42,7 +42,7 @@
       </div>
       <div class="col-span-11 mt-10 md:col-span-8 md:col-start-6">
         <p
-          class="heading-4 relative w-full max-w-[40ch] text-balance font-medium leading-snug"
+          class="heading-4 relative w-full max-w-[40ch] leading-snug font-medium text-balance"
         >
           With a passion for design and development, I take projects from
           ideation to launch, ensuring a seamless journey that leaves a lasting
@@ -50,9 +50,9 @@
         </p>
 
         <div
-          class="mt-[5%] flex justify-start gap-10 text-flax-smoke-300 sm:gap-20"
+          class="text-flax-smoke-300 mt-[5%] flex justify-start gap-10 sm:gap-20"
         >
-          <p class="heading-6 text-nowrap text-center text-flax-smoke-300/85">
+          <p class="heading-6 text-flax-smoke-300/85 text-center text-nowrap">
             ( ABOUT ME )
           </p>
           <p class="heading-6 font-fancy w-full text-balance sm:max-w-[40ch]">

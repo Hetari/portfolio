@@ -1,24 +1,23 @@
 <template>
   <section id="works" class="common-padding mb-20">
     <div class="flex flex-col">
-      <!-- TODO: sr-only -->
-      <h1
+      <h3
         id="selectedWorks"
         v-html="selectedWorks"
-        class="heading-1 text-start font-bold uppercase leading-none"
-      ></h1>
+        class="heading-1 text-start leading-none font-bold uppercase"
+      ></h3>
       <p
-        class="heading-1 hidden w-4/5 text-end font-extrabold text-flax-smoke-400 text-opacity-50 sm:block"
+        class="heading-1 text-flax-smoke-400 text-opacity-50 hidden w-4/5 text-end font-extrabold sm:block"
       >
         ( {{ selectedWorksProps.length }} )
       </p>
 
       <div
         id="selected-works-text"
-        class="md:column-gap mt-[5%] grid grid-cols-12 justify-end text-flax-smoke-300 opacity-0 lg:grid"
+        class="md:column-gap text-flax-smoke-300 mt-[5%] grid grid-cols-12 justify-end opacity-0 lg:grid"
       >
         <p
-          class="heading-6 col-span-4 text-nowrap text-center text-flax-smoke-300/85 lg:col-start-2"
+          class="heading-6 text-flax-smoke-300/85 col-span-4 text-center text-nowrap lg:col-start-2"
         >
           (
           <span class="inline sm:hidden">{{ selectedWorksProps.length }} </span>
@@ -37,12 +36,12 @@
       class="sm:column-gap relative mt-12 grid size-full grid-cols-12 lg:mt-[10%]"
     >
       <div
-        class="sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] font-semibold leading-[0.8] text-flax-smoke-100 md:flex"
+        class="text-flax-smoke-100 sticky top-12 col-span-5 hidden h-fit w-full overflow-hidden text-[22vw] leading-[0.8] font-semibold md:flex"
       >
-        <span class="relative font-title! -tracking-wider">0</span>
+        <span class="font-title! relative -tracking-wider">0</span>
         <span
           id="index"
-          class="relative font-title! -tracking-wider will-change-transform"
+          class="font-title! relative -tracking-wider will-change-transform"
           >{{ index + 1 }}.</span
         >
       </div>
@@ -54,7 +53,7 @@
         <div
           v-for="(work, i) in selectedWorksProps"
           :key="i"
-          class="@container work-card"
+          class="work-card @container"
         >
           <a class="group" target="_blank" :href="work.url">
             <div
@@ -63,7 +62,7 @@
               <img
                 alt="work-background"
                 loading="lazy"
-                class="absolute size-full select-none object-cover"
+                class="absolute size-full object-cover select-none"
                 :src="work.imageBg"
               />
               <div
@@ -82,23 +81,23 @@
               </div>
             </div>
             <div>
-              <p class="heading-6 mb-[1%] mt-[2%] font-title! leading-none">
+              <p class="heading-6 font-title! mt-[2%] mb-[1%] leading-none">
                 {{ work.category }}
               </p>
               <div class="items-center justify-between sm:flex">
                 <h3 class="heading-3 font-title! font-bold uppercase">
                   {{ work.name }}
                 </h3>
-                <div class="flex select-none gap-1.5">
+                <div class="flex gap-1.5 select-none">
                   <p
-                    class="rounded-full border border-flax-smoke-300 px-4 py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-flax-smoke-300 hover:text-flax-smoke-900"
+                    class="border-flax-smoke-300 hover:bg-flax-smoke-300 hover:text-flax-smoke-900 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out"
                     v-for="tag in work.tags"
                     :key="tag"
                   >
                     <span>{{ tag }}</span>
                   </p>
                   <p
-                    class="rounded-full border border-flax-smoke-300 bg-flax-smoke-300 px-4 py-2 text-flax-smoke-900 transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent hover:text-flax-smoke-300"
+                    class="border-flax-smoke-300 bg-flax-smoke-300 text-flax-smoke-900 hover:text-flax-smoke-300 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent"
                   >
                     <span>{{ work.year }}</span>
                   </p>

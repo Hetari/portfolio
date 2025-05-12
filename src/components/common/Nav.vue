@@ -7,7 +7,7 @@
 
   <div
     @click="toggleBtnClickAnimation"
-    class="fixed inset-0 z-9998 size-full select-none bg-black opacity-50"
+    class="fixed inset-0 z-9998 size-full bg-black opacity-50 select-none"
     :class="{ hidden: !isNavbarOpen }"
   ></div>
 
@@ -15,13 +15,13 @@
     tabindex="0"
     id="navbar"
     @keydown.esc="toggleBtnClickAnimation()"
-    class="fixed right-0 top-[1dvh] z-9998 h-[98dvh] w-full translate-x-full select-none rounded-s-lg bg-flax-smoke-950 p-5 will-change-auto focus:outline-hidden max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
+    class="bg-flax-smoke-950 fixed top-[1dvh] right-0 z-9998 h-[98dvh] w-full translate-x-full rounded-s-lg p-5 will-change-auto select-none focus:outline-hidden max-md:w-[98%] sm:p-10 md:w-3/5 md:px-20 lg:w-2/5"
   >
-    <Circles id="circles" class="absolute right-0 top-0 opacity-25" />
+    <Circles id="circles" class="absolute top-0 right-0 opacity-25" />
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-19 w-full">
         <ul
-          class="heading-2 mt-12 font-bold text-flax-smoke-50 md:mt-24"
+          class="heading-2 text-flax-smoke-50 mt-12 font-bold md:mt-24"
           id="navLinks"
         >
           <li
@@ -36,7 +36,7 @@
               class="group my-2 flex h-full w-fit translate-y-full cursor-pointer items-center justify-start leading-none will-change-auto"
             >
               <span
-                class="h-4 w-4 scale-0 rounded-full bg-flax-smoke-50 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
+                class="bg-flax-smoke-50 h-4 w-4 scale-0 rounded-full opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
                 class="font-fancy -translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-5"
@@ -49,7 +49,7 @@
       </div>
 
       <div class="w-full">
-        <div class="mt-2 h-full font-normal text-flax-smoke-50">
+        <div class="text-flax-smoke-50 mt-2 h-full font-normal">
           <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
             class="h-6! font-medium tracking-wider"
@@ -59,7 +59,7 @@
           />
           <div class="mt-6 flex flex-wrap justify-start gap-1">
             <Button
-              class="contact border border-flax-smoke-600 opacity-0"
+              class="contact border-flax-smoke-600 border opacity-0"
               v-for="social in socialLinks"
               :key="social.label"
               :label="social.label"
@@ -83,7 +83,7 @@
         textId="name"
       >
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
-          <h1
+          <h2
             id="name"
             class="font-fancy flex items-start text-xl font-extrabold uppercase md:text-3xl"
           >
@@ -92,13 +92,13 @@
               class="font-fancy inline! origin-center! text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
             >
-          </h1>
+          </h2>
         </div>
       </MagneticEffect>
 
       <div class="flex justify-start">
         <p
-          class="heading-6 font-fancy hidden select-none font-bold uppercase text-flax-smoke-400 md:block"
+          class="heading-6 font-fancy text-flax-smoke-400 hidden font-bold uppercase select-none md:block"
         >
           available for freelancers <br />
           work and collaboration

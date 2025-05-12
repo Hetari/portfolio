@@ -21,11 +21,11 @@
         >
           Your design is a masterpiece waiting to become alive.
         </p>
-        <h1
+        <h3
           id="make-it-happen"
           class="heading-1 text-flax-smoke-200 max-w-[10ch] text-center leading-none"
           v-html="makeItHappen"
-        ></h1>
+        ></h3>
         <div
           class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[3] 2xl:scale-[3.5]"
         >

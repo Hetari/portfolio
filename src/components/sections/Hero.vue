@@ -44,7 +44,7 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i heading-5 w-full max-w-[30ch] overflow-clip text-balance font-medium leading-snug sm:max-w-[37ch] lg:text-start"
+              class="who-am-i heading-5 w-full max-w-[30ch] overflow-clip leading-snug font-medium text-balance sm:max-w-[37ch] lg:text-start"
             ></p>
 
             <div class="relative origin-left overflow-hidden sm:scale-150">
@@ -62,9 +62,9 @@
 
           <div
             id="profile-container"
-            class="relative col-span-4 mt-10 h-[20vh] max-w-lg select-none flex-col rounded-lg sm:mt-0 sm:h-full md:flex md:h-[50vh]"
+            class="relative col-span-4 mt-10 h-[20vh] max-w-lg flex-col rounded-lg select-none sm:mt-0 sm:h-full md:flex md:h-[50vh]"
           >
-            <div class="overlay absolute inset-0 z-2 bg-flax-smoke-50"></div>
+            <div class="overlay bg-flax-smoke-50 absolute inset-0 z-2"></div>
             <img
               id="profile-img"
               :src="profile"
@@ -79,18 +79,18 @@
           >
             <div
               id="available-for-work"
-              class="absolute bottom-0 right-0 flex translate-y-full flex-col items-end"
+              class="absolute right-0 bottom-0 flex translate-y-full flex-col items-end"
             >
               <p
-                class="block font-medium uppercase leading-snug -tracking-tight 3xl:text-base"
+                class="3xl:text-base block leading-snug font-medium -tracking-tight uppercase"
               >
                 Available for freelance work
               </p>
-              <h1
-                class="3xl:heading-1 heading-1-alt font-fancy block font-bold leading-none -tracking-tight"
+              <h3
+                class="3xl:heading-1 heading-1-alt font-fancy block leading-none font-bold -tracking-tight"
               >
                 {{ AvailableForWorkDate }}
-              </h1>
+              </h3>
             </div>
           </div>
         </div>
