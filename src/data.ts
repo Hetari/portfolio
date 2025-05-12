@@ -38,7 +38,7 @@ const navbarLinks = [
 const socialLinks = [
   {
     label: 'X',
-    url: 'https://x.com/4Hetari',
+    url: 'https://x.com/hetaridev',
   },
   {
     label: 'Telegram',
@@ -50,7 +50,7 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/hetari/',
+    url: 'https://www.linkedin.com/in/hetaridev/',
   },
 ];
 

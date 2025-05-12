@@ -15,11 +15,13 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     vue(),
+    robots(),
     sitemap({
       hostname: 'https://hetari.github.io/',
       basePath: 'portfolio',
+      changefreq: 'hourly', // default: 'daily'
+      priority: 1,
     }),
-    robots(),
   ],
   resolve: {
     alias: {
