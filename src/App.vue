@@ -21,7 +21,7 @@
       </filter>
       <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.15" />
 
-      <!-- <filter id="noise">
+      <filter id="noise">
         <feTurbulence
           type="fractalNoise"
           base-frequency="0.8"
@@ -30,7 +30,12 @@
         />
         <feBlend mode="screen" />
       </filter>
-      <rect ref="noise" class="size-full" filter="url(#noise)" opacity="0.12" /> -->
+      <rect
+        ref="noise"
+        class="size-full"
+        filter="url(#noise)"
+        opacity="-0.88"
+      />
     </svg>
   </div>
 

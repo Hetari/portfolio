@@ -28,4 +28,15 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  server: {
+    // watch: {
+    //   usePolling: true,
+    //   interval: 1000,
+    //   ignored: ['!**/src/**/*.{js,ts,jsx,tsx}'],
+    // },
+  },
+  optimizeDeps: {
+    exclude: ['@tailwindcss/vite'],
+    force: true,
+  },
 });

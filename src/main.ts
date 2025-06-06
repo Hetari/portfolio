@@ -1,6 +1,6 @@
 import './style.css';
-import { createApp } from 'vue';
 import App from './App.vue';
+import { createApp } from 'vue';
 import Lenis from 'lenis';
 
 // smooth scroll
