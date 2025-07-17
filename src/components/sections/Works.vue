@@ -69,14 +69,13 @@
                 class="flex-center z-10 aspect-4/3 size-full overflow-clip rounded-lg object-cover"
               >
                 <!-- autoplay="false" -->
-
                 <video
+                  ref="videoRefs"
                   :src="work.videoSrc"
-                  loop
                   muted
-                  @error="handleVideoError"
+                  :autoplay="false"
                   type="video/webm"
-                  class="work-video size-[80%] rounded-md object-contain"
+                  class="size-[80%] rounded-md object-contain blur transition-all duration-500 ease-in-out"
                 ></video>
               </div>
             </div>
@@ -114,11 +113,12 @@
 <script setup lang="ts">
   import { animateSplitText } from '@/animations';
   import { textSplitterIntoChar } from '@/functions';
-  import { computed, onBeforeMount, onMounted, ref } from 'vue';
+  import { computed, onBeforeMount, onMounted, ref, useTemplateRef } from 'vue';
   import gsap from 'gsap';
   import { useWindowSize } from '@vueuse/core';
   import { work1, work2, work3, work4, work5 } from '@/assets/videos';
   import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
+  const videoRefs = useTemplateRef<HTMLVideoElement[]>('videoRefs');
 
   const isSmallScreen = computed(() => {
     return useWindowSize().width.value < 768;
@@ -190,10 +190,6 @@
     },
   ];
 
-  const handleVideoError = (event: any) => {
-    console.error('Video failed to load:', event);
-  };
-
   // Reusable function to handle forward scroll animation
   const createForwardTimeline = (
     index: any,
@@ -242,24 +238,32 @@
       const video = entry.target as HTMLVideoElement;
       if (entry.isIntersecting) {
         video.play();
+        video.classList.remove('blur');
       }
     });
   };
 
+  const stopAllVideos = () => {
+    videoRefs.value?.map((video: HTMLVideoElement) => {
+      if (video && !video.paused) {
+        video.pause();
+        video.currentTime = 0; // Reset video to the start
+      }
+    });
+  };
   onBeforeMount(() => {
     selectedWorks.value = textSplitterIntoChar('Selected Works / ', true);
   });
 
   onMounted(() => {
-    const workVideos = document.querySelectorAll('.work-video');
+    stopAllVideos();
 
-    // Create the IntersectionObserver
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.25, // Trigger when 25% of the video is visible
+      threshold: 0.75, // Trigger when 75% of the video is visible
     });
 
     // Observe each video element
-    workVideos.forEach((video) => {
+    videoRefs.value?.forEach((video) => {
       observer.observe(video);
     });
 
