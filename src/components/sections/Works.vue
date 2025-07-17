@@ -113,12 +113,12 @@
 
 <script setup lang="ts">
   import { animateSplitText } from '@/animations';
-  import { work1, work2, work3, work4 } from '@/assets/videos';
   import { textSplitterIntoChar } from '@/functions';
   import { computed, onBeforeMount, onMounted, ref } from 'vue';
   import gsap from 'gsap';
-  import { workBg1, workBg2, workBg3, workBg4 } from '@/assets/images';
   import { useWindowSize } from '@vueuse/core';
+  import { work1, work2, work3, work4, work5 } from '@/assets/videos';
+  import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
 
   const isSmallScreen = computed(() => {
     return useWindowSize().width.value < 768;
@@ -143,17 +143,15 @@
 
   const selectedWorksProps = [
     {
-      id: 0,
-      name: 'Pyutube',
-      category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI', 'Youtube'],
-      videoSrc: work1,
-      imageBg: workBg1,
-      url: 'https://github.com/hetari/pyutube',
-      year: '2024',
+      name: 'Madar',
+      category: 'Frontend',
+      tags: ['Vue.js', 'Tailwind', 'Gsap'],
+      videoSrc: work5,
+      imageBg: workBg5,
+      url: 'https://madar.services/',
+      year: '2025',
     },
     {
-      id: 1,
       name: 'Iphone 15 Clone',
       category: 'Frontend & Animation & 3D',
       tags: ['Animation', '3D'],
@@ -163,7 +161,6 @@
       year: '2024',
     },
     {
-      id: 2,
       name: 'Axon',
       category: 'Frontend & Documentation',
       tags: ['Vue.js', 'Tailwind', 'AI'],
@@ -174,7 +171,6 @@
       year: '2024',
     },
     {
-      id: 3,
       name: 'Blogy',
       category: 'Frontend & Backend',
       tags: ['Vue.js', 'Laravel'],
@@ -182,6 +178,15 @@
       imageBg: workBg4,
       url: 'https://github.com/Hetari/blog',
       year: '2023',
+    },
+    {
+      name: 'Pyutube',
+      category: 'CLI Tool & Cross Platform',
+      tags: ['Python', 'CLI', 'Youtube'],
+      videoSrc: work1,
+      imageBg: workBg1,
+      url: 'https://github.com/hetari/pyutube',
+      year: '2024',
     },
   ];
 
