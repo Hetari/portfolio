@@ -29,12 +29,13 @@
         <div
           class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[3] 2xl:scale-[3.5]"
         >
-          <Button
+          <!-- <Button
             :data-cal-namespace="dataCalNamespace"
             :data-cal-link="dataCalLink"
             :data-cal-config="dataCalConfig"
             label="Get in touch"
-          />
+          /> -->
+          <Button label="Get in touch" url="https://wa.me/967775367671" />
         </div>
       </div>
       <div
@@ -86,7 +87,7 @@
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { textSplitterIntoChar } from '@/functions';
   import { animateSplitText } from '@/animations';
-  import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
+  // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
   const makeItHappen = ref("Let's Make it happen");
   onBeforeMount(() => {

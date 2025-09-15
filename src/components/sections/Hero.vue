@@ -49,13 +49,14 @@
 
             <div class="relative origin-left overflow-hidden sm:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
-                <Button
+                <!-- <Button
                   :data-cal-namespace="dataCalNamespace"
                   :data-cal-link="dataCalLink"
                   :data-cal-config="dataCalConfig"
                   class="contact"
                   label="Get in touch"
-                />
+                /> -->
+                <Button label="Get in touch" url="https://wa.me/967775367671" />
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
   import { getAvailableForWorkDate, textSplitterIntoChar } from '@/functions';
-  import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
+  // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
   const whoAmI = ref(
     'A freelance full-stack developer, cutting-edge technologies to deliver comprehensive solutions for your business.',
