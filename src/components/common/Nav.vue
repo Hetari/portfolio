@@ -52,7 +52,7 @@
         <div class="text-flax-smoke-50 mt-2 h-full font-normal">
           <p class="text-left text-sm font-bold uppercase">Email address</p>
           <Link
-            class="h-6! font-medium tracking-wider"
+            class="font-medium tracking-wider"
             tag="p"
             label="hetari4all@gmail.com"
             url="mailto:hetari4all@gmail.com"

@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    class="h-[2ch] w-fit select-none overflow-y-hidden max-md:h-5"
+    class="h-[2ch] w-fit overflow-y-hidden select-none max-md:h-5"
   >
     <a @click="gotoSection(url)" :href="url" class="group">
       <p

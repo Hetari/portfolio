@@ -2,56 +2,24 @@
   <footer
     class="relative flex flex-col items-center justify-center gap-20 p-[2%]"
   >
-    <div
-      class="row-gap grid w-full grid-cols-2 text-base sm:gap-x-6 md:grid-cols-12"
-    >
-      <div class="flex flex-col md:col-span-6">
+    <div class="grid w-full grid-cols-2 text-base sm:gap-x-6 md:grid-cols-12">
+      <div
+        v-for="section in footerSections"
+        :key="section.title"
+        class="flex flex-col md:col-span-3"
+        :class="{ 'md:col-span-6': section.title === 'Menu' }"
+      >
         <p
           class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
         >
-          Menu
+          {{ section.title }}
         </p>
         <div class="mt-2 space-y-1">
-          <p v-for="i in navbarLinks" class="heading-6">
+          <p v-for="link in section.links" :key="link.label" class="heading-6">
             <Link
-              class="h-6 font-medium tracking-wider lowercase"
-              :label="i.label"
-              :url="i.url"
-            />
-          </p>
-        </div>
-      </div>
-
-      <div class="flex flex-col md:col-span-3">
-        <p
-          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
-        >
-          Socials
-        </p>
-
-        <div class="mt-2 space-y-1">
-          <p v-for="i in socialLinks" :key="i.label" class="heading-6">
-            <Link
-              class="h-6 font-medium tracking-wider lowercase"
-              :label="i.label"
-              :url="i.url"
-            />
-          </p>
-        </div>
-      </div>
-
-      <div class="col-span-full flex flex-col md:col-span-3">
-        <p
-          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
-        >
-          Resources
-        </p>
-        <div class="mt-2 space-y-1">
-          <p v-for="i in resourceLinks" class="heading-6">
-            <Link
-              class="font-medium tracking-wider lowercase"
-              :label="i.label"
-              :url="i.url"
+              class="h-[3ch]! font-medium tracking-wider lowercase"
+              :label="link.label"
+              :url="link.url"
             />
           </p>
         </div>
@@ -124,17 +92,22 @@
   import MagneticEffect from '../MagneticEffect.vue';
   import moment from 'moment-timezone';
 
+  // Combine footer sections dynamically
+  const footerSections = [
+    { title: 'Menu', links: navbarLinks },
+    { title: 'Socials', links: socialLinks },
+    { title: 'Resources', links: resourceLinks },
+  ];
+
   const myLocalTime = ref('');
   const userLocalTime = ref('');
 
   onMounted(() => {
-    // Yemen Time (local to you)
     myLocalTime.value = moment.tz('Asia/Aden').format('h:mm:ss a');
     setInterval(() => {
       myLocalTime.value = moment.tz('Asia/Aden').format('h:mm:ss a');
     }, 1000);
 
-    // User's local time (based on their location)
     const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     userLocalTime.value = moment.tz(userTimeZone).format('h:mm:ss a');
     setInterval(() => {
