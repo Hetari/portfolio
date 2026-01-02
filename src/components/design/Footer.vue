@@ -17,7 +17,7 @@
         <div class="mt-2 space-y-1">
           <p v-for="link in section.links" :key="link.label" class="heading-6">
             <Link
-              class="h-[3ch]! font-medium tracking-wider lowercase"
+              class="font-medium tracking-wider lowercase"
               :label="link.label"
               :url="link.url"
             />
