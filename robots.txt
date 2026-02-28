@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+
+# Sitemap must be a valid, absolute XML file URL
+Sitemap: https://hetari.github.io/portfolio/sitemap.xml
+
